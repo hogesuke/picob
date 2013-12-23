@@ -3,8 +3,16 @@
   <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/picob.css' />
   </head>
   <body>
-    
+  <div><%= title %></div>
+  <% pieces.forEach(function(piece) { %>
+    <div class="piece">
+      <div class="feeling web-icon-fontello">
+        <%= piece.feeling %>
+      </div>
+    </div>
+  <% }) %>
   </body>
 </html>
