@@ -7,7 +7,7 @@ var Schema = mongoose.Schema;
 
 // Defaultのスキーマから新しいスキーマを定義
 var PieceSchema = new Schema({
-  date: String,
+    date: String,
     feeling: String,
     create_date: Date,
 });
@@ -47,7 +47,18 @@ exports.findAll = function(req, res) {
       res.render('index.ejs', {title: 'タイトル', pieces: results});
     }
   });
-};
+}
+
+exports.saveFeeling = function(req, res) {
+  console.log('Save feeling');
+
+  Piece.create({'date': req.body.date, 'feeling': req.body.feeling}, function(err) {
+    if (err) {
+      res.send({'error': 'An error has occurred - ' + err});
+    }
+  });
+
+}
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 // Populate database with sample data -- Only used once: the first time the application is started.
@@ -56,12 +67,15 @@ var populateDB = function() {
 
   var pieces = [
   {
+    date: '20130101',
     feeling: "1",
   },
   {
+    date: '20130102',
     feeling: "2",
   },
   {
+    date: '20130103',
     feeling: "3",
   }
   ];

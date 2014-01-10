@@ -15,7 +15,8 @@ app.configure(function () {
   app.use(express.static(__dirname + '/public'));
 });
 
-app.get ('/', pieces.findAll);
+app.get('/', pieces.findAll);
+app.post('/feeling', pieces.saveFeeling);
 
 app.listen(3000);
 console.log('Listening on port 3000...');

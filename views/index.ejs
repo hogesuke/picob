@@ -2,17 +2,34 @@
 <html>
   <head>
     <title><%= title %></title>
+    <script type="text/javascript" src="/javascripts/jquery.min.js"></script>
+    <script type="text/javascript" src="/javascripts/picob.js"></script>
     <link rel='stylesheet' href='/stylesheets/style.css' />
     <link rel='stylesheet' href='/stylesheets/picob.css' />
   </head>
   <body>
-  <div><%= title %></div>
-  <% pieces.forEach(function(piece) { %>
-    <div class="piece">
-      <div class="feeling web-icon-fontello">
-        <%= piece.feeling %>
-      </div>
+    <div id="pieces">
+      <% pieces.forEach(function(piece) { %>
+        <div class="piece" date="20130101">
+          <div class="date">
+            2013/01/01
+          </div>
+          <div class="feeling web-icon-fontello">
+            <%= piece.feeling %>
+          </div>
+          <div class="feeling-selector">
+            <div class="feeling-choices feeling-good web-icon-fontello">
+              1
+            </div>
+            <div class="feeling-choices feeling-normal web-icon-fontello">
+              3
+            </div>
+            <div class="feeling-choices feeling-bad web-icon-fontello">
+              2
+            </div>
+          </div>
+        </div>
+      <% }) %>
     </div>
-  <% }) %>
   </body>
 </html>
