@@ -1,12 +1,15 @@
 "use strict";
 
 var express = require('express')
+var mongoose = require('mongoose');
+var dbConnector = require('./db');
+var pieceModel = require('./models/piece');
 var pieces = require('./routes/pieces');
-
 var app = express();
 
-app.engine('ejs', require('ejs').renderFile);
+dbConnector.connect();
 
+app.engine('ejs', require('ejs').renderFile);
 app.configure(function () {
   app.use(express.logger('dev')); /* 'default', 'short', 'tiny', 'dev' */
   //app.use('view engine', 'ejs');
