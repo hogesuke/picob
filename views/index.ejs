@@ -4,32 +4,82 @@
     <title><%= title %></title>
     <script type="text/javascript" src="/javascripts/jquery.min.js"></script>
     <script type="text/javascript" src="/javascripts/picob.js"></script>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/cssreset-min.css' />
     <link rel='stylesheet' href='/stylesheets/picob.css' />
   </head>
   <body>
     <div id="pieces">
-      <% pieces.forEach(function(piece) { %>
-        <div class="piece" date="20130101">
-          <div class="date">
-            2013/01/01
+      <% var pieceCount = 0 %>
+      <% /* 5週間分 */ %>
+      <% for(var i = 0; i < 5; i++) { %>
+        <div class="week">
+          <% /* 1週間(7日) */ %>
+          <% for(var j = 0; j < 7; j++) { %>
+            <div class="piece">
+            </div>
+            <% pieceCount++; %>
+          <% } %>
+        </div>
+      <% } %>
+
+      <!-- テストデータ作成用 -->
+      <div class="piece" year="2013" month="1" day="1">
+        <div class="date">
+          2013/01/01
+        </div>
+        <div class="feeling web-icon-fontello">
+          1
+        </div>
+        <div class="feeling-selector">
+          <div class="feeling-choices feeling-good web-icon-fontello">
+            1
           </div>
-          <div class="feeling web-icon-fontello">
-            <%= piece.feeling %>
+          <div class="feeling-choices feeling-normal web-icon-fontello">
+            3
           </div>
-          <div class="feeling-selector">
-            <div class="feeling-choices feeling-good web-icon-fontello">
-              1
-            </div>
-            <div class="feeling-choices feeling-normal web-icon-fontello">
-              3
-            </div>
-            <div class="feeling-choices feeling-bad web-icon-fontello">
-              2
-            </div>
+          <div class="feeling-choices feeling-bad web-icon-fontello">
+            2
           </div>
         </div>
-      <% }) %>
+      </div>
+      <div class="piece" year="2013" month="1" day="2">
+        <div class="date">
+          2013/01/02
+        </div>
+        <div class="feeling web-icon-fontello">
+          2
+        </div>
+        <div class="feeling-selector">
+          <div class="feeling-choices feeling-good web-icon-fontello">
+            1
+          </div>
+          <div class="feeling-choices feeling-normal web-icon-fontello">
+            3
+          </div>
+          <div class="feeling-choices feeling-bad web-icon-fontello">
+            2
+          </div>
+        </div>
+      </div>
+      <div class="piece" year="2013" month="1" day="3">
+        <div class="date">
+          2013/01/03
+        </div>
+        <div class="feeling web-icon-fontello">
+          3
+        </div>
+        <div class="feeling-selector">
+          <div class="feeling-choices feeling-good web-icon-fontello">
+            1
+          </div>
+          <div class="feeling-choices feeling-normal web-icon-fontello">
+            3
+          </div>
+          <div class="feeling-choices feeling-bad web-icon-fontello">
+            2
+          </div>
+        </div>
+      </div>
     </div>
   </body>
 </html>

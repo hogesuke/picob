@@ -6,7 +6,12 @@ $(function() {
     $.ajax({
       type: 'POST',
       url: '/feeling',
-      data: {'date': $piece.attr('date'), 'feeling': $this.text()},
+      data: {
+        'year': $piece.attr('year'),
+        'month': $piece.attr('month'),
+        'day': $piece.attr('day'),
+        'feeling': $.trim($this.text())
+      },
       success: function() {
         alert('success');
       },

@@ -5,7 +5,9 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var PieceSchema = new Schema({
-    date: String,
+    year: String,
+    month: String,
+    day: String,
     feeling: String,
     create_date: Date,
 });

@@ -18,8 +18,9 @@ app.configure(function () {
   app.use(express.static(__dirname + '/public'));
 });
 
-app.get('/', pieces.findAll);
+app.get(/^\/(2[0-9]{3})\/(1[0-2]|[1-9])$/, pieces.findAll);
 app.post('/feeling', pieces.saveFeeling);
 
 app.listen(3000);
 console.log('Listening on port 3000...');
+console.log(app.routes);
