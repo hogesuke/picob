@@ -13,12 +13,17 @@ exports.findAll = function(req, res) {
       res.send({'error': 'An error has occurred'});
     } else {
       console.log('Success: Getting piecelist');
-      console.log('results: ' + results);
+
+      var pieceArray = new Array(31);
+      results.forEach(function(piece, index) {
+        pieceArray[piece.day] = piece;
+      });
+
       res.render('index.ejs',
         {
           title: 'タイトル',
-          pieces: results,
-          firstDayOfTheWeek: new Date(Number(requestYear), Number(requestMonth) - 1, 1)
+          pieces: pieceArray,
+          firstDayOfTheWeek: new Date(Number(requestYear), Number(requestMonth) - 1, 1).getDay()
         });
     }
   });

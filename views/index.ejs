@@ -10,12 +10,36 @@
   <body>
     <div id="pieces">
       <% var pieceCount = 0 %>
+      <% var dayCount = 0 %>
       <% /* 5週間分 */ %>
       <% for(var i = 0; i < 5; i++) { %>
         <div class="week">
           <% /* 1週間(7日) */ %>
           <% for(var j = 0; j < 7; j++) { %>
             <div class="piece">
+            <% if(firstDayOfTheWeek <= pieceCount) { %>
+              <% var piece = pieces[dayCount]; %>
+              <% if(typeof piece !== "undefined") {%>
+                <div class="date">
+                  <%= piece.year %>/<%= piece.month %>/<%= piece.day %>
+                </div>
+                <div class="feeling web-icon-fontello">
+                  <%= piece.feeling %>
+                </div>
+                <div class="feeling-selector">
+                  <div class="feeling-choices feeling-good web-icon-fontello">
+                    1
+                  </div>
+                  <div class="feeling-choices feeling-normal web-icon-fontello">
+                    3
+                  </div>
+                  <div class="feeling-choices feeling-bad web-icon-fontello">
+                    2
+                  </div>
+                </div>
+              <% } %>
+              <% dayCount++; %>
+            <% } %>
             </div>
             <% pieceCount++; %>
           <% } %>
