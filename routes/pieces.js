@@ -6,7 +6,7 @@ exports.findAll = function(req, res) {
   console.log('Getting piecelist');
 
   var requestYear = req.params[0];
-  var requestMonth = req.params[0];
+  var requestMonth = req.params[1];
 
   Piece.find({year: requestYear, month: requestMonth}, function(err, results) {
     if (err) {
@@ -16,7 +16,7 @@ exports.findAll = function(req, res) {
 
       var pieceArray = new Array(31);
       results.forEach(function(piece, index) {
-        pieceArray[piece.day] = piece;
+        pieceArray[piece.day - 1] = piece;
       });
 
       res.render('index.ejs',
