@@ -37,7 +37,7 @@ body {
     clear: both;
 }
 
-.piece {
+.piece, .empty-piece {
     float: left;
     width: 100px;
     height: 100px;
@@ -45,6 +45,10 @@ body {
     padding: 10px;
     background-color: #3498db;
     color: #FFFFFF;
+}
+
+.empty-piece {
+    background: none;
 }
 
 .feeling {

@@ -22,6 +22,8 @@ exports.findAll = function(req, res) {
       res.render('index.ejs',
         {
           title: 'タイトル',
+          year: requestYear,
+          month: requestMonth,
           pieces: pieceArray,
           firstDayOfTheWeek: new Date(Number(requestYear), Number(requestMonth) - 1, 1).getDay()
         });
