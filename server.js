@@ -18,6 +18,7 @@ app.configure(function () {
   app.use(express.static(__dirname + '/public'));
 });
 
+app.get('/', pieces.index);
 app.get(/^\/(2[0-9]{3})\/(1[0-2]|[1-9])$/, pieces.findAll);
 app.post('/feeling', pieces.saveFeeling);
 

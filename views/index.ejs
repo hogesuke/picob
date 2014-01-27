@@ -3,49 +3,30 @@
   <head>
     <title><%= title %></title>
     <script type="text/javascript" src="/javascripts/jquery.min.js"></script>
+    <script type="text/javascript" src="/javascripts/knockout-3.0.0.js"></script>
     <script type="text/javascript" src="/javascripts/picob.js"></script>
     <link rel='stylesheet' href='/stylesheets/cssreset-min.css' />
     <link rel='stylesheet' href='/stylesheets/picob.css' />
   </head>
   <body>
     <div id="pieces">
-      <% var pieceCount = 0 %>
-      <% var dayCount = 0 %>
       <% /* 6週間分 */ %>
+      <% var pieceNo = 0; %>
       <% for(var i = 0; i < 6; i++) { %>
-        <div class="week">
+        <div class="week" week="<%= i + 1 %>">
           <% /* 1週間(7日) */ %>
           <% for(var j = 0; j < 7; j++) { %>
-            <% if(firstDayOfTheWeek <= pieceCount) { %>
-              <div class="piece">
-                <% var piece = pieces[dayCount]; %>
-                <% if(typeof piece !== "undefined") {%>
-                  <div class="date">
-                    <%= piece.year %>/<%= piece.month %>/<%= piece.day %>
-                  </div>
-                  <div class="feeling web-icon-fontello">
-                    <%= piece.feeling %>
-                  </div>
-                <% } else { %>
-                  <div class="date">
-                    <%= year %>/<%= month %>/<%= dayCount + 1 %>
-                  </div>
-                  <div class="feeling web-icon-fontello">
-                  </div>
-                <% } %>
-                <% if(31 < pieceCount) { %>
-                  <% break %>
-                <% } %>
-                <% dayCount++; %>
-              </div>
-            <% } else { %>
-              <div class="empty-piece">
-              </div>
-            <% } %>
-            <% pieceCount++; %>
+            <div data-bind="template: {name: 'piece-template', data: {piece: pieces()[<%= pieceNo %>]}}" class="empty-piece">
+            </div>
+            <% pieceNo++; %>
           <% } %>
         </div>
       <% } %>
+
+      <script type="text/html" id="piece-template">
+        <div data-bind="text: piece.year + '/' + piece.month + '/' + piece.day" class="date"></div>
+        <div data-bind="text: piece.feeling" class="feeling web-icon-fontello"></div>
+      </script>
 
       <!-- テストデータ作成用 -->
       <div class="piece" year="2013" month="1" day="1">

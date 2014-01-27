@@ -2,6 +2,10 @@
 
 var Piece = require('../models/piece');
 
+exports.index = function(req, res) {
+  res.render('index.ejs', {title: 'picob'});
+}
+
 exports.findAll = function(req, res) {
   console.log('Getting piecelist');
 
@@ -19,13 +23,11 @@ exports.findAll = function(req, res) {
         pieceArray[piece.day - 1] = piece;
       });
 
-      res.render('index.ejs',
+      res.send(
         {
-          title: 'タイトル',
           year: requestYear,
           month: requestMonth,
           pieces: pieceArray,
-          firstDayOfTheWeek: new Date(Number(requestYear), Number(requestMonth) - 1, 1).getDay()
         });
     }
   });

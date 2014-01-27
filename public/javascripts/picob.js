@@ -1,4 +1,5 @@
 $(function() {
+
   $('.feeling-choices').on('click', function() {
     var $this = $(this);
     var $piece = $this.closest('.piece');
@@ -20,4 +21,25 @@ $(function() {
       }
     });
   });
+
+  $.ajax({
+    type: 'GET',
+    url: '/2013/1',
+    success: function(res) {
+      createPieceModel(res.pieces);
+    },
+    error: function() {
+    }
+  });
+
+  function createPieceModel(resPieces) {
+    var pieceViewModel = function() {
+      var self = this;
+      self.pieces = ko.observableArray(resPieces);
+      self.firstDayOfTheWeek = ko.computed(function() {
+        return new Date(self.pieces.year, self.pieces.month - 1, self.pieces.day).getDay();
+      });
+    }
+    ko.applyBindings(pieceViewModel);
+  }
 });
