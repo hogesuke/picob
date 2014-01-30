@@ -20,14 +20,19 @@ exports.findAll = function(req, res) {
 
       var pieceArray = new Array(31);
       results.forEach(function(piece, index) {
-        pieceArray[piece.day - 1] = piece;
+        pieceArray[piece.day] = piece;
       });
+
+      var firstDayOfTheWeek = new Date(Number(requestYear), Number(requestMonth) - 1, 1).getDay();
+      // 月の初めの曜日までを埋めるための配列を作成
+      var emptyArray = new Array(firstDayOfTheWeek);
 
       res.send(
         {
           year: requestYear,
           month: requestMonth,
-          pieces: pieceArray,
+          pieces: emptyArray.concat(pieceArray),
+          firstDayOfTheWeek: firstDayOfTheWeek
         });
     }
   });

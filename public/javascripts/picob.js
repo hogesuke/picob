@@ -36,9 +36,6 @@ $(function() {
     var pieceViewModel = function() {
       var self = this;
       self.pieces = ko.observableArray(resPieces);
-      self.firstDayOfTheWeek = ko.computed(function() {
-        return new Date(self.pieces.year, self.pieces.month - 1, self.pieces.day).getDay();
-      });
     }
     ko.applyBindings(pieceViewModel);
   }

@@ -10,13 +10,15 @@
   </head>
   <body>
     <div id="pieces">
+      <% var pieceNo = 1; %>
+      <div class="week" week="1">
       <% /* 6週間分 */ %>
-      <% var pieceNo = 0; %>
       <% for(var i = 0; i < 6; i++) { %>
         <div class="week" week="<%= i + 1 %>">
           <% /* 1週間(7日) */ %>
           <% for(var j = 0; j < 7; j++) { %>
-            <div data-bind="template: {name: 'piece-template', data: {piece: pieces()[<%= pieceNo %>]}}" class="empty-piece">
+          <div data-bind="template: {name: 'piece-template', data: {piece: pieces()[<%= pieceNo %>]}},
+            css: {'empty-piece' : !pieces()[<%= pieceNo %>], 'piece': pieces()[<%= pieceNo %>]}">
             </div>
             <% pieceNo++; %>
           <% } %>
@@ -24,8 +26,10 @@
       <% } %>
 
       <script type="text/html" id="piece-template">
+        <!-- ko if: piece -->
         <div data-bind="text: piece.year + '/' + piece.month + '/' + piece.day" class="date"></div>
         <div data-bind="text: piece.feeling" class="feeling web-icon-fontello"></div>
+        <!-- /ko -->
       </script>
 
       <!-- テストデータ作成用 -->
