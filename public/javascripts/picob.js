@@ -8,8 +8,8 @@ $(function() {
       }
       return this.year() + '/' + this.month() + '/' + this.day();
     }, this);
-    this.pieceCss = ko.computed(function() {
-      return data === null ? 'empty-piece' : 'piece';
+    this.isCompleted = ko.computed(function() {
+      return data !== null;
     }, this);
   }
 
@@ -21,27 +21,40 @@ $(function() {
     }
   }
 
-  $('.feeling-choices').on('click', function() {
+  $(document).on('click', '.feeling-choices', function() {
     var $this = $(this);
     var $piece = $this.closest('.piece');
+    var $inputFeeling = $piece.find('.input-feeling');
 
-    $.ajax({
-      type: 'POST',
-      url: '/feeling',
-      data: {
-        'year': $piece.attr('year'),
-        'month': $piece.attr('month'),
-        'day': $piece.attr('day'),
-        'feeling': $.trim($this.text())
-      },
-      success: function() {
-        alert('success');
-      },
-      error: function() {
-        alert('error');
-      }
-    });
+    $inputFeeling.val($.trim($this.text()));
+    $inputFeeling.trigger('change');
+    $this.parent().css({'display': 'none'});
+
+//    $.ajax({
+//      type: 'POST',
+//      url: '/feeling',
+//      data: {
+//        'year': $piece.attr('year'),
+//        'month': $piece.attr('month'),
+//        'day': $piece.attr('day'),
+//        'feeling': $.trim($this.text())
+//      },
+//      success: function() {
+//        alert('success');
+//      },
+//      error: function() {
+//        alert('error');
+//      }
+//    });
   });
+
+  $(document).on('click', '.edit-link', function() {
+    var $this = $(this);
+    var $feelingSelector = $this.siblings('.feeling-selector');
+    $feelingSelector.css({'display': 'block'});
+  });
+
+  $('body').append('<div class="edit-link">ここをクリック</div>');
 
   $.ajax({
     type: 'GET',
@@ -55,7 +68,7 @@ $(function() {
 
   function mappingToPieceModel(resPieces) {
 
-    var hoge = ko.mapping.fromJS({pieces: resPieces}, pieceModelMapping);
-    ko.applyBindings(hoge);
+    var model = ko.mapping.fromJS({pieces: resPieces}, pieceModelMapping);
+    ko.applyBindings(model);
   }
 });
