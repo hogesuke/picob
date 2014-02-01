@@ -4,6 +4,7 @@
     <title><%= title %></title>
     <script type="text/javascript" src="/javascripts/jquery.min.js"></script>
     <script type="text/javascript" src="/javascripts/knockout-3.0.0.js"></script>
+    <script type="text/javascript" src="/javascripts/knockout.mapping-latest.js"></script>
     <script type="text/javascript" src="/javascripts/picob.js"></script>
     <link rel='stylesheet' href='/stylesheets/cssreset-min.css' />
     <link rel='stylesheet' href='/stylesheets/picob.css' />
@@ -17,9 +18,11 @@
         <div class="week" week="<%= i + 1 %>">
           <% /* 1週間(7日) */ %>
           <% for(var j = 0; j < 7; j++) { %>
-          <div data-bind="template: {name: 'piece-template', data: {piece: pieces()[<%= pieceNo %>]}},
-            css: {'empty-piece' : !pieces()[<%= pieceNo %>], 'piece': pieces()[<%= pieceNo %>]}">
+            <!-- ko if: pieces()[<%= pieceNo %>] -->
+            <div data-bind="template: {name: 'piece-template', data: {piece: pieces()[<%= pieceNo %>]}},
+              css: pieces()[<%= pieceNo %>].pieceCss()">
             </div>
+            <!-- /ko -->
             <% pieceNo++; %>
           <% } %>
         </div>
@@ -27,7 +30,7 @@
 
       <script type="text/html" id="piece-template">
         <!-- ko if: piece -->
-        <div data-bind="text: piece.year + '/' + piece.month + '/' + piece.day" class="date"></div>
+        <div data-bind="text: piece.date" class="date"></div>
         <div data-bind="text: piece.feeling" class="feeling web-icon-fontello"></div>
         <!-- /ko -->
       </script>
