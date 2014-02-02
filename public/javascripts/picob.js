@@ -9,7 +9,10 @@ $(function() {
       return this.year() + '/' + this.month() + '/' + this.day();
     }, this);
     this.isCompleted = ko.computed(function() {
-      return data !== null;
+      return data !== null && data.feeling !== undefined;
+    }, this);
+    this.isDisabled = ko.computed(function() {
+      return data === null;
     }, this);
   }
 
@@ -23,38 +26,42 @@ $(function() {
 
   $(document).on('click', '.feeling-choices', function() {
     var $this = $(this);
-    var $piece = $this.closest('.piece');
+    var $piece = $this.closest('.piece,.empty-piece');
+    var $date = $piece.children('.date');
     var $inputFeeling = $piece.find('.input-feeling');
+    var feeling = $this.text();
 
-    $inputFeeling.val($.trim($this.text()));
+    $inputFeeling.val($.trim(feeling));
     $inputFeeling.trigger('change');
     $this.parent().css({'display': 'none'});
 
-//    $.ajax({
-//      type: 'POST',
-//      url: '/feeling',
-//      data: {
-//        'year': $piece.attr('year'),
-//        'month': $piece.attr('month'),
-//        'day': $piece.attr('day'),
-//        'feeling': $.trim($this.text())
-//      },
-//      success: function() {
-//        alert('success');
-//      },
-//      error: function() {
-//        alert('error');
-//      }
-//    });
+    upsertPiece($date.attr('year'), $date.attr('month'), $date.attr('day'), feeling);
   });
+
+  function upsertPiece(year, month, day, feeling) {
+    $.ajax({
+      type: 'POST',
+      url: '/feeling',
+      data: {
+        'year': year,
+        'month': month,
+        'day': day,
+        'feeling': $.trim(feeling)
+      },
+      success: function() {
+        alert('success');
+      },
+      error: function() {
+        alert('error');
+      }
+    });
+  }
 
   $(document).on('click', '.edit-link', function() {
     var $this = $(this);
     var $feelingSelector = $this.siblings('.feeling-selector');
     $feelingSelector.css({'display': 'block'});
   });
-
-  $('body').append('<div class="edit-link">ここをクリック</div>');
 
   $.ajax({
     type: 'GET',

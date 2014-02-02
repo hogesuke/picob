@@ -15,35 +15,45 @@ exports.findAll = function(req, res) {
   Piece.find({year: requestYear, month: requestMonth}, function(err, results) {
     if (err) {
       res.send({'error': 'An error has occurred'});
-    } else {
-      console.log('Success: Getting piecelist');
-
-      var pieceArray = new Array(31);
-      results.forEach(function(piece, index) {
-        pieceArray[piece.day] = piece;
-      });
-
-      var firstDayOfTheWeek = new Date(Number(requestYear), Number(requestMonth) - 1, 1).getDay();
-      // 月の初めの曜日までを埋めるための配列を作成
-      var emptyArray = new Array(firstDayOfTheWeek);
-
-      res.send(
-        {
-          year: requestYear,
-          month: requestMonth,
-          pieces: emptyArray.concat(pieceArray),
-          firstDayOfTheWeek: firstDayOfTheWeek
-        });
+      return;
     }
+
+    console.log('Success: Getting piecelist');
+
+    var pieceArray = new Array(31);
+    for (var i=0; i < 31; i++) {
+      pieceArray[i] = {year: requestYear, month: requestMonth, day: i + 1};
+    }
+
+    results.forEach(function(piece, index) {
+      pieceArray[piece.day - 1] = piece;
+    });
+
+    var firstDayOfTheWeek = new Date(Number(requestYear), Number(requestMonth) - 1, 1).getDay();
+    // 月の初めの曜日までを埋めるための配列を作成
+    var emptyArray = new Array(firstDayOfTheWeek);
+
+    res.send(
+      {
+        year: requestYear,
+        month: requestMonth,
+        pieces: emptyArray.concat(pieceArray),
+        firstDayOfTheWeek: firstDayOfTheWeek
+      });
   });
 }
 
-exports.saveFeeling = function(req, res) {
-  console.log('Save feeling');
+exports.upsertFeeling = function(req, res) {
+  console.log('update feeling');
+  console.log(req.body);
 
-  Piece.create({'year': req.body.year, 'month': req.body.month, 'day': req.body.day, 'feeling': req.body.feeling}, function(err) {
-    if (err) {
-      res.send({'error': 'An error has occurred - ' + err});
-    }
-  });
+  Piece.update(
+      {'year': req.body.year, 'month': req.body.month, 'day': req.body.day},
+      {'feeling': req.body.feeling},
+      {'upsert': true, multi: false},
+      function(err) {
+        if (err) {
+          res.send({'error': 'An error has occurred - ' + err});
+        }
+      });
 }
