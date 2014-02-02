@@ -9,7 +9,7 @@ $(function() {
       return this.year() + '/' + this.month() + '/' + this.day();
     }, this);
     this.isCompleted = ko.computed(function() {
-      return data !== null && data.feeling !== undefined;
+      return data !== null && data.feeling !== null;
     }, this);
     this.isDisabled = ko.computed(function() {
       return data === null;
@@ -29,11 +29,12 @@ $(function() {
     var $piece = $this.closest('.piece,.empty-piece');
     var $date = $piece.children('.date');
     var $inputFeeling = $piece.find('.input-feeling');
-    var feeling = $this.text();
+    var feeling = $.trim($this.text());
 
     $inputFeeling.val($.trim(feeling));
     $inputFeeling.trigger('change');
     $this.parent().css({'display': 'none'});
+    $piece.children('.feeling').css({'display': 'block'});
 
     upsertPiece($date.attr('year'), $date.attr('month'), $date.attr('day'), feeling);
   });
@@ -46,7 +47,7 @@ $(function() {
         'year': year,
         'month': month,
         'day': day,
-        'feeling': $.trim(feeling)
+        'feeling': feeling
       },
       success: function() {
         alert('success');
@@ -60,12 +61,15 @@ $(function() {
   $(document).on('click', '.edit-link', function() {
     var $this = $(this);
     var $feelingSelector = $this.siblings('.feeling-selector');
+    var $feeling = $this.siblings('.feeling');
+
     $feelingSelector.css({'display': 'block'});
+    $feeling.css({'display': 'none'});
   });
 
   $.ajax({
     type: 'GET',
-    url: '/2013/1',
+    url: '/2014/2',
     success: function(res) {
       mappingToPieceModel(res.pieces);
     },

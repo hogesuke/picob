@@ -20,7 +20,7 @@ html {
     overflow: scroll;
     overflow: -moz-scrollbars-vertical;
     overflow-x: scroll;
-    background-color: #2c3e50;
+    background-image: url("../images/background.jpg");
 }
 
 body {
@@ -43,12 +43,8 @@ body {
     height: 100px;
     margin: 5px 5px;
     padding: 10px;
-    background-color: #3498db;
-    color: #FFFFFF;
-}
-
-.empty-piece {
-    background: none;
+    background-color: rgba(255,255,255,0.50);
+    color: #000000;
 }
 
 .feeling {
@@ -73,10 +69,11 @@ body {
 
 .feeling-choices {
     float: left;
-    padding: 6px;
-    margin: 0px 1px;
-    background-color:  #1570A6;
+    padding: 7px;
+    margin: 0px 2px;
+    border: solid 1px #000000;
     -webkit-border-radius: 8px;
     -moz-border-radius: 8px;
-    border-radius: 8px;
+    border-radius: 5px;
+    font-size: 15px;
 }

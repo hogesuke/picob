@@ -22,7 +22,7 @@ exports.findAll = function(req, res) {
 
     var pieceArray = new Array(31);
     for (var i=0; i < 31; i++) {
-      pieceArray[i] = {year: requestYear, month: requestMonth, day: i + 1};
+      pieceArray[i] = {year: requestYear, month: requestMonth, day: i + 1, feeling: null};
     }
 
     results.forEach(function(piece, index) {
