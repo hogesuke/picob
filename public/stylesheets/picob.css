@@ -77,3 +77,18 @@ body {
     border-radius: 5px;
     font-size: 15px;
 }
+
+#day-Of-the-week-bar div {
+    float: left;
+    width: 100px;
+    margin: 5px 5px;
+    padding: 10px;
+    background-color: rgba(255,255,255,0.50);
+    color: #000000;
+    font-size: 15px;
+    text-align: center;
+}
+
+#day-Of-the-week-bar div.holiday {
+    color: #BF4245;
+}

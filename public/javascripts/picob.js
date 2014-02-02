@@ -50,10 +50,8 @@ $(function() {
         'feeling': feeling
       },
       success: function() {
-        alert('success');
       },
       error: function() {
-        alert('error');
       }
     });
   }

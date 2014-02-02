@@ -56,4 +56,5 @@ exports.upsertFeeling = function(req, res) {
           res.send({'error': 'An error has occurred - ' + err});
         }
       });
+  res.send({'msg': 'Success: upsert feeling'});
 }
