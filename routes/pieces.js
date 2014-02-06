@@ -29,16 +29,16 @@ exports.findAll = function(req, res) {
       pieceArray[piece.day - 1] = piece;
     });
 
-    var firstDayOfTheWeek = new Date(Number(requestYear), Number(requestMonth) - 1, 1).getDay();
+    var day = new Date(Number(requestYear), Number(requestMonth) - 1, 1).getDay();
     // 月の初めの曜日までを埋めるための配列を作成
-    var emptyArray = new Array(firstDayOfTheWeek);
+    var emptyArray = new Array(day);
 
     res.send(
       {
         year: requestYear,
         month: requestMonth,
         pieces: emptyArray.concat(pieceArray),
-        firstDayOfTheWeek: firstDayOfTheWeek
+        day: day
       });
   });
 }

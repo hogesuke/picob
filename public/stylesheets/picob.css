@@ -78,7 +78,7 @@ body {
     font-size: 15px;
 }
 
-#day-Of-the-week-bar div {
+#day div {
     float: left;
     width: 100px;
     margin: 5px 5px;
@@ -89,6 +89,6 @@ body {
     text-align: center;
 }
 
-#day-Of-the-week-bar div.holiday {
+#day div.holiday {
     color: #BF4245;
 }
