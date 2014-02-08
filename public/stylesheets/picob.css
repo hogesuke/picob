@@ -1,94 +1,106 @@
+@charset "UTF-8";
 @font-face {
-    font-family: 'FontelloFonts';
-    src: url("../fonts/fontello.eot");
-    src: url("../fonts/fontello.eot?#iefix") format('embedded-opentype'), url("../fonts/fontello.woff") format('woff'), url("../fonts/fontello.ttf") format('truetype'), url("../fonts/fontello.svg#fontello") format('svg');
+  font-family: 'FontelloFonts';
+  src: url("../fonts/fontello.eot");
+  src: url("../fonts/fontello.eot?#iefix") format("embedded-opentype"), url("../fonts/fontello.woff") format("woff"), url("../fonts/fontello.ttf") format("truetype"), url("../fonts/fontello.svg#fontello") format("svg");
 }
 
+/* line 9, picob.scss */
 .web-icon-fontello {
-    font-family: 'FontelloFonts';
+  font-family: 'FontelloFonts';
 }
 
+/* line 13, picob.scss */
 html, body {
-    height: 100%;
+  height: 100%;
 }
 
+/* line 17, picob.scss */
 body {
-    padding: 10px;
+  padding: 10px;
 }
 
+/* line 21, picob.scss */
 html {
-    overflow: scroll;
-    overflow: -moz-scrollbars-vertical;
-    overflow-x: scroll;
-    background-image: url("../images/background.jpg");
+  overflow: scroll;
+  overflow: -moz-scrollbars-vertical;
+  overflow-x: scroll;
+  background-image: url("../images/background.jpg");
 }
 
+/* line 28, picob.scss */
 body {
-    font-family: 'Lucida Grande', 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', meiryo, 'メイリオ', sans-serif;
-    font-size: 13px;
-    *font-size:small;
-    * font:x-small;
+  font-family: 'Lucida Grande', 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', meiryo, 'メイリオ', sans-serif;
+  font-size: 13px;
+  *font-size: small;
+  *font: x-small;
 }
 
-#pieces {
+/* line 35, picob.scss */
+#container {
+  width: 920px;
+  margin: 0 auto;
 }
 
+/* line 43, picob.scss */
 .week {
-    clear: both;
+  clear: both;
 }
 
+/* line 47, picob.scss */
 .piece, .empty-piece {
-    float: left;
-    width: 100px;
-    height: 100px;
-    margin: 5px 5px;
-    padding: 10px;
-    background-color: rgba(255,255,255,0.50);
-    color: #000000;
+  float: left;
+  width: 100px;
+  height: 100px;
+  margin: 5px 5px;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.5);
+  color: black;
 }
 
+/* line 57, picob.scss */
 .feeling {
-    font-size: 40px;
-    text-align: center;
+  font-size: 40px;
+  text-align: center;
 }
 
+/* line 62, picob.scss */
 .date {
-    font-size: 16px;
-    margin-bottom: 10px;
+  font-size: 16px;
+  margin-bottom: 10px;
 }
 
+/* line 67, picob.scss */
 .feeling-selector {
-    font-size: 20px;
+  font-size: 20px;
+  margin: 10px 0px;
+  overflow: hidden;
 }
 
-.feeling-selector {
-    font-size: 20px;
-    margin: 10px 0px;
-    overflow: hidden;
-}
-
+/* line 73, picob.scss */
 .feeling-choices {
-    float: left;
-    padding: 7px;
-    margin: 0px 2px;
-    border: solid 1px #000000;
-    -webkit-border-radius: 8px;
-    -moz-border-radius: 8px;
-    border-radius: 5px;
-    font-size: 15px;
+  float: left;
+  padding: 7px;
+  margin: 0px 2px;
+  border: solid 1px #000000;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 5px;
+  font-size: 15px;
 }
 
+/* line 84, picob.scss */
 #day div {
-    float: left;
-    width: 100px;
-    margin: 5px 5px;
-    padding: 10px;
-    background-color: rgba(255,255,255,0.50);
-    color: #000000;
-    font-size: 15px;
-    text-align: center;
+  float: left;
+  width: 100px;
+  margin: 5px 5px;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.5);
+  color: black;
+  font-size: 15px;
+  text-align: center;
 }
-
+/* line 93, picob.scss */
 #day div.holiday {
-    color: #BF4245;
+  color: #BF4245;
 }

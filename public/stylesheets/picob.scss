@@ -1,0 +1,96 @@
+$base_charctor_color: #000000;
+
+@font-face {
+    font-family: 'FontelloFonts';
+    src: url("../fonts/fontello.eot");
+    src: url("../fonts/fontello.eot?#iefix") format('embedded-opentype'), url("../fonts/fontello.woff") format('woff'), url("../fonts/fontello.ttf") format('truetype'), url("../fonts/fontello.svg#fontello") format('svg');
+}
+
+.web-icon-fontello {
+    font-family: 'FontelloFonts';
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    padding: 10px;
+}
+
+html {
+    overflow: scroll;
+    overflow: -moz-scrollbars-vertical;
+    overflow-x: scroll;
+    background-image: url("../images/background.jpg");
+}
+
+body {
+    font-family: 'Lucida Grande', 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', meiryo, 'メイリオ', sans-serif;
+    font-size: 13px;
+    *font-size:small;
+    *font:x-small;
+}
+
+#container {
+    width: 920px;
+    margin: 0 auto;
+}
+
+#pieces {
+}
+
+.week {
+    clear: both;
+}
+
+.piece, .empty-piece {
+    float: left;
+    width: 100px;
+    height: 100px;
+    margin: 5px 5px;
+    padding: 10px;
+    background-color: rgba(255,255,255,0.50);
+    color: $base_charctor_color;
+}
+
+.feeling {
+    font-size: 40px;
+    text-align: center;
+}
+
+.date {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.feeling-selector {
+    font-size: 20px;
+    margin: 10px 0px;
+    overflow: hidden;
+}
+
+.feeling-choices {
+    float: left;
+    padding: 7px;
+    margin: 0px 2px;
+    border: solid 1px #000000;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+#day div {
+    float: left;
+    width: 100px;
+    margin: 5px 5px;
+    padding: 10px;
+    background-color: rgba(255,255,255,0.50);
+    color: $base_charctor_color;
+    font-size: 15px;
+    text-align: center;
+    &.holiday {
+        color: #BF4245;
+    }
+}
