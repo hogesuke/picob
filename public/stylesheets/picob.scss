@@ -14,10 +14,6 @@ html, body {
     height: 100%;
 }
 
-body {
-    padding: 10px;
-}
-
 html {
     overflow: scroll;
     overflow: -moz-scrollbars-vertical;
@@ -26,6 +22,7 @@ html {
 }
 
 body {
+    padding: 10px;
     font-family: 'Lucida Grande', 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', meiryo, 'メイリオ', sans-serif;
     font-size: 13px;
     *font-size:small;
@@ -83,19 +80,18 @@ body {
 
 #day {
     clear: both;
-}
-
-#day div {
-    float: left;
-    width: 100px;
-    margin: 3px 3px;
-    padding: 10px;
-    background-color: rgba(255,255,255,0.50);
-    color: $base_charctor_color;
-    font-size: 15px;
-    text-align: center;
-    &.holiday {
-        color: #BF4245;
+    div {
+        float: left;
+        width: 100px;
+        margin: 3px 3px;
+        padding: 10px;
+        background-color: rgba(255,255,255,0.50);
+        color: $base_charctor_color;
+        font-size: 15px;
+        text-align: center;
+        &.holiday {
+            color: #BF4245;
+        }
     }
 }
 
@@ -104,16 +100,27 @@ body {
         float: left;
     }
     #month-controler {
-        font-size: 15px;
+        margin: 3px 3px;
+        background-color: #FFFFFF;
+        font-size: 18px;
         #next-month, #prev-month {
             padding: 7px 8px;
             margin: 3px 0px;
-            background-color: #FFFFFF;
+        }
+        #curretn-month {
+            padding: 11px 10px;
         }
         #list-month {
-            padding: 7px 8px;
             margin: 3px 3px;
-            background-color: #FFFFFF;
+            &.active {
+                display: block;
+            }
+            &.inactive {
+                display: none;
+            }
+            li {
+                padding: 7px 8px;
+            }
         }
     }
 }

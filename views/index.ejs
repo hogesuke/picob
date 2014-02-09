@@ -14,7 +14,19 @@
       <div id="controler">
         <div id="month-controler">
           <div id="prev-month" class="web-icon-fontello">4</div>
-          <div id="list-month" class="" data-bind="text: "></div>
+          <div id="curretn-month" year="<%= currentYearMonth.year %>" month="<%= currentYearMonth.month %>">
+            <%= currentYearMonth.year + "/" + currentYearMonth.month %>
+          </div>
+          <div id="list-month" class="inactive">
+            <ul>
+              <% for(var i = 0; i < monthArray.length; i++) { %>
+                <li class="<%= monthArray[i].state %>"
+                  year="<%= monthArray[i].year %>" month="<%= monthArray[i].month %>">
+                  <%= monthArray[i].year + "/" + monthArray[i].month %>
+                </li>
+              <% } %>
+            </ul>
+          </div>
           <div id="next-month" class="web-icon-fontello">5</div>
         </div>
       </div>

@@ -19,9 +19,8 @@ app.configure(function () {
 });
 
 app.get('/', pieces.index);
-app.get(/^\/(2[0-9]{3})\/(1[0-2]|[1-9])$/, pieces.findAll);
+app.get(/^\/(2[0-9]{3})\/(1[0-2]|0?[1-9])$/, pieces.findAll);
 app.post('/feeling', pieces.upsertFeeling);
 
 app.listen(3000);
 console.log('Listening on port 3000...');
-console.log(app.routes);

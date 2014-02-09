@@ -6,7 +6,36 @@ var Piece = require('../models/piece');
  * pieceをカレンダー表示する。
  */
 exports.index = function(req, res) {
-  res.render('index.ejs', {title: 'picob'});
+
+  var date = new Date();
+  var endYear = date.getFullYear();
+  var endMonth = date.getMonth() + 1;
+  var startYear = 2014;
+  var startMonth = 1;
+  var diffMonth = (endYear - startYear) * 12 + (endMonth - startMonth);
+  var monthArray = [];
+
+  for (var i = 0; i <= diffMonth; i++) {
+    monthArray.push({
+      year: startYear + Math.floor(i/12),
+      month: ("0" + (startMonth + i%12)).slice(-2),
+      state: "uncurrent"
+    });
+  }
+  // 現在月要素のステートを書き換え
+  var lastMonth = monthArray.pop();
+  lastMonth['state'] = "current";
+  monthArray.push(lastMonth);
+
+  console.log(monthArray);
+  res.render('index.ejs', {
+    title: 'picob',
+    monthArray: monthArray,
+    currentYearMonth: {
+      year: endYear,
+      month: ("0" + endMonth).slice(-2)
+    }
+  });
 }
 
 /**
@@ -20,7 +49,7 @@ exports.findAll = function(req, res) {
   console.log('Getting piecelist');
 
   var requestYear = req.params[0];
-  var requestMonth = req.params[1];
+  var requestMonth = req.params[1].replace(/^0?([0-9]+)/, '$1');
 
   Piece.find({year: requestYear, month: requestMonth}, function(err, results) {
     if (err) {
@@ -33,8 +62,7 @@ exports.findAll = function(req, res) {
       {
         year: requestYear,
         month: requestMonth,
-        pieces: createPieceArray(results),
-        day: day
+        pieces: createPieceArray(requestYear, requestMonth, results)
       });
   });
 }
@@ -66,11 +94,13 @@ exports.upsertFeeling = function(req, res) {
 
 /**
  * pieceの検索結果配列をViewにbindできる状態に編集し返却する。
- *
+ * 
+ * @param requestYear 取得対象の年
+ * @param requestMonth 取得対象の月
  * @param searchResult peaceの検索結果配列
  * @return viewにbindできる状態のpeace配列
  */
-function createPieceArray(searchResult) {
+function createPieceArray(requestYear, requestMonth, searchResult) {
 
   var pieceArray = new Array(31);
   for (var i=0; i < 31; i++) {
