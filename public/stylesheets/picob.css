@@ -52,7 +52,7 @@ body {
   float: left;
   width: 100px;
   height: 100px;
-  margin: 5px 5px;
+  margin: 3px 3px;
   padding: 10px;
   background-color: rgba(255, 255, 255, 0.5);
   color: black;
@@ -90,17 +90,43 @@ body {
 }
 
 /* line 84, picob.scss */
+#day {
+  clear: both;
+}
+
+/* line 88, picob.scss */
 #day div {
   float: left;
   width: 100px;
-  margin: 5px 5px;
+  margin: 3px 3px;
   padding: 10px;
   background-color: rgba(255, 255, 255, 0.5);
   color: black;
   font-size: 15px;
   text-align: center;
 }
-/* line 93, picob.scss */
+/* line 97, picob.scss */
 #day div.holiday {
   color: #BF4245;
+}
+
+/* line 103, picob.scss */
+#controler div {
+  float: left;
+}
+/* line 106, picob.scss */
+#controler #month-controler {
+  font-size: 15px;
+}
+/* line 108, picob.scss */
+#controler #month-controler #next-month, #controler #month-controler #prev-month {
+  padding: 7px 8px;
+  margin: 3px 0px;
+  background-color: #FFFFFF;
+}
+/* line 113, picob.scss */
+#controler #month-controler #list-month {
+  padding: 7px 8px;
+  margin: 3px 3px;
+  background-color: #FFFFFF;
 }

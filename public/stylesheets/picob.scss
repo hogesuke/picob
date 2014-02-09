@@ -48,7 +48,7 @@ body {
     float: left;
     width: 100px;
     height: 100px;
-    margin: 5px 5px;
+    margin: 3px 3px;
     padding: 10px;
     background-color: rgba(255,255,255,0.50);
     color: $base_charctor_color;
@@ -81,10 +81,14 @@ body {
     font-size: 15px;
 }
 
+#day {
+    clear: both;
+}
+
 #day div {
     float: left;
     width: 100px;
-    margin: 5px 5px;
+    margin: 3px 3px;
     padding: 10px;
     background-color: rgba(255,255,255,0.50);
     color: $base_charctor_color;
@@ -92,5 +96,24 @@ body {
     text-align: center;
     &.holiday {
         color: #BF4245;
+    }
+}
+
+#controler {
+    div {
+        float: left;
+    }
+    #month-controler {
+        font-size: 15px;
+        #next-month, #prev-month {
+            padding: 7px 8px;
+            margin: 3px 0px;
+            background-color: #FFFFFF;
+        }
+        #list-month {
+            padding: 7px 8px;
+            margin: 3px 3px;
+            background-color: #FFFFFF;
+        }
     }
 }
