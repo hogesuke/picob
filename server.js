@@ -3,8 +3,8 @@
 var express = require('express')
 var mongoose = require('mongoose');
 var dbConnector = require('./db');
-var pieceModel = require('./models/piece');
 var pieces = require('./routes/pieces');
+var feeling = require('./routes/feeling');
 var app = express();
 
 dbConnector.connect();
@@ -21,6 +21,7 @@ app.configure(function () {
 app.get('/', pieces.index);
 app.get(/^\/(2[0-9]{3})\/(1[0-2]|0?[1-9])$/, pieces.findAll);
 app.post('/feeling', pieces.upsertFeeling);
+app.get('/testDataInsert', feeling.testDataInsert);
 
 app.listen(3000);
 console.log('Listening on port 3000...');
