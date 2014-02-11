@@ -112,10 +112,10 @@ body {
         }
         #list-month {
             margin: 3px 3px;
-            &.active {
+            .active {
                 display: block;
             }
-            &.inactive {
+            .inactive {
                 display: none;
             }
             li {

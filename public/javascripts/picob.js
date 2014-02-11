@@ -24,7 +24,11 @@ $(function() {
     }
   }
 
-  var model = selectPiece();
+  var model = selectPiece(function(pieces) {
+    model = ko.mapping.fromJS({pieces: pieces}, pieceModelMapping);
+    ko.applyBindings(model);
+    return model;
+  });
 
   $(document).on('click', '.feeling-choices', function() {
     var $this = $(this);
@@ -52,37 +56,52 @@ $(function() {
   });
 
   $('#prev-month').on('click', function() {
-    var $currentYM = $('#curretn-month');
-    $.ajax({
-      type: 'GET',
-      url: '/2014/01',
-      success: function(res) {
-        ko.mapping.fromJS({pieces: res.pieces}, model);
-        //ko.applyBindings(model);
-      },
-      error: function() {
-      }
+    $('#list-month li').activePrev();
+    selectPiece(function(pieces) {
+      ko.mapping.fromJS({pieces: pieces}, model);
     });
   });
 
-  function selectPiece() {
-    var $currentYM = $('#curretn-month');
+  $('#next-month').on('click', function() {
+    $('#list-month li').activeNext();
+    selectPiece(function(pieces) {
+      ko.mapping.fromJS({pieces: pieces}, model);
+    });
+  });
+
+  $.fn.activePrev = function() {
+    $(this).each(function() {
+      var $self = $(this);
+      if ($self.is('.active') && $self.prev()[0]) {
+        $self.removeClass('active').addClass('inactive');
+        $self.prev().removeClass('inactive').addClass('active');
+        return false;
+      }
+    })
+  }
+
+  $.fn.activeNext = function() {
+    $(this).each(function() {
+      var $self = $(this);
+      if ($self.is('.active') && $self.next()[0]) {
+        $self.removeClass('active').addClass('inactive');
+        $self.next().removeClass('inactive').addClass('active');
+        return false;
+      }
+    })
+  }
+
+  function selectPiece(doSuccess) {
+    var $currentYM = $('#list-month .active');
     $.ajax({
       type: 'GET',
       url: '/' + $currentYM.attr('year') + '/' + $currentYM.attr('month'),
       success: function(res) {
-        return mappingToPieceModel(res.pieces);
+        doSuccess(res.pieces);
       },
       error: function() {
       }
     });
-  }
-
-  function mappingToPieceModel(resPieces) {
-
-    model = ko.mapping.fromJS({pieces: resPieces}, pieceModelMapping);
-    ko.applyBindings(model);
-    return model;
   }
 
   function upsertPiece(year, month, day, feeling) {

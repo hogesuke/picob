@@ -19,12 +19,12 @@ exports.index = function(req, res) {
     monthArray.push({
       year: startYear + Math.floor(i/12),
       month: ("0" + (startMonth + i%12)).slice(-2),
-      state: "uncurrent"
+      state: "inactive"
     });
   }
   // 現在月要素のステートを書き換え
   var lastMonth = monthArray.pop();
-  lastMonth['state'] = "current";
+  lastMonth['state'] = "active";
   monthArray.push(lastMonth);
 
   console.log(monthArray);

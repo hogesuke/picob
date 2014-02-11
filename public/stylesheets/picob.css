@@ -129,11 +129,11 @@ body {
   margin: 3px 3px;
 }
 /* line 115, picob.scss */
-#controler #month-controler #list-month.active {
+#controler #month-controler #list-month .active {
   display: block;
 }
 /* line 118, picob.scss */
-#controler #month-controler #list-month.inactive {
+#controler #month-controler #list-month .inactive {
   display: none;
 }
 /* line 121, picob.scss */
