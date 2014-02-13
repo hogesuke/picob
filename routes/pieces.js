@@ -1,6 +1,7 @@
 "use strict";
 
 var Piece = require('../models/piece');
+var Feeling = require('../models/feeling').Feeling;
 
 /**
  * pieceをカレンダー表示する。
@@ -27,14 +28,20 @@ exports.index = function(req, res) {
   lastMonth['state'] = "active";
   monthArray.push(lastMonth);
 
-  console.log(monthArray);
-  res.render('index.ejs', {
-    title: 'picob',
-    monthArray: monthArray,
-    currentYearMonth: {
-      year: endYear,
-      month: ("0" + endMonth).slice(-2)
+  // feeling-textを取得する。
+  Feeling.find({}).populate('group').sort({group: 'asc'}).exec(function(err, feelings) {
+    if (err) {
+      res.send({'error': 'An error has occurred'});
+      return;
     }
+    console.log('Success: Getting feeling-text list');
+    console.log(feelings);
+
+    res.render('index.ejs', {
+      title: 'picob',
+      monthArray: monthArray,
+      feelings: feelings
+    });
   });
 }
 

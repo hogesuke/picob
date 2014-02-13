@@ -45,7 +45,6 @@ $(function() {
     upsertPiece($date.attr('year'), $date.attr('month'), $date.attr('day'), feeling);
   });
 
-
   $(document).on('click', '.edit-link', function() {
     var $this = $(this);
     var $feelingSelector = $this.siblings('.feeling-selector');

@@ -140,3 +140,8 @@ body {
 #controler #month-controler #list-month li {
   padding: 7px 8px;
 }
+
+/* line 128, picob.scss */
+#feeling-text-window {
+  display: none;
+}

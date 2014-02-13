@@ -70,14 +70,21 @@
           <!-- /ko -->
         </script>
 
-        <div id="feeling-text .inactive">
+        <div id="feeling-text-window" class=".inactive">
           <div id="selected-feeling"></div>
-          <div id="feeling-text-choices">
-            <div class="feeling-group-title"></div>
-            <ul>
-              <li></li>
-            </ul>
-          </div>
+          <% var currentGroup; %>
+          <% for (var i in feelings) { %>
+            <% var groupName = feelings[i].group.name; %>
+            <% if (currentGroup != groupName) { %>
+              <% currentGroup = groupName %>
+              <div class="feeling-group-title"><%= groupName %></div>
+            <% } %>
+            <div id="feeling-text-choices">
+              <ul>
+                <li><%= feelings[i].text %></li>
+              </ul>
+            </div>
+          <% } %>
         </div>
       </div>
     </div>

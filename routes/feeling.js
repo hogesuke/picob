@@ -7,12 +7,11 @@ var Feeling = require('../models/feeling').Feeling;
  * feelingをすべて取得。
  */
 exports.findAll = function(req, res) {
-  Feeling.find({}).populate('FeelingGroup').exec(function(err, results) {
+  Feeling.find({}).populate('group').exec(function(err, results) {
     if (err) {
       res.send({'error': 'An error has occurred'});
       return;
     }
-
 
     console.log('Success: Getting feelinglist');
     console.log(results);
