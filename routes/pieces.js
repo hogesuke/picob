@@ -48,7 +48,6 @@ exports.index = function(req, res) {
         feelingsEveryGroup[groups[i].name] = filterByFeelingGroup(feelings, groups[i]._id.toString());
       }
 
-      console.log(feelingsEveryGroup);
       res.render('index.ejs', {
         title: 'picob',
         monthArray: monthArray,
@@ -58,6 +57,13 @@ exports.index = function(req, res) {
   });
 }
 
+/**
+ * feelings配列からgroupIdが合致する要素のみを抽出し、
+ * 新たな配列を生成・返却する。
+ *
+ * @param groupId 抽出対象のグループID
+ * @return 抽出した要素の配列
+ */
 function filterByFeelingGroup(feelings, groupId) {
   var newArray = [];
   for (var i in feelings) {
@@ -81,12 +87,13 @@ exports.findAll = function(req, res) {
   var requestYear = req.params[0];
   var requestMonth = req.params[1].replace(/^0?([0-9]+)/, '$1');
 
-  Piece.find({year: requestYear, month: requestMonth}, function(err, results) {
+  Piece.find({year: requestYear, month: requestMonth}).populate('feeling_text').exec(function(err, results) {
     if (err) {
       res.send({'error': 'An error has occurred'});
       return;
     }
     console.log('Success: Getting piecelist');
+    console.log('results: ' + results);
 
     res.send(
       {
@@ -112,7 +119,7 @@ exports.upsertFeeling = function(req, res) {
 
   Piece.update(
       {'year': req.body.year, 'month': req.body.month, 'day': req.body.day},
-      {'feeling': req.body.feeling},
+      {'feeling': req.body.feeling, 'feeling_text': req.body.feeling_text_id},
       {'upsert': true, multi: false},
       function(err) {
         if (err) {

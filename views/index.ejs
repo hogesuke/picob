@@ -64,6 +64,9 @@
             <div class="feeling-choices feeling-normal web-icon-fontello">3</div>
             <div class="feeling-choices feeling-bad web-icon-fontello">2</div>
           </div>
+          <div class="feeling-text">
+            <div data-bind="text: piece.feeling_text.text"></div>
+          </div>
           <form class="edit-form" style="display: none;">
             <input class="input-feeling" data-bind="value: piece.feeling" />
           </form>
@@ -74,16 +77,22 @@
         <div id="feeling-text-window" class=".inactive">
           <div id="selected-feeling"></div>
           <% for (var groupName in feelings) { %>
-              <div class="feeling-group-title"><%= groupName %></div>
-              <div id="feeling-text-choices">
+            <div class="feeling-group-title"><%= groupName %></div>
+            <div id="feeling-text-container">
               <ul>
                 <% for (var i in feelings[groupName]) { %>
-                  <li><%= feelings[groupName][i].text %></li>
+                  <% var feeling = feelings[groupName]; %>
+                  <li>
+                    <a class="feeling-text-choices" href="javascript:void(0)" feeling-text-id='<%= feeling[i]._id %>'>
+                      <%= feeling[i].text %>
+                    </a>
+                  </li>
                 <% } %>
               </ul>
             </div>
           <% } %>
         </div>
+
       </div>
     </div>
   </body>

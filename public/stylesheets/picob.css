@@ -152,7 +152,7 @@ body {
   font-size: 20px;
 }
 /* line 135, picob.scss */
-#feeling-text-window #feeling-text-choices {
+#feeling-text-window #feeling-text-container {
   margin: 5px 10px 20px 10px;
   font-size: 16px;
 }

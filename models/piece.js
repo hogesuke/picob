@@ -5,11 +5,12 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var PieceSchema = new Schema({
-    year: String,
-    month: String,
-    day: String,
-    feeling: String,
-    create_date: Date,
+    year: {type: String},
+    month: {type: String},
+    day: {type: String},
+    feeling: {type: String},
+    feeling_text: {type: mongoose.Schema.Types.ObjectId, ref: 'Feeling'},
+    create_date: {type: Date},
 });
 
 PieceSchema.pre('save', function(next) {

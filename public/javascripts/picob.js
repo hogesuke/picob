@@ -30,6 +30,44 @@ $(function() {
     return model;
   });
 
+  var pieceStatus = {
+    $piece: undefined,
+    year: undefined,
+    month: undefined,
+    day: undefined,
+    feeling: undefined,
+    feelingTextId: undefined,
+    clear: function() {
+      this.$piece = undefined;
+      this.year = undefined;
+      this.month = undefined;
+      this.day = undefined;
+      this.feeling = undefined;
+      this.feelingTextId = undefined;
+    },
+    isValid: function() {
+      if (!(this.year && this.month && this.day && this.feeling && this.feelingTextId)) {
+        return false;
+      }
+      if (this.year.match(/20[1-9][0-9]/) == null) {
+        return false;
+      }
+      if (this.month.match(/[0,1][0-9]|[1-9]/) == null) {
+        return false;
+      }
+      if (this.day.match(/[1-3][0-9]|[1-9]/) == null) {
+        return false;
+      }
+      if (this.feeling.match(/[1-3]/) == null) {
+        return false;
+      }
+      if (this.feelingTextId.match(/[0-9a-z]+/) == null) {
+        return false;
+      }
+      return true;
+    }
+  }
+
   $(document).on('click', '.feeling-choices', function() {
     var $this = $(this);
     var $piece = $this.closest('.piece,.empty-piece');
@@ -42,7 +80,20 @@ $(function() {
     $this.parent().css({'display': 'none'});
     $piece.children('.feeling').css({'display': 'block'});
 
-    upsertPiece($date.attr('year'), $date.attr('month'), $date.attr('day'), feeling);
+    pieceStatus.$piece = $piece;
+    pieceStatus.year = $date.attr('year');
+    pieceStatus.month = $date.attr('month');
+    pieceStatus.day = $date.attr('day');
+    pieceStatus.feeling = feeling;
+  });
+
+  $('.feeling-text-choices').on('click', function() {
+    pieceStatus.feelingTextId = $(this).attr('feeling-text-id');
+    pieceStatus.$piece.children('.feeling-text').text($(this).text());
+    if (pieceStatus.isValid()) {
+      upsertPiece(pieceStatus);
+    }
+    $.modal.close();
   });
 
   $(document).on('click', '.edit-link', function() {
@@ -107,17 +158,19 @@ $(function() {
     });
   }
 
-  function upsertPiece(year, month, day, feeling) {
+  function upsertPiece(pieceStatus) {
     $.ajax({
       type: 'POST',
       url: '/feeling',
       data: {
-        'year': year,
-        'month': month,
-        'day': day,
-        'feeling': feeling
+        'year': pieceStatus.year,
+        'month': pieceStatus.month,
+        'day': pieceStatus.day,
+        'feeling': pieceStatus.feeling,
+        'feeling_text_id': pieceStatus.feelingTextId
       },
       success: function() {
+        pieceStatus.clear();
       },
       error: function() {
       }
