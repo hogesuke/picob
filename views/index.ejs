@@ -5,6 +5,7 @@
     <script type="text/javascript" src="/javascripts/jquery.min.js"></script>
     <script type="text/javascript" src="/javascripts/knockout-3.0.0.js"></script>
     <script type="text/javascript" src="/javascripts/knockout.mapping-latest.js"></script>
+    <script type="text/javascript" src="/javascripts/jquery.simplemodal.js"></script>
     <script type="text/javascript" src="/javascripts/picob.js"></script>
     <link rel='stylesheet' href='/stylesheets/cssreset-min.css' />
     <link rel='stylesheet' href='/stylesheets/picob.css' />
@@ -72,16 +73,13 @@
 
         <div id="feeling-text-window" class=".inactive">
           <div id="selected-feeling"></div>
-          <% var currentGroup; %>
-          <% for (var i in feelings) { %>
-            <% var groupName = feelings[i].group.name; %>
-            <% if (currentGroup != groupName) { %>
-              <% currentGroup = groupName %>
+          <% for (var groupName in feelings) { %>
               <div class="feeling-group-title"><%= groupName %></div>
-            <% } %>
-            <div id="feeling-text-choices">
+              <div id="feeling-text-choices">
               <ul>
-                <li><%= feelings[i].text %></li>
+                <% for (var i in feelings[groupName]) { %>
+                  <li><%= feelings[groupName][i].text %></li>
+                <% } %>
               </ul>
             </div>
           <% } %>

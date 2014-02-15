@@ -90,6 +90,10 @@ $(function() {
     })
   }
 
+  $(document).on('click', '.feeling-choices', function() {
+    $('#feeling-text-window').modal();
+  });
+
   function selectPiece(doSuccess) {
     var $currentYM = $('#list-month .active');
     $.ajax({

@@ -1,6 +1,7 @@
 "use strict";
 
 var Piece = require('../models/piece');
+var FeelingGroup = require('../models/feeling').FeelingGroup;
 var Feeling = require('../models/feeling').Feeling;
 
 /**
@@ -29,20 +30,42 @@ exports.index = function(req, res) {
   monthArray.push(lastMonth);
 
   // feeling-textを取得する。
-  Feeling.find({}).populate('group').sort({group: 'asc'}).exec(function(err, feelings) {
+  FeelingGroup.find({}).sort({group: 'asc'}).exec(function(err, groups) {
     if (err) {
       res.send({'error': 'An error has occurred'});
       return;
     }
-    console.log('Success: Getting feeling-text list');
-    console.log(feelings);
 
-    res.render('index.ejs', {
-      title: 'picob',
-      monthArray: monthArray,
-      feelings: feelings
+    Feeling.find({}).populate('group').sort({group: 'asc'}).exec(function(err, feelings) {
+      if (err) {
+        res.send({'error': 'An error has occurred'});
+        return;
+      }
+      console.log('Success: Getting feeling-text list');
+
+      var feelingsEveryGroup = {};
+      for (var i in groups) {
+        feelingsEveryGroup[groups[i].name] = filterByFeelingGroup(feelings, groups[i]._id.toString());
+      }
+
+      console.log(feelingsEveryGroup);
+      res.render('index.ejs', {
+        title: 'picob',
+        monthArray: monthArray,
+        feelings: feelingsEveryGroup
+      });
     });
   });
+}
+
+function filterByFeelingGroup(feelings, groupId) {
+  var newArray = [];
+  for (var i in feelings) {
+    if (groupId == feelings[i].group._id.toString()) {
+      newArray.push(feelings[i]);
+    }
+  }
+  return newArray;
 }
 
 /**
