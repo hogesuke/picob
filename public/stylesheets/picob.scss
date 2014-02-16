@@ -48,7 +48,7 @@ body {
     clear: both;
 }
 
-.piece, .empty-piece {
+.piece, .empty-piece, .dummy-piece {
     float: left;
     @media #{$small} {
         width: 47px;

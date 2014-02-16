@@ -11,14 +11,17 @@ $(function() {
     this.isCompleted = ko.computed(function() {
       return data !== null && data.feeling !== null;
     }, this);
-    this.isDisabled = ko.computed(function() {
+    this.isDummy = ko.computed(function() {
       return data === null;
     }, this);
     this.existFeelingText = ko.computed(function() {
-      if (this.isDisabled()) {
+      if (this.isDummy()) {
         return false;
       }
       return data.feeling_text !== null && typeof data.feeling_text !== "undefined";
+    }, this);
+    this.getPieceCss = ko.computed(function() {
+      return this.isDummy() ? 'dummy-piece' : this.isCompleted() ? 'piece' : 'empty-piece'
     }, this);
   }
 
