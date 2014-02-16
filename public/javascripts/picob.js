@@ -42,6 +42,7 @@ $(function() {
     month: undefined,
     day: undefined,
     feeling: undefined,
+    feelingText: undefined,
     feelingTextId: undefined,
     clear: function() {
       this.$piece = undefined;
@@ -49,6 +50,7 @@ $(function() {
       this.month = undefined;
       this.day = undefined;
       this.feeling = undefined;
+      this.feelingText = undefined;
       this.feelingTextId = undefined;
     },
     isValid: function() {
@@ -74,41 +76,47 @@ $(function() {
     }
   }
 
-  $(document).on('click', '.feeling-choices', function() {
+  $(document).on('click', '.piece, .empty-piece', function() {
     var $this = $(this);
     var $piece = $this.closest('.piece,.empty-piece');
     var $date = $piece.children('.date');
     var $inputFeeling = $piece.find('.input-feeling');
-    var feeling = $.trim($this.text());
-
-    $inputFeeling.val($.trim(feeling));
-    $inputFeeling.trigger('change');
-    $this.parent().css({'display': 'none'});
-    $piece.children('.feeling').css({'display': 'block'});
 
     pieceStatus.$piece = $piece;
     pieceStatus.year = $date.attr('year');
     pieceStatus.month = $date.attr('month');
     pieceStatus.day = $date.attr('day');
+
+    $('#feeling-text-window').modal();
+  });
+
+  $(document).on('click', '.feeling-choices', function() {
+    var feeling = $.trim($(this).text());
     pieceStatus.feeling = feeling;
   });
 
   $('.feeling-text-choices').on('click', function() {
-    pieceStatus.feelingTextId = $(this).attr('feeling-text-id');
-    pieceStatus.$piece.children('.feeling-text').text($(this).text());
-    if (pieceStatus.isValid()) {
-      upsertPiece(pieceStatus);
-    }
-    $.modal.close();
+    var $this = $(this);
+    pieceStatus.feelingText = $this.text();
+    pieceStatus.feelingTextId = $this.attr('feeling-text-id');
   });
 
-  $(document).on('click', '.edit-link', function() {
-    var $this = $(this);
-    var $feelingSelector = $this.siblings('.feeling-selector');
-    var $feeling = $this.siblings('.feeling');
+  $('#post-button').on('click', function() {
+    if (pieceStatus.isValid()) {
+      upsertPiece(pieceStatus).done(function() {
+        // 登録内容をpieceに反映
+        var $inputFeeling = pieceStatus.$piece.find('.input-feeling')
+        var $feelingText = pieceStatus.$piece.children('.feeling-text');
+        $inputFeeling.val(pieceStatus.feeling);
+        $inputFeeling.trigger('change');
+        $feelingText.text(pieceStatus.feelingText);
 
-    $feelingSelector.css({'display': 'block'});
-    $feeling.css({'display': 'none'});
+        // 後片付け
+        pieceStatus.$piece.children('.empty-feeling').css({'display': 'none'});
+        pieceStatus.clear();
+        $.modal.close();
+      });
+    }
   });
 
   $('#prev-month').on('click', function() {
@@ -147,10 +155,6 @@ $(function() {
     })
   }
 
-  $(document).on('click', '.feeling-choices', function() {
-    $('#feeling-text-window').modal();
-  });
-
   function selectPiece(doSuccess) {
     var $currentYM = $('#list-month .active');
     $.ajax({
@@ -165,7 +169,7 @@ $(function() {
   }
 
   function upsertPiece(pieceStatus) {
-    $.ajax({
+    return $.ajax({
       type: 'POST',
       url: '/feeling',
       data: {
@@ -176,7 +180,6 @@ $(function() {
         'feeling_text_id': pieceStatus.feelingTextId
       },
       success: function() {
-        pieceStatus.clear();
       },
       error: function() {
       }

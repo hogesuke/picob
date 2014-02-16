@@ -65,7 +65,7 @@ body {
     color: $base_charctor_color;
 }
 
-.feeling {
+.feeling, .empty-feeling {
     @media #{$small} {
         font-size: 20px;
     }

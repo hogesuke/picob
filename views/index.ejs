@@ -6,6 +6,7 @@
     <script type="text/javascript" src="/javascripts/knockout-3.0.0.js"></script>
     <script type="text/javascript" src="/javascripts/knockout.mapping-latest.js"></script>
     <script type="text/javascript" src="/javascripts/jquery.simplemodal.js"></script>
+    <script type="text/javascript" src="/javascripts/matchMedia.js"></script>
     <script type="text/javascript" src="/javascripts/picob.js"></script>
     <link rel='stylesheet' href='/stylesheets/cssreset-min.css' />
     <link rel='stylesheet' href='/stylesheets/picob.css' />
@@ -59,11 +60,7 @@
           <!-- ko if: !piece.isDisabled() -->
           <div data-bind="text: piece.date, attr: {'year': piece.year, 'month': piece.month, 'day': piece.day}" class="date"></div>
           <div data-bind="text: piece.feeling" class="feeling web-icon-fontello"></div>
-          <div class="feeling-selector" data-bind="style: {display: piece.isCompleted() ? 'none' : 'block'}">
-            <div class="feeling-choices feeling-good web-icon-fontello">1</div>
-            <div class="feeling-choices feeling-normal web-icon-fontello">3</div>
-            <div class="feeling-choices feeling-bad web-icon-fontello">2</div>
-          </div>
+          <div data-bind="style: {display: piece.isCompleted() ? 'none' : 'block'}" class="empty-feeling web-icon-fontello">6</div>
           <div class="feeling-text">
             <!-- ko if: piece.existFeelingText() -->
               <div data-bind="text: piece.feeling_text.text"></div>
@@ -72,12 +69,15 @@
           <form class="edit-form" style="display: none;">
             <input class="input-feeling" data-bind="value: piece.feeling" />
           </form>
-          <div class="edit-link">edit</div>
           <!-- /ko -->
         </script>
 
         <div id="feeling-text-window" class=".inactive">
-          <div id="selected-feeling"></div>
+          <div class="feeling-selector">
+            <div class="feeling-choices feeling-good web-icon-fontello">1</div>
+            <div class="feeling-choices feeling-normal web-icon-fontello">3</div>
+            <div class="feeling-choices feeling-bad web-icon-fontello">2</div>
+          </div>
           <% for (var groupName in feelings) { %>
             <div class="feeling-group-title"><%= groupName %></div>
             <div id="feeling-text-container">
@@ -93,6 +93,7 @@
               </ul>
             </div>
           <% } %>
+          <input type="button" id="post-button" value="POST">
         </div>
 
       </div>
