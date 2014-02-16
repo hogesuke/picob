@@ -14,6 +14,12 @@ $(function() {
     this.isDisabled = ko.computed(function() {
       return data === null;
     }, this);
+    this.existFeelingText = ko.computed(function() {
+      if (this.isDisabled()) {
+        return false;
+      }
+      return data.feeling_text !== null && typeof data.feeling_text !== "undefined";
+    }, this);
   }
 
   var pieceModelMapping = {

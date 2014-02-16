@@ -65,7 +65,9 @@
             <div class="feeling-choices feeling-bad web-icon-fontello">2</div>
           </div>
           <div class="feeling-text">
-            <div data-bind="text: piece.feeling_text.text"></div>
+            <!-- ko if: piece.existFeelingText() -->
+              <div data-bind="text: piece.feeling_text.text"></div>
+            <!-- /ko -->
           </div>
           <form class="edit-form" style="display: none;">
             <input class="input-feeling" data-bind="value: piece.feeling" />
