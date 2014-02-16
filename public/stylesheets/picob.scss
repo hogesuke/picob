@@ -1,3 +1,5 @@
+$small: "only screen and (max-width:899px)";
+$large: "only screen and (min-width:900px)";
 $base_charctor_color: #000000;
 
 @font-face {
@@ -30,7 +32,12 @@ body {
 }
 
 #container {
-    width: 920px;
+    @media #{$small} {
+        width: 450px;
+    }
+    @media #{$large} {
+        width: 900px;
+    }
     margin: 0 auto;
 }
 
@@ -43,22 +50,41 @@ body {
 
 .piece, .empty-piece {
     float: left;
-    width: 100px;
-    height: 100px;
+    @media #{$small} {
+        width: 47px;
+        height: 47px;
+        padding: 5px;
+    }
+    @media #{$large} {
+        width: 100px;
+        height: 100px;
+        padding: 10px;
+    }
     margin: 3px 3px;
-    padding: 10px;
     background-color: rgba(255,255,255,0.50);
     color: $base_charctor_color;
 }
 
 .feeling {
+    @media #{$small} {
+        font-size: 20px;
+    }
+    @media #{$large} {
+        font-size: 40px;
+    }
     font-size: 40px;
     text-align: center;
 }
 
 .date {
-    font-size: 16px;
-    margin-bottom: 10px;
+    @media #{$small} {
+        font-size: 12px;
+    }
+    @media #{$large} {
+        font-size: 28px;
+        margin-bottom: 2px;
+    }
+    text-align: right;
 }
 
 .feeling-selector {
@@ -81,8 +107,13 @@ body {
 #day {
     clear: both;
     div {
+        @media #{$small} {
+            width: 37px;
+        }
+        @media #{$large} {
+            width: 100px;
+        }
         float: left;
-        width: 100px;
         margin: 3px 3px;
         padding: 10px;
         background-color: rgba(255,255,255,0.50);

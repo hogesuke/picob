@@ -6,7 +6,7 @@ $(function() {
       if (data === null) {
         return '';
       }
-      return this.year() + '/' + this.month() + '/' + this.day();
+      return this.day();
     }, this);
     this.isCompleted = ko.computed(function() {
       return data !== null && data.feeling !== null;

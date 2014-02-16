@@ -5,17 +5,17 @@
   src: url("../fonts/fontello.eot?#iefix") format("embedded-opentype"), url("../fonts/fontello.woff") format("woff"), url("../fonts/fontello.ttf") format("truetype"), url("../fonts/fontello.svg#fontello") format("svg");
 }
 
-/* line 9, picob.scss */
+/* line 11, picob.scss */
 .web-icon-fontello {
   font-family: 'FontelloFonts';
 }
 
-/* line 13, picob.scss */
+/* line 15, picob.scss */
 html, body {
   height: 100%;
 }
 
-/* line 17, picob.scss */
+/* line 19, picob.scss */
 html {
   overflow: scroll;
   overflow: -moz-scrollbars-vertical;
@@ -23,7 +23,7 @@ html {
   background-image: url("../images/background.jpg");
 }
 
-/* line 24, picob.scss */
+/* line 26, picob.scss */
 body {
   padding: 10px;
   font-family: 'Lucida Grande', 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', meiryo, 'メイリオ', sans-serif;
@@ -32,48 +32,96 @@ body {
   *font: x-small;
 }
 
-/* line 32, picob.scss */
+/* line 34, picob.scss */
 #container {
-  width: 920px;
   margin: 0 auto;
 }
+@media only screen and (max-width: 899px) {
+  /* line 34, picob.scss */
+  #container {
+    width: 450px;
+  }
+}
+@media only screen and (min-width: 900px) {
+  /* line 34, picob.scss */
+  #container {
+    width: 900px;
+  }
+}
 
-/* line 40, picob.scss */
+/* line 47, picob.scss */
 .week {
   clear: both;
 }
 
-/* line 44, picob.scss */
+/* line 51, picob.scss */
 .piece, .empty-piece {
   float: left;
-  width: 100px;
-  height: 100px;
   margin: 3px 3px;
-  padding: 10px;
   background-color: rgba(255, 255, 255, 0.5);
   color: black;
 }
+@media only screen and (max-width: 899px) {
+  /* line 51, picob.scss */
+  .piece, .empty-piece {
+    width: 47px;
+    height: 47px;
+    padding: 5px;
+  }
+}
+@media only screen and (min-width: 900px) {
+  /* line 51, picob.scss */
+  .piece, .empty-piece {
+    width: 100px;
+    height: 100px;
+    padding: 10px;
+  }
+}
 
-/* line 54, picob.scss */
+/* line 68, picob.scss */
 .feeling {
   font-size: 40px;
   text-align: center;
 }
-
-/* line 59, picob.scss */
-.date {
-  font-size: 16px;
-  margin-bottom: 10px;
+@media only screen and (max-width: 899px) {
+  /* line 68, picob.scss */
+  .feeling {
+    font-size: 20px;
+  }
+}
+@media only screen and (min-width: 900px) {
+  /* line 68, picob.scss */
+  .feeling {
+    font-size: 40px;
+  }
 }
 
-/* line 64, picob.scss */
+/* line 79, picob.scss */
+.date {
+  text-align: right;
+}
+@media only screen and (max-width: 899px) {
+  /* line 79, picob.scss */
+  .date {
+    font-size: 12px;
+  }
+}
+@media only screen and (min-width: 900px) {
+  /* line 79, picob.scss */
+  .date {
+    font-size: 28px;
+    margin-bottom: 2px;
+  }
+}
+
+/* line 90, picob.scss */
 .feeling-selector {
   font-size: 20px;
   margin: 10px 0px;
   overflow: hidden;
 }
 
-/* line 70, picob.scss */
+/* line 96, picob.scss */
 .feeling-choices {
   float: left;
   padding: 7px;
@@ -85,14 +133,13 @@ body {
   font-size: 15px;
 }
 
-/* line 81, picob.scss */
+/* line 107, picob.scss */
 #day {
   clear: both;
 }
-/* line 83, picob.scss */
+/* line 109, picob.scss */
 #day div {
   float: left;
-  width: 100px;
   margin: 3px 3px;
   padding: 10px;
   background-color: rgba(255, 255, 255, 0.5);
@@ -100,58 +147,70 @@ body {
   font-size: 15px;
   text-align: center;
 }
-/* line 92, picob.scss */
+@media only screen and (max-width: 899px) {
+  /* line 109, picob.scss */
+  #day div {
+    width: 37px;
+  }
+}
+@media only screen and (min-width: 900px) {
+  /* line 109, picob.scss */
+  #day div {
+    width: 100px;
+  }
+}
+/* line 123, picob.scss */
 #day div.holiday {
   color: #BF4245;
 }
 
-/* line 99, picob.scss */
+/* line 130, picob.scss */
 #controler div {
   float: left;
 }
-/* line 102, picob.scss */
+/* line 133, picob.scss */
 #controler #month-controler {
   margin: 3px 3px;
   background-color: #FFFFFF;
   font-size: 18px;
 }
-/* line 106, picob.scss */
+/* line 137, picob.scss */
 #controler #month-controler #next-month, #controler #month-controler #prev-month {
   padding: 7px 8px;
   margin: 3px 0px;
 }
-/* line 110, picob.scss */
+/* line 141, picob.scss */
 #controler #month-controler #curretn-month {
   padding: 11px 10px;
 }
-/* line 113, picob.scss */
+/* line 144, picob.scss */
 #controler #month-controler #list-month {
   margin: 3px 3px;
 }
-/* line 115, picob.scss */
+/* line 146, picob.scss */
 #controler #month-controler #list-month .active {
   display: block;
 }
-/* line 118, picob.scss */
+/* line 149, picob.scss */
 #controler #month-controler #list-month .inactive {
   display: none;
 }
-/* line 121, picob.scss */
+/* line 152, picob.scss */
 #controler #month-controler #list-month li {
   padding: 7px 8px;
 }
 
-/* line 128, picob.scss */
+/* line 159, picob.scss */
 #feeling-text-window {
   display: none;
   padding: 20px 30px;
   background-color: #D1D1D1;
 }
-/* line 132, picob.scss */
+/* line 163, picob.scss */
 #feeling-text-window .feeling-group-title {
   font-size: 20px;
 }
-/* line 135, picob.scss */
+/* line 166, picob.scss */
 #feeling-text-window #feeling-text-container {
   margin: 5px 10px 20px 10px;
   font-size: 16px;
