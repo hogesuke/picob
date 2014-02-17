@@ -73,7 +73,8 @@
         </script>
 
         <!-- modal form window -->
-        <div id="feeling-text-window" class=".inactive">
+        <div id="form-window" class=".inactive">
+          <div id="selected-feeling" class="feeling web-icon-fontello"></div>
           <div class="feeling-selector">
             <div class="feeling-choices feeling-good web-icon-fontello">1</div>
             <div class="feeling-choices feeling-normal web-icon-fontello">3</div>
@@ -86,7 +87,7 @@
                 <% for (var i in feelings[groupName]) { %>
                   <% var feeling = feelings[groupName]; %>
                   <li>
-                    <a class="feeling-text-choices" href="javascript:void(0)" feeling-text-id='<%= feeling[i]._id %>'>
+                    <a class="feeling-text-choices inactive" href="javascript:void(0)" feeling-text-id='<%= feeling[i]._id %>'>
                       <%= feeling[i].text %>
                     </a>
                   </li>

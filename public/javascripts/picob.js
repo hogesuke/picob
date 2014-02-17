@@ -99,6 +99,7 @@ $(function() {
     var $date = $piece.children('.date');
     var $feelingText = $piece.children('.feeling-text');
     var $inputFeeling = $piece.find('.input-feeling');
+    var $formWindow = $('#form-window');
 
     pieceStatus.$piece = $piece;
     pieceStatus.feeling = $inputFeeling.val();
@@ -107,16 +108,24 @@ $(function() {
     pieceStatus.month = $date.attr('month');
     pieceStatus.day = $date.attr('day');
 
-    $('#feeling-text-window').modal();
+    $formWindow.children('#selected-feeling').text(pieceStatus.feeling);
+    $formWindow.find('.feeling-text-choices').filter(function() {
+      return $(this).is('[feeling-text-id="' + pieceStatus.feelingTextId + '"]');
+    }).exclusiveActiveToggle('.feeling-text-choices');
+    $formWindow.modal();
   });
 
   $(document).on('click', '.feeling-choices', function() {
     var feeling = $.trim($(this).text());
+    var $selected = $('#selected-feeling');
+    $selected.text(feeling);
     pieceStatus.feeling = feeling;
   });
 
   $('.feeling-text-choices').on('click', function() {
     var $this = $(this);
+
+    $this.exclusiveActiveToggle('.feeling-text-choices');
     pieceStatus.feelingText = $this.text();
     pieceStatus.feelingTextId = $this.attr('feeling-text-id');
   });
@@ -130,6 +139,7 @@ $(function() {
         $inputFeeling.val(pieceStatus.feeling);
         $inputFeeling.trigger('change');
         $feelingText.text(pieceStatus.feelingText);
+        $feelingText.attr({'feeling-text-id': pieceStatus.feelingTextId});
 
         // 後片付け
         pieceStatus.$piece.children('.empty-feeling').css({'display': 'none'});
@@ -173,6 +183,18 @@ $(function() {
         return false;
       }
     })
+  }
+
+  $.fn.exclusiveActiveToggle = function(selector) {
+    $(selector).each(function() {
+      var $self = $(this);
+      if ($self.is('.active')) {
+        $self.removeClass('active').addClass('inactive');
+      }
+    });
+    $(this).each(function() {
+      $(this).removeClass('inactive').addClass('active');
+    });
   }
 
   function selectPiece(doSuccess) {
