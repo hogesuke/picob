@@ -97,9 +97,12 @@ $(function() {
     var $this = $(this);
     var $piece = $this.closest('.piece,.empty-piece');
     var $date = $piece.children('.date');
+    var $feelingText = $piece.children('.feeling-text');
     var $inputFeeling = $piece.find('.input-feeling');
 
     pieceStatus.$piece = $piece;
+    pieceStatus.feeling = $inputFeeling.val();
+    pieceStatus.feelingTextId = $feelingText.attr('feeling-text-id');
     pieceStatus.year = $date.attr('year');
     pieceStatus.month = $date.attr('month');
     pieceStatus.day = $date.attr('day');
