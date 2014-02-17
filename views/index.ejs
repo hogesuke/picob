@@ -63,7 +63,7 @@
           <div data-bind="style: {display: piece.isCompleted() ? 'none' : 'block'}" class="empty-feeling web-icon-fontello">6</div>
           <div class="feeling-text">
             <!-- ko if: piece.existFeelingText() -->
-              <div data-bind="text: piece.feeling_text.text"></div>
+              <span data-bind="text: piece.feeling_text.text"></span>
             <!-- /ko -->
           </div>
           <form class="edit-form" style="display: none;">

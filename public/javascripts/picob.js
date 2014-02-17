@@ -47,6 +47,7 @@ $(function() {
     feeling: undefined,
     feelingText: undefined,
     feelingTextId: undefined,
+    errorMsg: undefined,
     clear: function() {
       this.$piece = undefined;
       this.year = undefined;
@@ -57,22 +58,35 @@ $(function() {
       this.feelingTextId = undefined;
     },
     isValid: function() {
-      if (!(this.year && this.month && this.day && this.feeling && this.feelingTextId)) {
+      if (!(this.year && this.month && this.day)) {
+        return false;
+      }
+      if (!this.feeling) {
+        errorMsg = '気分を選択してください。';
+        return false;
+      }
+      if (!this.feelingTextId) {
+        errorMsg = 'もっとも近い感情を選択してください。';
         return false;
       }
       if (this.year.match(/20[1-9][0-9]/) == null) {
+        errorMsg = '何かがおかしいのでページをリロードしてください。';
         return false;
       }
       if (this.month.match(/[0,1][0-9]|[1-9]/) == null) {
+        errorMsg = '何かがおかしいのでページをリロードしてください。';
         return false;
       }
       if (this.day.match(/[1-3][0-9]|[1-9]/) == null) {
+        errorMsg = '何かがおかしいのでページをリロードしてください。';
         return false;
       }
       if (this.feeling.match(/[1-3]/) == null) {
+        errorMsg = '何かがおかしいのでページをリロードしてください。';
         return false;
       }
       if (this.feelingTextId.match(/[0-9a-z]+/) == null) {
+        errorMsg = '何かがおかしいのでページをリロードしてください。';
         return false;
       }
       return true;

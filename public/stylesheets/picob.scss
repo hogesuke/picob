@@ -104,6 +104,17 @@ body {
     font-size: 15px;
 }
 
+.feeling-text {
+    text-align: center;
+    @media #{$small} {
+        font-size: 12px;
+    }
+    @media #{$large} {
+        margin-top: 6px;
+        font-size: 16px;
+    }
+}
+
 #day {
     clear: both;
     div {
