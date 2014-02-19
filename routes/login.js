@@ -45,3 +45,15 @@ passport.deserializeUser(function(user, done){
   });
 });
 
+/**
+ * ログインチェック。
+ * 未ログインの場合はログイン画面にリダイレクトする。
+ */
+exports.checkLogin = function(req, res, next) {
+  console.log(req.session);
+  if (req.session.passport.user) {
+    next();
+  } else {
+    res.redirect('/login');
+  }
+};

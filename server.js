@@ -25,7 +25,7 @@ app.configure(function () {
   app.use(express.static(__dirname + '/public'));
 });
 
-app.get('/', pieces.index);
+app.get('/', login.checkLogin, pieces.index);
 app.get('/login/facebook', passport.authenticate('facebook'));
 app.get('/login/facebook/callback',
   passport.authenticate('facebook',{failureRedirect: '/fail'}),
