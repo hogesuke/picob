@@ -89,11 +89,11 @@ exports.findAll = function(req, res) {
 
   Piece.find({year: requestYear, month: requestMonth}).populate('feeling_text').exec(function(err, results) {
     if (err) {
+      console.log('error: An error has occurred');
       res.send({'error': 'An error has occurred'});
       return;
     }
     console.log('Success: Getting piecelist');
-    console.log('results: ' + results);
 
     res.send(
       {

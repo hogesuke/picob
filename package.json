@@ -9,7 +9,9 @@
     "express": "3.4.7",
     "ejs": "*",
     "mongoose": "3.x",
-    "jquery": "~2.1.0-rc1"
+    "jquery": "~2.1.0-rc1",
+    "passport": "~0.2.0",
+    "passport-facebook": "~1.0.2"
   },
   "engines": {
     "ejs": "*"
