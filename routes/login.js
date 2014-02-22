@@ -63,3 +63,11 @@ exports.checkLogin = function(req, res, next) {
     res.redirect('/login');
   }
 };
+
+/**
+ * ログアウトする。
+ */
+exports.logout = function(req, res) {
+    req.logout();
+    res.redirect('/login');
+};
