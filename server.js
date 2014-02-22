@@ -27,7 +27,7 @@ app.configure(function () {
 
 app.get('/', login.checkLogin, pieces.index);
 app.get('/login', login.index);
-app.get('/login/facebook', passport.authenticate('facebook'));
+app.post('/login/facebook', passport.authenticate('facebook'));
 app.get('/login/facebook/callback',
   passport.authenticate('facebook',{failureRedirect: '/fail'}),
   function(req, res) {

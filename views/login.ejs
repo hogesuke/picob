@@ -12,10 +12,14 @@
       <div style="font-size: 20px; margin-bottom: 10px; color: white;">テスト用ログイン画面</div>
       <div id="login-control">
         <div class="login-button">
-          <button id="twitter-login-button">Twitterでログイン</button>
+          <form method="POST" action="/login/twitter">
+            <input type="submit" id="twitter-login-button" value="Twitterでログイン">
+          </form>
         </div>
         <div class="login-button">
-          <button id="facebook-login-button">facebookでログイン</button>
+          <form method="POST" action="/login/facebook">
+            <input type="submit" id="facebook-login-button" value="facebookでログイン">
+          </form>
         </div>
       </div>
     </div>
