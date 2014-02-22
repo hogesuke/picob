@@ -46,11 +46,17 @@ passport.deserializeUser(function(user, done){
 });
 
 /**
+ * ログイン画面の表示。
+ */
+exports.index = function(req, res) {
+  res.render('login.ejs', {});
+};
+
+/**
  * ログインチェック。
  * 未ログインの場合はログイン画面にリダイレクトする。
  */
 exports.checkLogin = function(req, res, next) {
-  console.log(req.session);
   if (req.session.passport.user) {
     next();
   } else {
