@@ -228,3 +228,8 @@ $(function() {
     });
   }
 });
+
+/**
+ * Facebook OAuthでログインした場合にurlに付与されてしまうハッシュを削除。
+ */
+if (window.location.hash == "#_=_") window.location.hash = "";
