@@ -86,8 +86,10 @@ exports.findAll = function(req, res) {
 
   var requestYear = req.params[0];
   var requestMonth = req.params[1].replace(/^0?([0-9]+)/, '$1');
+  var loginUser = req.session.passport.user;
 
-  Piece.find({year: requestYear, month: requestMonth}).populate('feeling_text').exec(function(err, results) {
+  Piece.find({user_id: loginUser._id, year: requestYear, month: requestMonth})
+    .populate('feeling_text').exec(function(err, results) {
     if (err) {
       console.log('error: An error has occurred');
       res.send({'error': 'An error has occurred'});
@@ -116,9 +118,10 @@ exports.findAll = function(req, res) {
 exports.upsertFeeling = function(req, res) {
   console.log('update feeling');
   console.log(req.body);
+  var loginUser = req.session.passport.user;
 
   Piece.update(
-      {'year': req.body.year, 'month': req.body.month, 'day': req.body.day},
+      {'user_id': loginUser._id, 'year': req.body.year, 'month': req.body.month, 'day': req.body.day},
       {'feeling': req.body.feeling, 'feeling_text': req.body.feeling_text_id},
       {'upsert': true, multi: false},
       function(err) {
