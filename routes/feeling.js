@@ -28,6 +28,22 @@ exports.testDataInsert = function(req, res) {
                   Feeling.create({text: '辛い'}, function(err, feeling) {
                     feeling.group = fGroup2;
                     feeling.save();
+                    FeelingGroup.create({
+                      name: 'ニュートラル'
+                    }, function(err, fGroup3) {
+                      if (err) {
+                        console.log('fGroup3でエラーですよ：' + err);
+                      }
+                      Feeling.create({text: '平常'}, function(err, feeling) {
+                        feeling.group = fGroup3;
+                        feeling.save(function(err) {
+                          Feeling.create({text: '退屈'}, function(err, feeling) {
+                            feeling.group = fGroup3;
+                            feeling.save();
+                          });
+                        });
+                      });
+                    });
                   });
                 });
               });
