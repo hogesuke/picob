@@ -8,7 +8,7 @@ var User = require('../models/user');
 passport.use(new FacebookStrategy({
     clientID: LoginConfigration.Facebook.clientID,
     clientSecret: LoginConfigration.Facebook.clientSecret,
-    callbackURL: "http://localhost:3000/login/facebook/callback"
+    callbackURL: LoginConfigration.Facebook.callbackURL
   },
   function(accessToken, refreshToken, profile, done) {
     User.findOne({id: profile.id, provider: profile.provider}, function(err, user) {
