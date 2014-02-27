@@ -5,6 +5,7 @@ var mongoose = require('mongoose');
 var dbConnector = require('./db');
 var passport = require('passport');
 var FacebookStrategy = require('passport-facebook').Strategy;
+var TwitterStrategy = require('passport-twitter').Strategy;
 var pieces = require('./routes/pieces');
 var feeling = require('./routes/feeling');
 var login = require('./routes/login');
@@ -29,8 +30,15 @@ app.get('/', login.checkLogin, pieces.index);
 app.get('/login', login.index);
 app.get('/logout', login.logout);
 app.post('/login/facebook', passport.authenticate('facebook'));
+app.post('/login/twitter', passport.authenticate('twitter'));
 app.get('/login/facebook/callback',
   passport.authenticate('facebook',{failureRedirect: '/fail'}),
+  function(req, res) {
+    res.redirect('/');
+  }
+);
+app.get('/login/twitter/callback',
+  passport.authenticate('twitter',{failureRedirect: '/fail'}),
   function(req, res) {
     res.redirect('/');
   }

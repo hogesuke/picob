@@ -2,38 +2,81 @@
 
 var passport = require('passport');
 var FacebookStrategy = require('passport-facebook').Strategy;
+var TwitterStrategy = require('passport-twitter').Strategy;
 var LoginConfigration = require('../config/login-configration');
 var User = require('../models/user');
 
+/**
+ * Facebook OAuth.
+ */
 passport.use(new FacebookStrategy({
-    clientID: LoginConfigration.Facebook.clientID,
-    clientSecret: LoginConfigration.Facebook.clientSecret,
-    callbackURL: LoginConfigration.Facebook.callbackURL
-  },
-  function(accessToken, refreshToken, profile, done) {
-    User.findOne({id: profile.id, provider: profile.provider}, function(err, user) {
-      if (err) {
-        return done(err);
-      }
-      if (user) {
-        done(null, user);
-      } else {
-        var newUser = new User();
-        newUser.id = profile.id;
-        newUser.name = profile.name.givenName + profile.name.middleName + profile.name.familyName;
-        newUser.provider = profile.provider;
-        newUser.save(function(err) {
-          if (err) {
-            console.log('error: An error has occurred');
-            return done(err);
-          }
-        });
+  clientID: LoginConfigration.Facebook.clientID,
+  clientSecret: LoginConfigration.Facebook.clientSecret,
+  callbackURL: LoginConfigration.Facebook.callbackURL
+}, facebookLogin));
 
-        done(null, newUser);
-      }
-    });
-  }
-));
+/**
+ * Twitter OAuth.
+ */
+passport.use(new TwitterStrategy({
+  consumerKey: LoginConfigration.Twitter.consumerKey,
+  consumerSecret: LoginConfigration.Twitter.consumerSecret,
+  callbackURL: LoginConfigration.Twitter.callbackURL
+}, twitterLogin));
+
+/**
+ * Facebook login.
+ */
+function facebookLogin(accessToken, refreshToken, profile, done) {
+  User.findOne({id: profile.id, provider: profile.provider}, function(err, user) {
+    if (err) {
+      return done(err);
+    }
+    if (user) {
+      done(null, user);
+    } else {
+      var newUser = new User();
+      newUser.id = profile.id;
+      newUser.name = profile.name.givenName + profile.name.middleName + profile.name.familyName;
+      newUser.provider = profile.provider;
+      newUser.save(function(err) {
+        if (err) {
+          console.log('error: An error has occurred');
+          return done(err);
+        }
+      });
+
+      done(null, newUser);
+    }
+  });
+}
+
+/**
+ * Twitter login.
+ */
+function twitterLogin(accessToken, refreshToken, profile, done) {
+  User.findOne({id: profile.id, provider: profile.provider}, function(err, user) {
+    if (err) {
+      return done(err);
+    }
+    if (user) {
+      done(null, user);
+    } else {
+      var newUser = new User();
+      newUser.id = profile.id;
+      newUser.name = profile.displayName;
+      newUser.provider = profile.provider;
+      newUser.save(function(err) {
+        if (err) {
+          console.log('error: An error has occurred');
+          return done(err);
+        }
+      });
+
+      done(null, newUser);
+    }
+  });
+}
 
 passport.serializeUser(function(user, done){
   done(null, user);
