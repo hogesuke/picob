@@ -23,15 +23,8 @@
       <div id="controler">
         <div id="month-controler">
           <div id="prev-month" class="web-icon-fontello">4</div>
-          <div id="list-month">
-            <ul>
-              <% for(var i = 0; i < monthArray.length; i++) { %>
-                <li class="<%= monthArray[i].state %>"
-                  year="<%= monthArray[i].year %>" month="<%= monthArray[i].month %>">
-                  <%= monthArray[i].year + "/" + monthArray[i].month %>
-                </li>
-              <% } %>
-            </ul>
+          <div id="current-ym" year="<%= year %>" month="<%= month %>">
+            <%= year + "/" + month %>
           </div>
           <div id="next-month" class="web-icon-fontello">5</div>
         </div>

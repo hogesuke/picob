@@ -9,25 +9,11 @@ var Feeling = require('../models/feeling').Feeling;
  */
 exports.calendar = function(req, res) {
 
-  var date = new Date();
-  var endYear = date.getFullYear();
-  var endMonth = date.getMonth() + 1;
-  var startYear = 2014;
-  var startMonth = 1;
-  var diffMonth = (endYear - startYear) * 12 + (endMonth - startMonth);
-  var monthArray = [];
+  var userSeq = req.params[0];
+  var targetYear = req.params[1];
+  var targetMonth = req.params[2];
 
-  for (var i = 0; i <= diffMonth; i++) {
-    monthArray.push({
-      year: startYear + Math.floor(i/12),
-      month: ("0" + (startMonth + i%12)).slice(-2),
-      state: "inactive"
-    });
-  }
-  // 現在月要素のステートを書き換え
-  var lastMonth = monthArray.pop();
-  lastMonth['state'] = "active";
-  monthArray.push(lastMonth);
+  // TODO 現在年月以下であることを精査する処理を追加すること。
 
   // feeling-textを取得する。
   FeelingGroup.find({}).sort({group: 'asc'}).exec(function(err, groups) {
@@ -50,7 +36,8 @@ exports.calendar = function(req, res) {
 
       res.render('index.ejs', {
         title: 'picob',
-        monthArray: monthArray,
+        year: targetYear,
+        month: targetMonth,
         feelings: feelingsEveryGroup
       });
     });
@@ -81,7 +68,7 @@ function filterByFeelingGroup(feelings, groupId) {
  * @param req.params[1] 取得対象の月
  * @return pieceの検索結果
  */
-exports.findAll = function(req, res) {
+exports.findCalendarData = function(req, res) {
   console.log('Getting piecelist');
 
   var requestYear = req.params[0];

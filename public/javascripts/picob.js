@@ -198,16 +198,25 @@ $(function() {
   }
 
   function selectPiece(doSuccess) {
-    var $currentYM = $('#list-month .active');
+    var userSeq = window.location.pathname;
+    var $currentYM = $('#current-ym');
     $.ajax({
       type: 'GET',
-      url: '/' + $currentYM.attr('year') + '/' + $currentYM.attr('month'),
+      url: '/' + getUserSeq() + '/' + $currentYM.attr('year') + '/' + $currentYM.attr('month'),
       success: function(res) {
         doSuccess(res.pieces);
       },
       error: function() {
       }
     });
+  }
+
+  function getUserSeq() {
+    var pathname = window.location.pathname;
+    if (pathname.match(/^\/([0-9]{1,9})\/calendar\/[0-9]{4}\/[0-9]{2}\/?$/)) {
+      return RegExp.$1
+    }
+    throw 'invalid url';
   }
 
   function upsertPiece(pieceStatus) {

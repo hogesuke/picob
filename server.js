@@ -42,8 +42,8 @@ app.get('/login/twitter/callback',
     res.redirect('/');
   }
 );
-app.get('/[0-9]+/calendar', pieces.calendar);
-app.get(/^\/(2[0-9]{3})\/(1[0-2]|0?[1-9])$/, pieces.findAll);
+app.get(/^\/([0-9]{1,9})\/calendar\/(2[0-9]{3})\/(1[0-2]|0?[1-9])$/, pieces.calendar); // /[userSeq]/calendar/[year]/[month]
+app.get(/^\/[0-9]{1,9}\/(2[0-9]{3})\/(1[0-2]|0?[1-9])$/, pieces.findCalendarData); // /[userSeq]/[year]/[month]
 app.post('/feeling', pieces.upsertFeeling);
 //app.get('/entry', pieces.findOne);
 app.get('/testDataInsert', feeling.testDataInsert);

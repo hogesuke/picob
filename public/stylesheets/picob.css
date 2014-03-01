@@ -152,46 +152,30 @@
   margin: 3px 0px;
 }
 /* line 118, picob.scss */
-#controler #month-controler #curretn-month {
-  padding: 11px 10px;
-}
-/* line 121, picob.scss */
-#controler #month-controler #list-month {
+#controler #month-controler #current-ym {
   margin: 3px 3px;
 }
-/* line 123, picob.scss */
-#controler #month-controler #list-month .active {
-  display: block;
-}
-/* line 126, picob.scss */
-#controler #month-controler #list-month .inactive {
-  display: none;
-}
-/* line 129, picob.scss */
-#controler #month-controler #list-month li {
-  padding: 7px 8px;
-}
 
-/* line 136, picob.scss */
+/* line 124, picob.scss */
 #form-window {
   display: none;
   padding: 20px 30px;
   background-color: #D1D1D1;
 }
-/* line 142, picob.scss */
+/* line 130, picob.scss */
 #form-window #feeling-text-container {
   margin: 5px 10px 20px 10px;
   font-size: 16px;
 }
-/* line 145, picob.scss */
+/* line 133, picob.scss */
 #form-window #feeling-text-container .feeling-group-title {
   font-size: 20px;
 }
-/* line 149, picob.scss */
+/* line 137, picob.scss */
 #form-window #feeling-text-container .feeling-text-choices.active {
   background-color: #2968D2;
 }
-/* line 152, picob.scss */
+/* line 140, picob.scss */
 #form-window #feeling-text-container .feeling-text-choices.inactive {
   background-color: transparent;
 }
