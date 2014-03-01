@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" >
+    <script type="text/javascript" src="/javascripts/jquery.min.js"></script>
+    <script type="text/javascript" src="/javascripts/knockout-3.0.0.js"></script>
+    <script type="text/javascript" src="/javascripts/knockout.mapping-latest.js"></script>
+    <script type="text/javascript" src="/javascripts/jquery.simplemodal.js"></script>
+    <script type="text/javascript" src="/javascripts/matchMedia.js"></script>
+    <link rel='stylesheet' href='/stylesheets/cssreset-min.css' />
+    <link rel='stylesheet' href='/stylesheets/picob.entry.css' />
+    <link rel='stylesheet' href='/stylesheets/picob.common.css' />
+  </head>
+  <body>
+    <div id="container">
+      <div id="header">
+        <form method="get" action="/logout">
+          <input id="logout-button" type="submit" value="ログアウト">
+        </form>
+      </div>
+      <div id="left-container">
+        <div id="feeling">
+        </div>
+      </div>
+      <div id="right-container">
+        <div id="date">
+        </div>
+        <div id="feeling-text">
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

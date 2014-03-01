@@ -26,7 +26,6 @@ app.configure(function () {
   app.use(express.static(__dirname + '/public'));
 });
 
-app.get('/', login.checkLogin, pieces.index);
 app.get('/login', login.index);
 app.get('/logout', login.logout);
 app.post('/login/facebook', passport.authenticate('facebook'));
@@ -43,8 +42,10 @@ app.get('/login/twitter/callback',
     res.redirect('/');
   }
 );
+app.get('/[0-9]+/calendar', pieces.calendar);
 app.get(/^\/(2[0-9]{3})\/(1[0-2]|0?[1-9])$/, pieces.findAll);
 app.post('/feeling', pieces.upsertFeeling);
+//app.get('/entry', pieces.findOne);
 app.get('/testDataInsert', feeling.testDataInsert);
 
 app.listen(3000);

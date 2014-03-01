@@ -5,6 +5,7 @@ var FacebookStrategy = require('passport-facebook').Strategy;
 var TwitterStrategy = require('passport-twitter').Strategy;
 var LoginConfigration = require('../config/login-configration');
 var User = require('../models/user');
+var Counter = require('../models/counter');
 
 /**
  * Facebook OAuth.
@@ -13,7 +14,7 @@ passport.use(new FacebookStrategy({
   clientID: LoginConfigration.Facebook.clientID,
   clientSecret: LoginConfigration.Facebook.clientSecret,
   callbackURL: LoginConfigration.Facebook.callbackURL
-}, facebookLogin));
+}, login));
 
 /**
  * Twitter OAuth.
@@ -22,12 +23,12 @@ passport.use(new TwitterStrategy({
   consumerKey: LoginConfigration.Twitter.consumerKey,
   consumerSecret: LoginConfigration.Twitter.consumerSecret,
   callbackURL: LoginConfigration.Twitter.callbackURL
-}, twitterLogin));
+}, login));
 
 /**
- * Facebook login.
+ * OAuth login.
  */
-function facebookLogin(accessToken, refreshToken, profile, done) {
+function login(accessToken, refreshToken, profile, done) {
   User.findOne({id: profile.id, provider: profile.provider}, function(err, user) {
     if (err) {
       return done(err);
@@ -35,47 +36,41 @@ function facebookLogin(accessToken, refreshToken, profile, done) {
     if (user) {
       done(null, user);
     } else {
-      var newUser = new User();
-      newUser.id = profile.id;
-      newUser.name = profile.name.givenName + profile.name.middleName + profile.name.familyName;
-      newUser.provider = profile.provider;
-      newUser.save(function(err) {
+      Counter.getNewSeq('UserSeq', function(err, counter) {
         if (err) {
           console.log('error: An error has occurred');
           return done(err);
         }
-      });
+        var newUser = new User();
+        newUser.seq = counter.seq;
+        newUser.id = profile.id;
+        newUser.name = editUserName(profile);
+        newUser.provider = profile.provider;
+        newUser.save(function(err) {
+          if (err) {
+            console.log('error: An error has occurred');
+            return done(err);
+          }
+        });
 
-      done(null, newUser);
+        done(null, newUser);
+      });
     }
   });
 }
 
 /**
- * Twitter login.
+ * Providerごとに編集したユーザー名を取得する。
  */
-function twitterLogin(accessToken, refreshToken, profile, done) {
-  User.findOne({id: profile.id, provider: profile.provider}, function(err, user) {
-    if (err) {
-      return done(err);
-    }
-    if (user) {
-      done(null, user);
-    } else {
-      var newUser = new User();
-      newUser.id = profile.id;
-      newUser.name = profile.displayName;
-      newUser.provider = profile.provider;
-      newUser.save(function(err) {
-        if (err) {
-          console.log('error: An error has occurred');
-          return done(err);
-        }
-      });
-
-      done(null, newUser);
-    }
-  });
+function editUserName(profile) {
+  if (profile.provider === 'facebook') {
+    return profile.name.givenName +
+      (typeof profile.name.middleName == 'undefined' ? '' : profile.name.middleName) +
+      profile.name.familyName;
+  }
+  if (profile.provider === 'twitter') {
+    return profile.displayName;
+  }
 }
 
 passport.serializeUser(function(user, done){

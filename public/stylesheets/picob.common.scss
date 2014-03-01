@@ -1,0 +1,42 @@
+$small: "only screen and (max-width:899px)";
+$large: "only screen and (min-width:900px)";
+$base_charctor_color: #000000;
+
+@font-face {
+    font-family: 'FontelloFonts';
+    src: url("../fonts/fontello.eot");
+    src: url("../fonts/fontello.eot?#iefix") format('embedded-opentype'), url("../fonts/fontello.woff") format('woff'), url("../fonts/fontello.ttf") format('truetype'), url("../fonts/fontello.svg#fontello") format('svg');
+}
+
+.web-icon-fontello {
+    font-family: 'FontelloFonts';
+}
+
+html, body {
+    height: 100%;
+}
+
+html {
+    overflow: scroll;
+    overflow: -moz-scrollbars-vertical;
+    overflow-x: scroll;
+    background-image: url("../images/background.jpg");
+}
+
+body {
+    padding: 10px;
+    font-family: 'Lucida Grande', 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', meiryo, 'メイリオ', sans-serif;
+    font-size: 13px;
+    *font-size:small;
+    *font:x-small;
+}
+
+#container {
+    @media #{$small} {
+        width: 320px;
+    }
+    @media #{$large} {
+        width: 900px;
+    }
+    margin: 0 auto;
+}

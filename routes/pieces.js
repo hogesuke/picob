@@ -7,7 +7,7 @@ var Feeling = require('../models/feeling').Feeling;
 /**
  * pieceをカレンダー表示する。
  */
-exports.index = function(req, res) {
+exports.calendar = function(req, res) {
 
   var date = new Date();
   var endYear = date.getFullYear();

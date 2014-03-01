@@ -5,6 +5,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var UserSchema = new Schema({
+  seq: {type: Number},
   id: {type: String},
   name: {type: String},
   provider: {type: String},
