@@ -16,7 +16,32 @@ exports.calendar = function(req, res) {
 
   // TODO 現在年月以下であることを精査する処理を追加すること。
 
-  // feeling-textを取得する。
+  res.render('index.ejs', {
+    year: targetYear,
+    month: targetMonth
+  });
+};
+
+/**
+ * pieceを個別表示する。
+ */
+exports.oneDay = function(req, res) {
+
+  var targetUserSeq = req.params[0];
+  var requestYear = req.params[1];
+  var requestMonth = req.params[2].replace(/^0?([0-9]+)/, '$1');
+  var requestDay = req.params[3].replace(/^0?([0-9]+)/, '$1');
+  var loginUser = req.session.passport.user;
+  var isMe = false;
+
+  // 取得対象のユーザーがログインユーザー（自分）であるか確認する。
+  console.log('loginUser:  ' + loginUser);
+  if (loginUser.seq === targetUserSeq) {
+    isMe = true;
+  }
+
+  // TODO 現在年月以下であることを精査する処理を追加すること。
+
   FeelingGroup.find({}).sort({group: 'asc'}).exec(function(err, groups) {
     if (err) {
       res.send({'error': 'An error has occurred'});
@@ -30,17 +55,31 @@ exports.calendar = function(req, res) {
       }
       console.log('Success: Getting feeling-text list');
 
+      // グループIDごとの配列となるように編集
       var feelingsEveryGroup = {};
       for (var i in groups) {
         feelingsEveryGroup[groups[i].name] = filterByFeelingGroup(feelings, groups[i]._id.toString());
       }
 
-      res.render('index.ejs', {
-        title: 'picob',
-        year: targetYear,
-        month: targetMonth,
-        feelings: feelingsEveryGroup
-      });
+      Piece.findOne({user_seq: targetUserSeq, year: requestYear, month: requestMonth, day: requestDay})
+        .populate('feeling_text').exec(function(err, result) {
+          if (err) {
+            console.log('error: An error has occurred');
+            res.render('500.ejs');
+            return;
+          }
+          console.log('Success: Getting piece');
+          console.log('piece: ' + result);
+
+          res.render('entry.ejs', {
+            year: requestYear,
+            month: requestMonth,
+            day: requestDay,
+            feelings: feelingsEveryGroup,
+            piece: result,
+            isMe: isMe
+          });
+        });
     });
   });
 };
@@ -83,7 +122,7 @@ exports.findCalendarData = function(req, res) {
     isMe = true;
   }
 
-  Piece.find({user_seq: loginUser.seq, year: requestYear, month: requestMonth})
+  Piece.find({user_seq: targetUserSeq, year: requestYear, month: requestMonth})
     .populate('feeling_text').exec(function(err, results) {
       if (err) {
         console.log('error: An error has occurred');
@@ -101,26 +140,6 @@ exports.findCalendarData = function(req, res) {
         });
     });
 }
-
-/**
- * 閲覧対象のユーザーが存在するか確認する。
- */
-exports.validateUser = function(req, res, next) {
-  var targetUserSeq = req.params[0];
-  User.count({seq: targetUserSeq}, function(err, count) {
-    if (err) {
-      console.log('error: An error has occurred');
-      return;
-    }
-    if (!count) {
-      console.log('error: An unknown user');
-      res.render('unknown.ejs');
-      return;
-    }
-    
-    next();
-  });
-};
 
 /**
  * pieceの更新・登録を行う(Ajax)。
@@ -149,7 +168,7 @@ exports.upsertFeeling = function(req, res) {
 }
 
 /**
- * pieceの検索結果配列をViewにbindできる状態に編集し返却する。
+ * pieceの検索結果配列をCalendarViewにbindできる状態に編集し返却する。
  * 
  * @param requestYear 取得対象の年
  * @param requestMonth 取得対象の月

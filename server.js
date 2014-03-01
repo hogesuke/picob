@@ -43,16 +43,20 @@ app.get('/login/twitter/callback',
     res.redirect('/');
   }
 );
-app.get(/^\/([0-9]{1,9})\/calendar\/(2[0-9]{3})\/(1[0-2]|0?[1-9])$/, // /[userSeq]/calendar/[year]/[month]
+app.get(/^\/([0-9]{1,9})\/calendar\/(2[0-9]{3})\/(1[0-2]|0?[1-9])\/?$/, // /[userSeq]/calendar/[year]/[month]
     login.checkLogin,
-    pieces.validateUser,
+    user.validateUser,
     pieces.calendar);
-app.get(/^\/([0-9]{1,9})\/(2[0-9]{3})\/(1[0-2]|0?[1-9])$/, // /[userSeq]/[year]/[month]
+app.get(/^\/([0-9]{1,9})\/(2[0-9]{3})\/(1[0-2]|0?[1-9])\/?$/, // /[userSeq]/[year]/[month]
     login.checkLogin,
     user.validateUser,
     pieces.findCalendarData);
 app.post('/feeling', pieces.upsertFeeling);
-//app.get('/entry', pieces.findOne);
+//app.get(/^\/([0-9]{1,9})\/entry\/today$/, xxx);// /[userSeq]/entry/today
+app.get(/^\/([0-9]{1,9})\/entry\/(2[0-9]{3})\/(1[0-2]|0?[1-9])\/(0?[1-9]|[1,2][0-9]|3[0,1])\/?$/, // /[userSeq]/entry/today
+    login.checkLogin,
+    user.validateUser,
+    pieces.oneDay);
 app.get('/testDataInsert', feeling.testDataInsert);
 
 app.listen(3000);
