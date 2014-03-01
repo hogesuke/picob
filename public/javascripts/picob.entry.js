@@ -1,5 +1,63 @@
 $(function() {
 
+  var pieceStatus = {
+    userSeq: undefined,
+    year: undefined,
+    month: undefined,
+    day: undefined,
+    feeling: undefined,
+    feelingText: undefined,
+    feelingTextId: undefined,
+    errorMsg: undefined,
+    parsePathName: function() {
+      var pathname = window.location.pathname;
+      if (pathname.match(/^\/([0-9]{1,9})\/entry\/([0-9]{4})\/([0-9]{2})\/([0-9]{2})\/?$/)) {
+        this.userSeq = RegExp.$1;
+        this.year = RegExp.$2;
+        this.month = RegExp.$3;
+        this.day = RegExp.$4;
+        return;
+      }
+      throw 'invalid url';
+    },
+    isValid: function() {
+      if (!(this.year && this.month && this.day)) {
+        return false;
+      }
+      if (!this.feeling) {
+        errorMsg = '気分を選択してください。';
+        return false;
+      }
+      if (!this.feelingTextId) {
+        errorMsg = 'もっとも近い感情を選択してください。';
+        return false;
+      }
+      if (this.year.match(/20[1-9][0-9]/) == null) {
+        errorMsg = '何かがおかしいのでページをリロードしてください。';
+        return false;
+      }
+      if (this.month.match(/[0,1][0-9]|[1-9]/) == null) {
+        errorMsg = '何かがおかしいのでページをリロードしてください。';
+        return false;
+      }
+      if (this.day.match(/[1-3][0-9]|[1-9]/) == null) {
+        errorMsg = '何かがおかしいのでページをリロードしてください。';
+        return false;
+      }
+      if (this.feeling.match(/[1-3]/) == null) {
+        errorMsg = '何かがおかしいのでページをリロードしてください。';
+        return false;
+      }
+      if (this.feelingTextId.match(/[0-9a-z]+/) == null) {
+        errorMsg = '何かがおかしいのでページをリロードしてください。';
+        return false;
+      }
+      return true;
+    }
+  }
+
+  pieceStatus.parsePathName();
+
   $(document).on('click', '.feeling-choices', function() {
     var feeling = $.trim($(this).text());
     var $selected = $('#selected-feeling');
@@ -19,22 +77,22 @@ $(function() {
     if (pieceStatus.isValid()) {
       upsertPiece(pieceStatus).done(function() {
         // 登録内容をpieceに反映
-        var $inputFeeling = pieceStatus.$piece.find('.input-feeling')
-        var $feelingText = pieceStatus.$piece.children('.feeling-text');
-        $inputFeeling.val(pieceStatus.feeling);
-        $inputFeeling.trigger('change');
-        $feelingText.text(pieceStatus.feelingText);
-        $feelingText.attr({'feeling-text-id': pieceStatus.feelingTextId});
+        //var $inputFeeling = pieceStatus.$piece.find('.input-feeling')
+        //var $feelingText = pieceStatus.$piece.children('.feeling-text');
+        //$inputFeeling.val(pieceStatus.feeling);
+        //$inputFeeling.trigger('change');
+        //$feelingText.text(pieceStatus.feelingText);
+        //$feelingText.attr({'feeling-text-id': pieceStatus.feelingTextId});
 
         // 後片付け
-        pieceStatus.$piece.children('.empty-feeling').css({'display': 'none'});
-        pieceStatus.clear();
-        $.modal.close();
+        //pieceStatus.$piece.children('.empty-feeling').css({'display': 'none'});
+        //pieceStatus.clear();
+        //$.modal.close();
       });
     }
   });
 
-    $.fn.exclusiveActiveToggle = function(selector) {
+  $.fn.exclusiveActiveToggle = function(selector) {
     $(selector).each(function() {
       var $self = $(this);
       if ($self.is('.active')) {
@@ -46,22 +104,11 @@ $(function() {
     });
   }
 
-  function getUserSeq() {
-    var pathname = window.location.pathname;
-    if (pathname.match(/^\/([0-9]{1,9})\/calendar\/[0-9]{4}\/[0-9]{2}\/?$/)) {
-      return RegExp.$1
-    }
-    throw 'invalid url';
-  }
-
   function upsertPiece(pieceStatus) {
     return $.ajax({
       type: 'POST',
-      url: '/feeling',
+      url: '/' + pieceStatus.userSeq + '/entry/' + pieceStatus.year + '/' + pieceStatus.month + '/' + pieceStatus.day,
       data: {
-        'year': pieceStatus.year,
-        'month': pieceStatus.month,
-        'day': pieceStatus.day,
         'feeling': pieceStatus.feeling,
         'feeling_text_id': pieceStatus.feelingTextId
       },

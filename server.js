@@ -27,6 +27,9 @@ app.configure(function () {
   app.use(express.static(__dirname + '/public'));
 });
 
+/**
+ * loginのルーティング
+ */
 app.get('/login', login.index);
 app.get('/logout', login.logout);
 app.post('/login/facebook', passport.authenticate('facebook'));
@@ -43,6 +46,10 @@ app.get('/login/twitter/callback',
     res.redirect('/');
   }
 );
+
+/**
+ * calendarページのルーティング
+ */
 app.get(/^\/([0-9]{1,9})\/calendar\/(2[0-9]{3})\/(1[0-2]|0?[1-9])\/?$/, // /[userSeq]/calendar/[year]/[month]
     login.checkLogin,
     user.validateUser,
@@ -51,12 +58,24 @@ app.get(/^\/([0-9]{1,9})\/(2[0-9]{3})\/(1[0-2]|0?[1-9])\/?$/, // /[userSeq]/[yea
     login.checkLogin,
     user.validateUser,
     pieces.findCalendarData);
-app.post('/feeling', pieces.upsertFeeling);
+
+/**
+ * entryページのルーティング
+ */
+var entryUri = /^\/([0-9]{1,9})\/entry\/(2[0-9]{3})\/(1[0-2]|0?[1-9])\/(0?[1-9]|[1,2][0-9]|3[0,1])\/?$/;
 //app.get(/^\/([0-9]{1,9})\/entry\/today$/, xxx);// /[userSeq]/entry/today
-app.get(/^\/([0-9]{1,9})\/entry\/(2[0-9]{3})\/(1[0-2]|0?[1-9])\/(0?[1-9]|[1,2][0-9]|3[0,1])\/?$/, // /[userSeq]/entry/today
+app.get(entryUri,
     login.checkLogin,
     user.validateUser,
     pieces.oneDay);
+app.post(entryUri,
+    login.checkLogin,
+    user.validateUser, // TODO ユーザーの存在チェックじゃなくて対象ユーザーが自分かをチェックするようにする
+    pieces.upsertPiece);
+
+/**
+ * デバッグ用のルーティング
+ */
 app.get('/testDataInsert', feeling.testDataInsert);
 
 app.listen(3000);

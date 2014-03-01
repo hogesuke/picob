@@ -130,6 +130,7 @@ exports.findCalendarData = function(req, res) {
         return;
       }
       console.log('Success: Getting piecelist');
+      console.log('results: ' + results.length);
 
       res.send(
         {
@@ -150,21 +151,23 @@ exports.findCalendarData = function(req, res) {
  * @param req.body.feeling feeling
  * @return upsertの結果メッセージ
  */
-exports.upsertFeeling = function(req, res) {
-  console.log('update feeling');
-  console.log(req.body);
+exports.upsertPiece = function(req, res) {
+  var requestYear = req.params[1];
+  var requestMonth = req.params[2].replace(/^0?([0-9]+)/, '$1');
+  var requestDay = req.params[3].replace(/^0?([0-9]+)/, '$1');
   var loginUser = req.session.passport.user;
 
   Piece.update(
-      {'user_id': loginUser._id, 'year': req.body.year, 'month': req.body.month, 'day': req.body.day},
+      {'user_seq': loginUser.seq, 'year': requestYear, 'month': requestMonth, 'day': requestDay},
       {'feeling': req.body.feeling, 'feeling_text': req.body.feeling_text_id},
       {'upsert': true, multi: false},
       function(err) {
         if (err) {
           res.send({'error': 'An error has occurred - ' + err});
         }
+        console.log('Success: Upsert piece');
+        res.send({'msg': 'Success: upsert feeling'});
       });
-  res.send({'msg': 'Success: upsert feeling'});
 }
 
 /**
