@@ -3,6 +3,7 @@
 var Piece = require('../models/piece');
 var FeelingGroup = require('../models/feeling').FeelingGroup;
 var Feeling = require('../models/feeling').Feeling;
+var User = require('../models/user');
 
 /**
  * pieceをカレンダー表示する。
@@ -42,7 +43,7 @@ exports.calendar = function(req, res) {
       });
     });
   });
-}
+};
 
 /**
  * feelings配列からgroupIdが合致する要素のみを抽出し、
@@ -71,27 +72,55 @@ function filterByFeelingGroup(feelings, groupId) {
 exports.findCalendarData = function(req, res) {
   console.log('Getting piecelist');
 
-  var requestYear = req.params[0];
-  var requestMonth = req.params[1].replace(/^0?([0-9]+)/, '$1');
+  var targetUserSeq = req.params[0];
+  var requestYear = req.params[1];
+  var requestMonth = req.params[2].replace(/^0?([0-9]+)/, '$1');
   var loginUser = req.session.passport.user;
+  var isMe = false;
 
-  Piece.find({user_id: loginUser._id, year: requestYear, month: requestMonth})
+  console.log('loginUser:  ' + loginUser);
+  if (loginUser.seq === targetUserSeq) {
+    isMe = true;
+  }
+
+  Piece.find({user_seq: loginUser.seq, year: requestYear, month: requestMonth})
     .populate('feeling_text').exec(function(err, results) {
+      if (err) {
+        console.log('error: An error has occurred');
+        res.send({'error': 'An error has occurred'});
+        return;
+      }
+      console.log('Success: Getting piecelist');
+
+      res.send(
+        {
+          year: requestYear,
+          month: requestMonth,
+          pieces: createPieceArray(requestYear, requestMonth, results),
+          isMe: isMe
+        });
+    });
+}
+
+/**
+ * 閲覧対象のユーザーが存在するか確認する。
+ */
+exports.validateUser = function(req, res, next) {
+  var targetUserSeq = req.params[0];
+  User.count({seq: targetUserSeq}, function(err, count) {
     if (err) {
       console.log('error: An error has occurred');
-      res.send({'error': 'An error has occurred'});
       return;
     }
-    console.log('Success: Getting piecelist');
-
-    res.send(
-      {
-        year: requestYear,
-        month: requestMonth,
-        pieces: createPieceArray(requestYear, requestMonth, results)
-      });
+    if (!count) {
+      console.log('error: An unknown user');
+      res.render('unknown.ejs');
+      return;
+    }
+    
+    next();
   });
-}
+};
 
 /**
  * pieceの更新・登録を行う(Ajax)。

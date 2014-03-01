@@ -5,7 +5,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var PieceSchema = new Schema({
-    user_id: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
+    user_seq: {type: Number},
     year: {type: String},
     month: {type: String},
     day: {type: String},
