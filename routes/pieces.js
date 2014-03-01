@@ -23,18 +23,40 @@ exports.calendar = function(req, res) {
 };
 
 /**
- * pieceを個別表示する。
+ * 今日のpieceを個別表示する。
+ */
+exports.today = function(req, res) {
+
+  var date = new Date();
+  var requestYear = date.getFullYear();
+  var requestMonth = date.getMonth() + 1;
+  var requestDay = date.getDate();
+
+  doEntryView(req, res, requestYear, requestMonth, requestDay);
+};
+
+/**
+ * 指定した年月日のpieceを個別表示する。
  */
 exports.oneDay = function(req, res) {
 
-  var targetUserSeq = req.params[0];
   var requestYear = req.params[1];
   var requestMonth = req.params[2].replace(/^0?([0-9]+)/, '$1');
   var requestDay = req.params[3].replace(/^0?([0-9]+)/, '$1');
-  var loginUser = req.session.passport.user;
-  var isMe = false;
+
+  doEntryView(req, res, requestYear, requestMonth, requestDay);
+};
+
+/**
+ * EntryViewの表示処理。
+ */
+function doEntryView(req, res, requestYear, requestMonth, requestDay) {
+
+  var targetUserSeq = req.params[0];
 
   // 取得対象のユーザーがログインユーザー（自分）であるか確認する。
+  var isMe = false;
+  var loginUser = req.session.passport.user;
   console.log('loginUser:  ' + loginUser);
   if (loginUser.seq === targetUserSeq) {
     isMe = true;
@@ -82,7 +104,7 @@ exports.oneDay = function(req, res) {
         });
     });
   });
-};
+}
 
 /**
  * feelings配列からgroupIdが合致する要素のみを抽出し、

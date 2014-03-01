@@ -62,8 +62,11 @@ app.get(/^\/([0-9]{1,9})\/(2[0-9]{3})\/(1[0-2]|0?[1-9])\/?$/, // /[userSeq]/[yea
 /**
  * entryページのルーティング
  */
-var entryUri = /^\/([0-9]{1,9})\/entry\/(2[0-9]{3})\/(1[0-2]|0?[1-9])\/(0?[1-9]|[1,2][0-9]|3[0,1])\/?$/;
-//app.get(/^\/([0-9]{1,9})\/entry\/today$/, xxx);// /[userSeq]/entry/today
+var entryUri = /^\/([0-9]{1,9})\/entry\/(2[0-9]{3})\/(1[0-2]|0?[1-9])\/(0?[1-9]|[1,2][0-9]|3[0,1])\/?$/; // /[userSeq]/entry/[year]/[month]/[day]
+app.get(/^\/([0-9]{1,9})\/entry\/today$/, // /[userSeq]/entry/today
+    login.checkLogin,
+    user.validateUser,
+    pieces.today);
 app.get(entryUri,
     login.checkLogin,
     user.validateUser,

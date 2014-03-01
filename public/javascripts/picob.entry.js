@@ -9,13 +9,15 @@ $(function() {
     feelingText: undefined,
     feelingTextId: undefined,
     errorMsg: undefined,
-    parsePathName: function() {
+    init: function() {
       var pathname = window.location.pathname;
-      if (pathname.match(/^\/([0-9]{1,9})\/entry\/([0-9]{4})\/([0-9]{2})\/([0-9]{2})\/?$/)) {
+      if (pathname.match(/^\/([0-9]{1,9})\/entry\/.+$/)) {
         this.userSeq = RegExp.$1;
-        this.year = RegExp.$2;
-        this.month = RegExp.$3;
-        this.day = RegExp.$4;
+
+        var $date = $('#date');
+        this.year = $date.attr('year');
+        this.month = $date.attr('month');
+        this.day = $date.attr('day');
         return;
       }
       throw 'invalid url';
@@ -56,7 +58,7 @@ $(function() {
     }
   }
 
-  pieceStatus.parsePathName();
+  pieceStatus.init();
 
   $(document).on('click', '.feeling-choices', function() {
     var feeling = $.trim($(this).text());
