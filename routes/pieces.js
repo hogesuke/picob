@@ -11,14 +11,27 @@ var User = require('../models/user');
 exports.calendar = function(req, res) {
 
   var userSeq = req.params[0];
-  var targetYear = req.params[1];
-  var targetMonth = req.params[2];
+  var requestYear = req.params[1];
+  var requestMonth = req.params[2];
+  var nextDate = computeMonth(requestYear, requestMonth, 1);
+  var prevDate = computeMonth(requestYear, requestMonth, -1);
 
   // TODO 現在年月以下であることを精査する処理を追加すること。
 
   res.render('index.ejs', {
-    year: targetYear,
-    month: targetMonth
+    userSeq: userSeq,
+    thisDate: {
+      year: requestYear,
+      month: requestMonth
+    },
+    nextDate: {
+      year: nextDate.getFullYear(),
+      month: nextDate.getMonth() + 1 
+    },
+    prevDate: {
+      year: prevDate.getFullYear(),
+      month: prevDate.getMonth() + 1 
+    }
   });
 };
 
@@ -93,10 +106,26 @@ function doEntryView(req, res, requestYear, requestMonth, requestDay) {
           console.log('Success: Getting piece');
           console.log('piece: ' + result);
 
+          var nextDate = computeDate(requestYear, requestMonth, requestDay, 1);
+          var prevDate = computeDate(requestYear, requestMonth, requestDay, -1);
+
           res.render('entry.ejs', {
-            year: requestYear,
-            month: requestMonth,
-            day: requestDay,
+            userSeq: targetUserSeq,
+            thisDate: {
+              year: requestYear,
+              month: requestMonth,
+              day: requestDay
+            },
+            nextDate: {
+              year: nextDate.getFullYear(),
+              month: nextDate.getMonth() + 1,
+              day: nextDate.getDate()
+            },
+            prevDate: {
+              year: prevDate.getFullYear(),
+              month: prevDate.getMonth() + 1,
+              day: prevDate.getDate()
+            },
             feelings: feelingsEveryGroup,
             piece: result,
             isMe: isMe
@@ -104,6 +133,35 @@ function doEntryView(req, res, requestYear, requestMonth, requestDay) {
         });
     });
   });
+}
+
+/**
+ * 年月日のn日後,n日前を求める。
+ *
+ * @param requestYear 年
+ * @param requestMonth 月
+ * @param requestDay 日
+ * @param addDays 加算日数（マイナスの指定も可能）
+ */
+function computeDate(requestYear, requestMonth, requestDay, addDays) {
+  var dt = new Date(requestYear, requestMonth - 1, requestDay);
+  var baseSec = dt.getTime();
+  var addSec = addDays * (24 * 60 * 60 * 1000); // 加算日数 * 1日のミリ秒
+  dt.setTime(baseSec + addSec);
+  return dt;
+}
+
+/**
+ * 年月のn月後,n月前を求める。
+ *
+ * @param requestYear 年
+ * @param requestMonth 月
+ * @param addMonths 加算月数（マイナスの指定も可能）
+ */
+function computeMonth(requestYear, requestMonth, addMonths) {
+  var dt = new Date(requestYear, requestMonth - 1, 1);
+  dt.setMonth(dt.getMonth() + addMonths);
+  return dt;
 }
 
 /**

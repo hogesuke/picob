@@ -26,15 +26,24 @@
         </div>
       </div>
       <div id="right-container">
-        <div id="date" year="<%= year %>" month="<%= month %>" day="<%= day %>">
-          <% if (piece) {%>
-            <%= year + '/' + month + '/' + day %>
-          <% } %>
+        <div id="date" year="<%= thisDate.year %>" month="<%= thisDate.month %>" day="<%= thisDate.day %>">
+          <%= thisDate.year + '/' + thisDate.month + '/' + thisDate.day %>
         </div>
         <div id="feeling-text">
           <% if (piece && piece.feeling_text) {%>
             <%= piece.feeling_text.text %>
           <% } %>
+        </div>
+      </div>
+      <div id="bottom-container">
+        <div id="prev-date" class="web-icon-fontello">
+          <a href="/<%= userSeq %>/entry/<%= prevDate.year %>/<%= prevDate.month %>/<%= prevDate.day %>" >4</a>
+        </div>
+        <div id="switch-calendar" class="web-icon-fontello">
+          <a href="/<%= userSeq %>/calendar/<%= thisDate.year %>/<%= thisDate.month %>" >7</a>
+        </div>
+        <div id="next-date" class="web-icon-fontello">
+          <a href="/<%= userSeq %>/entry/<%= nextDate.year %>/<%= nextDate.month %>/<%= nextDate.day %>" >5</a>
         </div>
       </div>
 

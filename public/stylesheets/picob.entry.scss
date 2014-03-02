@@ -2,29 +2,57 @@ $small: "only screen and (max-width:899px)";
 $large: "only screen and (min-width:900px)";
 $base_charctor_color: #000000;
 
-#pieces {
-}
-
-.week {
-    clear: both;
-}
-
-.piece, .empty-piece, .dummy-piece {
-    @media #{$small} {
-        width: 30px;
-        height: 30px;
-        padding: 5px;
-        margin: 2px 2px;
-    }
-    @media #{$large} {
-        width: 100px;
-        height: 100px;
+#container {
+    #left-container {
+        float: left;
         padding: 10px;
-        margin: 3px 3px;
+        width: 430px;
+        height: 600px;
+        background-color: #146EA6;
+        color: #FFFFFF;
+        font-size: 160px;
     }
-    float: left;
-    background-color: rgba(255,255,255,0.50);
-    color: $base_charctor_color;
+    #right-container {
+        float: left;
+        width: 450px;
+        height: 600px;
+        #date {
+            padding: 10px;
+            height: 100px;
+            background-color: #2192BF;
+            color: #FFFFFF;
+            font-size: 65px;
+        }
+        #feeling-text {
+            padding: 10px;
+            height: 480px;
+            background-color: #36A6BF;
+            color: #FFFFFF;
+            font-size: 65px;
+        }
+    }
+    #bottom-container {
+        clear: both;
+        text-align: center;
+        color: #FFFFFF;
+        font-size: 50px;
+        div {
+            float: left;
+            padding: 10px;
+        }
+        #prev-date {
+            width: 280px;
+            background-color: #84C9D9;
+        }
+        #next-date {
+            width: 280px;
+            background-color: #84C9D9;
+        }
+        #switch-calendar {
+            width: 280px;
+            background-color: #2192BF;
+        }
+    }
 }
 
 .feeling, .empty-feeling {
@@ -37,17 +65,6 @@ $base_charctor_color: #000000;
         font-size: 40px;
     }
     text-align: center;
-}
-
-.date {
-    @media #{$small} {
-        font-size: 12px;
-    }
-    @media #{$large} {
-        font-size: 28px;
-        margin-bottom: 2px;
-    }
-    text-align: right;
 }
 
 .feeling-selector {
@@ -78,64 +95,10 @@ $base_charctor_color: #000000;
     }
 }
 
-#day {
-    clear: both;
-    div {
-        @media #{$small} {
-            width: 30px;
-            font-size: 11px;
-            padding: 5px;
-            margin: 2px 2px;
-        }
-        @media #{$large} {
-            width: 100px;
-            font-size: 15px;
-            padding: 10px;
-            margin: 3px 3px;
-        }
-        float: left;
-        background-color: rgba(255,255,255,0.50);
-        color: $base_charctor_color;
-        text-align: center;
-        &.holiday {
-            color: #BF4245;
-        }
-    }
-}
-
-#controler {
-    div {
-        float: left;
-    }
-    #month-controler {
-        margin: 3px 3px;
-        background-color: #FFFFFF;
-        font-size: 18px;
-        #next-month, #prev-month {
-            padding: 7px 8px;
-            margin: 3px 0px;
-        }
-        #curretn-month {
-            padding: 11px 10px;
-        }
-        #list-month {
-            margin: 3px 3px;
-            .active {
-                display: block;
-            }
-            .inactive {
-                display: none;
-            }
-            li {
-                padding: 7px 8px;
-            }
-        }
-    }
-}
-
 #form-window {
     display: none;
     padding: 20px 30px;
+    margin-top: 100px;
     background-color: #D1D1D1;
     #selected-feeling {
     }

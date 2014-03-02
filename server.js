@@ -37,13 +37,15 @@ app.post('/login/twitter', passport.authenticate('twitter'));
 app.get('/login/facebook/callback',
   passport.authenticate('facebook',{failureRedirect: '/fail'}),
   function(req, res) {
-    res.redirect('/');
+    var loginUser = req.session.passport.user;
+    res.redirect('/' + loginUser.seq + '/entry/today');
   }
 );
 app.get('/login/twitter/callback',
   passport.authenticate('twitter',{failureRedirect: '/fail'}),
   function(req, res) {
-    res.redirect('/');
+    var loginUser = req.session.passport.user;
+    res.redirect('/' + loginUser.seq + '/entry/today');
   }
 );
 

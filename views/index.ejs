@@ -22,11 +22,15 @@
       </div>
       <div id="controler">
         <div id="month-controler">
-          <div id="prev-month" class="web-icon-fontello">4</div>
-          <div id="current-ym" year="<%= year %>" month="<%= month %>">
-            <%= year + "/" + month %>
+          <div id="prev-month" class="web-icon-fontello">
+            <a href="/<%= userSeq %>/calendar/<%= prevDate.year %>/<%= prevDate.month %>">4</a>
           </div>
-          <div id="next-month" class="web-icon-fontello">5</div>
+          <div id="current-ym" year="<%= thisDate.year %>" month="<%= thisDate.month %>">
+            <%= thisDate.year + "/" + thisDate.month %>
+          </div>
+          <div id="next-month" class="web-icon-fontello">
+            <a href="/<%= userSeq %>/calendar/<%= nextDate.year %>/<%= nextDate.month %>">5</a>
+          </div>
         </div>
       </div>
       <div id="day">

@@ -1,39 +1,69 @@
-/* line 8, picob.entry.scss */
-.week {
-  clear: both;
-}
-
-/* line 12, picob.entry.scss */
-.piece, .empty-piece, .dummy-piece {
+/* line 6, picob.entry.scss */
+#container #left-container {
   float: left;
-  background-color: rgba(255, 255, 255, 0.5);
-  color: black;
+  padding: 10px;
+  width: 430px;
+  height: 600px;
+  background-color: #146EA6;
+  color: #FFFFFF;
+  font-size: 160px;
 }
-@media only screen and (max-width: 899px) {
-  /* line 12, picob.entry.scss */
-  .piece, .empty-piece, .dummy-piece {
-    width: 30px;
-    height: 30px;
-    padding: 5px;
-    margin: 2px 2px;
-  }
+/* line 15, picob.entry.scss */
+#container #right-container {
+  float: left;
+  width: 450px;
+  height: 600px;
 }
-@media only screen and (min-width: 900px) {
-  /* line 12, picob.entry.scss */
-  .piece, .empty-piece, .dummy-piece {
-    width: 100px;
-    height: 100px;
-    padding: 10px;
-    margin: 3px 3px;
-  }
+/* line 19, picob.entry.scss */
+#container #right-container #date {
+  padding: 10px;
+  height: 100px;
+  background-color: #2192BF;
+  color: #FFFFFF;
+  font-size: 65px;
+}
+/* line 26, picob.entry.scss */
+#container #right-container #feeling-text {
+  padding: 10px;
+  height: 480px;
+  background-color: #36A6BF;
+  color: #FFFFFF;
+  font-size: 65px;
+}
+/* line 34, picob.entry.scss */
+#container #bottom-container {
+  clear: both;
+  text-align: center;
+  color: #FFFFFF;
+  font-size: 50px;
+}
+/* line 39, picob.entry.scss */
+#container #bottom-container div {
+  float: left;
+  padding: 10px;
+}
+/* line 43, picob.entry.scss */
+#container #bottom-container #prev-date {
+  width: 280px;
+  background-color: #84C9D9;
+}
+/* line 47, picob.entry.scss */
+#container #bottom-container #next-date {
+  width: 280px;
+  background-color: #84C9D9;
+}
+/* line 51, picob.entry.scss */
+#container #bottom-container #switch-calendar {
+  width: 280px;
+  background-color: #2192BF;
 }
 
-/* line 30, picob.entry.scss */
+/* line 58, picob.entry.scss */
 .feeling, .empty-feeling {
   text-align: center;
 }
 @media only screen and (max-width: 899px) {
-  /* line 30, picob.entry.scss */
+  /* line 58, picob.entry.scss */
   .feeling, .empty-feeling {
     font-size: 14px;
     position: relative;
@@ -41,38 +71,20 @@
   }
 }
 @media only screen and (min-width: 900px) {
-  /* line 30, picob.entry.scss */
+  /* line 58, picob.entry.scss */
   .feeling, .empty-feeling {
     font-size: 40px;
   }
 }
 
-/* line 42, picob.entry.scss */
-.date {
-  text-align: right;
-}
-@media only screen and (max-width: 899px) {
-  /* line 42, picob.entry.scss */
-  .date {
-    font-size: 12px;
-  }
-}
-@media only screen and (min-width: 900px) {
-  /* line 42, picob.entry.scss */
-  .date {
-    font-size: 28px;
-    margin-bottom: 2px;
-  }
-}
-
-/* line 53, picob.entry.scss */
+/* line 70, picob.entry.scss */
 .feeling-selector {
   font-size: 20px;
   margin: 10px 0px;
   overflow: hidden;
 }
 
-/* line 59, picob.entry.scss */
+/* line 76, picob.entry.scss */
 .feeling-choices {
   float: left;
   padding: 7px;
@@ -84,114 +96,45 @@
   font-size: 15px;
 }
 
-/* line 70, picob.entry.scss */
+/* line 87, picob.entry.scss */
 .feeling-text {
   text-align: center;
 }
 @media only screen and (max-width: 899px) {
-  /* line 70, picob.entry.scss */
+  /* line 87, picob.entry.scss */
   .feeling-text {
     display: none;
   }
 }
 @media only screen and (min-width: 900px) {
-  /* line 70, picob.entry.scss */
+  /* line 87, picob.entry.scss */
   .feeling-text {
     margin-top: 6px;
     font-size: 16px;
   }
 }
 
-/* line 81, picob.entry.scss */
-#day {
-  clear: both;
-}
-/* line 83, picob.entry.scss */
-#day div {
-  float: left;
-  background-color: rgba(255, 255, 255, 0.5);
-  color: black;
-  text-align: center;
-}
-@media only screen and (max-width: 899px) {
-  /* line 83, picob.entry.scss */
-  #day div {
-    width: 30px;
-    font-size: 11px;
-    padding: 5px;
-    margin: 2px 2px;
-  }
-}
-@media only screen and (min-width: 900px) {
-  /* line 83, picob.entry.scss */
-  #day div {
-    width: 100px;
-    font-size: 15px;
-    padding: 10px;
-    margin: 3px 3px;
-  }
-}
-/* line 100, picob.entry.scss */
-#day div.holiday {
-  color: #BF4245;
-}
-
-/* line 107, picob.entry.scss */
-#controler div {
-  float: left;
-}
-/* line 110, picob.entry.scss */
-#controler #month-controler {
-  margin: 3px 3px;
-  background-color: #FFFFFF;
-  font-size: 18px;
-}
-/* line 114, picob.entry.scss */
-#controler #month-controler #next-month, #controler #month-controler #prev-month {
-  padding: 7px 8px;
-  margin: 3px 0px;
-}
-/* line 118, picob.entry.scss */
-#controler #month-controler #curretn-month {
-  padding: 11px 10px;
-}
-/* line 121, picob.entry.scss */
-#controler #month-controler #list-month {
-  margin: 3px 3px;
-}
-/* line 123, picob.entry.scss */
-#controler #month-controler #list-month .active {
-  display: block;
-}
-/* line 126, picob.entry.scss */
-#controler #month-controler #list-month .inactive {
-  display: none;
-}
-/* line 129, picob.entry.scss */
-#controler #month-controler #list-month li {
-  padding: 7px 8px;
-}
-
-/* line 136, picob.entry.scss */
+/* line 98, picob.entry.scss */
 #form-window {
   display: none;
   padding: 20px 30px;
+  margin-top: 100px;
   background-color: #D1D1D1;
 }
-/* line 142, picob.entry.scss */
+/* line 105, picob.entry.scss */
 #form-window #feeling-text-container {
   margin: 5px 10px 20px 10px;
   font-size: 16px;
 }
-/* line 145, picob.entry.scss */
+/* line 108, picob.entry.scss */
 #form-window #feeling-text-container .feeling-group-title {
   font-size: 20px;
 }
-/* line 149, picob.entry.scss */
+/* line 112, picob.entry.scss */
 #form-window #feeling-text-container .feeling-text-choices.active {
   background-color: #2968D2;
 }
-/* line 152, picob.entry.scss */
+/* line 115, picob.entry.scss */
 #form-window #feeling-text-container .feeling-text-choices.inactive {
   background-color: transparent;
 }
