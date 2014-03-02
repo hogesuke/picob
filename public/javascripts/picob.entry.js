@@ -6,7 +6,6 @@ $(function() {
     month: undefined,
     day: undefined,
     feeling: undefined,
-    feelingText: undefined,
     feelingTextId: undefined,
     errorMsg: undefined,
     init: function() {
@@ -26,12 +25,8 @@ $(function() {
       if (!(this.year && this.month && this.day)) {
         return false;
       }
-      if (!this.feeling) {
-        errorMsg = '気分を選択してください。';
-        return false;
-      }
-      if (!this.feelingTextId) {
-        errorMsg = 'もっとも近い感情を選択してください。';
+      if (!this.feeling && !this.feelingTextId) {
+        errorMsg = '選択してください。';
         return false;
       }
       if (this.year.match(/20[1-9][0-9]/) == null) {
@@ -50,7 +45,7 @@ $(function() {
         errorMsg = '何かがおかしいのでページをリロードしてください。';
         return false;
       }
-      if (this.feelingTextId.match(/[0-9a-z]+/) == null) {
+      if (typeof this.feelingTextId !== "undefined" && this.feelingTextId.match(/[0-9a-z]+/) == null) {
         errorMsg = '何かがおかしいのでページをリロードしてください。';
         return false;
       }
@@ -61,37 +56,24 @@ $(function() {
   pieceStatus.init();
 
   $(document).on('click', '.feeling-choices', function() {
-    var feeling = $.trim($(this).text());
-    var $selected = $('#selected-feeling');
-    $selected.text(feeling);
-    pieceStatus.feeling = feeling;
+    var selectedFeeling = $.trim($(this).text());
+    var $feeling = $('#feeling');
+
+    $feeling.text(selectedFeeling);
+    pieceStatus.feeling = selectedFeeling;
+    
+    if (pieceStatus.isValid()) upsertPiece(pieceStatus);
   });
 
   $('.feeling-text-choices').on('click', function() {
     var $this = $(this);
+    var $feelingText = $('#feeling-text');
 
     $this.exclusiveActiveToggle('.feeling-text-choices');
-    pieceStatus.feelingText = $this.text();
+    $feelingText.text($this.text());
     pieceStatus.feelingTextId = $this.attr('feeling-text-id');
-  });
 
-  $('#post-button').on('click', function() {
-    if (pieceStatus.isValid()) {
-      upsertPiece(pieceStatus).done(function() {
-        // 登録内容をpieceに反映
-        //var $inputFeeling = pieceStatus.$piece.find('.input-feeling')
-        //var $feelingText = pieceStatus.$piece.children('.feeling-text');
-        //$inputFeeling.val(pieceStatus.feeling);
-        //$inputFeeling.trigger('change');
-        //$feelingText.text(pieceStatus.feelingText);
-        //$feelingText.attr({'feeling-text-id': pieceStatus.feelingTextId});
-
-        // 後片付け
-        //pieceStatus.$piece.children('.empty-feeling').css({'display': 'none'});
-        //pieceStatus.clear();
-        //$.modal.close();
-      });
-    }
+    upsertPiece(pieceStatus);
   });
 
   $.fn.exclusiveActiveToggle = function(selector) {
@@ -115,6 +97,7 @@ $(function() {
         'feeling_text_id': pieceStatus.feelingTextId
       },
       success: function() {
+        console.log('success post.');
       },
       error: function() {
       }

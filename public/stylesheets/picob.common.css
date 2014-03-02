@@ -33,17 +33,23 @@ body {
 }
 
 /* line 34, picob.common.scss */
+a {
+  text-decoration: none;
+  outline: none;
+}
+
+/* line 39, picob.common.scss */
 #container {
   margin: 0 auto;
 }
 @media only screen and (max-width: 899px) {
-  /* line 34, picob.common.scss */
+  /* line 39, picob.common.scss */
   #container {
     width: 320px;
   }
 }
 @media only screen and (min-width: 900px) {
-  /* line 34, picob.common.scss */
+  /* line 39, picob.common.scss */
   #container {
     width: 900px;
   }

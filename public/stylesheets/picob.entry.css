@@ -6,15 +6,20 @@
   height: 600px;
   background-color: #146EA6;
   color: #FFFFFF;
-  font-size: 160px;
 }
-/* line 15, picob.entry.scss */
+/* line 13, picob.entry.scss */
+#container #left-container #feeling {
+  height: 250px;
+  text-align: center;
+  font-size: 200px;
+}
+/* line 19, picob.entry.scss */
 #container #right-container {
   float: left;
   width: 450px;
   height: 600px;
 }
-/* line 19, picob.entry.scss */
+/* line 23, picob.entry.scss */
 #container #right-container #date {
   padding: 10px;
   height: 100px;
@@ -22,119 +27,113 @@
   color: #FFFFFF;
   font-size: 65px;
 }
-/* line 26, picob.entry.scss */
+/* line 30, picob.entry.scss */
 #container #right-container #feeling-text {
   padding: 10px;
-  height: 480px;
+  height: 100px;
   background-color: #36A6BF;
   color: #FFFFFF;
   font-size: 65px;
 }
-/* line 34, picob.entry.scss */
+/* line 37, picob.entry.scss */
+#container #right-container #feeling-text-selector {
+  height: 380px;
+  padding-left: 20px;
+  background-color: #36A6BF;
+}
+/* line 41, picob.entry.scss */
+#container #right-container #feeling-text-selector .feeling-group-title {
+  clear: both;
+  font-size: 25px;
+  color: #FFFFFF;
+}
+/* line 46, picob.entry.scss */
+#container #right-container #feeling-text-selector .feeling-text-container {
+  margin: 5px 10px 20px 10px;
+  font-size: 20px;
+}
+/* line 49, picob.entry.scss */
+#container #right-container #feeling-text-selector .feeling-text-container .feeling-text-choices {
+  float: left;
+  margin-right: 10px;
+  padding: 5px 10px;
+  border: solid 2px #FFFFFF;
+}
+/* line 54, picob.entry.scss */
+#container #right-container #feeling-text-selector .feeling-text-container .feeling-text-choices.active {
+  background-color: #2968D2;
+  color: #FFFFFF;
+}
+/* line 58, picob.entry.scss */
+#container #right-container #feeling-text-selector .feeling-text-container .feeling-text-choices.inactive {
+  background-color: #FFFFFF;
+  color: #146EA6;
+}
+/* line 66, picob.entry.scss */
 #container #bottom-container {
   clear: both;
   text-align: center;
   color: #FFFFFF;
   font-size: 50px;
 }
-/* line 39, picob.entry.scss */
+/* line 71, picob.entry.scss */
 #container #bottom-container div {
   float: left;
   padding: 10px;
 }
-/* line 43, picob.entry.scss */
+/* line 75, picob.entry.scss */
+#container #bottom-container a {
+  display: block;
+}
+/* line 78, picob.entry.scss */
 #container #bottom-container #prev-date {
   width: 280px;
   background-color: #84C9D9;
 }
-/* line 47, picob.entry.scss */
+/* line 82, picob.entry.scss */
 #container #bottom-container #next-date {
   width: 280px;
   background-color: #84C9D9;
 }
-/* line 51, picob.entry.scss */
+/* line 86, picob.entry.scss */
 #container #bottom-container #switch-calendar {
   width: 280px;
   background-color: #2192BF;
 }
 
-/* line 58, picob.entry.scss */
-.feeling, .empty-feeling {
-  text-align: center;
-}
-@media only screen and (max-width: 899px) {
-  /* line 58, picob.entry.scss */
-  .feeling, .empty-feeling {
-    font-size: 14px;
-    position: relative;
-    top: -2px;
-  }
-}
-@media only screen and (min-width: 900px) {
-  /* line 58, picob.entry.scss */
-  .feeling, .empty-feeling {
-    font-size: 40px;
-  }
-}
-
-/* line 70, picob.entry.scss */
+/* line 93, picob.entry.scss */
 .feeling-selector {
   font-size: 20px;
   margin: 10px 0px;
   overflow: hidden;
 }
 
-/* line 76, picob.entry.scss */
+/* line 99, picob.entry.scss */
 .feeling-choices {
   float: left;
-  padding: 7px;
-  margin: 0px 2px;
-  border: solid 1px #000000;
-  -webkit-border-radius: 8px;
-  -moz-border-radius: 8px;
-  border-radius: 5px;
-  font-size: 15px;
+  padding: 12px 20px;
+  margin: 0px 10px;
+  border: solid 4px #FFFFFF;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+  font-size: 80px;
 }
 
-/* line 87, picob.entry.scss */
+/* line 110, picob.entry.scss */
 .feeling-text {
   text-align: center;
 }
 @media only screen and (max-width: 899px) {
-  /* line 87, picob.entry.scss */
+  /* line 110, picob.entry.scss */
   .feeling-text {
     display: none;
   }
 }
 @media only screen and (min-width: 900px) {
-  /* line 87, picob.entry.scss */
+  /* line 110, picob.entry.scss */
   .feeling-text {
     margin-top: 6px;
     font-size: 16px;
   }
-}
-
-/* line 98, picob.entry.scss */
-#form-window {
-  display: none;
-  padding: 20px 30px;
-  margin-top: 100px;
-  background-color: #D1D1D1;
-}
-/* line 105, picob.entry.scss */
-#form-window #feeling-text-container {
-  margin: 5px 10px 20px 10px;
-  font-size: 16px;
-}
-/* line 108, picob.entry.scss */
-#form-window #feeling-text-container .feeling-group-title {
-  font-size: 20px;
-}
-/* line 112, picob.entry.scss */
-#form-window #feeling-text-container .feeling-text-choices.active {
-  background-color: #2968D2;
-}
-/* line 115, picob.entry.scss */
-#form-window #feeling-text-container .feeling-text-choices.inactive {
-  background-color: transparent;
 }

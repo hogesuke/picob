@@ -237,13 +237,31 @@ exports.upsertPiece = function(req, res) {
   var requestDay = req.params[3].replace(/^0?([0-9]+)/, '$1');
   var loginUser = req.session.passport.user;
 
+  console.log('requestYear: ' + requestYear);
+  console.log('requestMonth: ' + requestMonth);
+  console.log('requestDay: ' + requestDay);
+  console.log('loginUser: ' + loginUser);
+  console.log('req.body.feeling: ' + req.body.feeling);
+  console.log('req.body.feeling_text_id: ' + req.body.feeling_text_id);
+
+  // TODO req.bodyの値がすべて空でないか精査する処理を実装すること
+  var updateValues = {};
+  if (req.body.feeling) {
+    updateValues.feeling = req.body.feeling;
+  }
+  if (req.body.feeling_text_id) {
+    updateValues.feeling_text = req.body.feeling_text_id;
+  }
+
   Piece.update(
       {'user_seq': loginUser.seq, 'year': requestYear, 'month': requestMonth, 'day': requestDay},
-      {'feeling': req.body.feeling, 'feeling_text': req.body.feeling_text_id},
+      updateValues,
       {'upsert': true, multi: false},
       function(err) {
         if (err) {
+          console.log('Error: Upsert piece:' + err);
           res.send({'error': 'An error has occurred - ' + err});
+          return;
         }
         console.log('Success: Upsert piece');
         res.send({'msg': 'Success: upsert feeling'});

@@ -10,7 +10,11 @@ $base_charctor_color: #000000;
         height: 600px;
         background-color: #146EA6;
         color: #FFFFFF;
-        font-size: 160px;
+        #feeling {
+            height: 250px;
+            text-align: center;
+            font-size: 200px;
+        }
     }
     #right-container {
         float: left;
@@ -25,10 +29,38 @@ $base_charctor_color: #000000;
         }
         #feeling-text {
             padding: 10px;
-            height: 480px;
+            height: 100px;
             background-color: #36A6BF;
             color: #FFFFFF;
             font-size: 65px;
+        }
+        #feeling-text-selector {
+            height: 380px;
+            padding-left: 20px;
+            background-color: #36A6BF;
+            .feeling-group-title {
+                clear: both;
+                font-size: 25px;
+                color: #FFFFFF;
+            }
+            .feeling-text-container {
+                margin: 5px 10px 20px 10px;
+                font-size: 20px;
+                .feeling-text-choices {
+                    float: left;
+                    margin-right: 10px;
+                    padding: 5px 10px;
+                    border: solid 2px #FFFFFF;
+                    &.active {
+                        background-color: #2968D2;
+                        color: #FFFFFF;
+                    }
+                    &.inactive {
+                        background-color: #FFFFFF;
+                        color: #146EA6;
+                    }
+                }
+            }
         }
     }
     #bottom-container {
@@ -39,6 +71,9 @@ $base_charctor_color: #000000;
         div {
             float: left;
             padding: 10px;
+        }
+        a {
+            display: block;
         }
         #prev-date {
             width: 280px;
@@ -55,18 +90,6 @@ $base_charctor_color: #000000;
     }
 }
 
-.feeling, .empty-feeling {
-    @media #{$small} {
-        font-size: 14px;
-        position: relative;
-        top: -2px;
-    }
-    @media #{$large} {
-        font-size: 40px;
-    }
-    text-align: center;
-}
-
 .feeling-selector {
     font-size: 20px;
     margin: 10px 0px;
@@ -75,13 +98,13 @@ $base_charctor_color: #000000;
 
 .feeling-choices {
     float: left;
-    padding: 7px;
-    margin: 0px 2px;
-    border: solid 1px #000000;
-    -webkit-border-radius: 8px;
-    -moz-border-radius: 8px;
-    border-radius: 5px;
-    font-size: 15px;
+    padding: 12px 20px;
+    margin: 0px 10px;
+    border: solid 4px #FFFFFF;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    font-size: 80px;
 }
 
 .feeling-text {
@@ -94,28 +117,3 @@ $base_charctor_color: #000000;
         font-size: 16px;
     }
 }
-
-#form-window {
-    display: none;
-    padding: 20px 30px;
-    margin-top: 100px;
-    background-color: #D1D1D1;
-    #selected-feeling {
-    }
-    #feeling-text-container {
-        margin: 5px 10px 20px 10px;
-        font-size: 16px;
-        .feeling-group-title {
-            font-size: 20px;
-        }
-        .feeling-text-choices {
-            &.active {
-                background-color: #2968D2;
-            }
-            &.inactive {
-                background-color: transparent;
-            }
-        }
-    }
-}
-
