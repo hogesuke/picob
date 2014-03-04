@@ -54,3 +54,8 @@ a {
     width: 900px;
   }
 }
+
+/* line 49, picob.common.scss */
+.link {
+  cursor: pointer;
+}

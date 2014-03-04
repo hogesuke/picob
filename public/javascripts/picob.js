@@ -1,5 +1,23 @@
 $(function() {
 
+  var locationStatus = {
+    userSeq: undefined,
+    year: undefined,
+    month: undefined,
+    init: function() {
+      var pathname = window.location.pathname;
+      if (pathname.match(/^\/([0-9]{1,9})\/calendar\/([0-9]{4})\/([0-9]{1,2})\/?$/)) {
+        this.userSeq = RegExp.$1;
+        this.year = RegExp.$2;
+        this.month = RegExp.$3;
+        return;
+      }
+      throw 'invalid url';
+    }
+  };
+
+  locationStatus.init();
+
   var PieceViewModel = function(data) {
     ko.mapping.fromJS(data, {}, this);
     this.date = ko.computed(function() {
@@ -21,7 +39,10 @@ $(function() {
       return data.feeling_text !== null && typeof data.feeling_text !== "undefined";
     }, this);
     this.getPieceCss = ko.computed(function() {
-      return this.isDummy() ? 'dummy-piece' : this.isCompleted() ? 'piece' : 'empty-piece'
+      return this.isDummy() ? 'dummy-piece' : this.isCompleted() ? 'piece link' : 'empty-piece link'
+    }, this);
+    this.getHref = ko.computed(function() {
+      return this.isDummy() ? '' : '/' + locationStatus.userSeq + '/entry/' + locationStatus.year + '/' + locationStatus.month + '/' + this.day();
     }, this);
   }
 
@@ -39,13 +60,11 @@ $(function() {
     return model;
   });
 
-  $(document).on('click', '.piece, .empty-piece', function() {
-  });
-
-  $('#prev-month').on('click', function() {
-  });
-
-  $('#next-month').on('click', function() {
+  $(document).on('click', '.link', function() {
+    var href = $(this).attr('href');
+    if (href) {
+      window.location = href;
+    }
   });
 
   function selectPiece(doSuccess) {
