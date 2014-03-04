@@ -111,6 +111,10 @@ $base_charctor_color: #000000;
         margin: 3px 3px;
         background-color: #FFFFFF;
         font-size: 18px;
+        a {
+            display: block;
+            float: left;
+        }
         #next-month, #prev-month {
             padding: 7px 8px;
             margin: 3px 0px;

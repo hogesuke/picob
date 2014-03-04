@@ -147,35 +147,40 @@
   font-size: 18px;
 }
 /* line 114, picob.scss */
+#controler #month-controler a {
+  display: block;
+  float: left;
+}
+/* line 118, picob.scss */
 #controler #month-controler #next-month, #controler #month-controler #prev-month {
   padding: 7px 8px;
   margin: 3px 0px;
 }
-/* line 118, picob.scss */
+/* line 122, picob.scss */
 #controler #month-controler #current-ym {
   margin: 3px 3px;
 }
 
-/* line 124, picob.scss */
+/* line 128, picob.scss */
 #form-window {
   display: none;
   padding: 20px 30px;
   background-color: #D1D1D1;
 }
-/* line 130, picob.scss */
+/* line 134, picob.scss */
 #form-window #feeling-text-container {
   margin: 5px 10px 20px 10px;
   font-size: 16px;
 }
-/* line 133, picob.scss */
+/* line 137, picob.scss */
 #form-window #feeling-text-container .feeling-group-title {
   font-size: 20px;
 }
-/* line 137, picob.scss */
+/* line 141, picob.scss */
 #form-window #feeling-text-container .feeling-text-choices.active {
   background-color: #2968D2;
 }
-/* line 140, picob.scss */
+/* line 144, picob.scss */
 #form-window #feeling-text-container .feeling-text-choices.inactive {
   background-color: transparent;
 }
