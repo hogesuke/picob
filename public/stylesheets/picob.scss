@@ -54,18 +54,19 @@ $base_charctor_color: #000000;
     font-size: 20px;
     margin: 10px 0px;
     overflow: hidden;
+    .feeling-choices {
+        display: block;
+        float: left;
+        padding: 7px;
+        margin: 0px 2px;
+        border: solid 1px #000000;
+        -webkit-border-radius: 8px;
+        -moz-border-radius: 8px;
+        border-radius: 5px;
+        font-size: 15px;
+    }
 }
 
-.feeling-choices {
-    float: left;
-    padding: 7px;
-    margin: 0px 2px;
-    border: solid 1px #000000;
-    -webkit-border-radius: 8px;
-    -moz-border-radius: 8px;
-    border-radius: 5px;
-    font-size: 15px;
-}
 
 .feeling-text {
     text-align: center;
