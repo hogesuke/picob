@@ -20,7 +20,7 @@
       </div>
       <div id="left-container">
         <div id="feeling" class="web-icon-fontello">
-          <% if (piece) {%>
+          <% if (piece && piece.feeling) {%>
             <%= piece.feeling %>
           <% } else { %>
             ？
