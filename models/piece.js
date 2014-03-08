@@ -5,13 +5,14 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var PieceSchema = new Schema({
-    user_seq: {type: Number},
-    year: {type: String},
-    month: {type: String},
-    day: {type: String},
-    feeling: {type: String},
-    feeling_text: {type: mongoose.Schema.Types.ObjectId, ref: 'Feeling'},
-    create_date: {type: Date},
+  user_id: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
+  user_seq: {type: Number},
+  year: {type: String},
+  month: {type: String},
+  day: {type: String},
+  feeling: {type: String},
+  feeling_text: {type: mongoose.Schema.Types.ObjectId, ref: 'Feeling'},
+  create_date: {type: Date}
 });
 
 PieceSchema.pre('save', function(next) {

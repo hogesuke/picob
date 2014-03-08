@@ -110,8 +110,20 @@ $(function() {
     return $.ajax({
       type: 'GET',
       url: '/social/friends',
-      success: function(data) {
-        console.log(data);
+      success: function(friendsData) {
+        console.log(friendsData);
+        var $friendsFeeling = $('#friends-feeling');
+        var feelingRelative = {
+          '1': '.feeling-good',
+          '2': '.feeling-bad',
+          '3': '.feeling-normal'
+        };
+        for (var key in friendsData.pieces) {
+          $container = $friendsFeeling.find(feelingRelative[key]);
+          $.each(friendsData.pieces[key], function(i, piece) {
+            $container.append(' ' + piece.user_id.name);
+          });
+        }
       },
       error: function() {
       }

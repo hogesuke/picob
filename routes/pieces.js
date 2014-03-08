@@ -254,7 +254,7 @@ exports.upsertPiece = function(req, res) {
   }
 
   Piece.update(
-      {'user_seq': loginUser.seq, 'year': requestYear, 'month': requestMonth, 'day': requestDay},
+      {'user_id': loginUser._id, 'user_seq': loginUser.seq, 'year': requestYear, 'month': requestMonth, 'day': requestDay},
       updateValues,
       {'upsert': true, multi: false},
       function(err) {

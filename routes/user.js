@@ -49,10 +49,12 @@ exports.getFriendsFeeling = function(req, res) {
             res.send({'error': 'An error has occurred'});
             return;
           }
-          Piece.find({user_seq: {$in: createArray(friends, 'seq')}}, 'user_seq feeling feeling_text')
+          Piece.find({user_seq: {$in: createArray(friends, 'seq')}}, 'user_id feeling feeling_text')
+            .populate({path: 'user_id', select: 'id name'})
             .populate({path: 'feeling_text', select: 'text'}).exec(function(err, pieces) {
               if (err) {
                 console.log('error: twitter api.');
+                console.dir(err);
                 res.send({'error': 'An error has occurred'});
                 return;
               }
