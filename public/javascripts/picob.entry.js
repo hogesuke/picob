@@ -54,6 +54,8 @@ $(function() {
   }
 
   pieceStatus.init();
+  // TODO socialテスト
+  getFriendsFeeling();
 
   $(document).on('click', '.feeling-choices', function() {
     var selectedFeeling = $.trim($(this).text());
@@ -98,6 +100,18 @@ $(function() {
       },
       success: function() {
         console.log('success post.');
+      },
+      error: function() {
+      }
+    });
+  }
+
+  function getFriendsFeeling() {
+    return $.ajax({
+      type: 'GET',
+      url: '/social/friends',
+      success: function(data) {
+        console.log(data);
       },
       error: function() {
       }

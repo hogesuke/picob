@@ -79,6 +79,11 @@ app.post(entryUri,
     pieces.upsertPiece);
 
 /**
+ * ソーシャルな部品取得のためのルーティング
+ */
+app.get('/social/friends', user.getFriendsFeeling)
+
+/**
  * デバッグ用のルーティング
  */
 app.get('/testDataInsert', feeling.testDataInsert);

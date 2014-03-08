@@ -10,30 +10,35 @@ var Counter = require('../models/counter');
 /**
  * Facebook OAuth.
  */
-passport.use(new FacebookStrategy({
+var facebookStrategy = new FacebookStrategy({
   clientID: LoginConfigration.Facebook.clientID,
   clientSecret: LoginConfigration.Facebook.clientSecret,
   callbackURL: LoginConfigration.Facebook.callbackURL
-}, login));
+}, login);
+passport.use(facebookStrategy);
 
 /**
  * Twitter OAuth.
  */
-passport.use(new TwitterStrategy({
+var twitterStrategy = new TwitterStrategy({
   consumerKey: LoginConfigration.Twitter.consumerKey,
   consumerSecret: LoginConfigration.Twitter.consumerSecret,
   callbackURL: LoginConfigration.Twitter.callbackURL
-}, login));
+}, login);
+passport.use(twitterStrategy);
 
 /**
  * OAuth login.
  */
-function login(accessToken, refreshToken, profile, done) {
+function login(token, tokenSecret, profile, done) {
   User.findOne({id: profile.id, provider: profile.provider}, function(err, user) {
     if (err) {
+      console.log('error: An error has occurred');
       return done(err);
     }
     if (user) {
+      user._doc.token = token;
+      user._doc.tokenSecret = tokenSecret;
       done(null, user);
     } else {
       Counter.getNewSeq('UserSeq', function(err, counter) {
@@ -51,9 +56,10 @@ function login(accessToken, refreshToken, profile, done) {
             console.log('error: An error has occurred');
             return done(err);
           }
+          newUser._doc.token = token;
+          newUser._doc.tokenSecret = tokenSecret;
+          done(null, newUser);
         });
-
-        done(null, newUser);
       });
     }
   });
@@ -109,3 +115,9 @@ exports.logout = function(req, res) {
     req.logout();
     res.redirect('/login');
 };
+
+/**
+ * Strategys.
+ */
+exports.facebookStrategy = facebookStrategy;
+exports.twitterStrategy = twitterStrategy;
