@@ -13,13 +13,29 @@
   text-align: center;
   font-size: 200px;
 }
-/* line 19, picob.entry.scss */
+/* line 18, picob.entry.scss */
+#container #left-container #friends-feeling {
+  margin-top: 20px;
+}
+/* line 20, picob.entry.scss */
+#container #left-container #friends-feeling .feeling-container {
+  padding: 5px 0px;
+}
+/* line 22, picob.entry.scss */
+#container #left-container #friends-feeling .feeling-container .feeling-label {
+  font-size: 20px;
+}
+/* line 25, picob.entry.scss */
+#container #left-container #friends-feeling .feeling-container .user-icon {
+  margin: 0px 2px;
+}
+/* line 31, picob.entry.scss */
 #container #right-container {
   float: left;
   width: 450px;
   height: 600px;
 }
-/* line 23, picob.entry.scss */
+/* line 35, picob.entry.scss */
 #container #right-container #date {
   padding: 10px;
   height: 100px;
@@ -27,7 +43,7 @@
   color: #FFFFFF;
   font-size: 65px;
 }
-/* line 30, picob.entry.scss */
+/* line 42, picob.entry.scss */
 #container #right-container #feeling-text {
   padding: 10px;
   height: 100px;
@@ -35,80 +51,80 @@
   color: #FFFFFF;
   font-size: 65px;
 }
-/* line 37, picob.entry.scss */
+/* line 49, picob.entry.scss */
 #container #right-container #feeling-text-selector {
   height: 380px;
   padding-left: 20px;
   background-color: #36A6BF;
 }
-/* line 41, picob.entry.scss */
+/* line 53, picob.entry.scss */
 #container #right-container #feeling-text-selector .feeling-group-title {
   clear: both;
   font-size: 25px;
   color: #FFFFFF;
 }
-/* line 46, picob.entry.scss */
+/* line 58, picob.entry.scss */
 #container #right-container #feeling-text-selector .feeling-text-container {
   margin: 5px 10px 20px 10px;
   font-size: 20px;
 }
-/* line 49, picob.entry.scss */
+/* line 61, picob.entry.scss */
 #container #right-container #feeling-text-selector .feeling-text-container .feeling-text-choices {
   float: left;
   margin-right: 10px;
   padding: 5px 10px;
   border: solid 2px #FFFFFF;
 }
-/* line 54, picob.entry.scss */
+/* line 66, picob.entry.scss */
 #container #right-container #feeling-text-selector .feeling-text-container .feeling-text-choices.active {
   background-color: #2968D2;
   color: #FFFFFF;
 }
-/* line 58, picob.entry.scss */
+/* line 70, picob.entry.scss */
 #container #right-container #feeling-text-selector .feeling-text-container .feeling-text-choices.inactive {
   background-color: #FFFFFF;
   color: #146EA6;
 }
-/* line 66, picob.entry.scss */
+/* line 78, picob.entry.scss */
 #container #bottom-container {
   clear: both;
   text-align: center;
   color: #FFFFFF;
   font-size: 50px;
 }
-/* line 71, picob.entry.scss */
+/* line 83, picob.entry.scss */
 #container #bottom-container div {
   float: left;
   padding: 10px;
 }
-/* line 75, picob.entry.scss */
+/* line 87, picob.entry.scss */
 #container #bottom-container a {
   display: block;
 }
-/* line 78, picob.entry.scss */
+/* line 90, picob.entry.scss */
 #container #bottom-container #prev-date {
   width: 280px;
   background-color: #84C9D9;
 }
-/* line 82, picob.entry.scss */
+/* line 94, picob.entry.scss */
 #container #bottom-container #next-date {
   width: 280px;
   background-color: #84C9D9;
 }
-/* line 86, picob.entry.scss */
+/* line 98, picob.entry.scss */
 #container #bottom-container #switch-calendar {
   width: 280px;
   background-color: #2192BF;
 }
 
-/* line 93, picob.entry.scss */
+/* line 105, picob.entry.scss */
 .feeling-selector {
   font-size: 20px;
   margin: 10px 0px;
   overflow: hidden;
 }
 
-/* line 99, picob.entry.scss */
+/* line 111, picob.entry.scss */
 .feeling-choices {
   float: left;
   padding: 12px 20px;
@@ -120,18 +136,18 @@
   font-size: 80px;
 }
 
-/* line 110, picob.entry.scss */
+/* line 122, picob.entry.scss */
 .feeling-text {
   text-align: center;
 }
 @media only screen and (max-width: 899px) {
-  /* line 110, picob.entry.scss */
+  /* line 122, picob.entry.scss */
   .feeling-text {
     display: none;
   }
 }
 @media only screen and (min-width: 900px) {
-  /* line 110, picob.entry.scss */
+  /* line 122, picob.entry.scss */
   .feeling-text {
     margin-top: 6px;
     font-size: 16px;

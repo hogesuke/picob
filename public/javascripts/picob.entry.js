@@ -133,7 +133,7 @@ $(function() {
           $.each(friendsData.pieces[key], function(i, piece) {
             var user = piece.user_id;
             var provider = providerRealtive[user.provider];
-            $container.append('<img src="' + provider.url.replace('$1', user[provider.key]) + '">');
+            $container.append('<img class="user-icon" src="' + provider.url.replace('$1', user[provider.key]) + '">');
           });
         }
       },
