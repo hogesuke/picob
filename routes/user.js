@@ -30,6 +30,20 @@ exports.getFriendsFeeling = function(req, res) {
     return;
   }
 
+  if (user.provider === 'twitter') {
+    selectFriendsPieceForTwitter(res, user);
+    return;
+  }
+  if (user.provider === 'facebook') {
+    selectFriendsPieceForFacebook(res, user);
+    return;
+  }
+};
+
+/**
+ * 友達のpiece投稿を取得する（Twitter)。
+ */
+function selectFriendsPieceForTwitter(res, user) {
   passport._strategies.twitter._oauth.getProtectedResource(
       'https://api.twitter.com/1.1/friends/ids.json',
       'GET',
@@ -43,29 +57,56 @@ exports.getFriendsFeeling = function(req, res) {
         }
 
         var friendIds = JSON.parse(data).ids;
-        User.find({id: {$in: friendIds}}, function(err, friends) {
-          if (err) {
-            console.log('error: twitter api.');
-            res.send({'error': 'An error has occurred'});
-            return;
-          }
-          Piece.find({user_seq: {$in: createArray(friends, 'seq')}}, 'user_id feeling feeling_text')
-            .populate({path: 'user_id', select: 'id raw_name name provider'})
-            .populate({path: 'feeling_text', select: 'text'}).exec(function(err, pieces) {
-              if (err) {
-                console.log('error: twitter api.');
-                console.dir(err);
-                res.send({'error': 'An error has occurred'});
-                return;
-              }
-              res.send({
-                ids: friendIds,
-                pieces: groupPiece(pieces)
-              });
-            });
-        });
+        selectFriedsPiece(res, friendIds);
       });
-};
+}
+
+/**
+ * 友達のpiece投稿を取得する（Facebook)。
+ */
+function selectFriendsPieceForFacebook(res, user) {
+  passport._strategies.facebook._oauth2.getProtectedResource(
+      'https://graph.facebook.com/me/friends',
+      user.token,
+      function (err, data, response) {
+        if(err) {
+          console.log('error: facebook api.');
+          res.send({'error': 'An error has occurred'});
+          return;
+        }
+        console.dir(data);
+
+        var friendIds = createArray(JSON.parse(data).data, 'id');
+        selectFriedsPiece(res, friendIds);
+      });
+}
+
+/**
+ * 友達のpiece投稿を取得する（共通処理)。
+ */
+function selectFriedsPiece(res, friendIds) {
+  User.find({id: {$in: friendIds}}, function(err, friends) {
+    if (err) {
+      console.log('error: facebook api.');
+      res.send({'error': 'An error has occurred'});
+      return;
+    }
+    Piece.find({user_seq: {$in: createArray(friends, 'seq')}}, 'user_id feeling feeling_text')
+    .populate({path: 'user_id', select: 'id raw_name name provider'})
+    .populate({path: 'feeling_text', select: 'text'}).exec(function(err, pieces) {
+      if (err) {
+        console.log('error: facebook api.');
+        console.dir(err);
+        res.send({'error': 'An error has occurred'});
+        return;
+      }
+      res.send({
+        ids: friendIds,
+        pieces: groupPiece(pieces)
+      });
+    });
+  });
+}
 
 /**
  * pieceをfeelingごとのグループに分ける。
