@@ -37,7 +37,6 @@ function login(token, tokenSecret, profile, done) {
       return done(err);
     }
     if (user) {
-      console.dir(profile);
       user._doc.token = token;
       user._doc.tokenSecret = tokenSecret;
       done(null, user);

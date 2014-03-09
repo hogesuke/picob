@@ -109,7 +109,7 @@ $(function() {
   function getFriendsFeeling() {
     return $.ajax({
       type: 'GET',
-      url: '/social/friends',
+      url: '/social/friends/' + pieceStatus.year + '/' + pieceStatus.month + '/' + pieceStatus.day,
       success: function(friendsData) {
         console.log(friendsData);
         var $friendsFeeling = $('#friends-feeling');

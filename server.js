@@ -81,7 +81,9 @@ app.post(entryUri,
 /**
  * ソーシャルな部品取得のためのルーティング
  */
-app.get('/social/friends', user.getFriendsFeeling)
+app.get(/\/social\/friends\/(2[0-9]{3})\/(1[0-2]|0?[1-9])\/(0?[1-9]|[1,2][0-9]|3[0,1])\/?$/, // /social/friends/[year]/[month]/[day]
+    login.checkLogin,
+    user.getFriendsFeeling);
 
 /**
  * デバッグ用のルーティング

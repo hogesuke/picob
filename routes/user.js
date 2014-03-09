@@ -23,6 +23,9 @@ exports.validateUser = function(req, res, next) {
   });
 };
 
+/**
+ * 友達のpiece投稿を取得する。
+ */
 exports.getFriendsFeeling = function(req, res) {
   var user = req.session.passport.user;
   if (!user) {
@@ -31,11 +34,11 @@ exports.getFriendsFeeling = function(req, res) {
   }
 
   if (user.provider === 'twitter') {
-    selectFriendsPieceForTwitter(res, user);
+    selectFriendsPieceForTwitter(req, res, user);
     return;
   }
   if (user.provider === 'facebook') {
-    selectFriendsPieceForFacebook(res, user);
+    selectFriendsPieceForFacebook(req, res, user);
     return;
   }
 };
@@ -43,7 +46,7 @@ exports.getFriendsFeeling = function(req, res) {
 /**
  * 友達のpiece投稿を取得する（Twitter)。
  */
-function selectFriendsPieceForTwitter(res, user) {
+function selectFriendsPieceForTwitter(req, res, user) {
   passport._strategies.twitter._oauth.getProtectedResource(
       'https://api.twitter.com/1.1/friends/ids.json',
       'GET',
@@ -57,14 +60,14 @@ function selectFriendsPieceForTwitter(res, user) {
         }
 
         var friendIds = JSON.parse(data).ids;
-        selectFriedsPiece(res, friendIds);
+        selectFriedsPiece(req, res, friendIds);
       });
 }
 
 /**
  * 友達のpiece投稿を取得する（Facebook)。
  */
-function selectFriendsPieceForFacebook(res, user) {
+function selectFriendsPieceForFacebook(req, res, user) {
   passport._strategies.facebook._oauth2.getProtectedResource(
       'https://graph.facebook.com/me/friends',
       user.token,
@@ -77,21 +80,27 @@ function selectFriendsPieceForFacebook(res, user) {
         console.dir(data);
 
         var friendIds = createArray(JSON.parse(data).data, 'id');
-        selectFriedsPiece(res, friendIds);
+        selectFriedsPiece(req, res, friendIds);
       });
 }
 
 /**
  * 友達のpiece投稿を取得する（共通処理)。
  */
-function selectFriedsPiece(res, friendIds) {
+function selectFriedsPiece(req, res, friendIds) {
+  var requestYear = req.params[0];
+  var requestMonth = req.params[1];
+  var requestDay = req.params[2];
+  console.dir('req.params');
+  console.dir(req.params);
   User.find({id: {$in: friendIds}}, function(err, friends) {
     if (err) {
       console.log('error: facebook api.');
       res.send({'error': 'An error has occurred'});
       return;
     }
-    Piece.find({user_seq: {$in: createArray(friends, 'seq')}}, 'user_id feeling feeling_text')
+    Piece.find({user_seq: {$in: createArray(friends, 'seq')},
+      year: requestYear, month: requestMonth, day: requestDay}, 'user_id feeling feeling_text')
     .populate({path: 'user_id', select: 'id raw_name name provider'})
     .populate({path: 'feeling_text', select: 'text'}).exec(function(err, pieces) {
       if (err) {
