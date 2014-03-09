@@ -50,7 +50,7 @@ exports.getFriendsFeeling = function(req, res) {
             return;
           }
           Piece.find({user_seq: {$in: createArray(friends, 'seq')}}, 'user_id feeling feeling_text')
-            .populate({path: 'user_id', select: 'id name'})
+            .populate({path: 'user_id', select: 'id raw_name name provider'})
             .populate({path: 'feeling_text', select: 'text'}).exec(function(err, pieces) {
               if (err) {
                 console.log('error: twitter api.');

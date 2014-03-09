@@ -37,6 +37,7 @@ function login(token, tokenSecret, profile, done) {
       return done(err);
     }
     if (user) {
+      console.dir(profile);
       user._doc.token = token;
       user._doc.tokenSecret = tokenSecret;
       done(null, user);
@@ -49,7 +50,8 @@ function login(token, tokenSecret, profile, done) {
         var newUser = new User();
         newUser.seq = counter.seq;
         newUser.id = profile.id;
-        newUser.name = editUserName(profile);
+        newUser.raw_name = profile.username;
+        newUser.name = profile.displayName;
         newUser.provider = profile.provider;
         newUser.save(function(err) {
           if (err) {
@@ -63,20 +65,6 @@ function login(token, tokenSecret, profile, done) {
       });
     }
   });
-}
-
-/**
- * Providerごとに編集したユーザー名を取得する。
- */
-function editUserName(profile) {
-  if (profile.provider === 'facebook') {
-    return profile.name.givenName +
-      (typeof profile.name.middleName == 'undefined' ? '' : profile.name.middleName) +
-      profile.name.familyName;
-  }
-  if (profile.provider === 'twitter') {
-    return profile.displayName;
-  }
 }
 
 passport.serializeUser(function(user, done){

@@ -7,6 +7,7 @@ var Schema = mongoose.Schema;
 var UserSchema = new Schema({
   seq: {type: Number},
   id: {type: String},
+  raw_name: {type: String},
   name: {type: String},
   provider: {type: String},
   create_date: {type: Date}

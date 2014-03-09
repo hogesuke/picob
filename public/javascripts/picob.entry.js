@@ -118,10 +118,22 @@ $(function() {
           '2': '.feeling-bad',
           '3': '.feeling-normal'
         };
+        var providerRealtive = {
+          twitter: {
+            url: 'http://twiticon.herokuapp.com/$1/mini',
+            key: 'raw_name'
+          },
+          facebook: {
+            url: 'https://graph.facebook.com/$1/picture',
+            key: 'id'
+          }
+        };
         for (var key in friendsData.pieces) {
           $container = $friendsFeeling.find(feelingRelative[key]);
           $.each(friendsData.pieces[key], function(i, piece) {
-            $container.append(' ' + piece.user_id.name);
+            var user = piece.user_id;
+            var provider = providerRealtive[user.provider];
+            $container.append('<img src="' + provider.url.replace('$1', user[provider.key]) + '">');
           });
         }
       },
