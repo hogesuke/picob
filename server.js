@@ -23,9 +23,33 @@ app.configure(function () {
   app.use(express.session({secret: 'testtesttest'}));
   app.use(passport.initialize());
   app.use(passport.session());
+  app.use(express.csrf());
+  app.use(function (req, res, next) {
+    res.cookie('XSRF-TOKEN', req.csrfToken());
+    res.locals.csrftoken = req.csrfToken();
+    next();
+  });
   app.use(app.router);
   app.use(express.static(__dirname + '/public'));
+
+//  app.use(function(err, req, res, next) {
+//    console.log('なんかエラーみたいだね');
+//    if (err.name === "Forbidden") {
+//      res.status(403).render('error.ejs');
+//    } else {
+//      next(err);
+//    }
+//  });
 });
+
+/**
+ * CSRF対策のtokenを生成する。
+ */
+function csrf(req, res, next) {
+  console.log('create token');
+  res.locals.token = req.session._csrf;
+  next();
+}
 
 /**
  * loginのルーティング
@@ -74,6 +98,7 @@ app.get(entryUri,
     user.validateUser,
     pieces.oneDay);
 app.post(entryUri,
+    //csrf,
     login.checkLogin,
     user.validateUser, // TODO ユーザーの存在チェックじゃなくて対象ユーザーが自分かをチェックするようにする
     pieces.upsertPiece);

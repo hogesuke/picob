@@ -7,16 +7,17 @@ $(function() {
     day: undefined,
     feeling: undefined,
     feelingTextId: undefined,
+    token: undefined,
     errorMsg: undefined,
     init: function() {
       var pathname = window.location.pathname;
       if (pathname.match(/^\/([0-9]{1,9})\/entry\/.+$/)) {
         this.userSeq = RegExp.$1;
-
         var $date = $('#date');
         this.year = $date.attr('year');
         this.month = $date.attr('month');
         this.day = $date.attr('day');
+        this.token = $('input[name="_csrf"]').val();
         return;
       }
       throw 'invalid url';
@@ -96,7 +97,8 @@ $(function() {
       url: '/' + pieceStatus.userSeq + '/entry/' + pieceStatus.year + '/' + pieceStatus.month + '/' + pieceStatus.day,
       data: {
         'feeling': pieceStatus.feeling,
-        'feeling_text_id': pieceStatus.feelingTextId
+        'feeling_text_id': pieceStatus.feelingTextId,
+        '_csrf': pieceStatus.token
       },
       success: function() {
         console.log('success post.');

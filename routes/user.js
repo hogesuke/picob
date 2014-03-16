@@ -55,6 +55,7 @@ function selectFriendsPieceForTwitter(req, res, user) {
       function (err, data, response) {
         if(err) {
           console.log('error: twitter api.');
+          console.dir(err);
           res.send({'error': 'An error has occurred'});
           return;
         }

@@ -100,7 +100,7 @@ function doEntryView(req, res, requestYear, requestMonth, requestDay) {
         .populate('feeling_text').exec(function(err, result) {
           if (err) {
             console.log('error: An error has occurred');
-            res.render('500.ejs');
+            res.render('error.ejs');
             return;
           }
           console.log('Success: Getting piece');

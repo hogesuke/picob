@@ -34,7 +34,7 @@
         <div id="friends-feeling">
           <div class="feeling-container feeling-good">
             <div class="feeling-label">Good</div>
-            <div class="icon-container"></div>
+            <div class="user-icon-container"></div>
           </div>
           <div class="feeling-container feeling-normal">
             <div class="feeling-label">Neutral</div>
@@ -84,6 +84,10 @@
           <a href="/<%= userSeq %>/entry/<%= nextDate.year %>/<%= nextDate.month %>/<%= nextDate.day %>" >5</a>
         </div>
       </div>
+    </div>
+    <% /* CSRF対策 Token */ %>
+    <div>
+      <input type="hidden" name="_csrf" value="<%= csrftoken %>">
     </div>
   </body>
 </html>

@@ -15,6 +15,7 @@
       <div id="login-control">
         <div class="login-button">
           <form method="POST" action="/login/twitter">
+            <input type="hidden" name="_csrf" value="<%= csrftoken %>">
             <input type="submit" id="twitter-login-button" value="Twitterでログイン">
           </form>
         </div>
