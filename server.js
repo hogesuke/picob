@@ -10,6 +10,7 @@ var login = require('./routes/login');
 var user = require('./routes/user');
 var pieces = require('./routes/pieces');
 var feeling = require('./routes/feeling');
+var error = require('./routes/error');
 var app = express();
 
 dbConnector.connect();
@@ -64,6 +65,7 @@ app.get('/login/twitter/callback',
 app.get(/^\/([0-9]{1,9})\/calendar\/(2[0-9]{3})\/(1[0-2]|0?[1-9])\/?$/, // /[userSeq]/calendar/[year]/[month]
     login.checkLogin,
     user.validateUser,
+    pieces.checkValidExtent,
     pieces.calendar);
 app.get(/^\/([0-9]{1,9})\/(2[0-9]{3})\/(1[0-2]|0?[1-9])\/?$/, // /[userSeq]/[year]/[month]
     login.checkLogin,
@@ -95,6 +97,11 @@ app.post(entryUri,
 app.get(/\/social\/friends\/(2[0-9]{3})\/(1[0-2]|0?[1-9])\/(0?[1-9]|[1,2][0-9]|3[0,1])\/?$/, // /social/friends/[year]/[month]/[day]
     login.checkLogin,
     user.getFriendsFeeling);
+
+/**
+ * errorページのルーティング
+ */
+app.get('/error', error.index);
 
 /**
  * デバッグ用のルーティング

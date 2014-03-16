@@ -36,6 +36,36 @@ exports.calendar = function(req, res) {
 };
 
 /**
+ * リクエストされた年月が有効な年月の範囲内であるか確認する。
+ * 有効範囲外である場合はエラー画面に遷移させる。
+ */
+exports.checkValidExtent = function(req, res, next) {
+  var requestYear = req.params[1];
+  var requestMonth = req.params[2];
+  var current = new Date();
+  var currentYear = current.getFullYear();
+  var currentMonth = current.getMonth() + 1;
+
+  console.log('currentYear: ' + currentYear);
+  console.log('currentYearType: ' + typeof currentYear);
+  if (currentYear < requestYear) {
+    res.redirect('/error');
+    return;
+  }
+  console.log('currentMonth: ' + currentMonth);
+  console.log('currentMonthType: ' + typeof currentMonth);
+  if (currentYear == requestYear && currentMonth < requestMonth) {
+    res.redirect('/error');
+    return;
+  }
+  if (requestYear < 2014) {
+    res.redirect('/error');
+    return;
+  }
+  next();
+}
+
+/**
  * 今日のpieceを個別表示する。
  */
 exports.today = function(req, res) {
