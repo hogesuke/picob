@@ -25,15 +25,51 @@ exports.calendar = function(req, res) {
       month: requestMonth
     },
     nextDate: {
+      isVisible: existNext(requestYear, requestMonth),
       year: nextDate.getFullYear(),
       month: nextDate.getMonth() + 1 
     },
     prevDate: {
+      isVisible: existPrev(requestYear, requestMonth),
       year: prevDate.getFullYear(),
       month: prevDate.getMonth() + 1 
     }
   });
 };
+
+/**
+ * 次月の表示が可能か判定する。
+ */
+function existNext(requestYear, requestMonth) {
+  var current = new Date();
+  var currentYear = current.getFullYear();
+  var currentMonth = current.getMonth() + 1;
+
+  if (currentYear < requestYear) {
+    return false;
+  }
+  if (currentYear == requestYear && currentMonth <= requestMonth) {
+    return false;
+  }
+  return true;
+}
+
+/**
+ * 前月の表示が可能か判定する。
+ */
+function existPrev(requestYear, requestMonth) {
+  var current = new Date();
+  var currentYear = current.getFullYear();
+  var currentMonth = current.getMonth() + 1;
+
+  if (requestYear < 2014) {
+    return false;
+  }
+  if (currentYear == 2014 && requestMonth == 1) {
+    return false;
+  }
+  return true;
+}
 
 /**
  * リクエストされた年月が有効な年月の範囲内であるか確認する。
@@ -46,14 +82,10 @@ exports.checkValidExtent = function(req, res, next) {
   var currentYear = current.getFullYear();
   var currentMonth = current.getMonth() + 1;
 
-  console.log('currentYear: ' + currentYear);
-  console.log('currentYearType: ' + typeof currentYear);
   if (currentYear < requestYear) {
     res.redirect('/error');
     return;
   }
-  console.log('currentMonth: ' + currentMonth);
-  console.log('currentMonthType: ' + typeof currentMonth);
   if (currentYear == requestYear && currentMonth < requestMonth) {
     res.redirect('/error');
     return;

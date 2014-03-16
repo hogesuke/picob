@@ -22,13 +22,17 @@
       </div>
       <div id="controler">
         <div id="month-controler">
-          <a id="prev-month" class="web-icon-fontello"
-            href="/<%= userSeq %>/calendar/<%= prevDate.year %>/<%= prevDate.month %>">4</a>
+          <% if (prevDate.isVisible) { %>
+            <a id="prev-month" class="web-icon-fontello"
+              href="/<%= userSeq %>/calendar/<%= prevDate.year %>/<%= prevDate.month %>">4</a>
+          <% } %>
           <div id="current-ym" year="<%= thisDate.year %>" month="<%= thisDate.month %>">
             <%= thisDate.year + "/" + thisDate.month %>
           </div>
-          <a id="next-month" class="web-icon-fontello"
-            href="/<%= userSeq %>/calendar/<%= nextDate.year %>/<%= nextDate.month %>">5</a>
+          <% if (nextDate.isVisible) { %>
+            <a id="next-month" class="web-icon-fontello"
+              href="/<%= userSeq %>/calendar/<%= nextDate.year %>/<%= nextDate.month %>">5</a>
+          <% } %>
         </div>
       </div>
       <div id="day">
