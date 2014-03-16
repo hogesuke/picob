@@ -24,37 +24,22 @@ app.configure(function () {
   app.use(passport.initialize());
   app.use(passport.session());
   app.use(express.csrf());
-  app.use(function (req, res, next) {
-    res.cookie('XSRF-TOKEN', req.csrfToken());
-    res.locals.csrftoken = req.csrfToken();
-    next();
-  });
   app.use(app.router);
   app.use(express.static(__dirname + '/public'));
-
-//  app.use(function(err, req, res, next) {
-//    console.log('なんかエラーみたいだね');
-//    if (err.name === "Forbidden") {
-//      res.status(403).render('error.ejs');
-//    } else {
-//      next(err);
-//    }
-//  });
 });
 
 /**
  * CSRF対策のtokenを生成する。
  */
 function csrf(req, res, next) {
-  console.log('create token');
-  res.locals.token = req.session._csrf;
+  res.locals.csrftoken = req.csrfToken();
   next();
 }
 
 /**
  * loginのルーティング
  */
-app.get('/login', login.index);
+app.get('/login', csrf, login.index);
 app.get('/logout', login.logout);
 app.post('/login/facebook', passport.authenticate('facebook'));
 app.post('/login/twitter', passport.authenticate('twitter'));
@@ -90,15 +75,16 @@ app.get(/^\/([0-9]{1,9})\/(2[0-9]{3})\/(1[0-2]|0?[1-9])\/?$/, // /[userSeq]/[yea
  */
 var entryUri = /^\/([0-9]{1,9})\/entry\/(2[0-9]{3})\/(1[0-2]|0?[1-9])\/(0?[1-9]|[1,2][0-9]|3[0,1])\/?$/; // /[userSeq]/entry/[year]/[month]/[day]
 app.get(/^\/([0-9]{1,9})\/entry\/today$/, // /[userSeq]/entry/today
+    csrf,
     login.checkLogin,
     user.validateUser,
     pieces.today);
 app.get(entryUri,
+    csrf,
     login.checkLogin,
     user.validateUser,
     pieces.oneDay);
 app.post(entryUri,
-    //csrf,
     login.checkLogin,
     user.validateUser, // TODO ユーザーの存在チェックじゃなくて対象ユーザーが自分かをチェックするようにする
     pieces.upsertPiece);
