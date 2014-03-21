@@ -26,9 +26,6 @@ $(function() {
       }
       return this.day();
     }, this);
-    this.isCompleted = ko.computed(function() {
-      return data !== null && data.feeling !== null;
-    }, this);
     this.isDummy = ko.computed(function() {
       return data === null;
     }, this);
@@ -39,7 +36,7 @@ $(function() {
       return data.feeling_text !== null && typeof data.feeling_text !== "undefined";
     }, this);
     this.getPieceCss = ko.computed(function() {
-      return this.isDummy() ? 'dummy-piece' : this.isCompleted() ? 'piece link' : 'empty-piece link'
+      return this.isDummy() ? 'dummy-piece' : this.isDummy() ? 'empty-piece link' : 'piece link';
     }, this);
     this.getHref = ko.computed(function() {
       return this.isDummy() ? '' : '/' + locationStatus.userSeq + '/entry/' + locationStatus.year + '/' + locationStatus.month + '/' + this.day();

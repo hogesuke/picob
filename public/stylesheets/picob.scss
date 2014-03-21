@@ -28,6 +28,9 @@ $base_charctor_color: #000000;
 }
 
 .feeling, .empty-feeling {
+    height: 64px;
+    width: 64px;
+    text-align: center;
     @media #{$small} {
         font-size: 14px;
         position: relative;
@@ -36,7 +39,18 @@ $base_charctor_color: #000000;
     @media #{$large} {
         font-size: 40px;
     }
-    text-align: center;
+    &.good {
+        background: url(/images/good_64.png) no-repeat center;
+    }
+    &.normal {
+        background: url(/images/normal_64.png) no-repeat center;
+    }
+    &.bad {
+        background: url(/images/bad_64.png) no-repeat center;
+    }
+    &.none {
+        background: url(/images/none_64.png) no-repeat center;
+    }
 }
 
 .date {

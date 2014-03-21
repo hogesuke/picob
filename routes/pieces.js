@@ -251,35 +251,24 @@ function filterByFeelingGroup(feelings, groupId) {
  * @return pieceの検索結果
  */
 exports.findCalendarData = function(req, res) {
-  console.log('Getting piecelist');
-
   var targetUserSeq = req.params[0];
   var requestYear = req.params[1];
   var requestMonth = req.params[2].replace(/^0?([0-9]+)/, '$1');
   var loginUser = req.session.passport.user;
-  var isMe = false;
-
-  console.log('loginUser:  ' + loginUser);
-  if (loginUser.seq === targetUserSeq) {
-    isMe = true;
-  }
 
   Piece.find({user_seq: targetUserSeq, year: requestYear, month: requestMonth})
-    .populate('feeling_text').exec(function(err, results) {
+    .populate('feeling_text').exec(function(err, pieces) {
       if (err) {
         console.log('error: An error has occurred');
         res.send({'error': 'An error has occurred'});
         return;
       }
-      console.log('Success: Getting piecelist');
-      console.log('results: ' + results.length);
 
       res.send(
         {
           year: requestYear,
           month: requestMonth,
-          pieces: createPieceArray(requestYear, requestMonth, results),
-          isMe: isMe
+          pieces: createPieceArray(requestYear, requestMonth, pieces)
         });
     });
 }
@@ -342,7 +331,7 @@ function createPieceArray(requestYear, requestMonth, searchResult) {
 
   var pieceArray = new Array(31);
   for (var i=0; i < 31; i++) {
-    pieceArray[i] = {year: requestYear, month: requestMonth, day: i + 1, feeling: null};
+    pieceArray[i] = {year: requestYear, month: requestMonth, day: i + 1, feeling: 'none'};
   }
 
   searchResult.forEach(function(piece, index) {
