@@ -8,6 +8,7 @@ var Piece = require('../models/piece');
  */
 exports.validateUser = function(req, res, next) {
   var targetUserSeq = req.params[0];
+
   User.count({seq: targetUserSeq}, function(err, count) {
     if (err) {
       console.log('error: An error has occurred');
@@ -15,13 +16,26 @@ exports.validateUser = function(req, res, next) {
     }
     if (!count) {
       console.log('error: An unknown user');
-      res.render('unknown.ejs');
+      res.redirect('/unknown');
       return;
     }
-    
     next();
   });
 };
+
+/**
+ * 投稿対象のユーザーがログインユーザー自身であるか確認する。
+ */
+exports.validateEntryTargetUser = function(req, res, next) {
+  var me = req.session.passport.user;
+  var targetUserSeq = req.params[0];
+
+  if (me.seq != targetUserSeq) {
+    res.send(403, {path: '/unauthorized'});
+    return;
+  }
+  next();
+}
 
 /**
  * 友達のpiece投稿を取得する。

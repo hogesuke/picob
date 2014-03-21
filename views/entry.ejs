@@ -26,11 +26,13 @@
             ？
           <% } %>
         </div>
-        <div class="feeling-selector">
-          <a class="feeling-choices feeling-good web-icon-fontello">1</a>
-          <a class="feeling-choices feeling-normal web-icon-fontello">3</a>
-          <a class="feeling-choices feeling-bad web-icon-fontello">2</a>
-        </div>
+        <% if (isMe) {%>
+          <div class="feeling-selector">
+            <a class="feeling-choices feeling-good web-icon-fontello">1</a>
+            <a class="feeling-choices feeling-normal web-icon-fontello">3</a>
+            <a class="feeling-choices feeling-bad web-icon-fontello">2</a>
+          </div>
+        <% } %>
         <div id="friends-feeling">
           <div class="feeling-container feeling-good">
             <div class="feeling-label">Good</div>
@@ -55,23 +57,25 @@
             ・・・？
           <% } %>
         </div>
-        <div id="feeling-text-selector">
-          <% for (var groupName in feelings) { %>
-            <div class="feeling-group-title"><%= groupName %></div>
-            <div class="feeling-text-container">
-              <ul>
-                <% for (var i in feelings[groupName]) { %>
-                <% var feeling = feelings[groupName]; %>
-                <li>
-                <a class="feeling-text-choices inactive" href="javascript:void(0)" feeling-text-id='<%= feeling[i]._id %>'>
-                  <%= feeling[i].text %>
-                </a>
-                </li>
-                <% } %>
-              </ul>
-            </div>
-          <% } %>
-        </div>
+        <% if (isMe) {%>
+          <div id="feeling-text-selector">
+            <% for (var groupName in feelings) { %>
+              <div class="feeling-group-title"><%= groupName %></div>
+              <div class="feeling-text-container">
+                <ul>
+                  <% for (var i in feelings[groupName]) { %>
+                  <% var feeling = feelings[groupName]; %>
+                  <li>
+                  <a class="feeling-text-choices inactive" href="javascript:void(0)" feeling-text-id='<%= feeling[i]._id %>'>
+                    <%= feeling[i].text %>
+                  </a>
+                  </li>
+                  <% } %>
+                </ul>
+              </div>
+            <% } %>
+          </div>
+        <% } %>
       </div>
       <div id="bottom-container">
         <div id="prev-date" class="web-icon-fontello">

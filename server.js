@@ -88,7 +88,7 @@ app.get(entryUri,
     pieces.oneDay);
 app.post(entryUri,
     login.checkLogin,
-    user.validateUser, // TODO ユーザーの存在チェックじゃなくて対象ユーザーが自分かをチェックするようにする
+    user.validateEntryTargetUser,
     pieces.upsertPiece);
 
 /**
@@ -102,6 +102,8 @@ app.get(/\/social\/friends\/(2[0-9]{3})\/(1[0-2]|0?[1-9])\/(0?[1-9]|[1,2][0-9]|3
  * errorページのルーティング
  */
 app.get('/error', error.index);
+app.get('/unknown', error.unknown);
+app.get('/unauthorized', error.unauthorized);
 
 /**
  * デバッグ用のルーティング

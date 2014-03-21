@@ -103,7 +103,8 @@ $(function() {
       success: function() {
         console.log('success post.');
       },
-      error: function() {
+      error: function(err) {
+        window.location = err.responseJSON.path;
       }
     });
   }

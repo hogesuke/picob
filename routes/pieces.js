@@ -132,8 +132,7 @@ function doEntryView(req, res, requestYear, requestMonth, requestDay) {
   // 取得対象のユーザーがログインユーザー（自分）であるか確認する。
   var isMe = false;
   var loginUser = req.session.passport.user;
-  console.log('loginUser:  ' + loginUser);
-  if (loginUser.seq === targetUserSeq) {
+  if (loginUser.seq == targetUserSeq) {
     isMe = true;
   }
 
