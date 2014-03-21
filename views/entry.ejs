@@ -19,18 +19,13 @@
         </form>
       </div>
       <div id="left-container">
-        <div id="feeling" class="web-icon-fontello">
-          <% if (piece && piece.feeling) {%>
-            <%= piece.feeling %>
-          <% } else { %>
-            ？
-          <% } %>
+        <div id="feeling" class="<%= piece.feeling %>">
         </div>
         <% if (isMe) {%>
           <div class="feeling-selector">
-            <a class="feeling-choices feeling-good web-icon-fontello">1</a>
-            <a class="feeling-choices feeling-normal web-icon-fontello">3</a>
-            <a class="feeling-choices feeling-bad web-icon-fontello">2</a>
+            <a class="feeling-choices feeling-good web-icon-fontello" feeling="good"></a>
+            <a class="feeling-choices feeling-normal web-icon-fontello" feeling="normal"></a>
+            <a class="feeling-choices feeling-bad web-icon-fontello" feeling="bad"></a>
           </div>
         <% } %>
         <div id="friends-feeling">

@@ -127,6 +127,9 @@ exports.oneDay = function(req, res) {
  */
 function doEntryView(req, res, requestYear, requestMonth, requestDay) {
 
+  var defaultPiece = {
+    feeling: "none"
+  }
   var targetUserSeq = req.params[0];
 
   // 取得対象のユーザーがログインユーザー（自分）であるか確認する。
@@ -135,8 +138,6 @@ function doEntryView(req, res, requestYear, requestMonth, requestDay) {
   if (loginUser.seq == targetUserSeq) {
     isMe = true;
   }
-
-  // TODO 現在年月以下であることを精査する処理を追加すること。
 
   FeelingGroup.find({}).sort({group: 'asc'}).exec(function(err, groups) {
     if (err) {
@@ -158,14 +159,14 @@ function doEntryView(req, res, requestYear, requestMonth, requestDay) {
       }
 
       Piece.findOne({user_seq: targetUserSeq, year: requestYear, month: requestMonth, day: requestDay})
-        .populate('feeling_text').exec(function(err, result) {
+        .populate('feeling_text').exec(function(err, piece) {
           if (err) {
             console.log('error: An error has occurred');
             res.render('error.ejs');
             return;
           }
           console.log('Success: Getting piece');
-          console.log('piece: ' + result);
+          console.log('piece: ' + piece);
 
           var nextDate = computeDate(requestYear, requestMonth, requestDay, 1);
           var prevDate = computeDate(requestYear, requestMonth, requestDay, -1);
@@ -188,7 +189,7 @@ function doEntryView(req, res, requestYear, requestMonth, requestDay) {
               day: prevDate.getDate()
             },
             feelings: feelingsEveryGroup,
-            piece: result,
+            piece: piece ? piece : defaultPiece,
             isMe: isMe
           });
         });

@@ -17,6 +17,7 @@ $(function() {
         this.year = $date.attr('year');
         this.month = $date.attr('month');
         this.day = $date.attr('day');
+        this.feeling = getFeeling();
         this.token = $('input[name="_csrf"]').val();
         return;
       }
@@ -42,7 +43,7 @@ $(function() {
         errorMsg = '何かがおかしいのでページをリロードしてください。';
         return false;
       }
-      if (this.feeling.match(/[1-3]/) == null) {
+      if (this.feeling.match(/good|normal|bad/) == null) {
         errorMsg = '何かがおかしいのでページをリロードしてください。';
         return false;
       }
@@ -54,15 +55,22 @@ $(function() {
     }
   }
 
+  function getFeeling() {
+    if ($('#feeling').is('.good')) return 'good';
+    if ($('#feeling').is('.normal')) return 'normal';
+    if ($('#feeling').is('.bad')) return 'bad';
+    return 'none';
+  }
   pieceStatus.init();
   // TODO socialテスト
   getFriendsFeeling();
 
   $(document).on('click', '.feeling-choices', function() {
-    var selectedFeeling = $.trim($(this).text());
+    var selectedFeeling = $.trim($(this).attr('feeling'));
     var $feeling = $('#feeling');
 
-    $feeling.text(selectedFeeling);
+    $feeling.removeClass(pieceStatus.feeling);
+    $feeling.addClass(selectedFeeling);
     pieceStatus.feeling = selectedFeeling;
     
     if (pieceStatus.isValid()) upsertPiece(pieceStatus);
