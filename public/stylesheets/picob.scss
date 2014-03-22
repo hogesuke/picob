@@ -53,7 +53,8 @@ $base_charctor_color: #000000;
             background: url(/images/bad_32.png) no-repeat center;
         }
         &.none {
-            background: url(/images/none_32.png) no-repeat center;
+            background: url(/images/none_64_scale_down.png) no-repeat center;
+            background-size: 32px 32px;
         }
     }
     @media #{$large} {

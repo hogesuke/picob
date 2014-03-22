@@ -66,7 +66,8 @@
   }
   /* line 55, picob.scss */
   .feeling.none, .empty-feeling.none {
-    background: url(/images/none_32.png) no-repeat center;
+    background: url(/images/none_64_scale_down.png) no-repeat center;
+    background-size: 32px 32px;
   }
 }
 @media only screen and (min-width: 900px) {
@@ -75,25 +76,25 @@
     height: 64px;
     top: 17px;
   }
-  /* line 62, picob.scss */
+  /* line 63, picob.scss */
   .feeling.good, .empty-feeling.good {
     background: url(/images/good_64.png) no-repeat center;
   }
-  /* line 65, picob.scss */
+  /* line 66, picob.scss */
   .feeling.normal, .empty-feeling.normal {
     background: url(/images/normal_64.png) no-repeat center;
   }
-  /* line 68, picob.scss */
+  /* line 69, picob.scss */
   .feeling.bad, .empty-feeling.bad {
     background: url(/images/bad_64.png) no-repeat center;
   }
-  /* line 71, picob.scss */
+  /* line 72, picob.scss */
   .feeling.none, .empty-feeling.none {
     background: url(/images/none_64.png) no-repeat center;
   }
 }
 
-/* line 77, picob.scss */
+/* line 78, picob.scss */
 .date {
   width: 100%;
   float: left;
@@ -102,26 +103,26 @@
   text-align: right;
 }
 @media only screen and (max-width: 899px) {
-  /* line 77, picob.scss */
+  /* line 78, picob.scss */
   .date {
     font-size: 10px;
   }
 }
 @media only screen and (min-width: 900px) {
-  /* line 77, picob.scss */
+  /* line 78, picob.scss */
   .date {
     font-size: 20px;
     margin-bottom: 2px;
   }
 }
 
-/* line 92, picob.scss */
+/* line 93, picob.scss */
 .feeling-selector {
   font-size: 20px;
   margin: 10px 0px;
   overflow: hidden;
 }
-/* line 96, picob.scss */
+/* line 97, picob.scss */
 .feeling-selector .feeling-choices {
   display: block;
   float: left;
@@ -134,30 +135,30 @@
   font-size: 15px;
 }
 
-/* line 110, picob.scss */
+/* line 111, picob.scss */
 .feeling-text {
   position: relative;
   top: 18px;
   text-align: center;
 }
 @media only screen and (max-width: 899px) {
-  /* line 110, picob.scss */
+  /* line 111, picob.scss */
   .feeling-text {
     display: none;
   }
 }
 @media only screen and (min-width: 900px) {
-  /* line 110, picob.scss */
+  /* line 111, picob.scss */
   .feeling-text {
     font-size: 15px;
   }
 }
 
-/* line 122, picob.scss */
+/* line 123, picob.scss */
 #day {
   clear: both;
 }
-/* line 124, picob.scss */
+/* line 125, picob.scss */
 #day div {
   float: left;
   background-color: rgba(255, 255, 255, 0.5);
@@ -165,7 +166,7 @@
   text-align: center;
 }
 @media only screen and (max-width: 899px) {
-  /* line 124, picob.scss */
+  /* line 125, picob.scss */
   #day div {
     width: 30px;
     font-size: 11px;
@@ -174,7 +175,7 @@
   }
 }
 @media only screen and (min-width: 900px) {
-  /* line 124, picob.scss */
+  /* line 125, picob.scss */
   #day div {
     width: 100px;
     font-size: 15px;
@@ -182,56 +183,56 @@
     margin: 3px 3px;
   }
 }
-/* line 141, picob.scss */
+/* line 142, picob.scss */
 #day div.holiday {
   color: #BF4245;
 }
 
-/* line 148, picob.scss */
+/* line 149, picob.scss */
 #controler div {
   float: left;
 }
-/* line 151, picob.scss */
+/* line 152, picob.scss */
 #controler #month-controler {
   margin: 3px 3px;
   background-color: #FFFFFF;
   font-size: 18px;
 }
-/* line 155, picob.scss */
+/* line 156, picob.scss */
 #controler #month-controler a {
   display: block;
   float: left;
 }
-/* line 159, picob.scss */
+/* line 160, picob.scss */
 #controler #month-controler #next-month, #controler #month-controler #prev-month {
   padding: 7px 8px;
   margin: 3px 0px;
 }
-/* line 163, picob.scss */
+/* line 164, picob.scss */
 #controler #month-controler #current-ym {
   margin: 3px 3px;
 }
 
-/* line 169, picob.scss */
+/* line 170, picob.scss */
 #form-window {
   display: none;
   padding: 20px 30px;
   background-color: #D1D1D1;
 }
-/* line 175, picob.scss */
+/* line 176, picob.scss */
 #form-window #feeling-text-container {
   margin: 5px 10px 20px 10px;
   font-size: 16px;
 }
-/* line 178, picob.scss */
+/* line 179, picob.scss */
 #form-window #feeling-text-container .feeling-group-title {
   font-size: 20px;
 }
-/* line 182, picob.scss */
+/* line 183, picob.scss */
 #form-window #feeling-text-container .feeling-text-choices.active {
   background-color: #2968D2;
 }
-/* line 185, picob.scss */
+/* line 186, picob.scss */
 #form-window #feeling-text-container .feeling-text-choices.inactive {
   background-color: transparent;
 }
