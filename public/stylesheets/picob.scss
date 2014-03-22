@@ -11,10 +11,19 @@ $base_charctor_color: #000000;
 
 .piece, .empty-piece, .dummy-piece {
     @media #{$small} {
-        width: 30px;
-        height: 30px;
-        padding: 5px;
+        width: 34px;
+        height: 34px;
+        padding: 3px;
         margin: 2px 2px;
+        &.good {
+            background-color: #01BCB6;
+        }
+        &.normal {
+            background-color: #FFB273;
+        }
+        &.bad {
+            background-color: #FF7373;
+        }
     }
     @media #{$large} {
         width: 100px;
@@ -28,37 +37,53 @@ $base_charctor_color: #000000;
 }
 
 .feeling, .empty-feeling {
-    height: 64px;
-    width: 64px;
+    width: 100%;
+    position: relative;
     text-align: center;
     @media #{$small} {
-        font-size: 14px;
-        position: relative;
-        top: -2px;
+        height: 100%;
+        top: 4px;
+        &.good {
+            background: url(/images/good_32.png) no-repeat center;
+        }
+        &.normal {
+            background: url(/images/normal_32.png) no-repeat center;
+        }
+        &.bad {
+            background: url(/images/bad_32.png) no-repeat center;
+        }
+        &.none {
+            background: url(/images/none_32.png) no-repeat center;
+        }
     }
     @media #{$large} {
-        font-size: 40px;
-    }
-    &.good {
-        background: url(/images/good_64.png) no-repeat center;
-    }
-    &.normal {
-        background: url(/images/normal_64.png) no-repeat center;
-    }
-    &.bad {
-        background: url(/images/bad_64.png) no-repeat center;
-    }
-    &.none {
-        background: url(/images/none_64.png) no-repeat center;
+        height: 64px;
+        top: 17px;
+        &.good {
+            background: url(/images/good_64.png) no-repeat center;
+        }
+        &.normal {
+            background: url(/images/normal_64.png) no-repeat center;
+        }
+        &.bad {
+            background: url(/images/bad_64.png) no-repeat center;
+        }
+        &.none {
+            background: url(/images/none_64.png) no-repeat center;
+        }
     }
 }
 
 .date {
+    width: 100%;
+    float: left;
+    position: relative;
+    top: 0px;
     @media #{$small} {
-        font-size: 12px;
+        font-size: 10px;
     }
     @media #{$large} {
-        font-size: 28px;
+        font-size: 20px;
         margin-bottom: 2px;
     }
     text-align: right;
@@ -83,13 +108,14 @@ $base_charctor_color: #000000;
 
 
 .feeling-text {
+    position: relative;
+    top: 18px;
     text-align: center;
     @media #{$small} {
         display: none;
     }
     @media #{$large} {
-        margin-top: 6px;
-        font-size: 16px;
+        font-size: 15px;
     }
 }
 
