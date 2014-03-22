@@ -44,13 +44,16 @@ $base_charctor_color: #000000;
         height: 100%;
         top: 4px;
         &.good {
-            background: url(/images/good_32.png) no-repeat center;
+            background: url(/images/good_64_scale_down.png) no-repeat center;
+            background-size: 32px 32px;
         }
         &.normal {
-            background: url(/images/normal_32.png) no-repeat center;
+            background: url(/images/normal_64_scale_down.png) no-repeat center;
+            background-size: 32px 32px;
         }
         &.bad {
-            background: url(/images/bad_32.png) no-repeat center;
+            background: url(/images/bad_64_scale_down.png) no-repeat center;
+            background-size: 32px 32px;
         }
         &.none {
             background: url(/images/none_64_scale_down.png) no-repeat center;
