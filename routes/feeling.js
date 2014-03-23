@@ -8,7 +8,8 @@ var Feeling = require('../models/feeling').Feeling;
  */
 exports.testDataInsert = function(req, res) {
   FeelingGroup.create({
-    name: 'ポジティブ'
+    name: 'Good',
+    type: 'good'
   }, function(err, fGroup1) {
     Feeling.create({text: '楽しい'}, function(err, feeling) {
       feeling.group = fGroup1;
@@ -17,7 +18,7 @@ exports.testDataInsert = function(req, res) {
           feeling.group = fGroup1;
           feeling.save(function(err) {
             FeelingGroup.create({
-              name: 'ネガティブ'
+              name: 'Bad'
             }, function(err, fGroup2) {
               if (err) {
                 console.log('fGroup2でエラーですよ：' + err);
@@ -29,7 +30,7 @@ exports.testDataInsert = function(req, res) {
                     feeling.group = fGroup2;
                     feeling.save();
                     FeelingGroup.create({
-                      name: 'ニュートラル'
+                      name: 'Normal'
                     }, function(err, fGroup3) {
                       if (err) {
                         console.log('fGroup3でエラーですよ：' + err);

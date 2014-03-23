@@ -7,9 +7,10 @@
     <script type="text/javascript" src="/javascripts/jquery.simplemodal.js"></script>
     <script type="text/javascript" src="/javascripts/matchMedia.js"></script>
     <script type="text/javascript" src="/javascripts/picob.entry.js"></script>
-    <link rel='stylesheet' href='/stylesheets/cssreset-min.css' />
-    <link rel='stylesheet' href='/stylesheets/picob.entry.css' />
-    <link rel='stylesheet' href='/stylesheets/picob.common.css' />
+    <link rel='stylesheet' href='/stylesheets/cssreset-min.css' type='text/css'>
+    <link rel='stylesheet' href='/stylesheets/picob.entry.css' type='text/css'>
+    <link rel='stylesheet' href='/stylesheets/picob.common.css' type='text/css'>
+    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Quicksand' type='text/css'>
   </head>
   <body>
     <div id="container">
@@ -45,28 +46,34 @@
         <div id="date" year="<%= thisDate.year %>" month="<%= thisDate.month %>" day="<%= thisDate.day %>">
           <%= thisDate.year + '/' + thisDate.month + '/' + thisDate.day %>
         </div>
-        <div id="feeling-text">
-          <% if (piece && piece.feeling_text) {%>
-            <%= piece.feeling_text.text %>
-          <% } else { %>
-            ・・・？
-          <% } %>
+        <div id="feeling-text-container">
+          <div id="feeling-text-icon">
+          </div>
+          <div id="feeling-text">
+            <% if (piece && piece.feeling_text) {%>
+              <%= piece.feeling_text.text %>
+            <% } else { %>
+              ・・・？
+            <% } %>
+          </div>
         </div>
         <% if (isMe) {%>
           <div id="feeling-text-selector">
             <% for (var groupName in feelings) { %>
-              <div class="feeling-group-title"><%= groupName %></div>
-              <div class="feeling-text-container">
-                <ul>
-                  <% for (var i in feelings[groupName]) { %>
-                  <% var feeling = feelings[groupName]; %>
-                  <li>
-                  <a class="feeling-text-choices inactive" href="javascript:void(0)" feeling-text-id='<%= feeling[i]._id %>'>
-                    <%= feeling[i].text %>
-                  </a>
-                  </li>
-                  <% } %>
-                </ul>
+              <div class="feeling-group">
+                <div class="feeling-group-title"><%= groupName %></div>
+                <div class="feeling-text-container">
+                  <ul>
+                    <% for (var i in feelings[groupName]) { %>
+                    <% var feeling = feelings[groupName]; %>
+                    <li>
+                    <a class="feeling-text-choices inactive" href="javascript:void(0)" feeling-text-id='<%= feeling[i]._id %>'>
+                      <%= feeling[i].text %>
+                    </a>
+                    </li>
+                    <% } %>
+                  </ul>
+                </div>
               </div>
             <% } %>
           </div>

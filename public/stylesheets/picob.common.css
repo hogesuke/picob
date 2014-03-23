@@ -17,13 +17,10 @@ html, body {
 
 /* line 19, picob.common.scss */
 html {
-  overflow: scroll;
-  overflow: -moz-scrollbars-vertical;
-  overflow-x: scroll;
   background-color: #E3D8CB;
 }
 
-/* line 26, picob.common.scss */
+/* line 23, picob.common.scss */
 body {
   padding: 10px;
   font-family: 'Lucida Grande', 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', meiryo, 'メイリオ', sans-serif;
@@ -32,31 +29,31 @@ body {
   *font: x-small;
 }
 
-/* line 34, picob.common.scss */
+/* line 31, picob.common.scss */
 a {
   text-decoration: none;
   outline: none;
   cursor: pointer;
 }
 
-/* line 40, picob.common.scss */
+/* line 37, picob.common.scss */
 #container {
   margin: 0 auto;
 }
 @media only screen and (max-width: 899px) {
-  /* line 40, picob.common.scss */
+  /* line 37, picob.common.scss */
   #container {
     width: 320px;
   }
 }
 @media only screen and (min-width: 900px) {
-  /* line 40, picob.common.scss */
+  /* line 37, picob.common.scss */
   #container {
     width: 900px;
   }
 }
 
-/* line 50, picob.common.scss */
+/* line 47, picob.common.scss */
 .link {
   cursor: pointer;
 }

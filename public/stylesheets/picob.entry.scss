@@ -8,8 +8,8 @@ $base_charctor_color: #000000;
         padding: 10px;
         width: 430px;
         height: 600px;
-        background-color: #146EA6;
-        color: #FFFFFF;
+        background-color: rgba(255,255,255,0.70);
+        color: #000000;
         #feeling {
             height: 250px;
             &.good {
@@ -40,46 +40,75 @@ $base_charctor_color: #000000;
     }
     #right-container {
         float: left;
-        width: 450px;
+        width: 430px;
         height: 600px;
+        margin: 0 10px;
+        color: #000000;
         #date {
+            height: 75px;
             padding: 10px;
-            height: 100px;
-            background-color: #2192BF;
-            color: #FFFFFF;
+            margin-bottom: 10px;
+            text-align: center;
+            background-color: rgba(255,255,255,0.70);
             font-size: 65px;
+            font-family: 'Quicksand', sans-serif;
         }
-        #feeling-text {
+        #feeling-text-container {
             padding: 10px;
             height: 100px;
-            background-color: #36A6BF;
-            color: #FFFFFF;
+            background-color: rgba(255,255,255,0.70);
             font-size: 65px;
+            #feeling-text-icon {
+                height: 90px;
+                width: 90px;
+                float: left;
+                background: url(/images/feeling_text_128.png) no-repeat center;
+                background-size: 104px 104px;
+            }
+            #feeling-text {
+                height: 82px;
+                width: 295px;
+                margin-left: 5px;
+                padding: 4px 10px;
+                text-align: center;
+                float: left;
+                background-color: #3AAACF;
+                color: #FFFFFF;
+                -webkit-border-radius: 20px;
+                -moz-border-radius: 20px;
+                border-radius: 20px;
+            }
         }
         #feeling-text-selector {
             height: 380px;
-            padding-left: 20px;
-            background-color: #36A6BF;
-            .feeling-group-title {
-                clear: both;
-                font-size: 25px;
-                color: #FFFFFF;
-            }
-            .feeling-text-container {
-                margin: 5px 10px 20px 10px;
-                font-size: 20px;
-                .feeling-text-choices {
-                    float: left;
-                    margin-right: 10px;
-                    padding: 5px 10px;
-                    border: solid 2px #FFFFFF;
-                    &.active {
-                        background-color: #2968D2;
-                        color: #FFFFFF;
-                    }
-                    &.inactive {
-                        background-color: #FFFFFF;
-                        color: #146EA6;
+            padding: 10px;
+            background-color: rgba(255,255,255,0.70);
+            .feeling-group {
+                margin-bottom: 10px;
+                .feeling-group-title {
+                    clear: both;
+                    font-size: 25px;
+                }
+                .feeling-text-container {
+                    overflow: hidden;
+                    margin: 5px 10px;
+                    font-size: 20px;
+                    .feeling-text-choices {
+                        float: left;
+                        margin-right: 10px;
+                        padding: 5px 10px;
+                        border: solid 2px #FFFFFF;
+                        -webkit-border-radius: 10px;
+                        -moz-border-radius: 10px;
+                        border-radius: 10px;
+                        &.active {
+                            background-color: #2968D2;
+                            color: #FFFFFF;
+                        }
+                        &.inactive {
+                            background-color: #FFFFFF;
+                            color: #146EA6;
+                        }
                     }
                 }
             }
@@ -87,27 +116,29 @@ $base_charctor_color: #000000;
     }
     #bottom-container {
         clear: both;
+        overflow: hidden;
+        margin-top: 15px;
         text-align: center;
         color: #FFFFFF;
         font-size: 50px;
         div {
             float: left;
             padding: 10px;
+            background-color: rgba(255,255,255,0.70);
         }
         a {
             display: block;
         }
         #prev-date {
-            width: 280px;
-            background-color: #84C9D9;
+            margin-right: 10px;
+            width: 270px;
         }
         #next-date {
-            width: 280px;
-            background-color: #84C9D9;
+            margin-left: 10px;
+            width: 270px;
         }
         #switch-calendar {
             width: 280px;
-            background-color: #2192BF;
         }
     }
 }
@@ -116,29 +147,29 @@ $base_charctor_color: #000000;
     font-size: 20px;
     margin: 10px 0px;
     overflow: hidden;
-}
-
-.feeling-choices {
-    float: left;
-    height: 128px;
-    width: 128px;
-    &.feeling-good {
-        background: url(/images/good_128.png) no-repeat center;
-    }
-    &.feeling-good:hover {
-        background: url(/images/good_hover_128.png) no-repeat center;
-    }
-    &.feeling-normal {
-        background: url(/images/normal_128.png) no-repeat center;
-    }
-    &.feeling-normal:hover {
-        background: url(/images/normal_hover_128.png) no-repeat center;
-    }
-    &.feeling-bad {
-        background: url(/images/bad_128.png) no-repeat center;
-    }
-    &.feeling-bad:hover {
-        background: url(/images/bad_hover_128.png) no-repeat center;
+    .feeling-choices {
+        display: block;
+        float: left;
+        height: 128px;
+        width: 128px;
+        &.feeling-good {
+            background: url(/images/good_128.png) no-repeat center;
+        }
+        &.feeling-good:hover {
+            background: url(/images/good_hover_128.png) no-repeat center;
+        }
+        &.feeling-normal {
+            background: url(/images/normal_128.png) no-repeat center;
+        }
+        &.feeling-normal:hover {
+            background: url(/images/normal_hover_128.png) no-repeat center;
+        }
+        &.feeling-bad {
+            background: url(/images/bad_128.png) no-repeat center;
+        }
+        &.feeling-bad:hover {
+            background: url(/images/bad_hover_128.png) no-repeat center;
+        }
     }
 }
 

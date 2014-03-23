@@ -120,48 +120,29 @@
 }
 
 /* line 96, picob.scss */
-.feeling-selector {
-  font-size: 20px;
-  margin: 10px 0px;
-  overflow: hidden;
-}
-/* line 100, picob.scss */
-.feeling-selector .feeling-choices {
-  display: block;
-  float: left;
-  padding: 7px;
-  margin: 0px 2px;
-  border: solid 1px #000000;
-  -webkit-border-radius: 8px;
-  -moz-border-radius: 8px;
-  border-radius: 5px;
-  font-size: 15px;
-}
-
-/* line 114, picob.scss */
 .feeling-text {
   position: relative;
   top: 18px;
   text-align: center;
 }
 @media only screen and (max-width: 899px) {
-  /* line 114, picob.scss */
+  /* line 96, picob.scss */
   .feeling-text {
     display: none;
   }
 }
 @media only screen and (min-width: 900px) {
-  /* line 114, picob.scss */
+  /* line 96, picob.scss */
   .feeling-text {
     font-size: 15px;
   }
 }
 
-/* line 126, picob.scss */
+/* line 108, picob.scss */
 #day {
   clear: both;
 }
-/* line 128, picob.scss */
+/* line 110, picob.scss */
 #day div {
   float: left;
   background-color: rgba(255, 255, 255, 0.5);
@@ -169,7 +150,7 @@
   text-align: center;
 }
 @media only screen and (max-width: 899px) {
-  /* line 128, picob.scss */
+  /* line 110, picob.scss */
   #day div {
     width: 30px;
     font-size: 11px;
@@ -178,7 +159,7 @@
   }
 }
 @media only screen and (min-width: 900px) {
-  /* line 128, picob.scss */
+  /* line 110, picob.scss */
   #day div {
     width: 100px;
     font-size: 15px;
@@ -186,56 +167,56 @@
     margin: 3px 3px;
   }
 }
-/* line 145, picob.scss */
+/* line 127, picob.scss */
 #day div.holiday {
   color: #BF4245;
 }
 
-/* line 152, picob.scss */
+/* line 134, picob.scss */
 #controler div {
   float: left;
 }
-/* line 155, picob.scss */
+/* line 137, picob.scss */
 #controler #month-controler {
   margin: 3px 3px;
   background-color: #FFFFFF;
   font-size: 18px;
 }
-/* line 159, picob.scss */
+/* line 141, picob.scss */
 #controler #month-controler a {
   display: block;
   float: left;
 }
-/* line 163, picob.scss */
+/* line 145, picob.scss */
 #controler #month-controler #next-month, #controler #month-controler #prev-month {
   padding: 7px 8px;
   margin: 3px 0px;
 }
-/* line 167, picob.scss */
+/* line 149, picob.scss */
 #controler #month-controler #current-ym {
   margin: 3px 3px;
 }
 
-/* line 173, picob.scss */
+/* line 155, picob.scss */
 #form-window {
   display: none;
   padding: 20px 30px;
   background-color: #D1D1D1;
 }
-/* line 179, picob.scss */
+/* line 161, picob.scss */
 #form-window #feeling-text-container {
   margin: 5px 10px 20px 10px;
   font-size: 16px;
 }
-/* line 182, picob.scss */
+/* line 164, picob.scss */
 #form-window #feeling-text-container .feeling-group-title {
   font-size: 20px;
 }
-/* line 186, picob.scss */
+/* line 168, picob.scss */
 #form-window #feeling-text-container .feeling-text-choices.active {
   background-color: #2968D2;
 }
-/* line 189, picob.scss */
+/* line 171, picob.scss */
 #form-window #feeling-text-container .feeling-text-choices.inactive {
   background-color: transparent;
 }
