@@ -59,16 +59,18 @@
         </div>
         <% if (isMe) {%>
           <div id="feeling-text-selector">
-            <% for (var groupName in feelings) { %>
-              <div class="feeling-group">
+            <% var groupNameArray = ['Good', 'Normal', 'Bad']; %>
+            <% for (var i in groupNameArray) { %>
+              <% var groupName = groupNameArray[i]; %>
+              <div class="feeling-group <%= groupName.toLowerCase() %>">
                 <div class="feeling-group-title"><%= groupName %></div>
                 <div class="feeling-text-container">
                   <ul>
-                    <% for (var i in feelings[groupName]) { %>
+                    <% for (var j in feelings[groupName]) { %>
                     <% var feeling = feelings[groupName]; %>
                     <li>
-                    <a class="feeling-text-choices inactive" href="javascript:void(0)" feeling-text-id='<%= feeling[i]._id %>'>
-                      <%= feeling[i].text %>
+                    <a class="feeling-text-choices inactive" href="javascript:void(0)" feeling-text-id='<%= feeling[j]._id %>'>
+                      <%= feeling[j].text %>
                     </a>
                     </li>
                     <% } %>

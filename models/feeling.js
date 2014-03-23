@@ -5,8 +5,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var FeelingGroupSchema = new Schema({
-  name: {type: String},
-  type: {type: String}
+  name: {type: String}
 });
 
 var FeelingSchema = new Schema({

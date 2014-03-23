@@ -8,8 +8,7 @@ var Feeling = require('../models/feeling').Feeling;
  */
 exports.testDataInsert = function(req, res) {
   FeelingGroup.create({
-    name: 'Good',
-    type: 'good'
+    name: 'Good'
   }, function(err, fGroup1) {
     Feeling.create({text: '楽しい'}, function(err, feeling) {
       feeling.group = fGroup1;

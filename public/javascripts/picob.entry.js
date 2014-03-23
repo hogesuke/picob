@@ -80,24 +80,11 @@ $(function() {
     var $this = $(this);
     var $feelingText = $('#feeling-text');
 
-    $this.exclusiveActiveToggle('.feeling-text-choices');
     $feelingText.text($this.text());
     pieceStatus.feelingTextId = $this.attr('feeling-text-id');
 
     upsertPiece(pieceStatus);
   });
-
-  $.fn.exclusiveActiveToggle = function(selector) {
-    $(selector).each(function() {
-      var $self = $(this);
-      if ($self.is('.active')) {
-        $self.removeClass('active').addClass('inactive');
-      }
-    });
-    $(this).each(function() {
-      $(this).removeClass('inactive').addClass('active');
-    });
-  }
 
   function upsertPiece(pieceStatus) {
     return $.ajax({

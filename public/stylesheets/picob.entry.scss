@@ -1,6 +1,16 @@
 $small: "only screen and (max-width:899px)";
 $large: "only screen and (min-width:900px)";
 $base_charctor_color: #000000;
+@mixin box-shadow($settings...) {
+    -moz-box-shadow: $settings;
+    -webkit-box-shadow: $settings;
+    box-shadow: $settings;
+}
+@mixin border-radius($settings...) {
+    -webkit-border-radius: $settings;
+    -moz-border-radius: $settings;
+    border-radius: $settings;
+}
 
 #container {
     #left-container {
@@ -74,9 +84,7 @@ $base_charctor_color: #000000;
                 float: left;
                 background-color: #3AAACF;
                 color: #FFFFFF;
-                -webkit-border-radius: 20px;
-                -moz-border-radius: 20px;
-                border-radius: 20px;
+                @include border-radius(20px);
             }
         }
         #feeling-text-selector {
@@ -91,24 +99,50 @@ $base_charctor_color: #000000;
                 }
                 .feeling-text-container {
                     overflow: hidden;
-                    margin: 5px 10px;
+                    margin: 5px 20px;
                     font-size: 20px;
                     .feeling-text-choices {
                         float: left;
                         margin-right: 10px;
+                        margin-bottom: 5px;
                         padding: 5px 10px;
-                        border: solid 2px #FFFFFF;
-                        -webkit-border-radius: 10px;
-                        -moz-border-radius: 10px;
-                        border-radius: 10px;
-                        &.active {
-                            background-color: #2968D2;
-                            color: #FFFFFF;
-                        }
-                        &.inactive {
-                            background-color: #FFFFFF;
-                            color: #146EA6;
-                        }
+                        @include border-radius(10px);
+                        color: #FFFFFF;
+                       // &.active {
+                       //     background-color: #2968D2;
+                       //     color: #FFFFFF;
+                       // }
+                       // &.inactive {
+                       //     background-color: #FFFFFF;
+                       //     color: #146EA6;
+                       // }
+                    }
+                }
+                &.good {
+                    .feeling-text-choices {
+                        background-color: #01BCB6;
+                        @include box-shadow(0px 4px 0px #047A70);
+                    }
+                    .feeling-text-choices:hover {
+                        background-color: #00D8D1;
+                    }
+                }
+                &.normal {
+                    .feeling-text-choices {
+                        background-color: #FFB273;
+                        @include box-shadow(0px 4px 0px #6D4C31);
+                    }
+                    .feeling-text-choices:hover {
+                        background-color: #FFC392;
+                    }
+                }
+                &.bad {
+                    .feeling-text-choices {
+                        background-color: #FF7373;
+                        @include box-shadow(0px 4px 0px #964343);
+                    }
+                    .feeling-text-choices:hover {
+                        background-color: #FF9090;
                     }
                 }
             }
