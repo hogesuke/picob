@@ -24,9 +24,11 @@
         </div>
         <% if (isMe) {%>
           <div class="feeling-selector">
-            <a class="feeling-choices feeling-good web-icon-fontello" feeling="good"></a>
-            <a class="feeling-choices feeling-normal web-icon-fontello" feeling="normal"></a>
-            <a class="feeling-choices feeling-bad web-icon-fontello" feeling="bad"></a>
+            <div id="feeling-choices-container">
+              <a class="feeling-choices feeling-good web-icon-fontello" feeling="good"></a>
+              <a class="feeling-choices feeling-normal web-icon-fontello" feeling="normal"></a>
+              <a class="feeling-choices feeling-bad web-icon-fontello" feeling="bad"></a>
+            </div>
           </div>
         <% } %>
       </div>
