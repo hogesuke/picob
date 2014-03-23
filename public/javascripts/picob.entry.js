@@ -62,8 +62,6 @@ $(function() {
     return 'none';
   }
   pieceStatus.init();
-  // TODO socialテスト
-  getFriendsFeeling();
 
   $(document).on('click', '.feeling-choices', function() {
     var selectedFeeling = $.trim($(this).attr('feeling'));
@@ -100,42 +98,6 @@ $(function() {
       },
       error: function(err) {
         window.location = err.responseJSON.path;
-      }
-    });
-  }
-
-  function getFriendsFeeling() {
-    return $.ajax({
-      type: 'GET',
-      url: '/social/friends/' + pieceStatus.year + '/' + pieceStatus.month + '/' + pieceStatus.day,
-      success: function(friendsData) {
-        console.log(friendsData);
-        var $friendsFeeling = $('#friends-feeling');
-        var feelingRelative = {
-          '1': '.feeling-good',
-          '2': '.feeling-bad',
-          '3': '.feeling-normal'
-        };
-        var providerRealtive = {
-          twitter: {
-            url: 'http://twiticon.herokuapp.com/$1/mini',
-            key: 'raw_name'
-          },
-          facebook: {
-            url: 'https://graph.facebook.com/$1/picture',
-            key: 'id'
-          }
-        };
-        for (var key in friendsData.pieces) {
-          $container = $friendsFeeling.find(feelingRelative[key]);
-          $.each(friendsData.pieces[key], function(i, piece) {
-            var user = piece.user_id;
-            var provider = providerRealtive[user.provider];
-            $container.append('<img class="user-icon" src="' + provider.url.replace('$1', user[provider.key]) + '">');
-          });
-        }
-      },
-      error: function() {
       }
     });
   }
