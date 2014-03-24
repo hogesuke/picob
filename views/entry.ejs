@@ -21,56 +21,60 @@
       </div>
       <div id="main-container">
         <div id="left-container">
-          <div id="feeling" class="<%= piece.feeling %>">
-          </div>
-          <% if (isMe) {%>
-            <div class="feeling-selector">
-              <div id="feeling-choices-container">
-                <a class="feeling-choices feeling-good web-icon-fontello" feeling="good"></a>
-                <a class="feeling-choices feeling-normal web-icon-fontello" feeling="normal"></a>
-                <a class="feeling-choices feeling-bad web-icon-fontello" feeling="bad"></a>
-              </div>
+          <div class="container-film">
+            <div id="feeling" class="<%= piece.feeling %>">
             </div>
-          <% } %>
+            <% if (isMe) {%>
+              <div class="feeling-selector">
+                <div id="feeling-choices-container">
+                  <a class="feeling-choices feeling-good web-icon-fontello" feeling="good"></a>
+                  <a class="feeling-choices feeling-normal web-icon-fontello" feeling="normal"></a>
+                  <a class="feeling-choices feeling-bad web-icon-fontello" feeling="bad"></a>
+                </div>
+              </div>
+            <% } %>
+          </div>
         </div>
         <div id="right-container">
-          <div id="date" year="<%= thisDate.year %>" month="<%= thisDate.month %>" day="<%= thisDate.day %>">
-            <%= thisDate.year + '/' + thisDate.month + '/' + thisDate.day %>
-          </div>
-          <div id="feeling-text-container">
-            <div id="feeling-text-icon">
+          <div class="container-film">
+            <div id="date" year="<%= thisDate.year %>" month="<%= thisDate.month %>" day="<%= thisDate.day %>">
+              <%= thisDate.year + '/' + thisDate.month + '/' + thisDate.day %>
             </div>
-            <div id="feeling-text">
-              <% if (piece && piece.feeling_text) {%>
-                <%= piece.feeling_text.text %>
-              <% } else { %>
-                ・・・？
-              <% } %>
+            <div id="feeling-text-container">
+              <div id="feeling-text-icon">
+              </div>
+              <div id="feeling-text">
+                <% if (piece && piece.feeling_text) {%>
+                  <%= piece.feeling_text.text %>
+                <% } else { %>
+                  ・・・？
+                <% } %>
+              </div>
             </div>
-          </div>
-          <% if (isMe) {%>
-            <div id="feeling-text-selector">
-              <% var groupNameArray = ['Good', 'Normal', 'Bad']; %>
-              <% for (var i in groupNameArray) { %>
-                <% var groupName = groupNameArray[i]; %>
-                <div class="feeling-group <%= groupName.toLowerCase() %>">
-                  <div class="feeling-group-title"><%= groupName %></div>
-                  <div class="feeling-text-container">
-                    <ul>
-                      <% for (var j in feelings[groupName]) { %>
-                      <% var feeling = feelings[groupName]; %>
-                      <li>
-                      <a class="feeling-text-choices inactive" href="javascript:void(0)" feeling-text-id='<%= feeling[j]._id %>'>
-                        <%= feeling[j].text %>
-                      </a>
-                      </li>
-                      <% } %>
-                    </ul>
+            <% if (isMe) {%>
+              <div id="feeling-text-selector">
+                <% var groupNameArray = ['Good', 'Normal', 'Bad']; %>
+                <% for (var i in groupNameArray) { %>
+                  <% var groupName = groupNameArray[i]; %>
+                  <div class="feeling-group <%= groupName.toLowerCase() %>">
+                    <div class="feeling-group-title"><%= groupName %></div>
+                    <div class="feeling-text-container">
+                      <ul>
+                        <% for (var j in feelings[groupName]) { %>
+                        <% var feeling = feelings[groupName]; %>
+                        <li>
+                        <a class="feeling-text-choices inactive" href="javascript:void(0)" feeling-text-id='<%= feeling[j]._id %>'>
+                          <%= feeling[j].text %>
+                        </a>
+                        </li>
+                        <% } %>
+                      </ul>
+                    </div>
                   </div>
-                </div>
-              <% } %>
-            </div>
-          <% } %>
+                <% } %>
+              </div>
+            <% } %>
+          </div>
         </div>
       </div>
       <div id="bottom-container">

@@ -17,14 +17,17 @@ $base_charctor_color: #000000;
         overflow: hidden;
         #left-container {
             float: left;
-            padding: 10px;
             height: 100%;
-            width: 430px;
-            background-color: rgba(255,255,255,0.70);
+            width: 50%;
             color: #000000;
-            /* rightとleftのcontainer高さを揃えるための処置 */
-            padding-bottom: 32767px;
-            margin-bottom: -32767px;
+            .container-film {
+                margin-right: 5px;
+                padding: 10px;
+                background-color: rgba(255,255,255,0.70);
+                /* rightとleftのcontainer高さを揃えるための処置 */
+                padding-bottom: 32767px;
+                margin-bottom: -32767px;
+            }
             #feeling {
                 height: 250px;
                 &.good {
@@ -55,12 +58,13 @@ $base_charctor_color: #000000;
         }
         #right-container {
             float: left;
-            width: 430px;
-            margin: 0 10px;
+            width: 50%;
             color: #000000;
+            .container-film {
+                margin-left: 5px;
+            }
             #date {
                 height: 75px;
-                padding: 10px;
                 margin-bottom: 10px;
                 text-align: center;
                 background-color: rgba(255,255,255,0.70);
@@ -68,7 +72,7 @@ $base_charctor_color: #000000;
                 font-family: 'Quicksand', sans-serif;
             }
             #feeling-text-container {
-                padding: 10px;
+                padding: 15px;
                 height: 90px;
                 background-color: rgba(255,255,255,0.70);
                 font-size: 65px;
@@ -92,7 +96,7 @@ $base_charctor_color: #000000;
                 }
             }
             #feeling-text-selector {
-                padding: 10px;
+                padding: 5px 15px 15px 15px;
                 background-color: rgba(255,255,255,0.70);
                 .feeling-group {
                     margin-bottom: 10px;

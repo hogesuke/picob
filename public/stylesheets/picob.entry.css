@@ -6,76 +6,82 @@
 /* line 18, picob.entry.scss */
 #container #main-container #left-container {
   float: left;
-  padding: 10px;
   height: 100%;
-  width: 430px;
-  background-color: rgba(255, 255, 255, 0.7);
+  width: 50%;
   color: #000000;
+}
+/* line 23, picob.entry.scss */
+#container #main-container #left-container .container-film {
+  margin-right: 5px;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.7);
   /* rightとleftのcontainer高さを揃えるための処置 */
   padding-bottom: 32767px;
   margin-bottom: -32767px;
 }
-/* line 28, picob.entry.scss */
+/* line 31, picob.entry.scss */
 #container #main-container #left-container #feeling {
   height: 250px;
 }
-/* line 30, picob.entry.scss */
+/* line 33, picob.entry.scss */
 #container #main-container #left-container #feeling.good {
   background: url(/images/good_selected_256.png) no-repeat center;
 }
-/* line 33, picob.entry.scss */
+/* line 36, picob.entry.scss */
 #container #main-container #left-container #feeling.normal {
   background: url(/images/normal_selected_256.png) no-repeat center;
 }
-/* line 36, picob.entry.scss */
+/* line 39, picob.entry.scss */
 #container #main-container #left-container #feeling.bad {
   background: url(/images/bad_selected_256.png) no-repeat center;
 }
-/* line 39, picob.entry.scss */
+/* line 42, picob.entry.scss */
 #container #main-container #left-container #feeling.none {
   background: url(/images/none_256.png) no-repeat center;
 }
-/* line 43, picob.entry.scss */
+/* line 46, picob.entry.scss */
 #container #main-container #left-container #friends-feeling {
   margin-top: 20px;
 }
-/* line 45, picob.entry.scss */
+/* line 48, picob.entry.scss */
 #container #main-container #left-container #friends-feeling .feeling-container {
   padding: 5px 0px;
 }
-/* line 47, picob.entry.scss */
+/* line 50, picob.entry.scss */
 #container #main-container #left-container #friends-feeling .feeling-container .feeling-label {
   font-size: 20px;
 }
-/* line 50, picob.entry.scss */
+/* line 53, picob.entry.scss */
 #container #main-container #left-container #friends-feeling .feeling-container .user-icon {
   margin: 0px 2px;
 }
-/* line 56, picob.entry.scss */
+/* line 59, picob.entry.scss */
 #container #main-container #right-container {
   float: left;
-  width: 430px;
-  margin: 0 10px;
+  width: 50%;
   color: #000000;
 }
-/* line 61, picob.entry.scss */
+/* line 63, picob.entry.scss */
+#container #main-container #right-container .container-film {
+  margin-left: 5px;
+}
+/* line 66, picob.entry.scss */
 #container #main-container #right-container #date {
   height: 75px;
-  padding: 10px;
   margin-bottom: 10px;
   text-align: center;
   background-color: rgba(255, 255, 255, 0.7);
   font-size: 65px;
   font-family: 'Quicksand', sans-serif;
 }
-/* line 70, picob.entry.scss */
+/* line 74, picob.entry.scss */
 #container #main-container #right-container #feeling-text-container {
-  padding: 10px;
+  padding: 15px;
   height: 90px;
   background-color: rgba(255, 255, 255, 0.7);
   font-size: 65px;
 }
-/* line 75, picob.entry.scss */
+/* line 79, picob.entry.scss */
 #container #main-container #right-container #feeling-text-container #feeling-text-icon {
   height: 90px;
   width: 90px;
@@ -83,7 +89,7 @@
   background: url(/images/feeling_text_128.png) no-repeat center;
   background-size: 104px 104px;
 }
-/* line 82, picob.entry.scss */
+/* line 86, picob.entry.scss */
 #container #main-container #right-container #feeling-text-container #feeling-text {
   height: 82px;
   width: 295px;
@@ -97,28 +103,28 @@
   -moz-border-radius: 20px;
   border-radius: 20px;
 }
-/* line 94, picob.entry.scss */
+/* line 98, picob.entry.scss */
 #container #main-container #right-container #feeling-text-selector {
-  padding: 10px;
+  padding: 5px 15px 15px 15px;
   background-color: rgba(255, 255, 255, 0.7);
 }
-/* line 97, picob.entry.scss */
+/* line 101, picob.entry.scss */
 #container #main-container #right-container #feeling-text-selector .feeling-group {
   margin-bottom: 10px;
 }
-/* line 99, picob.entry.scss */
+/* line 103, picob.entry.scss */
 #container #main-container #right-container #feeling-text-selector .feeling-group .feeling-group-title {
   clear: both;
   font-family: 'Quicksand', sans-serif;
   font-size: 25px;
 }
-/* line 104, picob.entry.scss */
+/* line 108, picob.entry.scss */
 #container #main-container #right-container #feeling-text-selector .feeling-group .feeling-text-container {
   overflow: hidden;
   margin: 5px 20px;
   font-size: 20px;
 }
-/* line 108, picob.entry.scss */
+/* line 112, picob.entry.scss */
 #container #main-container #right-container #feeling-text-selector .feeling-group .feeling-text-container .feeling-text-choices {
   float: left;
   margin-right: 10px;
@@ -129,40 +135,40 @@
   border-radius: 10px;
   color: #FFFFFF;
 }
-/* line 118, picob.entry.scss */
+/* line 122, picob.entry.scss */
 #container #main-container #right-container #feeling-text-selector .feeling-group.good .feeling-text-choices {
   background-color: #01BCB6;
   -moz-box-shadow: 0px 4px 0px #047a70;
   -webkit-box-shadow: 0px 4px 0px #047a70;
   box-shadow: 0px 4px 0px #047a70;
 }
-/* line 122, picob.entry.scss */
+/* line 126, picob.entry.scss */
 #container #main-container #right-container #feeling-text-selector .feeling-group.good .feeling-text-choices:hover {
   background-color: #00D8D1;
 }
-/* line 127, picob.entry.scss */
+/* line 131, picob.entry.scss */
 #container #main-container #right-container #feeling-text-selector .feeling-group.normal .feeling-text-choices {
   background-color: #FFB273;
   -moz-box-shadow: 0px 4px 0px #6d4c31;
   -webkit-box-shadow: 0px 4px 0px #6d4c31;
   box-shadow: 0px 4px 0px #6d4c31;
 }
-/* line 131, picob.entry.scss */
+/* line 135, picob.entry.scss */
 #container #main-container #right-container #feeling-text-selector .feeling-group.normal .feeling-text-choices:hover {
   background-color: #FFC392;
 }
-/* line 136, picob.entry.scss */
+/* line 140, picob.entry.scss */
 #container #main-container #right-container #feeling-text-selector .feeling-group.bad .feeling-text-choices {
   background-color: #FF7373;
   -moz-box-shadow: 0px 4px 0px #964343;
   -webkit-box-shadow: 0px 4px 0px #964343;
   box-shadow: 0px 4px 0px #964343;
 }
-/* line 140, picob.entry.scss */
+/* line 144, picob.entry.scss */
 #container #main-container #right-container #feeling-text-selector .feeling-group.bad .feeling-text-choices:hover {
   background-color: #FF9090;
 }
-/* line 148, picob.entry.scss */
+/* line 152, picob.entry.scss */
 #container #bottom-container {
   clear: both;
   overflow: hidden;
@@ -170,89 +176,89 @@
   color: #FFFFFF;
   font-size: 50px;
 }
-/* line 154, picob.entry.scss */
+/* line 158, picob.entry.scss */
 #container #bottom-container div {
   float: left;
   padding: 10px;
   background-color: rgba(255, 255, 255, 0.7);
 }
-/* line 159, picob.entry.scss */
+/* line 163, picob.entry.scss */
 #container #bottom-container a {
   display: block;
 }
-/* line 162, picob.entry.scss */
+/* line 166, picob.entry.scss */
 #container #bottom-container #prev-date {
   margin-top: 10px;
   margin-right: 10px;
   width: 270px;
 }
-/* line 167, picob.entry.scss */
+/* line 171, picob.entry.scss */
 #container #bottom-container #next-date {
   margin-top: 10px;
   margin-left: 10px;
   width: 270px;
 }
-/* line 172, picob.entry.scss */
+/* line 176, picob.entry.scss */
 #container #bottom-container #switch-calendar {
   margin-top: 10px;
   width: 280px;
 }
 
-/* line 179, picob.entry.scss */
+/* line 183, picob.entry.scss */
 .feeling-selector {
   font-size: 20px;
   margin: 10px 0px;
   overflow: hidden;
 }
-/* line 183, picob.entry.scss */
+/* line 187, picob.entry.scss */
 .feeling-selector #feeling-choices-container {
   width: 384px;
   margin: 0 auto;
 }
-/* line 187, picob.entry.scss */
+/* line 191, picob.entry.scss */
 .feeling-selector .feeling-choices {
   display: block;
   float: left;
   height: 128px;
   width: 128px;
 }
-/* line 192, picob.entry.scss */
+/* line 196, picob.entry.scss */
 .feeling-selector .feeling-choices.feeling-good {
   background: url(/images/good_128.png) no-repeat center;
 }
-/* line 195, picob.entry.scss */
+/* line 199, picob.entry.scss */
 .feeling-selector .feeling-choices.feeling-good:hover {
   background: url(/images/good_hover_128.png) no-repeat center;
 }
-/* line 198, picob.entry.scss */
+/* line 202, picob.entry.scss */
 .feeling-selector .feeling-choices.feeling-normal {
   background: url(/images/normal_128.png) no-repeat center;
 }
-/* line 201, picob.entry.scss */
+/* line 205, picob.entry.scss */
 .feeling-selector .feeling-choices.feeling-normal:hover {
   background: url(/images/normal_hover_128.png) no-repeat center;
 }
-/* line 204, picob.entry.scss */
+/* line 208, picob.entry.scss */
 .feeling-selector .feeling-choices.feeling-bad {
   background: url(/images/bad_128.png) no-repeat center;
 }
-/* line 207, picob.entry.scss */
+/* line 211, picob.entry.scss */
 .feeling-selector .feeling-choices.feeling-bad:hover {
   background: url(/images/bad_hover_128.png) no-repeat center;
 }
 
-/* line 213, picob.entry.scss */
+/* line 217, picob.entry.scss */
 .feeling-text {
   text-align: center;
 }
 @media only screen and (max-width: 899px) {
-  /* line 213, picob.entry.scss */
+  /* line 217, picob.entry.scss */
   .feeling-text {
     display: none;
   }
 }
 @media only screen and (min-width: 900px) {
-  /* line 213, picob.entry.scss */
+  /* line 217, picob.entry.scss */
   .feeling-text {
     margin-top: 6px;
     font-size: 16px;
