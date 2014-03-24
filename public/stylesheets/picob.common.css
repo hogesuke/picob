@@ -23,7 +23,7 @@ html {
 /* line 23, picob.common.scss */
 body {
   padding: 10px;
-  font-family: 'Lucida Grande', 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', meiryo, 'メイリオ', sans-serif;
+  font-family: 'Lucida Grande', 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', 'Meiryo UI', sans-serif;
   font-size: 13px;
   *font-size: small;
   *font: x-small;
