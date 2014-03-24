@@ -16,20 +16,25 @@ $base_charctor_color: #000000;
     #main-container {
         overflow: hidden;
         #left-container {
-            float: left;
-            height: 100%;
-            width: 50%;
-            color: #000000;
+            @media #{$small} {
+                width: 100%;
+            }
+            @media #{$large} {
+                float: left;
+                width: 50%;
+                height: 100%;
+            }
             .container-film {
-                margin-right: 5px;
                 padding: 10px;
                 background-color: rgba(255,255,255,0.70);
-                /* rightとleftのcontainer高さを揃えるための処置 */
-                padding-bottom: 32767px;
-                margin-bottom: -32767px;
+                @media #{$large} {
+                    margin-right: 5px;
+                    /* rightとleftのcontainer高さを揃えるための処置 */
+                    padding-bottom: 32767px;
+                    margin-bottom: -32767px;
+                }
             }
             #feeling {
-                height: 250px;
                 &.good {
                     background: url(/images/good_selected_256.png) no-repeat center;
                 }
@@ -42,80 +47,178 @@ $base_charctor_color: #000000;
                 &.none {
                     background: url(/images/none_256.png) no-repeat center;
                 }
-            }
-            #friends-feeling {
-                margin-top: 20px;
-                .feeling-container {
-                    padding: 5px 0px;
-                    .feeling-label {
-                        font-size: 20px;
+                @media #{$small} {
+                    &.good, &.normal, &.bad, &.none {
+                        background-size: 92px 92px;
                     }
-                    .user-icon {
-                        margin: 0px 2px;
+                    height: 92px;
+                }
+                @media #{$large} {
+                    height: 250px;
+                }
+            }
+            .feeling-selector {
+                font-size: 20px;
+                margin: 10px 0px;
+                overflow: hidden;
+                #feeling-choices-container {
+                    @media #{$small} {
+                        width: 174px;
+                    }
+                    @media #{$large} {
+                        width: 384px;
+                    }
+                    margin: 0 auto;
+                    .feeling-choices {
+                        display: block;
+                        float: left;
+                        &.feeling-good {
+                            background: url(/images/good_128.png) no-repeat center;
+                        }
+                        &.feeling-good:hover {
+                            background: url(/images/good_hover_128.png) no-repeat center;
+                        }
+                        &.feeling-normal {
+                            background: url(/images/normal_128.png) no-repeat center;
+                        }
+                        &.feeling-normal:hover {
+                            background: url(/images/normal_hover_128.png) no-repeat center;
+                        }
+                        &.feeling-bad {
+                            background: url(/images/bad_128.png) no-repeat center;
+                        }
+                        &.feeling-bad:hover {
+                            background: url(/images/bad_hover_128.png) no-repeat center;
+                        }
+                        @media #{$small} {
+                            height: 48px;
+                            width: 48px;
+                            margin: 0 5px;
+                            &.feeling-good, &.feeling-good:hover,
+                            &.feeling-normal, &.feeling-normal:hover,
+                            &.feeling-bad, &.feeling-bad:hover {
+                                background-size: 48px 48px;
+                            }
+                        }
+                        @media #{$large} {
+                            height: 128px;
+                            width: 128px;
+                        }
                     }
                 }
             }
         }
         #right-container {
-            float: left;
-            width: 50%;
             color: #000000;
+            @media #{$large} {
+                float: left;
+                width: 50%;
+            }
             .container-film {
-                margin-left: 5px;
+                @media #{$large} {
+                    margin-left: 5px;
+                }
             }
             #date {
-                height: 75px;
                 margin-bottom: 10px;
                 text-align: center;
                 background-color: rgba(255,255,255,0.70);
-                font-size: 65px;
                 font-family: 'Quicksand', sans-serif;
+                @media #{$small} {
+                    margin-top: 10px;
+                    font-size: 35px;
+                }
+                @media #{$large} {
+                    height: 75px;
+                    font-size: 65px;
+                }
             }
             #feeling-text-container {
                 padding: 15px;
-                height: 90px;
                 background-color: rgba(255,255,255,0.70);
-                font-size: 65px;
-                #feeling-text-icon {
+                @media #{$small} {
+                    height: 63px;
+                }
+                @media #{$large} {
                     height: 90px;
-                    width: 90px;
+                }
+                #feeling-text-icon {
                     float: left;
                     background: url(/images/feeling_text_128.png) no-repeat center;
-                    background-size: 104px 104px;
+                    @media #{$small} {
+                        height: 64px;
+                        width: 64px;
+                        background-size: 72px 72px;
+                    }
+                    @media #{$large} {
+                        height: 90px;
+                        width: 90px;
+                        background-size: 104px 104px;
+                    }
                 }
                 #feeling-text {
-                    height: 82px;
-                    width: 295px;
                     margin-left: 5px;
                     padding: 4px 10px;
                     text-align: center;
                     float: left;
                     background-color: #3AAACF;
                     color: #FFFFFF;
-                    @include border-radius(20px);
+                    @media #{$small} {
+                        height: 55px;
+                        width: 195px;
+                        @include border-radius(17px);
+                        font-size: 45px;
+                    }
+                    @media #{$large} {
+                        height: 82px;
+                        width: 295px;
+                        @include border-radius(20px);
+                        font-size: 65px;
+                    }
                 }
             }
             #feeling-text-selector {
                 padding: 5px 15px 15px 15px;
                 background-color: rgba(255,255,255,0.70);
                 .feeling-group {
-                    margin-bottom: 10px;
+                    @media #{$small} {
+                        margin-bottom: 5px;
+                    }
+                    @media #{$large} {
+                        margin-bottom: 10px;
+                    }
                     .feeling-group-title {
                         clear: both;
                         font-family: 'Quicksand', sans-serif;
-                        font-size: 25px;
+                        @media #{$small} {
+                            font-size: 20px;
+                        }
+                        @media #{$large} {
+                            font-size: 25px;
+                        }
                     }
                     .feeling-text-container {
                         overflow: hidden;
-                        margin: 5px 20px;
-                        font-size: 20px;
+                        @media #{$small} {
+                            margin: 2px 13px;
+                        }
+                        @media #{$large} {
+                            margin: 5px 20px;
+                        }
                         .feeling-text-choices {
                             float: left;
-                            margin-right: 10px;
                             margin-bottom: 5px;
                             padding: 5px 10px;
-                            @include border-radius(10px);
+                            @include border-radius(8px);
                             color: #FFFFFF;
+                            @media #{$small} {
+                                margin-right: 7px;
+                                font-size: 15px;
+                            }
+                            @media #{$large} {
+                                margin-right: 10px;
+                                font-size: 20px;
+                            }
                         }
                     }
                     &.good {
@@ -176,40 +279,6 @@ $base_charctor_color: #000000;
         #switch-calendar {
             margin-top: 10px;
             width: 280px;
-        }
-    }
-}
-
-.feeling-selector {
-    font-size: 20px;
-    margin: 10px 0px;
-    overflow: hidden;
-    #feeling-choices-container {
-        width: 384px;
-        margin: 0 auto;
-    }
-    .feeling-choices {
-        display: block;
-        float: left;
-        height: 128px;
-        width: 128px;
-        &.feeling-good {
-            background: url(/images/good_128.png) no-repeat center;
-        }
-        &.feeling-good:hover {
-            background: url(/images/good_hover_128.png) no-repeat center;
-        }
-        &.feeling-normal {
-            background: url(/images/normal_128.png) no-repeat center;
-        }
-        &.feeling-normal:hover {
-            background: url(/images/normal_hover_128.png) no-repeat center;
-        }
-        &.feeling-bad {
-            background: url(/images/bad_128.png) no-repeat center;
-        }
-        &.feeling-bad:hover {
-            background: url(/images/bad_hover_128.png) no-repeat center;
         }
     }
 }
