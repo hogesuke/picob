@@ -44,11 +44,13 @@
               <div id="feeling-text-icon">
               </div>
               <div id="feeling-text">
-                <% if (piece && piece.feeling_text) {%>
+                <div class="text">
+                  <% if (piece && piece.feeling_text) {%>
                   <%= piece.feeling_text.text %>
-                <% } else { %>
+                  <% } else { %>
                   ・・・？
-                <% } %>
+                  <% } %>
+                </div>
               </div>
             </div>
             <% if (isMe) {%>

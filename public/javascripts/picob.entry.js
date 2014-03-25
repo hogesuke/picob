@@ -76,7 +76,7 @@ $(function() {
 
   $('.feeling-text-choices').on('click', function() {
     var $this = $(this);
-    var $feelingText = $('#feeling-text');
+    var $feelingText = $('#feeling-text .text');
 
     $feelingText.text($this.text());
     pieceStatus.feelingTextId = $this.attr('feeling-text-id');
