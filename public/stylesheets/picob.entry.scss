@@ -49,9 +49,9 @@ $base_charctor_color: #000000;
                 }
                 @media #{$small} {
                     &.good, &.normal, &.bad, &.none {
-                        background-size: 92px 92px;
+                        background-size: 140px 140px;
                     }
-                    height: 92px;
+                    height: 140px;
                 }
                 @media #{$large} {
                     height: 250px;
@@ -63,7 +63,7 @@ $base_charctor_color: #000000;
                 overflow: hidden;
                 #feeling-choices-container {
                     @media #{$small} {
-                        width: 174px;
+                        width: (64 + 5 * 2) * 3px;
                     }
                     @media #{$large} {
                         width: 384px;
@@ -91,13 +91,13 @@ $base_charctor_color: #000000;
                             background: url(/images/bad_hover_128.png) no-repeat center;
                         }
                         @media #{$small} {
-                            height: 48px;
-                            width: 48px;
+                            height: 64px;
+                            width: 64px;
                             margin: 0 5px;
                             &.feeling-good, &.feeling-good:hover,
                             &.feeling-normal, &.feeling-normal:hover,
                             &.feeling-bad, &.feeling-bad:hover {
-                                background-size: 48px 48px;
+                                background-size: 64px 64px;
                             }
                         }
                         @media #{$large} {
@@ -137,10 +137,10 @@ $base_charctor_color: #000000;
                 padding: 15px;
                 background-color: rgba(255,255,255,0.70);
                 @media #{$small} {
-                    height: 63px;
+                    height: 50px;
                 }
                 @media #{$large} {
-                    height: 90px;
+                    height: 75px;
                 }
                 #feeling-text-icon {
                     float: left;
@@ -229,7 +229,12 @@ $base_charctor_color: #000000;
                     &.good {
                         .feeling-text-choices {
                             background-color: #01BCB6;
-                            @include box-shadow(0px 4px 0px #047A70);
+                            @media #{$small} {
+                                @include box-shadow(0px 2px 0px #047A70);
+                            }
+                            @media #{$large} {
+                                @include box-shadow(0px 4px 0px #047A70);
+                            }
                         }
                         .feeling-text-choices:hover {
                             background-color: #00D8D1;
@@ -238,7 +243,12 @@ $base_charctor_color: #000000;
                     &.normal {
                         .feeling-text-choices {
                             background-color: #FFB273;
-                            @include box-shadow(0px 4px 0px #6D4C31);
+                            @media #{$small} {
+                                @include box-shadow(0px 2px 0px #6D4C31);
+                            }
+                            @media #{$large} {
+                                @include box-shadow(0px 4px 0px #6D4C31);
+                            }
                         }
                         .feeling-text-choices:hover {
                             background-color: #FFC392;
@@ -247,7 +257,12 @@ $base_charctor_color: #000000;
                     &.bad {
                         .feeling-text-choices {
                             background-color: #FF7373;
-                            @include box-shadow(0px 4px 0px #964343);
+                            @media #{$small} {
+                                @include box-shadow(0px 2px 0px #964343);
+                            }
+                            @media #{$large} {
+                                @include box-shadow(0px 4px 0px #964343);
+                            }
                         }
                         .feeling-text-choices:hover {
                             background-color: #FF9090;
