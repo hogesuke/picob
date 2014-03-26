@@ -78,7 +78,7 @@ $(function() {
     var $this = $(this);
     var $feelingText = $('#feeling-text .text');
 
-    $feelingText.text($this.text());
+    $feelingText.val($.trim($this.text()));
     pieceStatus.feelingTextId = $this.attr('feeling-text-id');
 
     upsertPiece(pieceStatus);

@@ -11,6 +11,13 @@ $base_charctor_color: #000000;
     -moz-border-radius: $settings;
     border-radius: $settings;
 }
+@mixin box-sizing() {
+    -webkit-box-sizing: border-box;
+    -khtml-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+}
 
 #container {
     #main-container {
@@ -160,11 +167,12 @@ $base_charctor_color: #000000;
                     }
                 }
                 #feeling-text {
-                    //margin-left: 5px;
+                    padding: 5px 10px;
                     text-align: center;
                     float: left;
                     background-color: #3AAACF;
                     color: #FFFFFF;
+                    @include box-sizing();
                     @media #{$small} {
                         height: 54px;
                         width: 215px;
@@ -178,7 +186,12 @@ $base_charctor_color: #000000;
                         font-size: 55px;
                     }
                     .text {
+                        width: 100%;
                         padding: 5px 10px;
+                        background-color: #3AAACF;
+                        border: none;
+                        color: #FFFFFF;
+                        @include box-sizing();
                     }
                 }
             }

@@ -44,13 +44,8 @@
               <div id="feeling-text-icon">
               </div>
               <div id="feeling-text">
-                <div class="text">
-                  <% if (piece && piece.feeling_text) {%>
-                  <%= piece.feeling_text.text %>
-                  <% } else { %>
-                  ・・・？
-                  <% } %>
-                </div>
+                <% var val = piece && piece.feeling_text ? piece.feeling_text.text : "・・・？" %>
+                <input type="text" class="text" value="<%= val %>">
               </div>
             </div>
             <% if (isMe) {%>
