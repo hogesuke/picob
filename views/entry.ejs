@@ -44,7 +44,7 @@
               <div id="feeling-text-icon">
               </div>
               <div id="feeling-text">
-                <% var val = piece && piece.feeling_text ? piece.feeling_text.text : "・・・？" %>
+                <% var val = piece && piece.feeling_text ? piece.feeling_text : "・・・？" %>
                 <input type="text" class="text" value="<%= val %>">
               </div>
             </div>
@@ -60,7 +60,7 @@
                         <% for (var j in feelings[groupName]) { %>
                         <% var feeling = feelings[groupName]; %>
                         <li>
-                        <a class="feeling-text-choices inactive" href="javascript:void(0)" feeling-text-id='<%= feeling[j]._id %>'>
+                        <a class="feeling-text-choices" href="javascript:void(0)">
                           <%= feeling[j].text %>
                         </a>
                         </li>

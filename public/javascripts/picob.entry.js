@@ -6,7 +6,7 @@ $(function() {
     month: undefined,
     day: undefined,
     feeling: undefined,
-    feelingTextId: undefined,
+    feelingText: undefined,
     token: undefined,
     errorMsg: undefined,
     init: function() {
@@ -18,6 +18,7 @@ $(function() {
         this.month = $date.attr('month');
         this.day = $date.attr('day');
         this.feeling = getFeeling();
+        this.feelingText = $('#feeling-text .text').val();
         this.token = $('input[name="_csrf"]').val();
         return;
       }
@@ -47,10 +48,6 @@ $(function() {
         errorMsg = '何かがおかしいのでページをリロードしてください。';
         return false;
       }
-      if (typeof this.feelingTextId !== "undefined" && this.feelingTextId.match(/[0-9a-z]+/) == null) {
-        errorMsg = '何かがおかしいのでページをリロードしてください。';
-        return false;
-      }
       return true;
     }
   }
@@ -75,12 +72,11 @@ $(function() {
   });
 
   $('.feeling-text-choices').on('click', function() {
-    var $this = $(this);
+    var feelingText = $.trim($(this).text())
     var $feelingText = $('#feeling-text .text');
 
-    $feelingText.val($.trim($this.text()));
-    pieceStatus.feelingTextId = $this.attr('feeling-text-id');
-
+    $feelingText.val(feelingText);
+    pieceStatus.feelingText = feelingText;
     upsertPiece(pieceStatus);
   });
 
@@ -90,7 +86,7 @@ $(function() {
       url: '/' + pieceStatus.userSeq + '/entry/' + pieceStatus.year + '/' + pieceStatus.month + '/' + pieceStatus.day,
       data: {
         'feeling': pieceStatus.feeling,
-        'feeling_text_id': pieceStatus.feelingTextId,
+        'feeling_text': pieceStatus.feelingText,
         '_csrf': pieceStatus.token
       },
       success: function() {

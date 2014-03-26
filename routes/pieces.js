@@ -158,8 +158,7 @@ function doEntryView(req, res, requestYear, requestMonth, requestDay) {
         feelingsEveryGroup[groups[i].name] = filterByFeelingGroup(feelings, groups[i]._id.toString());
       }
 
-      Piece.findOne({user_seq: targetUserSeq, year: requestYear, month: requestMonth, day: requestDay})
-        .populate('feeling_text').exec(function(err, piece) {
+      Piece.findOne({user_seq: targetUserSeq, year: requestYear, month: requestMonth, day: requestDay}, function(err, piece) {
           if (err) {
             console.log('error: An error has occurred');
             res.render('error.ejs');
@@ -256,8 +255,7 @@ exports.findCalendarData = function(req, res) {
   var requestMonth = req.params[2].replace(/^0?([0-9]+)/, '$1');
   var loginUser = req.session.passport.user;
 
-  Piece.find({user_seq: targetUserSeq, year: requestYear, month: requestMonth})
-    .populate('feeling_text').exec(function(err, pieces) {
+  Piece.find({user_seq: targetUserSeq, year: requestYear, month: requestMonth}, function(err, pieces) {
       if (err) {
         console.log('error: An error has occurred');
         res.send({'error': 'An error has occurred'});
@@ -293,15 +291,15 @@ exports.upsertPiece = function(req, res) {
   console.log('requestDay: ' + requestDay);
   console.log('loginUser: ' + loginUser);
   console.log('req.body.feeling: ' + req.body.feeling);
-  console.log('req.body.feeling_text_id: ' + req.body.feeling_text_id);
+  console.log('req.body.feeling_text: ' + req.body.feeling_text);
 
   // TODO req.bodyの値がすべて空でないか精査する処理を実装すること
   var updateValues = {};
   if (req.body.feeling) {
     updateValues.feeling = req.body.feeling;
   }
-  if (req.body.feeling_text_id) {
-    updateValues.feeling_text = req.body.feeling_text_id;
+  if (req.body.feeling_text) {
+    updateValues.feeling_text = req.body.feeling_text;
   }
 
   Piece.update(

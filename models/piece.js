@@ -11,7 +11,7 @@ var PieceSchema = new Schema({
   month: {type: String},
   day: {type: String},
   feeling: {type: String},
-  feeling_text: {type: mongoose.Schema.Types.ObjectId, ref: 'Feeling'},
+  feeling_text: {type: String},
   create_date: {type: Date}
 });
 
