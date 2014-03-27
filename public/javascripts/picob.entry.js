@@ -71,6 +71,11 @@ $(function() {
     if (pieceStatus.isValid()) upsertPiece(pieceStatus);
   });
 
+  $('#feeling-text .text').on('change', function() {
+    pieceStatus.feelingText = $(this).val();
+    upsertPiece(pieceStatus);
+  });
+
   $('.feeling-text-choices').on('click', function() {
     var feelingText = $.trim($(this).text())
     var $feelingText = $('#feeling-text .text');
