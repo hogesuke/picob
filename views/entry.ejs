@@ -4,7 +4,7 @@
     <title>picob</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" >
     <script type="text/javascript" src="/javascripts/jquery.min.js"></script>
-    <script type="text/javascript" src="/javascripts/jquery.simplemodal.js"></script>
+    <script type="text/javascript" src="/javascripts/jquery-ui.min.js"></script>
     <script type="text/javascript" src="/javascripts/matchMedia.js"></script>
     <script type="text/javascript" src="/javascripts/picob.entry.js"></script>
     <link rel='stylesheet' href='/stylesheets/cssreset-min.css' type='text/css'>
@@ -40,12 +40,14 @@
             <div id="date" year="<%= thisDate.year %>" month="<%= thisDate.month %>" day="<%= thisDate.day %>">
               <%= thisDate.year + '/' + thisDate.month + '/' + thisDate.day %>
             </div>
-            <div id="feeling-text-container">
+            <div id="feeling-text-container" class="<%= piece && piece.feeling_text ? 'active' : 'inactive' %>">
               <div id="feeling-text-icon">
               </div>
               <div id="feeling-text">
-                <% var val = piece && piece.feeling_text ? piece.feeling_text : "・・・？" %>
+                <% var val = piece && piece.feeling_text ? piece.feeling_text : "" %>
                 <input type="text" class="text" value="<%= val %>" maxlength="5">
+              </div>
+              <div id="opener">
               </div>
             </div>
             <% if (isMe) {%>

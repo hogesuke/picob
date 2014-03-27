@@ -151,49 +151,69 @@ $base_charctor_color: #000000;
                 }
                 #feeling-text-icon {
                     float: left;
-                    background: url(/images/comment_128.png) no-repeat center;
-                    background-color: #029CCC;
+                    background: #029CCC url(/images/comment_128.png) no-repeat;
                     @media #{$small} {
                         height: 54px;
-                        width: 70px;
+                        width: 60px;
+                        background-position: 4px -5px;
                         background-size: 64px 64px;
-                        @include border-radius(17px 0px 0px 17px);
+                        @include border-radius(27px 0px 0px 27px);
                     }
                     @media #{$large} {
                         height: 75px;
-                        width: 100px;
+                        width: 85px;
+                        background-position: 5px -8px;
                         background-size: 94px 94px;
-                        @include border-radius(20px 0px 0px 20px);
+                        @include border-radius(36px 0px 0px 36px);
                     }
                 }
                 #feeling-text {
                     text-align: center;
                     float: left;
-                    background-color: #3AAACF;
+                    background-color: #029CCC;
                     color: #FFFFFF;
                     @include box-sizing();
                     @media #{$small} {
                         height: 54px;
-                        width: 215px;
-                        padding: 3px 6px;
-                        @include border-radius(0px 17px 17px 0px);
+                        width: 200px;
                         font-size: 33px;
                     }
                     @media #{$large} {
                         height: 75px;
-                        width: 305px;
-                        padding: 5px 10px;
-                        @include border-radius(0px 20px 20px 0px);
+                        width: 290px;
                         font-size: 48px;
                     }
                     .text {
                         width: 100%;
                         height: 100%;
                         padding: 5px 10px;
-                        background-color: #3AAACF;
+                        background-color: transparent;
                         border: none;
                         color: #FFFFFF;
                         @include box-sizing();
+                    }
+                }
+                #opener {
+                    float: left;
+                    background: #029CCC url(/images/open.png) no-repeat;
+                    @media #{$small} {
+                        width: 25px;
+                        height: 54px;
+                        background-position: -10px 5px;
+                        background-size: 44px 44px;
+                        @include border-radius(0px 27px 27px 0px);
+                    }
+                    @media #{$large} {
+                        width: 36px;
+                        height: 75px;
+                        background-position: -10px 11px;
+                        background-size: 54px 54px;
+                        @include border-radius(0px 36px 36px 0px);
+                    }
+                }
+                &.inactive {
+                    #feeling-text {
+                        display: none;
                     }
                 }
             }
