@@ -312,6 +312,7 @@ $base_charctor_color: #000000;
         margin-top: 10px;
         text-align: center;
         color: #FFFFFF;
+        background-color: rgba(255,255,255,0.70);
         @media #{$small} {
             font-size: 30px;
         }
@@ -320,7 +321,6 @@ $base_charctor_color: #000000;
         }
         div {
             float: left;
-            background-color: rgba(255,255,255,0.70);
         }
         a {
             display: block;

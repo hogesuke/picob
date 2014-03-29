@@ -444,6 +444,7 @@
   margin-top: 10px;
   text-align: center;
   color: #FFFFFF;
+  background-color: rgba(255, 255, 255, 0.7);
 }
 @media only screen and (max-width: 899px) {
   /* line 310, picob.entry.scss */
@@ -457,10 +458,9 @@
     font-size: 50px;
   }
 }
-/* line 321, picob.entry.scss */
+/* line 322, picob.entry.scss */
 #container #bottom-container div {
   float: left;
-  background-color: rgba(255, 255, 255, 0.7);
 }
 /* line 325, picob.entry.scss */
 #container #bottom-container a {

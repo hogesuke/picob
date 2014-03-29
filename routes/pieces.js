@@ -72,6 +72,34 @@ function existPrev(requestYear, requestMonth) {
 }
 
 /**
+ * 次日の表示が可能か判定する。
+ */
+function existNextDate(requestYear, requestMonth, requestDate) {
+  var current = new Date();
+  var request = new Date(requestYear, requestMonth - 1, requestDate, 23, 59, 59, 999);
+  console.log('current: ' + current);
+  console.log('request: ' + request);
+
+  if (current <= request) {
+    return false;
+  }
+  return true;
+}
+
+/**
+ * 前日の表示が可能か判定する。
+ */
+function existPrevDate(requestYear, requestMonth, requestDate) {
+  if (requestYear < 2014) {
+    return false;
+  }
+  if (requestYear == 2014 && requestMonth == 1 && requestDate == 1) {
+    return false;
+  }
+  return true;
+}
+
+/**
  * リクエストされた年月が有効な年月の範囲内であるか確認する。
  * 有効範囲外である場合はエラー画面に遷移させる。
  */
@@ -172,9 +200,9 @@ exports.today = function(req, res) {
   var date = new Date();
   var requestYear = date.getFullYear();
   var requestMonth = date.getMonth() + 1;
-  var requestDay = date.getDate();
+  var requestDate = date.getDate();
 
-  doEntryView(req, res, requestYear, requestMonth, requestDay);
+  doEntryView(req, res, requestYear, requestMonth, requestDate);
 };
 
 /**
@@ -184,15 +212,15 @@ exports.oneDay = function(req, res) {
 
   var requestYear = req.params[1];
   var requestMonth = req.params[2].replace(/^0?([0-9]+)/, '$1');
-  var requestDay = req.params[3].replace(/^0?([0-9]+)/, '$1');
+  var requestDate = req.params[3].replace(/^0?([0-9]+)/, '$1');
 
-  doEntryView(req, res, requestYear, requestMonth, requestDay);
+  doEntryView(req, res, requestYear, requestMonth, requestDate);
 };
 
 /**
  * EntryViewの表示処理。
  */
-function doEntryView(req, res, requestYear, requestMonth, requestDay) {
+function doEntryView(req, res, requestYear, requestMonth, requestDate) {
 
   var defaultPiece = {
     feeling: "none"
@@ -225,7 +253,7 @@ function doEntryView(req, res, requestYear, requestMonth, requestDay) {
         feelingsEveryGroup[groups[i].name] = filterByFeelingGroup(feelings, groups[i]._id.toString());
       }
 
-      Piece.findOne({user_seq: targetUserSeq, year: requestYear, month: requestMonth, day: requestDay}, function(err, piece) {
+      Piece.findOne({user_seq: targetUserSeq, year: requestYear, month: requestMonth, day: requestDate}, function(err, piece) {
           if (err) {
             console.log('error: An error has occurred');
             res.render('error.ejs');
@@ -234,22 +262,24 @@ function doEntryView(req, res, requestYear, requestMonth, requestDay) {
           console.log('Success: Getting piece');
           console.log('piece: ' + piece);
 
-          var nextDate = computeDate(requestYear, requestMonth, requestDay, 1);
-          var prevDate = computeDate(requestYear, requestMonth, requestDay, -1);
+          var nextDate = computeDate(requestYear, requestMonth, requestDate, 1);
+          var prevDate = computeDate(requestYear, requestMonth, requestDate, -1);
 
           res.render('entry.ejs', {
             userSeq: targetUserSeq,
             thisDate: {
               year: requestYear,
               month: requestMonth,
-              day: requestDay
+              day: requestDate
             },
             nextDate: {
+              isVisible: existNextDate(requestYear, requestMonth, requestDate),
               year: nextDate.getFullYear(),
               month: nextDate.getMonth() + 1,
               day: nextDate.getDate()
             },
             prevDate: {
+              isVisible: existPrevDate(requestYear, requestMonth, requestDate),
               year: prevDate.getFullYear(),
               month: prevDate.getMonth() + 1,
               day: prevDate.getDate()
@@ -268,11 +298,11 @@ function doEntryView(req, res, requestYear, requestMonth, requestDay) {
  *
  * @param requestYear 年
  * @param requestMonth 月
- * @param requestDay 日
+ * @param requestDate 日
  * @param addDays 加算日数（マイナスの指定も可能）
  */
-function computeDate(requestYear, requestMonth, requestDay, addDays) {
-  var dt = new Date(requestYear, requestMonth - 1, requestDay);
+function computeDate(requestYear, requestMonth, requestDate, addDays) {
+  var dt = new Date(requestYear, requestMonth - 1, requestDate);
   var baseSec = dt.getTime();
   var addSec = addDays * (24 * 60 * 60 * 1000); // 加算日数 * 1日のミリ秒
   dt.setTime(baseSec + addSec);
@@ -374,15 +404,8 @@ exports.validatePiece = function(req, res, next) {
 exports.upsertPiece = function(req, res) {
   var requestYear = req.params[1];
   var requestMonth = req.params[2].replace(/^0?([0-9]+)/, '$1');
-  var requestDay = req.params[3].replace(/^0?([0-9]+)/, '$1');
+  var requestDate = req.params[3].replace(/^0?([0-9]+)/, '$1');
   var loginUser = req.session.passport.user;
-
-  console.log('requestYear: ' + requestYear);
-  console.log('requestMonth: ' + requestMonth);
-  console.log('requestDay: ' + requestDay);
-  console.log('loginUser: ' + loginUser);
-  console.log('req.body.feeling: ' + req.body.feeling);
-  console.log('req.body.feeling_text: ' + req.body.feeling_text);
 
   // TODO req.bodyの値がすべて空でないか精査する処理を実装すること
   var updateValues = {};
@@ -394,7 +417,7 @@ exports.upsertPiece = function(req, res) {
   }
 
   Piece.update(
-      {'user_id': loginUser._id, 'user_seq': loginUser.seq, 'year': requestYear, 'month': requestMonth, 'day': requestDay},
+      {'user_id': loginUser._id, 'user_seq': loginUser.seq, 'year': requestYear, 'month': requestMonth, 'day': requestDate},
       updateValues,
       {'upsert': true, multi: false},
       function(err) {
