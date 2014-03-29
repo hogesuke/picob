@@ -78,7 +78,11 @@ $(function() {
     $this.siblings('#feeling-text').toggle('blind', {direction: 'left'}, 300, function() {
       $this.siblings('#feeling-text').find('.text').focus();
     });
-    $feelingTextContainer.removeClass('inactive').addClass('active');
+    if ($feelingTextContainer.is('.inactive')) {
+      $feelingTextContainer.removeClass('inactive').addClass('active');
+    } else {
+      $feelingTextContainer.removeClass('active').addClass('inactive');
+    }
   });
 
   $('#feeling-text .text').on('change', function() {
