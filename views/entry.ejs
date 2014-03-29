@@ -80,6 +80,8 @@
         <div id="prev-date" class="web-icon-fontello">
           <% if (prevDate.isVisible) {%>
             <a href="/<%= userSeq %>/entry/<%= prevDate.year %>/<%= prevDate.month %>/<%= prevDate.day %>" >4</a>
+          <% } else { %>
+            &nbsp;
           <% } %>
         </div>
         <div id="switch-calendar" class="web-icon-fontello">
@@ -88,6 +90,8 @@
         <div id="next-date" class="web-icon-fontello">
           <% if (nextDate.isVisible) {%>
             <a href="/<%= userSeq %>/entry/<%= nextDate.year %>/<%= nextDate.month %>/<%= nextDate.day %>" >5</a>
+          <% } else { %>
+            &nbsp;
           <% } %>
         </div>
       </div>
