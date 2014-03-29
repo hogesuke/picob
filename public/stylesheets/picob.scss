@@ -124,8 +124,11 @@ $base_charctor_color: #000000;
         background-color: rgba(255,255,255,0.50);
         color: $base_charctor_color;
         text-align: center;
-        &.holiday {
+        &.sun {
             color: #BF4245;
+        }
+        &.sat {
+            color: #5287F2;
         }
     }
 }
