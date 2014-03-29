@@ -71,12 +71,13 @@ $(function() {
     if (pieceStatus.isValid()) upsertPiece(pieceStatus);
   });
 
-  $('#feeling-text-container.inactive').on('click', function() {
+  $('#feeling-text-icon, #opener').on('click', function() {
     var $this = $(this);
     var $feelingTextContainer = $('#feeling-text-container');
 
-    $this.find('#feeling-text').toggle('blind', {direction: 'left'}, 300);
-    $this.find('.text').focus();
+    $this.siblings('#feeling-text').toggle('blind', {direction: 'left'}, 300, function() {
+      $this.siblings('#feeling-text').find('.text').focus();
+    });
     $feelingTextContainer.removeClass('inactive').addClass('active');
   });
 

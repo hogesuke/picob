@@ -152,6 +152,7 @@ $base_charctor_color: #000000;
                 #feeling-text-icon {
                     float: left;
                     background: #029CCC url(/images/comment_128.png) no-repeat;
+                    cursor: pointer;
                     @media #{$small} {
                         height: 54px;
                         width: 60px;
@@ -196,6 +197,7 @@ $base_charctor_color: #000000;
                 #opener {
                     float: left;
                     background: #029CCC url(/images/open.png) no-repeat;
+                    cursor: pointer;
                     @media #{$small} {
                         width: 25px;
                         height: 54px;
