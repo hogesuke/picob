@@ -251,7 +251,7 @@ $base_charctor_color: #000000;
                             float: left;
                             margin-bottom: 5px;
                             padding: 5px 10px;
-                            @include border-radius(8px);
+                            @include border-radius(15px);
                             color: #FFFFFF;
                             @media #{$small} {
                                 margin-right: 7px;

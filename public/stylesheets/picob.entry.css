@@ -349,9 +349,9 @@
   float: left;
   margin-bottom: 5px;
   padding: 5px 10px;
-  -webkit-border-radius: 8px;
-  -moz-border-radius: 8px;
-  border-radius: 8px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
   color: #FFFFFF;
 }
 @media only screen and (max-width: 899px) {
