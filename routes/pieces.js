@@ -75,26 +75,93 @@ function existPrev(requestYear, requestMonth) {
  * リクエストされた年月が有効な年月の範囲内であるか確認する。
  * 有効範囲外である場合はエラー画面に遷移させる。
  */
-exports.checkValidExtent = function(req, res, next) {
-  var requestYear = req.params[1];
-  var requestMonth = req.params[2];
-  var current = new Date();
-  var currentYear = current.getFullYear();
-  var currentMonth = current.getMonth() + 1;
-
-  if (currentYear < requestYear) {
-    res.redirect('/error');
-    return;
-  }
-  if (currentYear == requestYear && currentMonth < requestMonth) {
-    res.redirect('/error');
-    return;
-  }
-  if (requestYear < 2014) {
+exports.checkValidYm = function(req, res, next) {
+  if (!isValidYm(req.params[1], req.params[2])) {
     res.redirect('/error');
     return;
   }
   next();
+}
+
+/**
+ * リクエストされた年月日が有効な年月日の範囲内であるか確認する。
+ * 有効範囲外である場合はエラー画面に遷移させる。
+ */
+exports.checkValidYmd = function(req, res, next) {
+  if (!isValidYmd(req.params[1], req.params[2], req.params[3])) {
+    res.redirect('/error');
+    return;
+  }
+  next();
+}
+
+/**
+ * リクエストされた年月日が有効な年月日の範囲内であるか確認する。
+ * 有効範囲外である場合はエラー画面に遷移させる。
+ */
+exports.checkValidYmdForAjax = function(req, res, next) {
+  if (!isValidYmd(req.params[1], req.params[2], req.params[3])) {
+    res.send(422, {path: '/error'});
+    return;
+  }
+  next();
+}
+
+/**
+ * リクエストされた年月が有効な年月の範囲内であるか精査する。
+ *
+ * @param requestYear 年
+ * @param requestMonth 月
+ * @return true:範囲内 false:範囲外
+ */
+function isValidYm(requestYear, requestMonth) {
+  var current = new Date();
+  var currentYear = current.getFullYear();
+  var currentMonth = current.getMonth() + 1;
+
+  if (requestYear < 2014) {
+    return false;
+  }
+  if (currentYear < requestYear) {
+    return false;
+  }
+  if (currentYear == requestYear && currentMonth < requestMonth) {
+    return false;
+  }
+  return true;
+}
+
+/**
+ * リクエストされた年月日が有効な範囲に収まっているか精査する。
+ *
+ * @param requestYear 年
+ * @param requestMonth 月
+ * @param requestDate 日
+ * @return true:範囲内 false:範囲外
+ */
+function isValidYmd(requestYear, requestMonth, requestDate) {
+  var current = new Date();
+  var currentYear = current.getFullYear();
+  var currentMonth = current.getMonth() + 1;
+  var currentDate = current.getDate();
+
+  if (requestYear < 2014) {
+    return false;
+  }
+  if (currentYear < requestYear) {
+    return false;
+  }
+  if (currentYear == requestYear && currentMonth < requestMonth) {
+    return false;
+  }
+  if (currentYear == requestYear && currentMonth == requestMonth && currentDate < requestDate) {
+    return false;
+  }
+  // 月の最終日を超えていないか確認する
+  if (new Date(requestYear, requestMonth, 0).getDate() < requestDate) {
+    return false;
+  }
+  return true;
 }
 
 /**
@@ -272,12 +339,36 @@ exports.findCalendarData = function(req, res) {
 }
 
 /**
+ * pieceの精査を行う。
+ *
+ * @param req.body.year 年
+ * @param req.body.month 月
+ * @param req.body.day 日
+ * @param req.body.feeling 気分
+ * @param req.body.feeling-text 気分テキスト
+ */
+exports.validatePiece = function(req, res, next) {
+  var requestYear = req.params[1];
+  var requestMonth = req.params[2].replace(/^0?([0-9]+)/, '$1');
+  var requestDate = req.params[3].replace(/^0?([0-9]+)/, '$1');
+
+  if (!isValidYmd) {
+    res.send(422, {path: '/error'});
+    return;
+  }
+
+  next();
+}
+
+
+/**
  * pieceの更新・登録を行う(Ajax)。
  *
  * @param req.body.year 年
  * @param req.body.month 月
  * @param req.body.day 日
- * @param req.body.feeling feeling
+ * @param req.body.feeling 気分
+ * @param req.body.feeling-text 気分テキスト
  * @return upsertの結果メッセージ
  */
 exports.upsertPiece = function(req, res) {
@@ -326,9 +417,10 @@ exports.upsertPiece = function(req, res) {
  * @return viewにbindできる状態のpeace配列
  */
 function createPieceArray(requestYear, requestMonth, searchResult) {
-
-  var pieceArray = new Array(31);
-  for (var i=0; i < 31; i++) {
+  
+  var lastDate = new Date(requestYear, requestMonth, 0).getDate();
+  var pieceArray = new Array(lastDate);
+  for (var i=0; i < lastDate; i++) {
     pieceArray[i] = {year: requestYear, month: requestMonth, day: i + 1, feeling: 'none'};
   }
 

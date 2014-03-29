@@ -65,7 +65,7 @@ app.get('/login/twitter/callback',
 app.get(/^\/([0-9]{1,9})\/calendar\/(2[0-9]{3})\/(1[0-2]|0?[1-9])\/?$/, // /[userSeq]/calendar/[year]/[month]
     login.checkLogin,
     user.validateUser,
-    pieces.checkValidExtent,
+    pieces.checkValidYm,
     pieces.calendar);
 app.get(/^\/([0-9]{1,9})\/(2[0-9]{3})\/(1[0-2]|0?[1-9])\/?$/, // /[userSeq]/[year]/[month]
     login.checkLogin,
@@ -85,10 +85,13 @@ app.get(entryUri,
     csrf,
     login.checkLogin,
     user.validateUser,
+    pieces.checkValidYmd,
     pieces.oneDay);
 app.post(entryUri,
     login.checkLogin,
     user.validateEntryTargetUser,
+    pieces.validatePiece,
+    pieces.checkValidYmdForAjax,
     pieces.upsertPiece);
 
 /**
