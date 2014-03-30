@@ -1,180 +1,244 @@
 $small: "only screen and (max-width:899px)";
 $large: "only screen and (min-width:900px)";
 $base_charctor_color: #000000;
-
-#pieces {
+@mixin box-sizing() {
+    -webkit-box-sizing: border-box;
+    -khtml-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
-.week {
-    clear: both;
-}
-
-.piece, .empty-piece, .dummy-piece {
-    @media #{$small} {
-        width: 34px;
-        height: 34px;
-        padding: 3px;
-        margin: 2px 2px;
-        &.good {
-            background-color: #01BCB6;
-        }
-        &.normal {
-            background-color: #FFB273;
-        }
-        &.bad {
-            background-color: #FF7373;
-        }
-    }
-    @media #{$large} {
-        width: 100px;
-        height: 100px;
-        padding: 10px;
-        margin: 3px 3px;
-    }
-    float: left;
-    background-color: rgba(255,255,255,0.50);
-    color: $base_charctor_color;
-}
-
-.feeling, .empty-feeling {
+#header {
     width: 100%;
-    position: relative;
-    text-align: center;
-    @media #{$small} {
-        height: 100%;
-        top: 4px;
-        &.good {
-            background: url(/images/good_64_scale_down.png) no-repeat center;
-            background-size: 32px 32px;
-        }
-        &.normal {
-            background: url(/images/normal_64_scale_down.png) no-repeat center;
-            background-size: 32px 32px;
-        }
-        &.bad {
-            background: url(/images/bad_64_scale_down.png) no-repeat center;
-            background-size: 32px 32px;
-        }
-        &.none {
-            background: url(/images/none_64_scale_down.png) no-repeat center;
-            background-size: 32px 32px;
-        }
-    }
-    @media #{$large} {
-        height: 64px;
-        top: 17px;
-        &.good {
-            background: url(/images/good_64.png) no-repeat center;
-        }
-        &.normal {
-            background: url(/images/normal_64.png) no-repeat center;
-        }
-        &.bad {
-            background: url(/images/bad_64.png) no-repeat center;
-        }
-        &.none {
-            background: url(/images/none_64.png) no-repeat center;
-        }
-    }
-}
-
-.date {
-    width: 100%;
-    float: left;
-    position: relative;
-    top: 0px;
-    @media #{$small} {
-        font-size: 10px;
-    }
-    @media #{$large} {
-        font-size: 20px;
-        margin-bottom: 2px;
-    }
-    text-align: right;
-}
-
-.feeling-text {
-    position: relative;
-    top: 18px;
-    text-align: center;
-    @media #{$small} {
-        display: none;
-    }
-    @media #{$large} {
-        font-size: 15px;
-    }
-}
-
-#day {
-    clear: both;
-    div {
+    margin-bottom: 10px;
+    position: fixed;
+    top: 0;
+    z-index: 2;
+    background-color: #FFFFFF;
+    overflow: hidden;
+    #global-navi {
+        margin: 0 auto;
+        overflow: hidden;
+        @include box-sizing();
         @media #{$small} {
-            width: 30px;
-            font-size: 11px;
-            padding: 5px;
+            width: 320px;
+            padding: 5px 5px 3px 5px;
+        }
+        @media #{$large} {
+            width: 900px;
+            padding: 10px 10px 5px 10px;
+        }
+        #navi-left {
+            float: left;
+            #logo {
+                font-family: 'Quicksand', sans-serif;
+                @media #{$small} {
+                    font-size: 20px;
+                }
+                @media #{$large} {
+                    position: relative;
+                    top: -5px;
+                    font-size: 27px;
+                }
+            }
+        }
+        #navi-right {
+            float: right;
+            #logout-button {
+                padding: 5px;
+                border: none;
+                background-color: #FFFFFF;
+                color: #000000;
+            }
+        }
+    }
+}
+
+#controler {
+    width: 100%;
+    margin-bottom: 10px;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    z-index: 3;
+    #controler-inner {
+        margin: 0 auto;
+        text-align: center;
+        @media #{$small} {
+            width: 141px;
+        }
+        @media #{$large} {
+            width: 176px;
+        }
+        div {
+            float: left;
+        }
+        #month-controler {
+            padding: 4px 0;
+            margin: 3px 0;
+            @media #{$small} {
+                font-size: 16px;
+            }
+            @media #{$large} {
+                font-size: 23px;
+            }
+            a, span {
+                display: block;
+                float: left;
+            }
+            #next-month, #prev-month {
+                width: 35px;
+                margin: 3px 0px;
+                @include box-sizing();
+            }
+            #prev-month {
+                text-align: left;
+                padding-left: 12px;
+            }
+            #next-month {
+                text-align: right;
+                padding-right: 12px;
+            }
+            #current-ym {
+                text-align: center;
+                @media #{$small} {
+                    width: 65px;
+                }
+                @media #{$large} {
+                    width: 100px;
+                }
+                padding: 2px 3px;
+                font-family: 'Quicksand', sans-serif;
+            }
+        }
+    }
+}
+
+#calendar {
+    width: 883px;
+    margin: 0 auto;
+    .week {
+        clear: both;
+    }
+    .piece, .empty-piece, .dummy-piece {
+        @media #{$small} {
+            width: 34px;
+            height: 34px;
+            padding: 3px;
             margin: 2px 2px;
+            &.good {
+                background-color: #01BCB6;
+            }
+            &.normal {
+                background-color: #FFB273;
+            }
+            &.bad {
+                background-color: #FF7373;
+            }
         }
         @media #{$large} {
             width: 100px;
-            font-size: 15px;
+            height: 100px;
             padding: 10px;
             margin: 3px 3px;
         }
         float: left;
         background-color: rgba(255,255,255,0.50);
         color: $base_charctor_color;
+    }
+    .feeling, .empty-feeling {
+        width: 100%;
+        position: relative;
         text-align: center;
-        &.sun {
-            color: #BF4245;
+        @media #{$small} {
+            height: 100%;
+            top: 4px;
+            &.good {
+                background: url(/images/good_64_scale_down.png) no-repeat center;
+                background-size: 32px 32px;
+            }
+            &.normal {
+                background: url(/images/normal_64_scale_down.png) no-repeat center;
+                background-size: 32px 32px;
+            }
+            &.bad {
+                background: url(/images/bad_64_scale_down.png) no-repeat center;
+                background-size: 32px 32px;
+            }
+            &.none {
+                background: url(/images/none_64_scale_down.png) no-repeat center;
+                background-size: 32px 32px;
+            }
         }
-        &.sat {
-            color: #5287F2;
+        @media #{$large} {
+            height: 64px;
+            top: 17px;
+            &.good {
+                background: url(/images/good_64.png) no-repeat center;
+            }
+            &.normal {
+                background: url(/images/normal_64.png) no-repeat center;
+            }
+            &.bad {
+                background: url(/images/bad_64.png) no-repeat center;
+            }
+            &.none {
+                background: url(/images/none_64.png) no-repeat center;
+            }
         }
     }
-}
-
-#controler {
-    div {
+    .date {
+        width: 100%;
         float: left;
-    }
-    #month-controler {
-        margin: 3px 3px;
-        background-color: #FFFFFF;
-        font-size: 18px;
-        a {
-            display: block;
-            float: left;
+        position: relative;
+        top: 0px;
+        font-family: 'Quicksand', sans-serif;
+        @media #{$small} {
+            font-size: 10px;
         }
-        #next-month, #prev-month {
-            padding: 7px 8px;
-            margin: 3px 0px;
-        }
-        #current-ym {
-            margin: 3px 3px;
-        }
-    }
-}
-
-#form-window {
-    display: none;
-    padding: 20px 30px;
-    background-color: #D1D1D1;
-    #selected-feeling {
-    }
-    #feeling-text-container {
-        margin: 5px 10px 20px 10px;
-        font-size: 16px;
-        .feeling-group-title {
+        @media #{$large} {
             font-size: 20px;
+            margin-bottom: 2px;
         }
-        .feeling-text-choices {
-            &.active {
-                background-color: #2968D2;
+        text-align: right;
+    }
+    .feeling-text {
+        position: relative;
+        top: 18px;
+        text-align: center;
+        @media #{$small} {
+            display: none;
+        }
+        @media #{$large} {
+            font-size: 15px;
+        }
+    }
+    #day {
+        clear: both;
+        div {
+            @media #{$small} {
+                width: 30px;
+                font-size: 11px;
+                padding: 5px;
+                margin: 2px 2px;
             }
-            &.inactive {
-                background-color: transparent;
+            @media #{$large} {
+                width: 100px;
+                font-size: 15px;
+                padding: 10px;
+                margin: 3px 3px;
+            }
+            float: left;
+            background-color: rgba(255,255,255,0.50);
+            color: $base_charctor_color;
+            text-align: center;
+            &.sun {
+                color: #BF4245;
+            }
+            &.sat {
+                color: #5287F2;
             }
         }
     }
 }
-

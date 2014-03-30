@@ -13,11 +13,11 @@
 /* line 18, picob.common.scss */
 html {
   background-color: #E3D8CB;
+  overflow-y: scroll;
 }
 
-/* line 22, picob.common.scss */
+/* line 23, picob.common.scss */
 body {
-  padding: 10px;
   font-family: 'Lucida Grande', 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', 'Meiryo UI', sans-serif;
   font-size: 13px;
   *font-size: small;
@@ -34,21 +34,24 @@ a {
 /* line 36, picob.common.scss */
 #container {
   margin: 0 auto;
+  z-index: 1;
 }
 @media only screen and (max-width: 899px) {
   /* line 36, picob.common.scss */
   #container {
     width: 320px;
+    margin-top: 40px;
   }
 }
 @media only screen and (min-width: 900px) {
   /* line 36, picob.common.scss */
   #container {
     width: 900px;
+    margin-top: 50px;
   }
 }
 
-/* line 46, picob.common.scss */
+/* line 49, picob.common.scss */
 .link {
   cursor: pointer;
 }

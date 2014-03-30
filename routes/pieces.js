@@ -77,8 +77,6 @@ function existPrev(requestYear, requestMonth) {
 function existNextDate(requestYear, requestMonth, requestDate) {
   var current = new Date();
   var request = new Date(requestYear, requestMonth - 1, requestDate, 23, 59, 59, 999);
-  console.log('current: ' + current);
-  console.log('request: ' + request);
 
   if (current <= request) {
     return false;

@@ -17,10 +17,10 @@ html, body {
 
 html {
     background-color: #E3D8CB;
+    overflow-y: scroll;
 }
 
 body {
-    padding: 10px;
     font-family: 'Lucida Grande', 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', 'Meiryo UI', sans-serif;
     font-size: 13px;
     *font-size:small;
@@ -34,13 +34,16 @@ a {
 }
 
 #container {
+    margin: 0 auto;
+    z-index: 1;
     @media #{$small} {
         width: 320px;
+        margin-top: 40px;
     }
     @media #{$large} {
         width: 900px;
+        margin-top: 50px;
     }
-    margin: 0 auto;
 }
 
 .link {
