@@ -40,14 +40,14 @@ a {
   /* line 36, picob.common.scss */
   #container {
     width: 320px;
-    margin-top: 40px;
+    margin-top: 50px;
   }
 }
 @media only screen and (min-width: 900px) {
   /* line 36, picob.common.scss */
   #container {
     width: 900px;
-    margin-top: 50px;
+    margin-top: 70px;
   }
 }
 

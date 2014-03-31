@@ -38,11 +38,11 @@ a {
     z-index: 1;
     @media #{$small} {
         width: 320px;
-        margin-top: 40px;
+        margin-top: 50px;
     }
     @media #{$large} {
         width: 900px;
-        margin-top: 50px;
+        margin-top: 70px;
     }
 }
 
