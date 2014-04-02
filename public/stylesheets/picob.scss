@@ -11,10 +11,6 @@ $base_charctor_color: #000000;
 
 #header {
     width: 100%;
-    margin-bottom: 10px;
-    position: fixed;
-    top: 0;
-    z-index: 2;
     background-color: #FFFFFF;
     overflow: hidden;
     #global-navi {
@@ -31,6 +27,7 @@ $base_charctor_color: #000000;
         }
         #navi-left {
             float: left;
+            width: 33%;
             #logo {
                 font-family: 'Quicksand', sans-serif;
                 @media #{$small} {
@@ -43,8 +40,14 @@ $base_charctor_color: #000000;
                 }
             }
         }
+        #navi-center {
+            float: left;
+            width: 34%;
+        }
         #navi-right {
             float: right;
+            width: 33%;
+            text-align: right;
             #logout-button {
                 padding: 5px;
                 border: none;
@@ -57,26 +60,18 @@ $base_charctor_color: #000000;
 
 #controler {
     width: 100%;
-    margin-bottom: 10px;
     overflow: hidden;
-    position: fixed;
-    top: 0;
-    z-index: 3;
+    @media #{$small} {
+        margin-top: 3px;
+    }
+    @media #{$large} {
+    }
     #controler-inner {
-        margin: 0 auto;
-        text-align: center;
-        @media #{$small} {
-            width: 141px;
-        }
-        @media #{$large} {
-            width: 176px;
-        }
+        overflow: hidden;
         div {
             float: left;
         }
         #month-controler {
-            padding: 4px 0;
-            margin: 3px 0;
             @media #{$small} {
                 font-size: 16px;
             }
@@ -88,17 +83,33 @@ $base_charctor_color: #000000;
                 float: left;
             }
             #next-month, #prev-month {
-                width: 35px;
-                margin: 3px 0px;
                 @include box-sizing();
+                @media #{$small} {
+                    width: 15px;
+                }
+                @media #{$large} {
+                    width: 35px;
+                }
             }
             #prev-month {
                 text-align: left;
-                padding-left: 12px;
+                padding-top: 1px;
+                @media #{$small} {
+                    padding-right: 2px;
+                }
+                @media #{$large} {
+                    padding-right: 12px;
+                }
             }
             #next-month {
                 text-align: right;
-                padding-right: 12px;
+                padding-top: 1px;
+                @media #{$small} {
+                    padding-left: 2px;
+                }
+                @media #{$large} {
+                    padding-left: 12px;
+                }
             }
             #current-ym {
                 text-align: center;
@@ -108,7 +119,7 @@ $base_charctor_color: #000000;
                 @media #{$large} {
                     width: 100px;
                 }
-                padding: 2px 3px;
+                padding: 0px 3px;
                 font-family: 'Quicksand', sans-serif;
             }
         }

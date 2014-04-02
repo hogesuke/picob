@@ -34,24 +34,22 @@ a {
 /* line 36, picob.common.scss */
 #container {
   margin: 0 auto;
-  z-index: 1;
+  margin-top: 10px;
 }
 @media only screen and (max-width: 899px) {
   /* line 36, picob.common.scss */
   #container {
     width: 320px;
-    margin-top: 50px;
   }
 }
 @media only screen and (min-width: 900px) {
   /* line 36, picob.common.scss */
   #container {
     width: 900px;
-    margin-top: 70px;
   }
 }
 
-/* line 49, picob.common.scss */
+/* line 47, picob.common.scss */
 .link {
   cursor: pointer;
 }

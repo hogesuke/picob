@@ -20,31 +20,33 @@
         <div id="navi-left">
           <div id="logo">picob</div>
         </div>
+        <div id="navi-center">
+          <div id="controler">
+            <div id="controler-inner">
+              <div id="month-controler">
+                <% if (prevDate.isVisible) { %>
+                <a id="prev-month" class="web-icon-fontello"
+                  href="/<%= userSeq %>/calendar/<%= prevDate.year %>/<%= prevDate.month %>">4</a>
+                <% } else { %>
+                <span id="prev-month" class="web-icon-fontello">4</span>
+                <% } %>
+                <div id="current-ym" year="<%= thisDate.year %>" month="<%= thisDate.month %>">
+                  <%= thisDate.year + "/" + thisDate.month %>
+                </div>
+                <% if (nextDate.isVisible) { %>
+                <a id="next-month" class="web-icon-fontello"
+                  href="/<%= userSeq %>/calendar/<%= nextDate.year %>/<%= nextDate.month %>">5</a>
+                <% } else { %>
+                <span id="next-month" class="web-icon-fontello">5</span>
+                <% } %>
+              </div>
+            </div>
+          </div>
+        </div>
         <div id="navi-right">
           <form method="get" action="/logout">
             <input id="logout-button" type="submit" value="ログアウト">
           </form>
-        </div>
-      </div>
-    </div>
-    <div id="controler">
-      <div id="controler-inner">
-        <div id="month-controler">
-          <% if (prevDate.isVisible) { %>
-          <a id="prev-month" class="web-icon-fontello"
-            href="/<%= userSeq %>/calendar/<%= prevDate.year %>/<%= prevDate.month %>">4</a>
-          <% } else { %>
-          <span id="prev-month" class="web-icon-fontello">4</span>
-          <% } %>
-          <div id="current-ym" year="<%= thisDate.year %>" month="<%= thisDate.month %>">
-            <%= thisDate.year + "/" + thisDate.month %>
-          </div>
-          <% if (nextDate.isVisible) { %>
-          <a id="next-month" class="web-icon-fontello"
-            href="/<%= userSeq %>/calendar/<%= nextDate.year %>/<%= nextDate.month %>">5</a>
-          <% } else { %>
-          <span id="next-month" class="web-icon-fontello">5</span>
-          <% } %>
         </div>
       </div>
     </div>
