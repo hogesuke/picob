@@ -34,20 +34,34 @@ $base_charctor_color: #000000;
                     font-size: 20px;
                 }
                 @media #{$large} {
-                    position: relative;
-                    top: -5px;
-                    font-size: 27px;
+                    font-size: 32px;
                 }
             }
         }
         #navi-center {
             float: left;
             width: 34%;
+            margin-top: 10px;
         }
         #navi-right {
             float: right;
             width: 33%;
             text-align: right;
+            div {
+                float: right;
+            }
+            #today-button {
+                height: 50px;
+                width: 50px;
+                padding-top: 18px;
+                background: url(/images/empty_calendar_128.gif) no-repeat center;
+                background-size: 64px 64px;
+                text-align: center;
+                font-size: 20px;
+                color: #029CCC;
+                font-family: 'Quicksand', sans-serif;
+                @include box-sizing();
+            }
             #logout-button {
                 padding: 5px;
                 border: none;
@@ -77,6 +91,7 @@ $base_charctor_color: #000000;
             }
             @media #{$large} {
                 font-size: 23px;
+                margin-left: 60px;
             }
             a, span {
                 display: block;
@@ -127,8 +142,13 @@ $base_charctor_color: #000000;
 }
 
 #calendar {
-    width: 883px;
     margin: 0 auto;
+    @media #{$small} {
+        width: 310px;
+    }
+    @media #{$large} {
+        width: 883px;
+    }
     .week {
         clear: both;
     }

@@ -44,9 +44,8 @@
           </div>
         </div>
         <div id="navi-right">
-          <form method="get" action="/logout">
-            <input id="logout-button" type="submit" value="ログアウト">
-          </form>
+          <div href="/logout" id="logout-button" class="link">ログアウト</div>
+          <div href="/<%= userSeq %>/entry/today" id="today-button" class="link"><%= toDay.date %></div>
         </div>
       </div>
     </div>

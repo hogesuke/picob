@@ -24,6 +24,9 @@ exports.calendar = function(req, res) {
       year: requestYear,
       month: requestMonth
     },
+    toDay: {
+      date: new Date().getDate()
+    },
     nextDate: {
       isVisible: existNext(requestYear, requestMonth),
       year: nextDate.getFullYear(),

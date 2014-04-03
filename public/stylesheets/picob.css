@@ -46,23 +46,43 @@
 @media only screen and (min-width: 900px) {
   /* line 31, picob.scss */
   #header #global-navi #navi-left #logo {
-    position: relative;
-    top: -5px;
-    font-size: 27px;
+    font-size: 32px;
   }
 }
-/* line 43, picob.scss */
+/* line 41, picob.scss */
 #header #global-navi #navi-center {
   float: left;
   width: 34%;
+  margin-top: 10px;
 }
-/* line 47, picob.scss */
+/* line 46, picob.scss */
 #header #global-navi #navi-right {
   float: right;
   width: 33%;
   text-align: right;
 }
-/* line 51, picob.scss */
+/* line 50, picob.scss */
+#header #global-navi #navi-right div {
+  float: right;
+}
+/* line 53, picob.scss */
+#header #global-navi #navi-right #today-button {
+  height: 50px;
+  width: 50px;
+  padding-top: 18px;
+  background: url(/images/empty_calendar_128.gif) no-repeat center;
+  background-size: 64px 64px;
+  text-align: center;
+  font-size: 20px;
+  color: #029CCC;
+  font-family: 'Quicksand', sans-serif;
+  -webkit-box-sizing: border-box;
+  -khtml-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+/* line 65, picob.scss */
 #header #global-navi #navi-right #logout-button {
   padding: 5px;
   border: none;
@@ -70,43 +90,44 @@
   color: #000000;
 }
 
-/* line 61, picob.scss */
+/* line 75, picob.scss */
 #controler {
   width: 100%;
   overflow: hidden;
 }
 @media only screen and (max-width: 899px) {
-  /* line 61, picob.scss */
+  /* line 75, picob.scss */
   #controler {
     margin-top: 3px;
   }
 }
-/* line 69, picob.scss */
+/* line 83, picob.scss */
 #controler #controler-inner {
   overflow: hidden;
 }
-/* line 71, picob.scss */
+/* line 85, picob.scss */
 #controler #controler-inner div {
   float: left;
 }
 @media only screen and (max-width: 899px) {
-  /* line 74, picob.scss */
+  /* line 88, picob.scss */
   #controler #controler-inner #month-controler {
     font-size: 16px;
   }
 }
 @media only screen and (min-width: 900px) {
-  /* line 74, picob.scss */
+  /* line 88, picob.scss */
   #controler #controler-inner #month-controler {
     font-size: 23px;
+    margin-left: 60px;
   }
 }
-/* line 81, picob.scss */
+/* line 96, picob.scss */
 #controler #controler-inner #month-controler a, #controler #controler-inner #month-controler span {
   display: block;
   float: left;
 }
-/* line 85, picob.scss */
+/* line 100, picob.scss */
 #controler #controler-inner #month-controler #next-month, #controler #controler-inner #month-controler #prev-month {
   -webkit-box-sizing: border-box;
   -khtml-box-sizing: border-box;
@@ -115,108 +136,119 @@
   box-sizing: border-box;
 }
 @media only screen and (max-width: 899px) {
-  /* line 85, picob.scss */
+  /* line 100, picob.scss */
   #controler #controler-inner #month-controler #next-month, #controler #controler-inner #month-controler #prev-month {
     width: 15px;
   }
 }
 @media only screen and (min-width: 900px) {
-  /* line 85, picob.scss */
+  /* line 100, picob.scss */
   #controler #controler-inner #month-controler #next-month, #controler #controler-inner #month-controler #prev-month {
     width: 35px;
   }
 }
-/* line 94, picob.scss */
+/* line 109, picob.scss */
 #controler #controler-inner #month-controler #prev-month {
   text-align: left;
   padding-top: 1px;
 }
 @media only screen and (max-width: 899px) {
-  /* line 94, picob.scss */
+  /* line 109, picob.scss */
   #controler #controler-inner #month-controler #prev-month {
     padding-right: 2px;
   }
 }
 @media only screen and (min-width: 900px) {
-  /* line 94, picob.scss */
+  /* line 109, picob.scss */
   #controler #controler-inner #month-controler #prev-month {
     padding-right: 12px;
   }
 }
-/* line 104, picob.scss */
+/* line 119, picob.scss */
 #controler #controler-inner #month-controler #next-month {
   text-align: right;
   padding-top: 1px;
 }
 @media only screen and (max-width: 899px) {
-  /* line 104, picob.scss */
+  /* line 119, picob.scss */
   #controler #controler-inner #month-controler #next-month {
     padding-left: 2px;
   }
 }
 @media only screen and (min-width: 900px) {
-  /* line 104, picob.scss */
+  /* line 119, picob.scss */
   #controler #controler-inner #month-controler #next-month {
     padding-left: 12px;
   }
 }
-/* line 114, picob.scss */
+/* line 129, picob.scss */
 #controler #controler-inner #month-controler #current-ym {
   text-align: center;
   padding: 0px 3px;
   font-family: 'Quicksand', sans-serif;
 }
 @media only screen and (max-width: 899px) {
-  /* line 114, picob.scss */
+  /* line 129, picob.scss */
   #controler #controler-inner #month-controler #current-ym {
     width: 65px;
   }
 }
 @media only screen and (min-width: 900px) {
-  /* line 114, picob.scss */
+  /* line 129, picob.scss */
   #controler #controler-inner #month-controler #current-ym {
     width: 100px;
   }
 }
 
-/* line 129, picob.scss */
+/* line 144, picob.scss */
 #calendar {
-  width: 883px;
   margin: 0 auto;
 }
-/* line 132, picob.scss */
+@media only screen and (max-width: 899px) {
+  /* line 144, picob.scss */
+  #calendar {
+    width: 310px;
+  }
+}
+@media only screen and (min-width: 900px) {
+  /* line 144, picob.scss */
+  #calendar {
+    width: 883px;
+  }
+}
+/* line 152, picob.scss */
 #calendar .week {
   clear: both;
 }
-/* line 135, picob.scss */
+/* line 155, picob.scss */
 #calendar .piece, #calendar .empty-piece, #calendar .dummy-piece {
   float: left;
   background-color: rgba(255, 255, 255, 0.5);
   color: black;
 }
 @media only screen and (max-width: 899px) {
-  /* line 135, picob.scss */
+  /* line 155, picob.scss */
   #calendar .piece, #calendar .empty-piece, #calendar .dummy-piece {
     width: 34px;
     height: 34px;
     padding: 3px;
     margin: 2px 2px;
   }
-  /* line 141, picob.scss */
+  /* line 161, picob.scss */
   #calendar .piece.good, #calendar .empty-piece.good, #calendar .dummy-piece.good {
     background-color: #01BCB6;
   }
-  /* line 144, picob.scss */
+  /* line 164, picob.scss */
   #calendar .piece.normal, #calendar .empty-piece.normal, #calendar .dummy-piece.normal {
     background-color: #FFB273;
   }
-  /* line 147, picob.scss */
+  /* line 167, picob.scss */
   #calendar .piece.bad, #calendar .empty-piece.bad, #calendar .dummy-piece.bad {
     background-color: #FF7373;
   }
 }
 @media only screen and (min-width: 900px) {
-  /* line 135, picob.scss */
+  /* line 155, picob.scss */
   #calendar .piece, #calendar .empty-piece, #calendar .dummy-piece {
     width: 100px;
     height: 100px;
@@ -224,63 +256,63 @@
     margin: 3px 3px;
   }
 }
-/* line 161, picob.scss */
+/* line 181, picob.scss */
 #calendar .feeling, #calendar .empty-feeling {
   width: 100%;
   position: relative;
   text-align: center;
 }
 @media only screen and (max-width: 899px) {
-  /* line 161, picob.scss */
+  /* line 181, picob.scss */
   #calendar .feeling, #calendar .empty-feeling {
     height: 100%;
     top: 4px;
   }
-  /* line 168, picob.scss */
+  /* line 188, picob.scss */
   #calendar .feeling.good, #calendar .empty-feeling.good {
     background: url(/images/good_64_scale_down.png) no-repeat center;
     background-size: 32px 32px;
   }
-  /* line 172, picob.scss */
+  /* line 192, picob.scss */
   #calendar .feeling.normal, #calendar .empty-feeling.normal {
     background: url(/images/normal_64_scale_down.png) no-repeat center;
     background-size: 32px 32px;
   }
-  /* line 176, picob.scss */
+  /* line 196, picob.scss */
   #calendar .feeling.bad, #calendar .empty-feeling.bad {
     background: url(/images/bad_64_scale_down.png) no-repeat center;
     background-size: 32px 32px;
   }
-  /* line 180, picob.scss */
+  /* line 200, picob.scss */
   #calendar .feeling.none, #calendar .empty-feeling.none {
     background: url(/images/none_64_scale_down.png) no-repeat center;
     background-size: 32px 32px;
   }
 }
 @media only screen and (min-width: 900px) {
-  /* line 161, picob.scss */
+  /* line 181, picob.scss */
   #calendar .feeling, #calendar .empty-feeling {
     height: 64px;
     top: 17px;
   }
-  /* line 188, picob.scss */
+  /* line 208, picob.scss */
   #calendar .feeling.good, #calendar .empty-feeling.good {
     background: url(/images/good_64.png) no-repeat center;
   }
-  /* line 191, picob.scss */
+  /* line 211, picob.scss */
   #calendar .feeling.normal, #calendar .empty-feeling.normal {
     background: url(/images/normal_64.png) no-repeat center;
   }
-  /* line 194, picob.scss */
+  /* line 214, picob.scss */
   #calendar .feeling.bad, #calendar .empty-feeling.bad {
     background: url(/images/bad_64.png) no-repeat center;
   }
-  /* line 197, picob.scss */
+  /* line 217, picob.scss */
   #calendar .feeling.none, #calendar .empty-feeling.none {
     background: url(/images/none_64.png) no-repeat center;
   }
 }
-/* line 202, picob.scss */
+/* line 222, picob.scss */
 #calendar .date {
   width: 100%;
   float: left;
@@ -290,41 +322,41 @@
   text-align: right;
 }
 @media only screen and (max-width: 899px) {
-  /* line 202, picob.scss */
+  /* line 222, picob.scss */
   #calendar .date {
     font-size: 10px;
   }
 }
 @media only screen and (min-width: 900px) {
-  /* line 202, picob.scss */
+  /* line 222, picob.scss */
   #calendar .date {
     font-size: 20px;
     margin-bottom: 2px;
   }
 }
-/* line 217, picob.scss */
+/* line 237, picob.scss */
 #calendar .feeling-text {
   position: relative;
   top: 18px;
   text-align: center;
 }
 @media only screen and (max-width: 899px) {
-  /* line 217, picob.scss */
+  /* line 237, picob.scss */
   #calendar .feeling-text {
     display: none;
   }
 }
 @media only screen and (min-width: 900px) {
-  /* line 217, picob.scss */
+  /* line 237, picob.scss */
   #calendar .feeling-text {
     font-size: 15px;
   }
 }
-/* line 228, picob.scss */
+/* line 248, picob.scss */
 #calendar #day {
   clear: both;
 }
-/* line 230, picob.scss */
+/* line 250, picob.scss */
 #calendar #day div {
   float: left;
   background-color: rgba(255, 255, 255, 0.5);
@@ -332,7 +364,7 @@
   text-align: center;
 }
 @media only screen and (max-width: 899px) {
-  /* line 230, picob.scss */
+  /* line 250, picob.scss */
   #calendar #day div {
     width: 30px;
     font-size: 11px;
@@ -341,7 +373,7 @@
   }
 }
 @media only screen and (min-width: 900px) {
-  /* line 230, picob.scss */
+  /* line 250, picob.scss */
   #calendar #day div {
     width: 100px;
     font-size: 15px;
@@ -349,11 +381,11 @@
     margin: 3px 3px;
   }
 }
-/* line 247, picob.scss */
+/* line 267, picob.scss */
 #calendar #day div.sun {
   color: #BF4245;
 }
-/* line 250, picob.scss */
+/* line 270, picob.scss */
 #calendar #day div.sat {
   color: #5287F2;
 }
