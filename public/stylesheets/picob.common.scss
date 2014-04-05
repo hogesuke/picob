@@ -73,7 +73,6 @@ a {
             }
             @media #{$large} {
                 width: 33%;
-                margin-top: 5px;
             }
             #logo {
                 font-family: 'Quicksand', sans-serif;
@@ -92,28 +91,30 @@ a {
             }
             @media #{$large} {
                 width: 34%;
-                margin-top: 10px;
+                margin-top: 5px;
             }
         }
         #navi-right, #navi-bottom {
             #today-button {
                 height: 50px;
                 width: 55px;
-                margin-bottom: 5px;
-                padding-top: 3px;
                 text-align: center;
                 font-family: 'Quicksand', sans-serif;
-                border: solid 1px #FFB273;
-                @include border-radius(10px 10px 10px 10px);
-                @include box-shadow(0px 2px 0px #FFB273);
                 @include box-sizing();
                 .caption {
                     width: 100%;
                     font-size: 15px;
                 }
                 .date {
-                    width: 100%;
+                    width: 25px;
+                    margin: 0 auto;
+                    color: #FFFFFF;
                     font-size: 20px;
+                    background-color: #029CCC;
+                    @include border-radius(15px 15px 15px 15px);
+                }
+                @media #{$small} {
+                    margin: 5px 0;
                 }
             }
         }
@@ -126,14 +127,15 @@ a {
             @media #{$large} {
                 width: 33%;
             }
-            div {
-                float: right;
-            }
             #logout-button {
+                float: right;
                 padding: 5px;
                 border: none;
                 background-color: #FFFFFF;
                 color: #000000;
+            }
+            #today-button {
+                float: right;
             }
             .tool-box {
                 @media #{$small} {
