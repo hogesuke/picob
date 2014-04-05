@@ -18,7 +18,15 @@ exports.calendar = function(req, res) {
   // TODO 現在年月以下であることを精査する処理を追加すること。
 
   res.render('calendar.ejs', {
-    params: {
+    params: getHeaderParam(userSeq, requestYear, requestMonth, nextDate, prevDate)
+  });
+};
+
+/**
+ * headerの表示に必要なパラメータを取得する。
+ */
+function getHeaderParam(userSeq, requestYear, requestMonth, nextDate, prevDate) {
+  return {
       userSeq: userSeq,
       thisDate: {
         year: requestYear,
@@ -37,10 +45,8 @@ exports.calendar = function(req, res) {
         year: prevDate.getFullYear(),
         month: prevDate.getMonth() + 1 
       }
-    }
-  });
-};
-
+  };
+}
 /**
  * 次月の表示が可能か判定する。
  */
@@ -292,7 +298,14 @@ function doEntryView(req, res, requestYear, requestMonth, requestDate) {
               },
               feelings: feelingsEveryGroup,
               piece: piece ? piece : defaultPiece,
-              isMe: isMe
+              isMe: isMe,
+              header: getHeaderParam(
+                  targetUserSeq,
+                  requestYear,
+                  requestMonth,
+                  computeMonth(requestYear, requestMonth, 1),
+                  computeMonth(requestYear, requestMonth, -1),
+                  prevDate)
             }
           });
         });
