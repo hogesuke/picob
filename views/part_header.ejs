@@ -8,19 +8,17 @@
         <div id="controler-inner">
           <div id="month-controler">
             <% if (prevDate.isVisible) { %>
-            <a id="prev-month" class="web-icon-fontello"
-              href="/<%= userSeq %>/calendar/<%= prevDate.year %>/<%= prevDate.month %>">4</a>
+            <a id="prev-month" href="/<%= userSeq %>/calendar/<%= prevDate.year %>/<%= prevDate.month %>"></a>
             <% } else { %>
-            <span id="prev-month" class="web-icon-fontello">4</span>
+            <span id="prev-month" class="inactive"></span>
             <% } %>
             <div id="current-ym" year="<%= thisDate.year %>" month="<%= thisDate.month %>">
               <%= thisDate.year + "/" + thisDate.month %>
             </div>
             <% if (nextDate.isVisible) { %>
-            <a id="next-month" class="web-icon-fontello"
-              href="/<%= userSeq %>/calendar/<%= nextDate.year %>/<%= nextDate.month %>">5</a>
+            <a id="next-month" href="/<%= userSeq %>/calendar/<%= nextDate.year %>/<%= nextDate.month %>"></a>
             <% } else { %>
-            <span id="next-month" class="web-icon-fontello">5</span>
+            <span id="next-month" class="inactive"></span>
             <% } %>
           </div>
         </div>
