@@ -85,9 +85,6 @@ a {
             }
         }
         #navi-right, #navi-bottom {
-            div {
-                float: right;
-            }
             #today-button {
                 height: 50px;
                 width: 50px;
@@ -109,6 +106,9 @@ a {
             }
             @media #{$large} {
                 width: 33%;
+            }
+            div {
+                float: right;
             }
             #logout-button {
                 padding: 5px;
@@ -133,6 +133,9 @@ a {
             @media #{$large} {
                 display: none;
             }
+            #today-button {
+                margin: 0 auto;
+            }
         }
     }
 }
@@ -152,11 +155,11 @@ a {
         }
         #month-controler {
             @media #{$small} {
-                font-size: 20px;
+                font-size: 23px;
             }
             @media #{$large} {
-                font-size: 26px;
-                margin-left: 60px;
+                font-size: 30px;
+                margin-left: 50px;
             }
             a, span {
                 display: block;
@@ -197,7 +200,7 @@ a {
                     width: 100px;
                 }
                 @media #{$large} {
-                    width: 100px;
+                    width: 120px;
                 }
                 padding: 0px 3px;
                 font-family: 'Quicksand', sans-serif;
