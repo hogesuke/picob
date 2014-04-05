@@ -13,8 +13,7 @@
     "passport": "~0.2.0",
     "passport-facebook": "~1.0.2",
     "passport-twitter": "~1.0.2",
-    "express-partials": "~0.2.0",
-    "express-ejs-layouts": "~0.3.1"
+    "express-partials": "~0.2.0"
   },
   "engines": {
     "ejs": "*"
