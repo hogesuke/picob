@@ -73,6 +73,7 @@ a {
             }
             @media #{$large} {
                 width: 33%;
+                margin-top: 5px;
             }
             #logo {
                 font-family: 'Quicksand', sans-serif;
@@ -91,21 +92,29 @@ a {
             }
             @media #{$large} {
                 width: 34%;
-                margin-top: 5px;
+                margin-top: 10px;
             }
         }
         #navi-right, #navi-bottom {
             #today-button {
                 height: 50px;
-                width: 50px;
-                padding-top: 18px;
-                background: url(/images/empty_calendar_128.gif) no-repeat center;
-                background-size: 64px 64px;
+                width: 55px;
+                margin-bottom: 5px;
+                padding-top: 3px;
                 text-align: center;
-                font-size: 20px;
-                color: #029CCC;
                 font-family: 'Quicksand', sans-serif;
+                border: solid 1px #FFB273;
+                @include border-radius(10px 10px 10px 10px);
+                @include box-shadow(0px 2px 0px #FFB273);
                 @include box-sizing();
+                .caption {
+                    width: 100%;
+                    font-size: 15px;
+                }
+                .date {
+                    width: 100%;
+                    font-size: 20px;
+                }
             }
         }
         #navi-right {
@@ -242,6 +251,7 @@ a {
         }
     }
 }
+
 #container {
     margin: 0 auto;
     margin-top: 10px;
