@@ -1,0 +1,82 @@
+<div id="container">
+  <div id="main-container">
+    <div id="left-container">
+      <div class="container-film">
+        <div id="feeling" class="<%= piece.feeling %>">
+        </div>
+        <% if (isMe) {%>
+          <div class="feeling-selector">
+            <div id="feeling-choices-container">
+              <a class="feeling-choices feeling-good web-icon-fontello" feeling="good"></a>
+              <a class="feeling-choices feeling-normal web-icon-fontello" feeling="normal"></a>
+              <a class="feeling-choices feeling-bad web-icon-fontello" feeling="bad"></a>
+            </div>
+          </div>
+        <% } %>
+      </div>
+    </div>
+    <div id="right-container">
+      <div class="container-film">
+        <div id="date" year="<%= thisDate.year %>" month="<%= thisDate.month %>" day="<%= thisDate.day %>">
+          <%= thisDate.year + '/' + thisDate.month + '/' + thisDate.day %>
+        </div>
+        <div id="feeling-text-container" class="<%= piece && piece.feeling_text ? 'active' : 'inactive' %>">
+          <div id="feeling-text-icon">
+          </div>
+          <div id="feeling-text">
+            <% var val = piece && piece.feeling_text ? piece.feeling_text : "" %>
+            <input type="text" class="text" value="<%= val %>" maxlength="5">
+          </div>
+          <div id="opener">
+          </div>
+        </div>
+        <% if (isMe) {%>
+          <div id="feeling-text-selector">
+            <% var groupNameArray = ['Good', 'Normal', 'Bad']; %>
+            <% for (var i in groupNameArray) { %>
+              <% var groupName = groupNameArray[i]; %>
+              <div class="feeling-group <%= groupName.toLowerCase() %>">
+                <div class="feeling-group-title"><%= groupName %></div>
+                <div class="feeling-text-container">
+                  <ul>
+                    <% for (var j in feelings[groupName]) { %>
+                    <% var feeling = feelings[groupName]; %>
+                    <li>
+                    <a class="feeling-text-choices" href="javascript:void(0)">
+                      <%= feeling[j].text %>
+                    </a>
+                    </li>
+                    <% } %>
+                  </ul>
+                </div>
+              </div>
+            <% } %>
+          </div>
+        <% } %>
+      </div>
+    </div>
+  </div>
+  <div id="bottom-container">
+    <div id="prev-date" class="web-icon-fontello">
+      <% if (prevDate.isVisible) {%>
+        <a href="/<%= userSeq %>/entry/<%= prevDate.year %>/<%= prevDate.month %>/<%= prevDate.day %>" >4</a>
+      <% } else { %>
+        &nbsp;
+      <% } %>
+    </div>
+    <div id="switch-calendar" class="web-icon-fontello">
+      <a href="/<%= userSeq %>/calendar/<%= thisDate.year %>/<%= thisDate.month %>" >7</a>
+    </div>
+    <div id="next-date" class="web-icon-fontello">
+      <% if (nextDate.isVisible) {%>
+        <a href="/<%= userSeq %>/entry/<%= nextDate.year %>/<%= nextDate.month %>/<%= nextDate.day %>" >5</a>
+      <% } else { %>
+        &nbsp;
+      <% } %>
+    </div>
+  </div>
+</div>
+<% /* CSRF対策 Token */ %>
+<div>
+  <input type="hidden" name="_csrf" value="<%= csrftoken %>">
+</div>

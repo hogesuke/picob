@@ -9,7 +9,6 @@ var User = require('../models/user');
  * pieceをカレンダー表示する。
  */
 exports.calendar = function(req, res) {
-  var hoge;
   var userSeq = req.params[0];
   var requestYear = req.params[1];
   var requestMonth = req.params[2];
@@ -18,24 +17,26 @@ exports.calendar = function(req, res) {
 
   // TODO 現在年月以下であることを精査する処理を追加すること。
 
-  res.render('index.ejs', {
-    userSeq: userSeq,
-    thisDate: {
-      year: requestYear,
-      month: requestMonth
-    },
-    toDay: {
-      date: new Date().getDate()
-    },
-    nextDate: {
-      isVisible: existNext(requestYear, requestMonth),
-      year: nextDate.getFullYear(),
-      month: nextDate.getMonth() + 1 
-    },
-    prevDate: {
-      isVisible: existPrev(requestYear, requestMonth),
-      year: prevDate.getFullYear(),
-      month: prevDate.getMonth() + 1 
+  res.render('calendar.ejs', {
+    params: {
+      userSeq: userSeq,
+      thisDate: {
+        year: requestYear,
+        month: requestMonth
+      },
+      toDay: {
+        date: new Date().getDate()
+      },
+      nextDate: {
+        isVisible: existNext(requestYear, requestMonth),
+        year: nextDate.getFullYear(),
+        month: nextDate.getMonth() + 1 
+      },
+      prevDate: {
+        isVisible: existPrev(requestYear, requestMonth),
+        year: prevDate.getFullYear(),
+        month: prevDate.getMonth() + 1 
+      }
     }
   });
 };
@@ -267,27 +268,32 @@ function doEntryView(req, res, requestYear, requestMonth, requestDate) {
           var prevDate = computeDate(requestYear, requestMonth, requestDate, -1);
 
           res.render('entry.ejs', {
-            userSeq: targetUserSeq,
-            thisDate: {
-              year: requestYear,
-              month: requestMonth,
-              day: requestDate
-            },
-            nextDate: {
-              isVisible: existNextDate(requestYear, requestMonth, requestDate),
-              year: nextDate.getFullYear(),
-              month: nextDate.getMonth() + 1,
-              day: nextDate.getDate()
-            },
-            prevDate: {
-              isVisible: existPrevDate(requestYear, requestMonth, requestDate),
-              year: prevDate.getFullYear(),
-              month: prevDate.getMonth() + 1,
-              day: prevDate.getDate()
-            },
-            feelings: feelingsEveryGroup,
-            piece: piece ? piece : defaultPiece,
-            isMe: isMe
+            params: {
+              userSeq: targetUserSeq,
+              thisDate: {
+                year: requestYear,
+                month: requestMonth,
+                day: requestDate
+              },
+              toDay: {
+                date: new Date().getDate()
+              },
+              nextDate: {
+                isVisible: existNextDate(requestYear, requestMonth, requestDate),
+                year: nextDate.getFullYear(),
+                month: nextDate.getMonth() + 1,
+                day: nextDate.getDate()
+              },
+              prevDate: {
+                isVisible: existPrevDate(requestYear, requestMonth, requestDate),
+                year: prevDate.getFullYear(),
+                month: prevDate.getMonth() + 1,
+                day: prevDate.getDate()
+              },
+              feelings: feelingsEveryGroup,
+              piece: piece ? piece : defaultPiece,
+              isMe: isMe
+            }
           });
         });
     });

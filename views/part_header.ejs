@@ -1,0 +1,37 @@
+<div id="header">
+  <div id="global-navi">
+    <div id="navi-left">
+      <div id="logo">picob</div>
+    </div>
+    <div id="navi-center">
+      <div id="controler">
+        <div id="controler-inner">
+          <div id="month-controler">
+            <% if (prevDate.isVisible) { %>
+            <a id="prev-month" class="web-icon-fontello"
+              href="/<%= userSeq %>/calendar/<%= prevDate.year %>/<%= prevDate.month %>">4</a>
+            <% } else { %>
+            <span id="prev-month" class="web-icon-fontello">4</span>
+            <% } %>
+            <div id="current-ym" year="<%= thisDate.year %>" month="<%= thisDate.month %>">
+              <%= thisDate.year + "/" + thisDate.month %>
+            </div>
+            <% if (nextDate.isVisible) { %>
+            <a id="next-month" class="web-icon-fontello"
+              href="/<%= userSeq %>/calendar/<%= nextDate.year %>/<%= nextDate.month %>">5</a>
+            <% } else { %>
+            <span id="next-month" class="web-icon-fontello">5</span>
+            <% } %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="navi-right">
+      <div href="/logout" id="logout-button" class="link">ログアウト</div>
+      <div href="/<%= userSeq %>/entry/today" id="today-button" class="link tool-box"><%= toDay.date %></div>
+    </div>
+    <div id="navi-bottom">
+      <div href="/<%= userSeq %>/entry/today" id="today-button" class="link"><%= toDay.date %></div>
+    </div>
+  </div>
+</div>

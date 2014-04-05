@@ -1,0 +1,42 @@
+<div id="calendar">
+  <div id="day">
+    <div class="sun">Sun</div>
+    <div>Mon</div>
+    <div>Tue</div>
+    <div>Wed</div>
+    <div>Thu</div>
+    <div>Fri</div>
+    <div class="sat">Sat</div>
+  </div>
+  <div id="pieces">
+    <% var pieceNo = 0; %>
+    <div class="week" week="1">
+    <% /* 6週間分 */ %>
+    <% for(var i = 0; i < 6; i++) { %>
+      <div class="week" week="<%= i + 1 %>">
+        <% /* 1週間(7日) */ %>
+        <% for(var j = 0; j < 7; j++) { %>
+          <!-- ko if: pieces()[<%= pieceNo %>] -->
+          <div data-bind="template: {name: 'piece-template', data: {piece: pieces()[<%= pieceNo %>]}},
+            attr: {'href': pieces()[<%= pieceNo %>].getHref()},
+            css: pieces()[<%= pieceNo %>].getPieceCss()">
+          </div>
+          <!-- /ko -->
+          <% pieceNo++; %>
+        <% } %>
+      </div>
+    <% } %>
+
+    <script type="text/html" id="piece-template">
+      <!-- ko if: !piece.isDummy() -->
+        <div data-bind="text: piece.date, attr: {'year': piece.year, 'month': piece.month, 'day': piece.day}" class="date"></div>
+        <div data-bind="css: piece.feeling" class="feeling"></div>
+        <div class="feeling-text">
+          <!-- ko if: piece.existFeelingText() -->
+            <span data-bind="text: piece.feeling_text"></span>
+          <!-- /ko -->
+        </div>
+      <!-- /ko -->
+    </script>
+  </div>
+</div>

@@ -3,6 +3,7 @@
 var express = require('express')
 var mongoose = require('mongoose');
 var dbConnector = require('./db');
+var partials = require('express-partials');
 var passport = require('passport');
 var FacebookStrategy = require('passport-facebook').Strategy;
 var TwitterStrategy = require('passport-twitter').Strategy;
@@ -15,16 +16,17 @@ var app = express();
 
 dbConnector.connect();
 
-app.engine('ejs', require('ejs').renderFile);
+//app.engine('ejs', require('ejs').renderFile);
 app.configure(function () {
   app.use(express.logger('dev')); /* 'default', 'short', 'tiny', 'dev' */
-  //app.use('view engine', 'ejs');
+  app.use('view engine', 'ejs');
   app.use(express.cookieParser());
   app.use(express.bodyParser());
   app.use(express.session({secret: 'testtesttest'}));
   app.use(passport.initialize());
   app.use(passport.session());
   app.use(express.csrf());
+  app.use(partials());
   app.use(app.router);
   app.use(express.static(__dirname + '/public'));
 });
