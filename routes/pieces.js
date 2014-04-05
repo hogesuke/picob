@@ -9,7 +9,7 @@ var User = require('../models/user');
  * pieceをカレンダー表示する。
  */
 exports.calendar = function(req, res) {
-
+  var hoge;
   var userSeq = req.params[0];
   var requestYear = req.params[1];
   var requestMonth = req.params[2];

@@ -27,11 +27,16 @@ $base_charctor_color: #000000;
         }
         #navi-left {
             float: left;
-            width: 33%;
+            @media #{$small} {
+                width: 25%;
+            }
+            @media #{$large} {
+                width: 33%;
+            }
             #logo {
                 font-family: 'Quicksand', sans-serif;
                 @media #{$small} {
-                    font-size: 20px;
+                    font-size: 25px;
                 }
                 @media #{$large} {
                     font-size: 32px;
@@ -40,13 +45,15 @@ $base_charctor_color: #000000;
         }
         #navi-center {
             float: left;
-            width: 34%;
-            margin-top: 10px;
+            @media #{$small} {
+                width: 50%;
+            }
+            @media #{$large} {
+                width: 34%;
+                margin-top: 10px;
+            }
         }
-        #navi-right {
-            float: right;
-            width: 33%;
-            text-align: right;
+        #navi-right, #navi-bottom {
             div {
                 float: right;
             }
@@ -62,11 +69,38 @@ $base_charctor_color: #000000;
                 font-family: 'Quicksand', sans-serif;
                 @include box-sizing();
             }
+        }
+        #navi-right {
+            float: right;
+            text-align: right;
+            @media #{$small} {
+                width: 25%;
+            }
+            @media #{$large} {
+                width: 33%;
+            }
             #logout-button {
                 padding: 5px;
                 border: none;
                 background-color: #FFFFFF;
                 color: #000000;
+            }
+            .tool-box {
+                @media #{$small} {
+                    display: none;
+                }
+                @media #{$large} {
+                    display: block;
+                }
+            }
+        }
+        #navi-bottom {
+            clear: both;
+            @media #{$small} {
+                display: block;
+            }
+            @media #{$large} {
+                display: none;
             }
         }
     }
@@ -76,7 +110,7 @@ $base_charctor_color: #000000;
     width: 100%;
     overflow: hidden;
     @media #{$small} {
-        margin-top: 3px;
+        margin: 3px 0 0 10px;
     }
     @media #{$large} {
     }
@@ -87,7 +121,7 @@ $base_charctor_color: #000000;
         }
         #month-controler {
             @media #{$small} {
-                font-size: 16px;
+                font-size: 20px;
             }
             @media #{$large} {
                 font-size: 23px;
@@ -129,7 +163,7 @@ $base_charctor_color: #000000;
             #current-ym {
                 text-align: center;
                 @media #{$small} {
-                    width: 65px;
+                    width: 100px;
                 }
                 @media #{$large} {
                     width: 100px;
