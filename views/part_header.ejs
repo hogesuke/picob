@@ -8,7 +8,7 @@
         <div id="controler-inner">
           <div id="month-controler">
             <% if (prevDate.isVisible) { %>
-            <a id="prev-month" href="/<%= userSeq %>/calendar/<%= prevDate.year %>/<%= prevDate.month %>"></a>
+            <a id="prev-month" href="/<%= targetUser.seq %>/calendar/<%= prevDate.year %>/<%= prevDate.month %>"></a>
             <% } else { %>
             <span id="prev-month" class="inactive"></span>
             <% } %>
@@ -16,7 +16,7 @@
               <%= thisDate.year + "/" + thisDate.month %>
             </div>
             <% if (nextDate.isVisible) { %>
-            <a id="next-month" href="/<%= userSeq %>/calendar/<%= nextDate.year %>/<%= nextDate.month %>"></a>
+            <a id="next-month" href="/<%= targetUser.seq %>/calendar/<%= nextDate.year %>/<%= nextDate.month %>"></a>
             <% } else { %>
             <span id="next-month" class="inactive"></span>
             <% } %>
@@ -25,14 +25,28 @@
       </div>
     </div>
     <div id="navi-right">
-      <div href="/logout" id="logout-button" class="link">ログアウト</div>
-      <div href="/<%= userSeq %>/entry/today" id="today-button" class="link tool-box">
+      <div href="/logout" id="logout-button" class="link"></div>
+      <div id="login-user-icon" class="tool-box">
+        <% if (loginUser.provider == "twitter") { %>
+          <img src="http://twiticon.herokuapp.com/<%= loginUser.raw_name %>">
+        <% } else { %>
+          <img src="https://graph.facebook.com/<%= loginUser.id %>/picture">
+        <% } %>
+      </div>
+      <div href="/<%= targetUser.seq %>/entry/today" id="today-button" class="link tool-box">
         <div class="caption">today</div>
         <div class="date"><%= toDay.date %></div>
       </div>
     </div>
     <div id="navi-bottom">
-      <div href="/<%= userSeq %>/entry/today" id="today-button" class="link tool-box">
+      <div id="login-user-icon">
+        <% if (loginUser.provider == "twitter") { %>
+          <img src="http://twiticon.herokuapp.com/<%= loginUser.raw_name %>">
+        <% } else { %>
+          <img src="https://graph.facebook.com/<%= loginUser.id %>/picture">
+        <% } %>
+      </div>
+      <div href="/<%= targetUser.seq %>/entry/today" id="today-button" class="link tool-box">
         <div class="caption">today</div>
         <div class="date"><%= toDay.date %></div>
       </div>

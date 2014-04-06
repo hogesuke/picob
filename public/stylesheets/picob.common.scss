@@ -117,6 +117,22 @@ a {
                     margin: 5px 0;
                 }
             }
+            #login-user-icon {
+                float: right;
+                img {
+                    border: 2px solid #FFB273;
+                    @include border-radius(30px);
+                    @include box-sizing();
+                    @media #{$small} {
+                        width: 32px;
+                        margin-top: 10px;
+                    }
+                    @media #{$large} {
+                        width: 36px;
+                        margin: 5px 0 0 10px;
+                    }
+                }
+            }
         }
         #navi-right {
             float: right;
@@ -130,9 +146,21 @@ a {
             #logout-button {
                 float: right;
                 padding: 5px;
-                border: none;
-                background-color: #FFFFFF;
-                color: #000000;
+                border: 2px solid #01BCB6;
+                background: url(/images/logout_256.png) no-repeat center;
+                background-size: 32px 32px;
+                @include border-radius(30px);
+                @include box-sizing();
+                @media #{$small} {
+                    width: 32px;
+                    height: 32px;
+                    margin-top: 2px;
+                }
+                @media #{$large} {
+                    width: 36px;
+                    height: 36px;
+                    margin: 5px 0 0 10px;
+                }
             }
             #today-button {
                 float: right;

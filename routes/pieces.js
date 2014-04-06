@@ -9,25 +9,34 @@ var User = require('../models/user');
  * pieceをカレンダー表示する。
  */
 exports.calendar = function(req, res) {
-  var userSeq = req.params[0];
+  var targetUserSeq = req.params[0];
   var requestYear = req.params[1];
   var requestMonth = req.params[2];
   var nextDate = computeMonth(requestYear, requestMonth, 1);
   var prevDate = computeMonth(requestYear, requestMonth, -1);
+  var me = req.session.passport.user;
 
   // TODO 現在年月以下であることを精査する処理を追加すること。
 
   res.render('calendar.ejs', {
-    params: getHeaderParam(userSeq, requestYear, requestMonth, nextDate, prevDate)
+    params: getHeaderParam(me, targetUserSeq, requestYear, requestMonth, nextDate, prevDate)
   });
 };
 
 /**
  * headerの表示に必要なパラメータを取得する。
  */
-function getHeaderParam(userSeq, requestYear, requestMonth, nextDate, prevDate) {
+function getHeaderParam(me, targetUserSeq, requestYear, requestMonth, nextDate, prevDate) {
   return {
-      userSeq: userSeq,
+      targetUser: {
+        seq: targetUserSeq
+      },
+      loginUser: {
+        seq: me.seq,
+        id: me.id,
+        raw_name: me.raw_name,
+        provider: me.provider
+      },
       thisDate: {
         year: requestYear,
         month: requestMonth
@@ -300,6 +309,7 @@ function doEntryView(req, res, requestYear, requestMonth, requestDate) {
               piece: piece ? piece : defaultPiece,
               isMe: isMe,
               header: getHeaderParam(
+                  loginUser,
                   targetUserSeq,
                   requestYear,
                   requestMonth,
