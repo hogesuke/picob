@@ -48,21 +48,33 @@ a {
     text-decoration: none;
     outline: none;
     cursor: pointer;
+    &:link {
+        color: #000000;
+    }
+    &:visited {
+        color: #000000;
+    }
+    &:hover {
+        color: #000000;
+    }
+    &:active {
+        color: #000000;
+    }
 }
 
 #header {
     width: 100%;
     background-color: #FFFFFF;
-    overflow: hidden;
     #global-navi {
         margin: 0 auto;
-        overflow: hidden;
         @include box-sizing();
         @media #{$small} {
+            height: 90px;
             width: 320px;
             padding: 5px 5px 3px 5px;
         }
         @media #{$large} {
+            height: 65px;
             width: 900px;
             padding: 10px 10px 5px 10px;
         }
@@ -117,19 +129,72 @@ a {
                     margin: 5px 0;
                 }
             }
-            #login-user-icon {
+            .login-user-icon {
                 float: right;
+                position: relative;
+                @media #{$small} {
+                    margin-top: 2px;
+                }
+                @media #{$large} {
+                    margin: 5px 0 0 10px;
+                }
                 img {
-                    border: 2px solid #FFB273;
-                    @include border-radius(30px);
-                    @include box-sizing();
                     @media #{$small} {
                         width: 32px;
-                        margin-top: 10px;
                     }
                     @media #{$large} {
                         width: 36px;
-                        margin: 5px 0 0 10px;
+                    }
+                }
+                .down-mark {
+                    float: right;
+                    width: 15px;
+                    height: 15px;
+                    background: url(/images/down_256.png) no-repeat center;
+                    background-size: 24px 24px;
+                    @media #{$small} {
+                        margin-top: 9px;
+                    }
+                    @media #{$large} {
+                        margin-top: 10px;
+                    }
+                }
+                .user-menu {
+                    width: 120px;
+                    position: absolute;
+                    top: 35px;
+                    background-color: #FFFFFF;
+                    border: 1px solid #C4C4C4;
+                    text-align: left;
+                    font-size: 14px;
+                    @include border-radius(5px);
+                    @include box-sizing();
+                    @media #{$small} {
+                        left: 40px - 120px;
+                        margin: 2px 5px;
+                    }
+                    @media #{$large} {
+                        left: 54px - 120px;
+                        margin: 10px 5px;
+                    }
+                    &.inactive {
+                        display: none;
+                    }
+                    &.active {
+                        display: block;
+                    }
+                    a {
+                        display: block;
+                    }
+                    li {
+                        padding: 7px 15px;
+                        cursor: pointer;
+                        &:hover {
+                            background-color: #FFB273;
+                            a {
+                                color: #FFFFFF;
+                            }
+                        }
                     }
                 }
             }
@@ -146,26 +211,21 @@ a {
             #logout-button {
                 float: right;
                 padding: 5px;
-                border: 2px solid #01BCB6;
                 background: url(/images/logout_256.png) no-repeat center;
-                background-size: 32px 32px;
-                @include border-radius(30px);
-                @include box-sizing();
+                background-size: 38px 38px;
                 @media #{$small} {
                     width: 32px;
                     height: 32px;
                     margin-top: 2px;
                 }
                 @media #{$large} {
-                    width: 36px;
-                    height: 36px;
+                    width: 38px;
+                    height: 38px;
                     margin: 5px 0 0 10px;
                 }
             }
             #today-button {
                 float: right;
-            }
-            .tool-box {
                 @media #{$small} {
                     display: none;
                 }

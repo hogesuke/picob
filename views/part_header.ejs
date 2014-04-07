@@ -25,13 +25,18 @@
       </div>
     </div>
     <div id="navi-right">
-      <div href="/logout" id="logout-button" class="link"></div>
-      <div id="login-user-icon" class="tool-box">
+      <div class="login-user-icon tool-box">
         <% if (loginUser.provider == "twitter") { %>
           <img src="http://twiticon.herokuapp.com/<%= loginUser.raw_name %>">
         <% } else { %>
           <img src="https://graph.facebook.com/<%= loginUser.id %>/picture">
         <% } %>
+        <div class="down-mark"></div>
+        <div class="user-menu inactive">
+          <ul>
+            <li><a href="/logout">ログアウト</a></li>
+          </ul>
+        </div>
       </div>
       <div href="/<%= targetUser.seq %>/entry/today" id="today-button" class="link tool-box">
         <div class="caption">today</div>
@@ -39,13 +44,6 @@
       </div>
     </div>
     <div id="navi-bottom">
-      <div id="login-user-icon">
-        <% if (loginUser.provider == "twitter") { %>
-          <img src="http://twiticon.herokuapp.com/<%= loginUser.raw_name %>">
-        <% } else { %>
-          <img src="https://graph.facebook.com/<%= loginUser.id %>/picture">
-        <% } %>
-      </div>
       <div href="/<%= targetUser.seq %>/entry/today" id="today-button" class="link tool-box">
         <div class="caption">today</div>
         <div class="date"><%= toDay.date %></div>
