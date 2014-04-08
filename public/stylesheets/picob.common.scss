@@ -142,15 +142,16 @@ a {
                     margin-top: 2px;
                 }
                 @media #{$large} {
-                    margin: 5px 0 0 10px;
+                    margin-left: 10px;
                 }
                 img {
                     float: left;
+                    @include border-radius(12px);
                     @media #{$small} {
                         width: 32px;
                     }
                     @media #{$large} {
-                        width: 36px;
+                        width: 45px;
                     }
                 }
                 .down-mark {
@@ -163,7 +164,7 @@ a {
                         margin-top: 9px;
                     }
                     @media #{$large} {
-                        margin-top: 10px;
+                        margin-top: 15px;
                     }
                 }
                 .user-menu {
@@ -182,7 +183,7 @@ a {
                     }
                     @media #{$large} {
                         left: 54px - 120px;
-                        margin: 10px 5px;
+                        margin: 15px 5px;
                     }
                     &.inactive {
                         display: none;

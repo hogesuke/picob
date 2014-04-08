@@ -131,13 +131,15 @@ $base_charctor_color: #000000;
                 text-align: center;
                 background-color: rgba(255,255,255,0.70);
                 font-family: 'Quicksand', sans-serif;
+                @include box-sizing();
                 @media #{$small} {
                     margin-top: 10px;
                     font-size: 35px;
                 }
                 @media #{$large} {
                     height: 75px;
-                    font-size: 65px;
+                    padding-top: 5px;
+                    font-size: 55px;
                 }
             }
             #feeling-text-container {
