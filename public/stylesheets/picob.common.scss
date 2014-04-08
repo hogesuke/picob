@@ -139,6 +139,7 @@ a {
                     margin: 5px 0 0 10px;
                 }
                 img {
+                    float: left;
                     @media #{$small} {
                         width: 32px;
                     }
