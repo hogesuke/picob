@@ -138,6 +138,7 @@ a {
             .login-user-icon {
                 float: right;
                 position: relative;
+                cursor: pointer;
                 @media #{$small} {
                     margin-top: 2px;
                 }
