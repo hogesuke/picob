@@ -115,15 +115,21 @@ a {
                 @include box-sizing();
                 .caption {
                     width: 100%;
+                    border: 1px solid #029CCC;
+                    background-color: #029CCC;
                     font-size: 16px;
+                    color: #FFFFFF;
+                    @include border-radius(12px 12px 0 0);
                 }
                 .date {
-                    width: 25px;
+                    width: 55px;
                     margin: 0 auto;
-                    color: #FFFFFF;
+                    color: #029CCC;
                     font-size: 20px;
-                    background-color: #029CCC;
-                    @include border-radius(15px 15px 15px 15px);
+                    border-bottom: 1px solid #029CCC;
+                    border-left: 1px solid #029CCC;
+                    border-right: 1px solid #029CCC;
+                    @include border-radius(0 0 12px 12px);
                 }
                 @media #{$small} {
                     margin: 5px 0;
