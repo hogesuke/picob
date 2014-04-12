@@ -11,4 +11,11 @@ $(function() {
       });
     }
   });
+
+  $(document).on('click', '.link', function() {
+    var href = $(this).attr('href');
+    if (href) {
+      window.location = href;
+    }
+  });
 });

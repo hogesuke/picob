@@ -57,13 +57,6 @@ $(function() {
     return model;
   });
 
-  $(document).on('click', '.link', function() {
-    var href = $(this).attr('href');
-    if (href) {
-      window.location = href;
-    }
-  });
-
   function selectPiece(doSuccess) {
     var userSeq = window.location.pathname;
     var $currentYM = $('#current-ym');

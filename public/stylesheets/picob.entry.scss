@@ -134,6 +134,7 @@ $base_charctor_color: #000000;
                 @include box-sizing();
                 @media #{$small} {
                     margin-top: 10px;
+                    padding: 10px 0;
                     font-size: 35px;
                 }
                 @media #{$large} {
@@ -145,46 +146,49 @@ $base_charctor_color: #000000;
             #feeling-text-container {
                 padding: 15px;
                 background-color: rgba(255,255,255,0.70);
-                @media #{$small} {
-                    height: 50px;
-                }
-                @media #{$large} {
-                    height: 75px;
+                overflow: hidden;
+                #comment-area-title {
+                    margin-bottom: 10px;
+                    font-family: 'Quicksand', sans-serif;
+                    @media #{$small} {
+                        font-size: 20px;
+                    }
+                    @media #{$large} {
+                        font-size: 25px;
+                    }
                 }
                 #feeling-text-icon {
                     float: left;
                     background: #029CCC url(/images/comment_128.png) no-repeat;
-                    cursor: pointer;
                     @media #{$small} {
-                        height: 54px;
-                        width: 60px;
-                        background-position: 4px -5px;
-                        background-size: 64px 64px;
-                        @include border-radius(27px 0px 0px 27px);
+                        height: 50px;
+                        width: 50px;
+                        background-position: 0px 0px;
+                        background-size: 50px 50px;
+                        @include border-radius(27px);
                     }
                     @media #{$large} {
-                        height: 75px;
-                        width: 85px;
-                        background-position: 5px -8px;
-                        background-size: 94px 94px;
-                        @include border-radius(36px 0px 0px 36px);
+                        height: 60px;
+                        width: 60px;
+                        background-position: 0px 0px;
+                        background-size: 60px 60px;
+                        @include border-radius(40px);
                     }
                 }
                 #feeling-text {
                     text-align: center;
                     float: left;
-                    background-color: #029CCC;
                     color: #FFFFFF;
                     @include box-sizing();
                     @media #{$small} {
                         height: 54px;
-                        width: 200px;
+                        width: 238px;
                         font-size: 33px;
                     }
                     @media #{$large} {
-                        height: 75px;
-                        width: 290px;
-                        font-size: 48px;
+                        height: 65px;
+                        width: 353px;
+                        font-size: 38px;
                     }
                     .text {
                         width: 100%;
@@ -192,32 +196,9 @@ $base_charctor_color: #000000;
                         padding: 5px 10px;
                         background-color: transparent;
                         border: none;
-                        color: #FFFFFF;
+                        border-bottom: 1px solid #C6BFB8;
+                        color: #000000;
                         @include box-sizing();
-                    }
-                }
-                #opener {
-                    float: left;
-                    background: #029CCC url(/images/open.png) no-repeat;
-                    cursor: pointer;
-                    @media #{$small} {
-                        width: 25px;
-                        height: 54px;
-                        background-position: -10px 5px;
-                        background-size: 44px 44px;
-                        @include border-radius(0px 27px 27px 0px);
-                    }
-                    @media #{$large} {
-                        width: 36px;
-                        height: 75px;
-                        background-position: -10px 11px;
-                        background-size: 54px 54px;
-                        @include border-radius(0px 36px 36px 0px);
-                    }
-                }
-                &.inactive {
-                    #feeling-text {
-                        display: none;
                     }
                 }
             }
@@ -234,77 +215,60 @@ $base_charctor_color: #000000;
                     .feeling-group-title {
                         clear: both;
                         font-family: 'Quicksand', sans-serif;
+                        border-bottom: 1px dashed #D8D4D0;
                         @media #{$small} {
-                            font-size: 20px;
+                            font-size: 18px;
                         }
                         @media #{$large} {
-                            font-size: 25px;
+                            font-size: 20px;
                         }
                     }
                     .feeling-text-container {
                         overflow: hidden;
                         @media #{$small} {
-                            margin: 2px 13px;
+                            margin: 5px 13px;
                         }
                         @media #{$large} {
-                            margin: 5px 20px;
+                            margin: 8px 20px;
                         }
                         .feeling-text-choices {
                             float: left;
                             margin-bottom: 5px;
                             padding: 5px 10px;
-                            @include border-radius(15px);
-                            color: #FFFFFF;
+                            @include border-radius(30px);
+                            color: #000000;
                             @media #{$small} {
                                 margin-right: 7px;
                                 font-size: 15px;
                             }
                             @media #{$large} {
                                 margin-right: 10px;
-                                font-size: 20px;
+                                font-size: 18px;
                             }
                         }
                     }
-                    &.good {
-                        .feeling-text-choices {
-                            background-color: #01BCB6;
-                            @media #{$small} {
-                                @include box-shadow(0px 2px 0px #047A70);
-                            }
-                            @media #{$large} {
-                                @include box-shadow(0px 4px 0px #047A70);
-                            }
+                    &.good .feeling-text-choices {
+                        @media #{$small} {
+                            border: 1px solid #01BCB6;
                         }
-                        .feeling-text-choices:hover {
-                            background-color: #00D8D1;
+                        @media #{$large} {
+                            border: 2px solid #01BCB6;
                         }
                     }
-                    &.normal {
-                        .feeling-text-choices {
-                            background-color: #FFB273;
-                            @media #{$small} {
-                                @include box-shadow(0px 2px 0px #6D4C31);
-                            }
-                            @media #{$large} {
-                                @include box-shadow(0px 4px 0px #6D4C31);
-                            }
+                    &.normal .feeling-text-choices {
+                        @media #{$small} {
+                            border: 1px solid #FFB273;
                         }
-                        .feeling-text-choices:hover {
-                            background-color: #FFC392;
+                        @media #{$large} {
+                            border: 2px solid #FFB273;
                         }
                     }
-                    &.bad {
-                        .feeling-text-choices {
-                            background-color: #FF7373;
-                            @media #{$small} {
-                                @include box-shadow(0px 2px 0px #964343);
-                            }
-                            @media #{$large} {
-                                @include box-shadow(0px 4px 0px #964343);
-                            }
+                    &.bad .feeling-text-choices {
+                        @media #{$small} {
+                            border: 1px solid #FF7373;
                         }
-                        .feeling-text-choices:hover {
-                            background-color: #FF9090;
+                        @media #{$large} {
+                            border: 2px solid #FF7373;
                         }
                     }
                 }
@@ -313,31 +277,85 @@ $base_charctor_color: #000000;
     }
     #bottom-container {
         overflow: hidden;
-        margin-top: 10px;
         text-align: center;
         color: #FFFFFF;
-        background-color: rgba(255,255,255,0.70);
         @media #{$small} {
+            height: 60px;
+            margin-top: 10px;
             font-size: 30px;
         }
         @media #{$large} {
+            height: 80px;
+            margin-top: 20px;
             font-size: 50px;
         }
         div {
             float: left;
+            height: 100%;
         }
         a {
             display: block;
             padding: 10px;
         }
-        #prev-date {
+        #prev-date, #next-date {
             width: 33%;
+            a {
+                @include border-radius(30px);
+                @media #{$small} {
+                    width: 20px;
+                    height: 20px;
+                    margin: 8px auto;
+                    border: 3px solid #F7F3EF;
+                }
+                @media #{$large} {
+                    width: 30px;
+                    height: 30px;
+                    margin: 10px auto;
+                    border: 4px solid #F7F3EF;
+                }
+            }
         }
-        #next-date {
-            width: 33%;
+        #prev-date a {
+            background: url(/images/prev_256.gif) no-repeat -2px 0px;
+            background-size: 50px 50px;
+            @media #{$small} {
+                background-size: 40px 40px;
+            }
+            @media #{$large} {
+                background-size: 50px 50px;
+            }
+        }
+        #next-date a {
+            background: url(/images/next_256.gif) no-repeat 2px 0px;
+            background-size: 50px 50px;
+            @media #{$small} {
+                background-size: 40px 40px;
+            }
+            @media #{$large} {
+                background-size: 50px 50px;
+            }
         }
         #switch-calendar {
             width: 34%;
+            a {
+                margin: 5px auto;
+                background: url(/images/calendar_256.png) no-repeat center;
+                background-size: 60px 60px;
+                @media #{$small} {
+                    width: 25px;
+                    height: 25px;
+                    background-size: 40px 40px;
+                    border: 3px solid #F7F3EF;
+                    @include border-radius(30px);
+                }
+                @media #{$large} {
+                    width: 40px;
+                    height: 40px;
+                    background-size: 50px 50px;
+                    border: 4px solid #F7F3EF;
+                    @include border-radius(40px);
+                }
+            }
         }
     }
 }

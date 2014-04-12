@@ -71,20 +71,6 @@ $(function() {
     if (pieceStatus.isValid()) upsertPiece(pieceStatus);
   });
 
-  $('#feeling-text-icon, #opener').on('click', function() {
-    var $this = $(this);
-    var $feelingTextContainer = $('#feeling-text-container');
-
-    $this.siblings('#feeling-text').toggle('blind', {direction: 'left'}, 300, function() {
-      $this.siblings('#feeling-text').find('.text').focus();
-    });
-    if ($feelingTextContainer.is('.inactive')) {
-      $feelingTextContainer.removeClass('inactive').addClass('active');
-    } else {
-      $feelingTextContainer.removeClass('active').addClass('inactive');
-    }
-  });
-
   $('#feeling-text .text').on('change', function() {
     pieceStatus.feelingText = $(this).val();
     upsertPiece(pieceStatus);
@@ -93,14 +79,8 @@ $(function() {
   $('.feeling-text-choices').on('click', function() {
     var feelingText = $.trim($(this).text())
     var $feelingText = $('#feeling-text .text');
-    var $feelingTextContainer = $('#feeling-text-container');
 
     $feelingText.val(feelingText);
-    if ($feelingTextContainer.is('.inactive')) {
-      $('#feeling-text').toggle('blind', {direction: 'left'}, 300);
-      $feelingTextContainer.removeClass('inactive').addClass('active');
-    }
-
     pieceStatus.feelingText = feelingText;
     upsertPiece(pieceStatus);
   });

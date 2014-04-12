@@ -20,12 +20,15 @@
         <div id="date" year="<%= thisDate.year %>" month="<%= thisDate.month %>" day="<%= thisDate.day %>">
           <%= thisDate.year + '/' + thisDate.month + '/' + thisDate.day %>
         </div>
-        <div id="feeling-text-container" class="<%= piece && piece.feeling_text ? 'active' : 'inactive' %>">
+        <div id="feeling-text-container">
+          <div id="comment-area-title">
+            <span>Comment</span>
+          </div>
           <div id="feeling-text-icon">
           </div>
           <div id="feeling-text">
             <% var val = piece && piece.feeling_text ? piece.feeling_text : "" %>
-            <input type="text" class="text" value="<%= val %>" maxlength="5">
+            <input type="text" class="text" value="<%= val %>" maxlength="7">
           </div>
           <div id="opener">
           </div>
@@ -59,17 +62,17 @@
   <div id="bottom-container">
     <div id="prev-date" class="web-icon-fontello">
       <% if (prevDate.isVisible) {%>
-        <a href="/<%= userSeq %>/entry/<%= prevDate.year %>/<%= prevDate.month %>/<%= prevDate.day %>" >4</a>
+        <a href="/<%= userSeq %>/entry/<%= prevDate.year %>/<%= prevDate.month %>/<%= prevDate.day %>" ></a>
       <% } else { %>
         &nbsp;
       <% } %>
     </div>
     <div id="switch-calendar" class="web-icon-fontello">
-      <a href="/<%= userSeq %>/calendar/<%= thisDate.year %>/<%= thisDate.month %>" >7</a>
+      <a href="/<%= userSeq %>/calendar/<%= thisDate.year %>/<%= thisDate.month %>" ></a>
     </div>
     <div id="next-date" class="web-icon-fontello">
       <% if (nextDate.isVisible) {%>
-        <a href="/<%= userSeq %>/entry/<%= nextDate.year %>/<%= nextDate.month %>/<%= nextDate.day %>" >5</a>
+        <a href="/<%= userSeq %>/entry/<%= nextDate.year %>/<%= nextDate.month %>/<%= nextDate.day %>" ></a>
       <% } else { %>
         &nbsp;
       <% } %>
