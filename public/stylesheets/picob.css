@@ -59,7 +59,7 @@
   width: 100%;
   position: relative;
   text-align: center;
-  z-index: 0;
+  z-index: 1;
 }
 @media only screen and (max-width: 899px) {
   /* line 47, picob.scss */
@@ -127,7 +127,7 @@
   position: relative;
   top: 0px;
   font-family: 'Quicksand', sans-serif;
-  z-index: 1;
+  z-index: 2;
   text-align: right;
 }
 @media only screen and (max-width: 899px) {
