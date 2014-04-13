@@ -1,6 +1,11 @@
 $small: "only screen and (max-width:899px)";
 $large: "only screen and (min-width:900px)";
 $base_charctor_color: #000000;
+@mixin border-radius($settings...) {
+    -webkit-border-radius: $settings;
+    -moz-border-radius: $settings;
+    border-radius: $settings;
+}
 
 #calendar {
     margin: 0 auto;
@@ -47,36 +52,43 @@ $base_charctor_color: #000000;
             height: 100%;
             top: 4px;
             &.good {
-                background: url(/images/good_64_scale_down.png) no-repeat center;
+                background: url(/images/good.gif) no-repeat center;
                 background-size: 32px 32px;
             }
             &.normal {
-                background: url(/images/normal_64_scale_down.png) no-repeat center;
+                background: url(/images/normal.gif) no-repeat center;
                 background-size: 32px 32px;
             }
             &.bad {
-                background: url(/images/bad_64_scale_down.png) no-repeat center;
+                background: url(/images/bad.gif) no-repeat center;
                 background-size: 32px 32px;
             }
             &.none {
-                background: url(/images/none_64_scale_down.png) no-repeat center;
+                background: url(/images/empty_feeling.gif) no-repeat center;
                 background-size: 32px 32px;
             }
         }
         @media #{$large} {
-            height: 64px;
+            height: 56px;
+            width: 56px;
             top: 17px;
+            margin: 0 auto 5px auto;
+            @include border-radius(17px);
             &.good {
-                background: url(/images/good_64.png) no-repeat center;
+                background: #01BCB6 url(/images/good.gif) no-repeat center;
+                background-size: 40px 40px;
             }
             &.normal {
-                background: url(/images/normal_64.png) no-repeat center;
+                background: #FFB273 url(/images/normal.gif) no-repeat center;
+                background-size: 40px 40px;
             }
             &.bad {
-                background: url(/images/bad_64.png) no-repeat center;
+                background: #FF7373 url(/images/bad.gif) no-repeat center;
+                background-size: 40px 40px;
             }
             &.none {
-                background: url(/images/none_64.png) no-repeat center;
+                background: url(/images/empty_feeling.gif) no-repeat center;
+                background-size: 40px 40px;
             }
         }
     }

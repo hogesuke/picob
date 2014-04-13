@@ -42,26 +42,40 @@ $base_charctor_color: #000000;
                 }
             }
             #feeling {
+                margin: 10px auto 20px auto;
+                @include border-radius(200px);
                 &.good {
-                    background: url(/images/good_selected_256.png) no-repeat center;
+                    background: #01BCB6 url(/images/good.gif) no-repeat;
+                    background-size: 200px 200px;
                 }
                 &.normal {
-                    background: url(/images/normal_selected_256.png) no-repeat center;
+                    background: #FFB273 url(/images/normal.gif) no-repeat;
+                    background-size: 200px 200px;
                 }
                 &.bad {
-                    background: url(/images/bad_selected_256.png) no-repeat center;
+                    background: #FF7373 url(/images/bad.gif) no-repeat;
+                    background-size: 200px 200px;
                 }
                 &.none {
-                    background: url(/images/none_256.png) no-repeat center;
+                    background: url(/images/empty_feeling_for_entry.gif) no-repeat;
+                    background-size: 200px 200px;
+                    border: 2px solid #ADADAD;
+                    @include box-sizing();
                 }
                 @media #{$small} {
                     &.good, &.normal, &.bad, &.none {
-                        background-size: 140px 140px;
+                        background-position: 13px 14px;
+                        background-size: 115px 115px;
                     }
+                    width: 140px;
                     height: 140px;
                 }
                 @media #{$large} {
-                    height: 250px;
+                    &.good, &.normal, &.bad, &.none {
+                        background-position: 15px 17px;
+                    }
+                    width: 230px;
+                    height: 230px;
                 }
             }
             .feeling-selector {
@@ -69,47 +83,56 @@ $base_charctor_color: #000000;
                 margin: 10px 0px;
                 overflow: hidden;
                 #feeling-choices-container {
+                    margin: 0 auto;
                     @media #{$small} {
-                        width: (64 + 5 * 2) * 3px;
+                        width: (64 + 7 * 2) * 3px;
                     }
                     @media #{$large} {
-                        width: 384px;
+                        width: (110 + 8 * 2) * 3px;
                     }
-                    margin: 0 auto;
                     .feeling-choices {
                         display: block;
                         float: left;
                         &.feeling-good {
-                            background: url(/images/good_128.png) no-repeat center;
+                            background: #01BCB6 url(/images/good.gif) no-repeat center;
+                            background-size: 90px 90px;
                         }
                         &.feeling-good:hover {
-                            background: url(/images/good_hover_128.png) no-repeat center;
+                            background: #00D8D1 url(/images/good.gif) no-repeat center;
+                            background-size: 90px 90px;
                         }
                         &.feeling-normal {
-                            background: url(/images/normal_128.png) no-repeat center;
+                            background: #FFB273 url(/images/normal.gif) no-repeat center;
+                            background-size: 90px 90px;
                         }
                         &.feeling-normal:hover {
-                            background: url(/images/normal_hover_128.png) no-repeat center;
+                            background: #FFC392 url(/images/normal.gif) no-repeat center;
+                            background-size: 90px 90px;
                         }
                         &.feeling-bad {
-                            background: url(/images/bad_128.png) no-repeat center;
+                            background: #FF7373 url(/images/bad.gif) no-repeat center;
+                            background-size: 90px 90px;
                         }
                         &.feeling-bad:hover {
-                            background: url(/images/bad_hover_128.png) no-repeat center;
+                            background: #FF9090 url(/images/bad.gif) no-repeat center;
+                            background-size: 90px 90px;
                         }
                         @media #{$small} {
                             height: 64px;
                             width: 64px;
-                            margin: 0 5px;
+                            margin: 0 7px;
                             &.feeling-good, &.feeling-good:hover,
                             &.feeling-normal, &.feeling-normal:hover,
                             &.feeling-bad, &.feeling-bad:hover {
-                                background-size: 64px 64px;
+                                background-size: 42px 42px;
                             }
+                            @include border-radius(20px);
                         }
                         @media #{$large} {
-                            height: 128px;
-                            width: 128px;
+                            height: 110px;
+                            width: 110px;
+                            margin: 10px 8px;
+                            @include border-radius(30px);
                         }
                     }
                 }
