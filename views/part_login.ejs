@@ -1,0 +1,29 @@
+<div id="main-logo"></div>
+<div id="catch-copy">1クリックで今日の自分を記録しよう</div>
+<div id="login-control">
+  <div class="login-button">
+    <form method="POST" action="/login/twitter">
+      <input type="hidden" name="_csrf" value="<%= csrftoken %>">
+      <input type="submit" id="twitter-login-button" value="Twitterでログイン">
+    </form>
+  </div>
+  <div class="login-button">
+    <form method="POST" action="/login/facebook">
+      <input type="hidden" name="_csrf" value="<%= csrftoken %>">
+      <input type="submit" id="facebook-login-button" value="facebookでログイン">
+    </form>
+  </div>
+</div>
+<div id="introduction">
+  <div id="question-mark"></div>
+  <div class="caption">picobってなに？</div>
+  <div class="text">
+    <span>毎日の気分を記録するWebアプリです。</span><br>
+    <span>３つのボタンから今日の気分に合うものをクリックするだけ。</span><br>
+    <span>いますぐ簡単に使用できます。</span>
+  </div>
+  <div id="application-image">
+    <div id="iphone"></div>
+    <div id="mac"></div>
+  </div>
+</div>

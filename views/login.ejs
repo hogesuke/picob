@@ -4,31 +4,14 @@
     <title>picob</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" >
     <script type="text/javascript" src="/javascripts/jquery.min.js"></script>
-    <script type="text/javascript" src="/javascripts/picob.js"></script>
     <link rel='stylesheet' href='/stylesheets/cssreset-min.css' />
     <link rel='stylesheet' href='/stylesheets/picob.common.css' />
-    <link rel='stylesheet' href='/stylesheets/picob.css' />
+    <link rel='stylesheet' href='/stylesheets/picob.login.css' />
+    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Quicksand' type='text/css'>
   </head>
   <body>
     <div id="container">
-      <div style="font-size: 20px; margin-bottom: 10px; color: white;">テスト用ログイン画面</div>
-      <div id="login-control">
-        <div class="login-button">
-          <form method="POST" action="/login/twitter">
-            <input type="hidden" name="_csrf" value="<%= csrftoken %>">
-            <input type="submit" id="twitter-login-button" value="Twitterでログイン">
-          </form>
-        </div>
-        <div class="login-button">
-          <form method="POST" action="/login/facebook">
-            <input type="hidden" name="_csrf" value="<%= csrftoken %>">
-            <input type="submit" id="facebook-login-button" value="facebookでログイン">
-          </form>
-        </div>
-          今日の気分を投稿するサイトです。
-        <div>
-        </div>
-      </div>
+      <%- partial('part_login') %>
     </div>
   </body>
 </html>

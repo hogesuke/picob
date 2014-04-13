@@ -1,0 +1,108 @@
+$small: "only screen and (max-width:899px)";
+$large: "only screen and (min-width:900px)";
+$base_charctor_color: #000000;
+@mixin box-shadow($settings...) {
+    -moz-box-shadow: $settings;
+    -webkit-box-shadow: $settings;
+    box-shadow: $settings;
+}
+@mixin border-radius($settings...) {
+    -webkit-border-radius: $settings;
+    -moz-border-radius: $settings;
+    border-radius: $settings;
+}
+@mixin box-sizing() {
+    -webkit-box-sizing: border-box;
+    -khtml-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+#container {
+    height: 100%;
+    margin-top: 0;
+    padding-top: 10px;
+    background-color: rgba(255,255,255,0.70);
+    #main-logo {
+        height: 106px;
+        width: 310px;
+        margin: 20px auto;
+        background: url(/images/main-logo.png) no-repeat;
+    }
+    #catch-copy {
+        margin-bottom: 30px;
+        text-align: center;
+        font-size: 30px;
+    }
+    #login-control {
+        overflow: hidden;
+        width: 500px;
+        margin: 0 auto;
+        .login-button {
+            float: left;
+        }
+        #twitter-login-button, #facebook-login-button {
+            width: 250px;
+            padding: 14px 0px;
+            border: none;
+            font-size: 17px;
+            color: #FFFFFF;
+            cursor: pointer;
+            outline: none;
+            &::-moz-focus-inner {
+                border: 0px;
+            }
+        }
+        #twitter-login-button {
+            background: #00ACEE url(/images/twitter.gif) no-repeat 3px 3px;
+            background-size: 42px 42px;
+            @include border-radius(10px 0 0 10px);
+        }
+        #facebook-login-button {
+            background: #3D5A99 url(/images/facebook.gif) no-repeat 3px 3px;
+            background-size: 42px 42px;
+            @include border-radius(0 10px 10px 0);
+        }
+    }
+    #introduction {
+        clear: both;
+        margin-top: 40px;
+        text-align: center;
+        #question-mark {
+            height: 48px;
+            width: 48px;
+            margin: 0 auto 15px auto;
+            background: #FF7373 url(/images/question.gif) no-repeat center;
+            background-size: 32px 32px;
+            @include border-radius(24px);
+        }
+        .caption {
+            margin-bottom: 15px;
+            font-size: 25px;
+        }
+        .text {
+            line-height: 170%;
+            font-size: 17px;
+        }
+        #application-image {
+            margin: 30px auto 0 auto;
+            width: round(283px * 1 / 2) + round(560px * 2 / 3) + 20px;
+            #iphone {
+                float: left;
+                height: round(560px * 1 / 2);
+                width: round(283px * 1 / 2);
+                background: url(/images/iphone-1024.png) no-repeat center;
+                background-size: round(283px * 1 / 2) round(560px * 1 / 2);
+            }
+            #mac {
+                float: left;
+                height: round(326px * 2 / 3);
+                width: round(560px * 2 / 3);
+                margin: 30px 0 0 20px;
+                background: url(/images/mac-1440x900.png) no-repeat center;
+                background-size: round(560px * 2 / 3 + 1) round(326px * 2 / 3 + 1);
+            }
+        }
+    }
+}
