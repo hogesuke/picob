@@ -98,24 +98,21 @@ $base_charctor_color: #000000;
                             background-size: 90px 90px;
                         }
                         &.feeling-good:hover {
-                            background: #00D8D1 url(/images/good.gif) no-repeat center;
-                            background-size: 90px 90px;
+                            background-color: #00D8D1;
                         }
                         &.feeling-normal {
                             background: #FFB273 url(/images/normal.gif) no-repeat center;
                             background-size: 90px 90px;
                         }
                         &.feeling-normal:hover {
-                            background: #FFC392 url(/images/normal.gif) no-repeat center;
-                            background-size: 90px 90px;
+                            background-color: #FFC392;
                         }
                         &.feeling-bad {
                             background: #FF7373 url(/images/bad.gif) no-repeat center;
                             background-size: 90px 90px;
                         }
                         &.feeling-bad:hover {
-                            background: #FF9090 url(/images/bad.gif) no-repeat center;
-                            background-size: 90px 90px;
+                            background-color: #FF9090;
                         }
                         @media #{$small} {
                             height: 64px;
