@@ -53,19 +53,19 @@ $base_charctor_color: #000000;
             top: 4px;
             &.good {
                 background: url(/images/good.gif) no-repeat center;
-                background-size: 32px 32px;
+                background-size: 24px 24px;
             }
             &.normal {
                 background: url(/images/normal.gif) no-repeat center;
-                background-size: 32px 32px;
+                background-size: 24px 24px;
             }
             &.bad {
                 background: url(/images/bad.gif) no-repeat center;
-                background-size: 32px 32px;
+                background-size: 24px 24px;
             }
             &.none {
                 background: url(/images/empty_feeling.gif) no-repeat center;
-                background-size: 32px 32px;
+                background-size: 24px 24px;
             }
         }
         @media #{$large} {

@@ -69,22 +69,22 @@
   /* line 54, picob.scss */
   #calendar .feeling.good, #calendar .empty-feeling.good {
     background: url(/images/good.gif) no-repeat center;
-    background-size: 32px 32px;
+    background-size: 24px 24px;
   }
   /* line 58, picob.scss */
   #calendar .feeling.normal, #calendar .empty-feeling.normal {
     background: url(/images/normal.gif) no-repeat center;
-    background-size: 32px 32px;
+    background-size: 24px 24px;
   }
   /* line 62, picob.scss */
   #calendar .feeling.bad, #calendar .empty-feeling.bad {
     background: url(/images/bad.gif) no-repeat center;
-    background-size: 32px 32px;
+    background-size: 24px 24px;
   }
   /* line 66, picob.scss */
   #calendar .feeling.none, #calendar .empty-feeling.none {
     background: url(/images/empty_feeling.gif) no-repeat center;
-    background-size: 32px 32px;
+    background-size: 24px 24px;
   }
 }
 @media only screen and (min-width: 900px) {
