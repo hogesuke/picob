@@ -19,31 +19,61 @@ $base_charctor_color: #000000;
     box-sizing: border-box;
 }
 
+body > #container {
+    height: auto;
+}
+
 #container {
     height: 100%;
     margin-top: 0;
-    padding-top: 10px;
+    padding: 10px 0 20px 0;
     background-color: rgba(255,255,255,0.70);
     #main-logo {
-        height: 106px;
-        width: 310px;
         margin: 20px auto;
         background: url(/images/main-logo.png) no-repeat;
+        @media #{$small} {
+            height: 70px;
+            width: 200px;
+            background-size: 200px 70px;
+        }
+        @media #{$large} {
+            height: 106px;
+            width: 310px;
+            background-size: 310px 106px;
+        }
     }
-    #catch-copy {
+    #catch-copy, #catch-copy-mini {
         margin-bottom: 30px;
         text-align: center;
-        font-size: 30px;
+        @media #{$small} {
+            padding: 0 20px;
+            line-height: 1.4em;
+            font-size: 22px;
+        }
+        @media #{$large} {
+            font-size: 30px;
+        }
+    }
+    #catch-copy {
+        @media #{$small} {
+            display: none;
+        }
+    }
+    #catch-copy-mini {
+        @media #{$large} {
+            display: none;
+        }
     }
     #login-control {
         overflow: hidden;
-        width: 500px;
         margin: 0 auto;
-        .login-button {
-            float: left;
+        @media #{$small} {
+            width: 300px;
+        }
+        @media #{$large} {
+            width: 500px;
         }
         #twitter-login-button, #facebook-login-button {
-            width: 250px;
             padding: 14px 0px;
             border: none;
             font-size: 17px;
@@ -53,16 +83,35 @@ $base_charctor_color: #000000;
             &::-moz-focus-inner {
                 border: 0px;
             }
+            @media #{$small} {
+                width: 300px;
+            }
+            @media #{$large} {
+                width: 250px;
+                float: left;
+            }
         }
         #twitter-login-button {
             background: #00ACEE url(/images/twitter.gif) no-repeat 3px 3px;
             background-size: 42px 42px;
-            @include border-radius(10px 0 0 10px);
+            @media #{$small} {
+                margin: 0 auto 7px auto;
+                @include border-radius(10px 10px 10px 10px);
+            }
+            @media #{$large} {
+                @include border-radius(10px 0 0 10px);
+            }
         }
         #facebook-login-button {
             background: #3D5A99 url(/images/facebook.gif) no-repeat 3px 3px;
             background-size: 42px 42px;
-            @include border-radius(0 10px 10px 0);
+            @media #{$small} {
+                margin: 0 auto 7px auto;
+                @include border-radius(10px 10px 10px 10px);
+            }
+            @media #{$large} {
+                @include border-radius(0 10px 10px 0);
+            }
         }
     }
     #introduction {
@@ -79,29 +128,62 @@ $base_charctor_color: #000000;
         }
         .caption {
             margin-bottom: 15px;
-            font-size: 25px;
+            @media #{$small} {
+                font-size: 22px;
+            }
+            @media #{$large} {
+                font-size: 25px;
+            }
         }
         .text {
             line-height: 170%;
-            font-size: 17px;
+            @media #{$small} {
+                padding: 0 20px;
+                font-size: 15px;
+            }
+            @media #{$large} {
+                font-size: 17px;
+            }
         }
         #application-image {
             margin: 30px auto 0 auto;
-            width: round(283px * 1 / 2) + round(560px * 2 / 3) + 20px;
+            @media #{$small} {
+                Width: 320px;
+            }
+            @media #{$large} {
+                Width: round(283px * 1 / 2) + round(560px * 2 / 3) + 20px;
+            }
             #iphone {
-                float: left;
-                height: round(560px * 1 / 2);
-                width: round(283px * 1 / 2);
-                background: url(/images/iphone-1024.png) no-repeat center;
-                background-size: round(283px * 1 / 2) round(560px * 1 / 2);
+                @media #{$small} {
+                    height: round(560px * 2 / 5);
+                    width: 320px;
+                    background: url(/images/iphone-1024.png) no-repeat center;
+                    background-size: round(283px * 2 / 5) round(560px * 2 / 5);
+                }
+                @media #{$large} {
+                    float: left;
+                    height: round(560px * 1 / 2);
+                    width: round(283px * 1 / 2);
+                    background: url(/images/iphone-1024.png) no-repeat center;
+                    background-size: round(283px * 1 / 2) round(560px * 1 / 2);
+                }
             }
             #mac {
-                float: left;
-                height: round(326px * 2 / 3);
-                width: round(560px * 2 / 3);
-                margin: 30px 0 0 20px;
-                background: url(/images/mac-1440x900.png) no-repeat center;
-                background-size: round(560px * 2 / 3 + 1) round(326px * 2 / 3 + 1);
+                @media #{$small} {
+                    height: round(326px * 1 / 2);
+                    width: 320px;
+                    margin-top: 30px;
+                    background: url(/images/mac-1440x900.png) no-repeat center;
+                    background-size: round(560px * 1 / 2) round(326px * 1 / 2);
+                }
+                @media #{$large} {
+                    float: left;
+                    height: round(326px * 2 / 3);
+                    width: round(560px * 2 / 3);
+                    margin: 30px 0 0 20px;
+                    background: url(/images/mac-1440x900.png) no-repeat center;
+                    background-size: round(560px * 2 / 3 + 1) round(326px * 2 / 3 + 1);
+                }
             }
         }
     }
