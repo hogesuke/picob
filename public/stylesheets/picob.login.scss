@@ -19,13 +19,14 @@ $base_charctor_color: #000000;
     box-sizing: border-box;
 }
 
-body > #container {
-    height: auto;
-}
+//body > #container {
+//    height: auto;
+//}
 
 #container {
     height: 100%;
     margin-top: 0;
+    margin-bottom: 0;
     padding: 10px 0 20px 0;
     background-color: rgba(255,255,255,0.70);
     #main-logo {
@@ -148,10 +149,11 @@ body > #container {
         #application-image {
             margin: 30px auto 0 auto;
             @media #{$small} {
-                Width: 320px;
+                width: 320px;
             }
             @media #{$large} {
-                Width: round(283px * 1 / 2) + round(560px * 2 / 3) + 20px;
+                overflow: hidden;
+                width: round(283px * 1 / 2) + round(560px * 2 / 3) + 20px;
             }
             #iphone {
                 @media #{$small} {
