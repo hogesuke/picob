@@ -1,6 +1,6 @@
 /* line 10, picob.scss */
 #calendar {
-  margin: 0 auto;
+  margin: 0 auto 10px auto;
 }
 @media only screen and (max-width: 899px) {
   /* line 10, picob.scss */

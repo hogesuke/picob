@@ -297,11 +297,12 @@ $base_charctor_color: #000000;
     }
     #bottom-container {
         overflow: hidden;
+        padding-bottom: 10px;
         text-align: center;
         color: #FFFFFF;
         @media #{$small} {
             height: 60px;
-            margin-top: 10px;
+            margin: 10px;
             font-size: 30px;
         }
         @media #{$large} {

@@ -8,7 +8,7 @@ $base_charctor_color: #000000;
 }
 
 #calendar {
-    margin: 0 auto;
+    margin: 0 auto 10px auto;
     @media #{$small} {
         width: 310px;
     }
