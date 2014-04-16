@@ -88,7 +88,7 @@ body > #container {
 }
 /* line 79, picob.login.scss */
 #container #login-control #twitter-login-button, #container #login-control #facebook-login-button {
-  padding: 14px 0px;
+  padding: 12px 0px;
   border: none;
   font-size: 17px;
   color: #FFFFFF;
@@ -114,7 +114,7 @@ body > #container {
 }
 /* line 97, picob.login.scss */
 #container #login-control #twitter-login-button {
-  background: #00acee url(/images/twitter.gif) no-repeat 3px 3px;
+  background: #00acee url(/images/twitter.gif) no-repeat 3px center;
   background-size: 42px 42px;
 }
 @media only screen and (max-width: 899px) {
@@ -136,7 +136,7 @@ body > #container {
 }
 /* line 108, picob.login.scss */
 #container #login-control #facebook-login-button {
-  background: #3d5a99 url(/images/facebook.gif) no-repeat 3px 3px;
+  background: #3d5a99 url(/images/facebook.gif) no-repeat 3px center;
   background-size: 42px 42px;
 }
 @media only screen and (max-width: 899px) {
