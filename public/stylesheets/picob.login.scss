@@ -19,16 +19,18 @@ $base_charctor_color: #000000;
     box-sizing: border-box;
 }
 
-//body > #container {
-//    height: auto;
-//}
+body > #container {
+    height: auto;
+}
 
 #container {
     height: 100%;
+    min-height: 100%;
     margin-top: 0;
     margin-bottom: 0;
     padding: 10px 0 20px 0;
     background-color: rgba(255,255,255,0.70);
+    @include box-sizing();
     #main-logo {
         margin: 20px auto;
         background: url(/images/main-logo.png) no-repeat;
