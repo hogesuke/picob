@@ -28,7 +28,11 @@
           </div>
           <div id="feeling-text">
             <% var val = piece && piece.feeling_text ? piece.feeling_text : "" %>
-            <input type="text" class="text" value="<%= val %>" maxlength="7">
+            <% if (isMe) {%>
+              <input type="text" class="text" value="<%= val %>" maxlength="7">
+            <% } else { %>
+              <div class="text" maxlength="7"><%= val %></div>
+            <% } %>
           </div>
           <div id="opener">
           </div>

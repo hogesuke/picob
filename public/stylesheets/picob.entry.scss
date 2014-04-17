@@ -167,6 +167,11 @@ $base_charctor_color: #000000;
                 padding: 15px;
                 background-color: rgba(255,255,255,0.70);
                 overflow: hidden;
+                @media #{$large} {
+                    /* rightとleftのcontainer高さを揃えるための処置 */
+                    padding-bottom: 32767px;
+                    margin-bottom: -32767px;
+                }
                 #comment-area-title {
                     margin-bottom: 10px;
                     font-family: 'Quicksand', sans-serif;
