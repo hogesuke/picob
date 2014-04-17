@@ -29,6 +29,13 @@ $(function() {
     this.isDummy = ko.computed(function() {
       return data === null;
     }, this);
+    this.isFuture = ko.computed(function() {
+      var now = new Date();
+      return data !== null &&
+        now.getFullYear() == data.year &&
+        now.getMonth() + 1 == data.month &&
+        now.getDate() < data.day;
+    }, this);
     this.existFeelingText = ko.computed(function() {
       if (this.isDummy()) {
         return false;
@@ -36,7 +43,7 @@ $(function() {
       return data.feeling_text !== null && typeof data.feeling_text !== "undefined";
     }, this);
     this.getPieceCss = ko.computed(function() {
-      return this.isDummy() ? 'dummy-piece' : (this.isDummy() ? 'empty-piece link ' : 'piece link ') + data.feeling;
+      return this.isDummy() ? 'dummy-piece' : this.isFuture() ? 'piece' : ('piece link ' + data.feeling);
     }, this);
     this.getHref = ko.computed(function() {
       return this.isDummy() ? '' : '/' + locationStatus.userSeq + '/entry/' + locationStatus.year + '/' + locationStatus.month + '/' + this.day();
