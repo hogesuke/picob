@@ -23,17 +23,15 @@ exports.calendar = function(req, res) {
     }
   ];
 
-  async.waterfall(tasks, function(err, headerParam) {
+  async.waterfall(tasks, function(err, headerParams) {
     if (err) {
-      next(err);
+      res.render('error.ejs');
       return;
     }
-    console.log('↓headerParam');
-    console.dir(headerParam);
     res.render('calendar.ejs', {
       params: {
         isMe: me.seq == targetUserSeq,
-        header: headerParam
+        header: headerParams
       }
     });
   });
@@ -45,7 +43,14 @@ exports.calendar = function(req, res) {
 function getHeaderParam(me, targetUserSeq, requestYear, requestMonth, nextDate, prevDate, next) {
   var tasks = [
     function(next) {
-      findUserByUserSeq(targetUserSeq, next);
+      User.find({id: targetUserSeq}, function(err, user) {
+        if (err) {
+          console.log('error: An unknown user.');
+          next(err);
+          return;
+        }
+        next(null, user);
+      });
     }
   ];
 
@@ -54,8 +59,11 @@ function getHeaderParam(me, targetUserSeq, requestYear, requestMonth, nextDate, 
       next(err);
       return;
     }
-    console.log("targetUser: " + targetUser);
-    var params =  {
+    next(null, createHeaderParamsObj(targetUser));
+  });
+
+  function createHeaderParamsObj(targetUser) {
+    return {
       targetUser: {
         seq: targetUserSeq,
         id: targetUser.id,
@@ -86,11 +94,7 @@ function getHeaderParam(me, targetUserSeq, requestYear, requestMonth, nextDate, 
         month: prevDate.getMonth() + 1 
       }
     };
-
-    console.log('headerParam取得終わったので、nextするよ');
-    console.log('nextとは：' + next);
-    next(null, params);
-  });
+  }
 }
 /**
  * 次月の表示が可能か判定する。
@@ -274,9 +278,6 @@ exports.oneDay = function(req, res) {
  * EntryViewの表示処理。
  */
 function doEntryView(req, res, requestYear, requestMonth, requestDate) {
-
-  console.log('doEntryViewの最初');
-
   var loginUser = req.session.passport.user;
   var targetUserSeq = req.params[0];
   var defaultPiece = {feeling: "none"}
@@ -285,57 +286,52 @@ function doEntryView(req, res, requestYear, requestMonth, requestDate) {
 
   var tasks = [
     function(next) {
-      getHeaderParam(
-          loginUser,
-          targetUserSeq,
-          requestYear,
-          requestMonth,
-          computeMonth(requestYear, requestMonth, 1),
-          computeMonth(requestYear, requestMonth, -1),
-          next)
+      getHeaderParam(loginUser, targetUserSeq, requestYear, requestMonth,
+          computeMonth(requestYear, requestMonth, 1), computeMonth(requestYear, requestMonth, -1), next);
     },
-    function(headerParam, next) {
-
-      console.log('ほんへ');
-
+    function(headerParams, next) {
       FeelingGroup.find({}).sort({group: 'asc'}).exec(function(err, groups) {
         if (err) {
           res.send({'error': 'An error has occurred'});
           return;
         }
+        next(null, headerParams, groups);
+      });
+    },
+    function(headerParams, groups, next) {
+      Feeling.find({}).populate('group').sort({group: 'asc'}).exec(function(err, feelings) {
+        if (err) {
+          res.send({'error': 'An error has occurred'});
+          return;
+        }
+        console.log('Success: Getting feeling-text list');
 
-        Feeling.find({}).populate('group').sort({group: 'asc'}).exec(function(err, feelings) {
+        // グループIDごとの配列となるように編集
+        var feelingsEveryGroup = {};
+        for (var i in groups) {
+          feelingsEveryGroup[groups[i].name] = filterByFeelingGroup(feelings, groups[i]._id.toString());
+        }
+        next(null, headerParams, feelingsEveryGroup, feelings);
+      });
+    },
+    function(headerParams, feelingsEveryGroup, feelings, next) {
+      Piece.findOne({user_seq: targetUserSeq, year: requestYear, month: requestMonth, day: requestDate},
+        function(err, piece) {
           if (err) {
-            res.send({'error': 'An error has occurred'});
+            console.log('error: An error has occurred');
+            res.render('error.ejs');
             return;
           }
-          console.log('Success: Getting feeling-text list');
+          console.log('Success: Getting piece');
+          console.log('piece: ' + piece);
 
-          // グループIDごとの配列となるように編集
-          var feelingsEveryGroup = {};
-          for (var i in groups) {
-            feelingsEveryGroup[groups[i].name] = filterByFeelingGroup(feelings, groups[i]._id.toString());
-          }
-
-          Piece.findOne({user_seq: targetUserSeq, year: requestYear, month: requestMonth, day: requestDate},
-            function(err, piece) {
-              if (err) {
-                console.log('error: An error has occurred');
-                res.render('error.ejs');
-                return;
-              }
-              console.log('Success: Getting piece');
-              console.log('piece: ' + piece);
-
-              next(null, {
-                headerParam: headerParam,
-                feelingsEveryGroup: feelingsEveryGroup,
-                feelings: feelings,
-                piece: piece
-              });
-            });
+          next(null, {
+            header: headerParams,
+            feelingsEveryGroup: feelingsEveryGroup,
+            feelings: feelings,
+            piece: piece
+          });
         });
-      });
     }
   ];
 
@@ -344,8 +340,11 @@ function doEntryView(req, res, requestYear, requestMonth, requestDate) {
       next(err);
       return;
     }
-    console.log('ここまではきてるようだな');
-    res.render('entry.ejs', {
+    res.render('entry.ejs', createHeaderParamsObj(values));
+  });
+
+  function createHeaderParamsObj(values) {
+    return {
       params: {
         userSeq: targetUserSeq,
         thisDate: {
@@ -371,10 +370,10 @@ function doEntryView(req, res, requestYear, requestMonth, requestDate) {
         feelings: values.feelingsEveryGroup,
         piece: values.piece ? values.piece : defaultPiece,
         isMe: loginUser.seq == targetUserSeq,
-        header: values.headerParam
+        header: values.header
       }
-    });
-  });
+    };
+  }
 }
 
 /**
@@ -540,22 +539,4 @@ function createPieceArray(requestYear, requestMonth, searchResult) {
   var emptyArray = new Array(day);
 
   return emptyArray.concat(pieceArray);
-}
-
-/**
- * userSeqに紐づくユーザーを取得する。
- * @param userSeq ユーザーシーケンス
- * @param next 後続処理
- * @return user ユーザーオブジェクト
- */
-function findUserByUserSeq(userSeq, next) {
-  User.find({id: userSeq}, function(err, user) {
-    if (err) {
-      console.log('error: An unknown user.');
-      next(err);
-      return;
-    }
-    console.log('findUser終わったので、nextするよ');
-    next(null, user);
-  });
 }
