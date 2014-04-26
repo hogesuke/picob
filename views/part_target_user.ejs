@@ -1,12 +1,14 @@
-<div id="target-user-info">
-  <div class="target-user-icon">
-    <% if (targetUser.provider == "twitter") { %>
-      <img src="http://twiticon.herokuapp.com/<%= targetUser.raw_name %>">
-    <% } else { %>
-      <img src="https://graph.facebook.com/<%= targetUser.id %>/picture">
-    <% } %>
+<% if (!isMe) {%>
+  <div id="target-user-info">
+    <div class="target-user-icon">
+      <% if (targetUser.provider == "twitter") { %>
+        <img src="http://twiticon.herokuapp.com/<%= targetUser.raw_name %>">
+      <% } else { %>
+        <img src="https://graph.facebook.com/<%= targetUser.id %>/picture">
+      <% } %>
+    </div>
+    <div class="target-user-name">
+      <span class="name-text"><%= targetUser.raw_name %></span>
+    </div>
   </div>
-  <div class="target-user-name">
-    <%= targetUser.raw_name %>
-  </div>
-</div>
+<% } %>

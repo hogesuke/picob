@@ -261,19 +261,22 @@ a {
         }
     }
 }
+
 #target-user-info {
-    width: 300px;
-    padding: 10px 0px;
     overflow: hidden;
+    @include box-sizing();
+    @media #{$small} {
+        height: 44px;
+        padding: 6px 6px;
+    }
+    @media #{$large} {
+        width: 300px;
+        height: 65px;
+        padding: 10px 0 0 10px;
+    }
     background-color: rgba(255,255,255,0.70);
     .target-user-icon {
         float: left;
-        @media #{$small} {
-            margin-top: 2px;
-        }
-        @media #{$large} {
-            margin-left: 10px;
-        }
         img {
             float: left;
             @include border-radius(12px);
@@ -287,6 +290,42 @@ a {
     }
     .target-user-name {
         float: left;
+        padding-left: 10px;
+        position: relative;
+        font-size: 17px;
+        font-family: 'Quicksand', sans-serif;
+        @media #{$small} {
+            top: 15%;
+        }
+        @media #{$large} {
+            top: 22%;
+        }
+        .name-text {
+            display: block;
+            overflow: hidden;
+            @media #{$small} {
+                width: 250px;
+            }
+            @media #{$large} {
+                width: 225px;
+            }
+        }
+    }
+}
+
+.calendar #target-user-info {
+    @media #{$small} {
+        margin: 0px 9px 3px 7px;
+    }
+    @media #{$large} {
+        margin: 0px 0px 3px 12px;
+    }
+}
+
+.entry #target-user-info {
+    margin-bottom: 10px;
+    @media #{$large} {
+        margin-left: 0px;
     }
 }
 

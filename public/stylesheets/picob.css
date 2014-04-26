@@ -164,8 +164,9 @@
 /* line 123, picob.scss */
 #calendar #day {
   clear: both;
+  font-family: 'Quicksand', sans-serif;
 }
-/* line 125, picob.scss */
+/* line 126, picob.scss */
 #calendar #day div {
   float: left;
   background-color: rgba(255, 255, 255, 0.5);
@@ -173,7 +174,7 @@
   text-align: center;
 }
 @media only screen and (max-width: 899px) {
-  /* line 125, picob.scss */
+  /* line 126, picob.scss */
   #calendar #day div {
     width: 30px;
     font-size: 11px;
@@ -182,7 +183,7 @@
   }
 }
 @media only screen and (min-width: 900px) {
-  /* line 125, picob.scss */
+  /* line 126, picob.scss */
   #calendar #day div {
     width: 100px;
     font-size: 15px;
@@ -190,11 +191,11 @@
     margin: 3px 3px;
   }
 }
-/* line 142, picob.scss */
+/* line 143, picob.scss */
 #calendar #day div.sun {
   color: #BF4245;
 }
-/* line 145, picob.scss */
+/* line 146, picob.scss */
 #calendar #day div.sat {
   color: #5287F2;
 }

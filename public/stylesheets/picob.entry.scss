@@ -19,368 +19,367 @@ $base_charctor_color: #000000;
     box-sizing: border-box;
 }
 
-#container {
-    #main-container {
-        overflow: hidden;
-        #left-container {
-            @media #{$small} {
-                width: 100%;
-            }
+#main-container {
+    overflow: hidden;
+    #left-container {
+        @media #{$small} {
+            width: 100%;
+        }
+        @media #{$large} {
+            float: left;
+            width: 50%;
+            height: 100%;
+        }
+        .container-film {
+            padding: 10px;
+            background-color: rgba(255,255,255,0.70);
             @media #{$large} {
-                float: left;
-                width: 50%;
-                height: 100%;
-            }
-            .container-film {
-                padding: 10px;
-                background-color: rgba(255,255,255,0.70);
-                @media #{$large} {
-                    margin-right: 5px;
-                    /* rightとleftのcontainer高さを揃えるための処置 */
-                    padding-bottom: 32767px;
-                    margin-bottom: -32767px;
-                }
-            }
-            #feeling {
-                margin: 10px auto 20px auto;
-                @include border-radius(200px);
-                &.good {
-                    background: #01BCB6 url(/images/good.gif) no-repeat;
-                    background-size: 200px 200px;
-                }
-                &.normal {
-                    background: #FFB273 url(/images/normal.gif) no-repeat;
-                    background-size: 200px 200px;
-                }
-                &.bad {
-                    background: #FF7373 url(/images/bad.gif) no-repeat;
-                    background-size: 200px 200px;
-                }
-                &.none {
-                    background: url(/images/empty_feeling_for_entry.gif) no-repeat;
-                    background-size: 200px 200px;
-                    border: 2px solid #ADADAD;
-                    @include box-sizing();
-                }
-                @media #{$small} {
-                    &.good, &.normal, &.bad, &.none {
-                        background-position: 13px 14px;
-                        background-size: 115px 115px;
-                    }
-                    width: 140px;
-                    height: 140px;
-                }
-                @media #{$large} {
-                    &.good, &.normal, &.bad, &.none {
-                        background-position: 15px 17px;
-                    }
-                    width: 230px;
-                    height: 230px;
-                }
-            }
-            .feeling-selector {
-                font-size: 20px;
-                margin: 10px 0px;
-                overflow: hidden;
-                #feeling-choices-container {
-                    margin: 0 auto;
-                    @media #{$small} {
-                        width: (64 + 7 * 2) * 3px;
-                    }
-                    @media #{$large} {
-                        width: (110 + 8 * 2) * 3px;
-                    }
-                    .feeling-choices {
-                        display: block;
-                        float: left;
-                        &.feeling-good {
-                            background: #01BCB6 url(/images/good.gif) no-repeat center;
-                            background-size: 90px 90px;
-                        }
-                        &.feeling-good:hover {
-                            background-color: #00D8D1;
-                        }
-                        &.feeling-normal {
-                            background: #FFB273 url(/images/normal.gif) no-repeat center;
-                            background-size: 90px 90px;
-                        }
-                        &.feeling-normal:hover {
-                            background-color: #FFC392;
-                        }
-                        &.feeling-bad {
-                            background: #FF7373 url(/images/bad.gif) no-repeat center;
-                            background-size: 90px 90px;
-                        }
-                        &.feeling-bad:hover {
-                            background-color: #FF9090;
-                        }
-                        @media #{$small} {
-                            height: 64px;
-                            width: 64px;
-                            margin: 0 7px;
-                            &.feeling-good, &.feeling-good:hover,
-                            &.feeling-normal, &.feeling-normal:hover,
-                            &.feeling-bad, &.feeling-bad:hover {
-                                background-size: 42px 42px;
-                            }
-                            @include border-radius(20px);
-                        }
-                        @media #{$large} {
-                            height: 110px;
-                            width: 110px;
-                            margin: 10px 8px;
-                            @include border-radius(30px);
-                        }
-                    }
-                }
+                margin-right: 5px;
+                /* rightとleftのcontainer高さを揃えるための処置 */
+                padding-bottom: 32767px;
+                margin-bottom: -32767px;
             }
         }
-        #right-container {
-            color: #000000;
-            @media #{$large} {
-                float: left;
-                width: 50%;
+        #feeling {
+            margin: 10px auto 20px auto;
+            @include border-radius(200px);
+            &.good {
+                background: #01BCB6 url(/images/good.gif) no-repeat;
+                background-size: 200px 200px;
             }
-            .container-film {
-                @media #{$large} {
-                    margin-left: 5px;
-                }
+            &.normal {
+                background: #FFB273 url(/images/normal.gif) no-repeat;
+                background-size: 200px 200px;
             }
-            #date {
-                margin-bottom: 10px;
-                text-align: center;
-                background-color: rgba(255,255,255,0.70);
-                font-family: 'Quicksand', sans-serif;
+            &.bad {
+                background: #FF7373 url(/images/bad.gif) no-repeat;
+                background-size: 200px 200px;
+            }
+            &.none {
+                background: url(/images/empty_feeling_for_entry.gif) no-repeat;
+                background-size: 200px 200px;
+                border: 2px solid #ADADAD;
                 @include box-sizing();
+            }
+            @media #{$small} {
+                &.good, &.normal, &.bad, &.none {
+                    background-position: 13px 14px;
+                    background-size: 115px 115px;
+                }
+                width: 140px;
+                height: 140px;
+            }
+            @media #{$large} {
+                &.good, &.normal, &.bad, &.none {
+                    background-position: 15px 17px;
+                }
+                width: 230px;
+                height: 230px;
+            }
+        }
+        .feeling-selector {
+            font-size: 20px;
+            margin: 10px 0px;
+            overflow: hidden;
+            #feeling-choices-container {
+                margin: 0 auto;
                 @media #{$small} {
-                    margin-top: 10px;
-                    padding: 10px 0;
-                    font-size: 35px;
+                    width: (64 + 7 * 2) * 3px;
                 }
                 @media #{$large} {
-                    height: 75px;
-                    padding-top: 5px;
-                    font-size: 55px;
+                    width: (110 + 8 * 2) * 3px;
                 }
-            }
-            #feeling-text-container {
-                padding: 15px;
-                background-color: rgba(255,255,255,0.70);
-                overflow: hidden;
-                @media #{$large} {
-                    /* rightとleftのcontainer高さを揃えるための処置 */
-                    padding-bottom: 32767px;
-                    margin-bottom: -32767px;
-                }
-                #comment-area-title {
-                    margin-bottom: 10px;
-                    font-family: 'Quicksand', sans-serif;
-                    @media #{$small} {
-                        font-size: 20px;
-                    }
-                    @media #{$large} {
-                        font-size: 25px;
-                    }
-                }
-                #feeling-text-icon {
+                .feeling-choices {
+                    display: block;
                     float: left;
-                    background: #029CCC url(/images/comment_128.png) no-repeat;
+                    &.feeling-good {
+                        background: #01BCB6 url(/images/good.gif) no-repeat center;
+                        background-size: 90px 90px;
+                    }
+                    &.feeling-good:hover {
+                        background-color: #00D8D1;
+                    }
+                    &.feeling-normal {
+                        background: #FFB273 url(/images/normal.gif) no-repeat center;
+                        background-size: 90px 90px;
+                    }
+                    &.feeling-normal:hover {
+                        background-color: #FFC392;
+                    }
+                    &.feeling-bad {
+                        background: #FF7373 url(/images/bad.gif) no-repeat center;
+                        background-size: 90px 90px;
+                    }
+                    &.feeling-bad:hover {
+                        background-color: #FF9090;
+                    }
                     @media #{$small} {
-                        height: 50px;
-                        width: 50px;
-                        background-position: 0px 0px;
-                        background-size: 50px 50px;
-                        @include border-radius(27px);
+                        height: 64px;
+                        width: 64px;
+                        margin: 0 7px;
+                        &.feeling-good, &.feeling-good:hover,
+                        &.feeling-normal, &.feeling-normal:hover,
+                        &.feeling-bad, &.feeling-bad:hover {
+                            background-size: 42px 42px;
+                        }
+                        @include border-radius(20px);
                     }
                     @media #{$large} {
-                        height: 60px;
-                        width: 60px;
-                        background-position: 0px 0px;
-                        background-size: 60px 60px;
-                        @include border-radius(40px);
-                    }
-                }
-                #feeling-text {
-                    text-align: center;
-                    float: left;
-                    color: #FFFFFF;
-                    @include box-sizing();
-                    @media #{$small} {
-                        height: 54px;
-                        width: 238px;
-                        font-size: 33px;
-                    }
-                    @media #{$large} {
-                        height: 65px;
-                        width: 353px;
-                        font-size: 38px;
-                    }
-                    .text {
-                        width: 100%;
-                        height: 100%;
-                        padding: 5px 10px;
-                        background-color: transparent;
-                        border: none;
-                        border-bottom: 1px solid #C6BFB8;
-                        color: #000000;
-                        @include box-sizing();
-                    }
-                }
-            }
-            #feeling-text-selector {
-                padding: 5px 15px 15px 15px;
-                background-color: rgba(255,255,255,0.70);
-                .feeling-group {
-                    @media #{$small} {
-                        margin-bottom: 5px;
-                    }
-                    @media #{$large} {
-                        margin-bottom: 10px;
-                    }
-                    .feeling-group-title {
-                        clear: both;
-                        font-family: 'Quicksand', sans-serif;
-                        border-bottom: 1px dashed #D8D4D0;
-                        @media #{$small} {
-                            font-size: 18px;
-                        }
-                        @media #{$large} {
-                            font-size: 20px;
-                        }
-                    }
-                    .feeling-text-container {
-                        overflow: hidden;
-                        @media #{$small} {
-                            margin: 5px 13px;
-                        }
-                        @media #{$large} {
-                            margin: 8px 20px;
-                        }
-                        .feeling-text-choices {
-                            float: left;
-                            margin-bottom: 5px;
-                            padding: 5px 10px;
-                            @include border-radius(30px);
-                            color: #000000;
-                            @media #{$small} {
-                                margin-right: 7px;
-                                font-size: 15px;
-                            }
-                            @media #{$large} {
-                                margin-right: 10px;
-                                font-size: 18px;
-                            }
-                        }
-                    }
-                    &.good .feeling-text-choices {
-                        @media #{$small} {
-                            border: 1px solid #01BCB6;
-                        }
-                        @media #{$large} {
-                            border: 2px solid #01BCB6;
-                        }
-                    }
-                    &.normal .feeling-text-choices {
-                        @media #{$small} {
-                            border: 1px solid #FFB273;
-                        }
-                        @media #{$large} {
-                            border: 2px solid #FFB273;
-                        }
-                    }
-                    &.bad .feeling-text-choices {
-                        @media #{$small} {
-                            border: 1px solid #FF7373;
-                        }
-                        @media #{$large} {
-                            border: 2px solid #FF7373;
-                        }
+                        height: 110px;
+                        width: 110px;
+                        margin: 10px 8px;
+                        @include border-radius(30px);
                     }
                 }
             }
         }
     }
-    #bottom-container {
-        overflow: hidden;
-        padding-bottom: 10px;
-        text-align: center;
-        color: #FFFFFF;
-        @media #{$small} {
-            height: 60px;
-            margin: 10px;
-            font-size: 30px;
-        }
+    #right-container {
+        color: #000000;
         @media #{$large} {
-            height: 80px;
-            margin-top: 20px;
-            font-size: 50px;
-        }
-        div {
             float: left;
-            height: 100%;
+            width: 50%;
         }
-        a {
-            display: block;
-            padding: 10px;
-        }
-        #prev-date, #next-date {
-            width: 33%;
-            a {
-                @include border-radius(30px);
-                @media #{$small} {
-                    width: 20px;
-                    height: 20px;
-                    margin: 8px auto;
-                    border: 3px solid #F7F3EF;
-                }
-                @media #{$large} {
-                    width: 30px;
-                    height: 30px;
-                    margin: 10px auto;
-                    border: 4px solid #F7F3EF;
-                }
+        .container-film {
+            @media #{$large} {
+                margin-left: 5px;
             }
         }
-        #prev-date a {
-            background: url(/images/prev_256.gif) no-repeat -2px 0px;
-            background-size: 50px 50px;
+        #date {
+            margin-bottom: 10px;
+            text-align: center;
+            background-color: rgba(255,255,255,0.70);
+            font-family: 'Quicksand', sans-serif;
+            @include box-sizing();
             @media #{$small} {
-                background-size: 40px 40px;
+                margin-top: 10px;
+                padding: 10px 0;
+                font-size: 35px;
             }
             @media #{$large} {
-                background-size: 50px 50px;
+                height: 75px;
+                padding-top: 5px;
+                font-size: 55px;
             }
         }
-        #next-date a {
-            background: url(/images/next_256.gif) no-repeat 2px 0px;
-            background-size: 50px 50px;
-            @media #{$small} {
-                background-size: 40px 40px;
-            }
+        #feeling-text-container {
+            padding: 15px;
+            background-color: rgba(255,255,255,0.70);
+            overflow: hidden;
             @media #{$large} {
-                background-size: 50px 50px;
+                /* rightとleftのcontainer高さを揃えるための処置 */
+                padding-bottom: 32767px;
+                margin-bottom: -32767px;
             }
-        }
-        #switch-calendar {
-            width: 34%;
-            a {
-                margin: 5px auto;
-                background: url(/images/calendar_256.png) no-repeat center;
-                background-size: 60px 60px;
+            #comment-area-title {
+                margin-bottom: 10px;
+                font-family: 'Quicksand', sans-serif;
                 @media #{$small} {
-                    width: 25px;
-                    height: 25px;
-                    background-size: 40px 40px;
-                    border: 3px solid #F7F3EF;
-                    @include border-radius(30px);
+                    font-size: 20px;
                 }
                 @media #{$large} {
-                    width: 40px;
-                    height: 40px;
+                    font-size: 25px;
+                }
+            }
+            #feeling-text-icon {
+                float: left;
+                background: #029CCC url(/images/comment_128.png) no-repeat;
+                @media #{$small} {
+                    height: 50px;
+                    width: 50px;
+                    background-position: 0px 0px;
                     background-size: 50px 50px;
-                    border: 4px solid #F7F3EF;
+                    @include border-radius(27px);
+                }
+                @media #{$large} {
+                    height: 60px;
+                    width: 60px;
+                    background-position: 0px 0px;
+                    background-size: 60px 60px;
                     @include border-radius(40px);
                 }
+            }
+            #feeling-text {
+                text-align: center;
+                float: left;
+                color: #FFFFFF;
+                @include box-sizing();
+                @media #{$small} {
+                    height: 54px;
+                    width: 238px;
+                    font-size: 33px;
+                }
+                @media #{$large} {
+                    height: 65px;
+                    width: 353px;
+                    font-size: 38px;
+                }
+                .text {
+                    width: 100%;
+                    height: 100%;
+                    padding: 5px 10px;
+                    background-color: transparent;
+                    border: none;
+                    border-bottom: 1px solid #C6BFB8;
+                    color: #000000;
+                    @include box-sizing();
+                }
+            }
+        }
+        #feeling-text-selector {
+            padding: 5px 15px 15px 15px;
+            background-color: rgba(255,255,255,0.70);
+            .feeling-group {
+                @media #{$small} {
+                    margin-bottom: 5px;
+                }
+                @media #{$large} {
+                    margin-bottom: 10px;
+                }
+                .feeling-group-title {
+                    clear: both;
+                    font-family: 'Quicksand', sans-serif;
+                    border-bottom: 1px dashed #D8D4D0;
+                    @media #{$small} {
+                        font-size: 18px;
+                    }
+                    @media #{$large} {
+                        font-size: 20px;
+                    }
+                }
+                .feeling-text-container {
+                    overflow: hidden;
+                    @media #{$small} {
+                        margin: 5px 13px;
+                    }
+                    @media #{$large} {
+                        margin: 8px 20px;
+                    }
+                    .feeling-text-choices {
+                        float: left;
+                        margin-bottom: 5px;
+                        padding: 5px 10px;
+                        @include border-radius(30px);
+                        color: #000000;
+                        @media #{$small} {
+                            margin-right: 7px;
+                            font-size: 15px;
+                        }
+                        @media #{$large} {
+                            margin-right: 10px;
+                            font-size: 18px;
+                        }
+                    }
+                }
+                &.good .feeling-text-choices {
+                    @media #{$small} {
+                        border: 1px solid #01BCB6;
+                    }
+                    @media #{$large} {
+                        border: 2px solid #01BCB6;
+                    }
+                }
+                &.normal .feeling-text-choices {
+                    @media #{$small} {
+                        border: 1px solid #FFB273;
+                    }
+                    @media #{$large} {
+                        border: 2px solid #FFB273;
+                    }
+                }
+                &.bad .feeling-text-choices {
+                    @media #{$small} {
+                        border: 1px solid #FF7373;
+                    }
+                    @media #{$large} {
+                        border: 2px solid #FF7373;
+                    }
+                }
+            }
+        }
+    }
+}
+
+#bottom-container {
+    overflow: hidden;
+    padding-bottom: 10px;
+    text-align: center;
+    color: #FFFFFF;
+    @media #{$small} {
+        height: 60px;
+        margin: 10px;
+        font-size: 30px;
+    }
+    @media #{$large} {
+        height: 80px;
+        margin-top: 20px;
+        font-size: 50px;
+    }
+    div {
+        float: left;
+        height: 100%;
+    }
+    a {
+        display: block;
+        padding: 10px;
+    }
+    #prev-date, #next-date {
+        width: 33%;
+        a {
+            @include border-radius(30px);
+            @media #{$small} {
+                width: 20px;
+                height: 20px;
+                margin: 8px auto;
+                border: 3px solid #F7F3EF;
+            }
+            @media #{$large} {
+                width: 30px;
+                height: 30px;
+                margin: 10px auto;
+                border: 4px solid #F7F3EF;
+            }
+        }
+    }
+    #prev-date a {
+        background: url(/images/prev_256.gif) no-repeat -2px 0px;
+        background-size: 50px 50px;
+        @media #{$small} {
+            background-size: 40px 40px;
+        }
+        @media #{$large} {
+            background-size: 50px 50px;
+        }
+    }
+    #next-date a {
+        background: url(/images/next_256.gif) no-repeat 2px 0px;
+        background-size: 50px 50px;
+        @media #{$small} {
+            background-size: 40px 40px;
+        }
+        @media #{$large} {
+            background-size: 50px 50px;
+        }
+    }
+    #switch-calendar {
+        width: 34%;
+        a {
+            margin: 5px auto;
+            background: url(/images/calendar_256.png) no-repeat center;
+            background-size: 60px 60px;
+            @media #{$small} {
+                width: 25px;
+                height: 25px;
+                background-size: 40px 40px;
+                border: 3px solid #F7F3EF;
+                @include border-radius(30px);
+            }
+            @media #{$large} {
+                width: 40px;
+                height: 40px;
+                background-size: 50px 50px;
+                border: 4px solid #F7F3EF;
+                @include border-radius(40px);
             }
         }
     }
