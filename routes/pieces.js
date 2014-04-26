@@ -43,7 +43,7 @@ exports.calendar = function(req, res) {
 function getHeaderParam(me, targetUserSeq, requestYear, requestMonth, nextDate, prevDate, next) {
   var tasks = [
     function(next) {
-      User.find({id: targetUserSeq}, function(err, user) {
+      User.findOne({seq: targetUserSeq}).lean().exec(function(err, user) {
         if (err) {
           console.log('error: An unknown user.');
           next(err);
@@ -323,7 +323,6 @@ function doEntryView(req, res, requestYear, requestMonth, requestDate) {
             return;
           }
           console.log('Success: Getting piece');
-          console.log('piece: ' + piece);
 
           next(null, {
             header: headerParams,
@@ -434,7 +433,7 @@ exports.findCalendarData = function(req, res) {
   var requestYear = req.params[1];
   var requestMonth = req.params[2].replace(/^0?([0-9]+)/, '$1');
   var loginUser = req.session.passport.user;
-
+  
   Piece.find({user_seq: targetUserSeq, year: requestYear, month: requestMonth}, function(err, pieces) {
       if (err) {
         console.log('error: An error has occurred');

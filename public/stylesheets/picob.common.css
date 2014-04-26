@@ -366,44 +366,91 @@ a:active {
   margin: 0 auto;
 }
 
-/* line 265, picob.common.scss */
+/* line 264, picob.common.scss */
+#target-user-info {
+  width: 300px;
+  padding: 10px 0px;
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+/* line 269, picob.common.scss */
+#target-user-info .target-user-icon {
+  float: left;
+}
+@media only screen and (max-width: 899px) {
+  /* line 269, picob.common.scss */
+  #target-user-info .target-user-icon {
+    margin-top: 2px;
+  }
+}
+@media only screen and (min-width: 900px) {
+  /* line 269, picob.common.scss */
+  #target-user-info .target-user-icon {
+    margin-left: 10px;
+  }
+}
+/* line 277, picob.common.scss */
+#target-user-info .target-user-icon img {
+  float: left;
+  -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
+  border-radius: 12px;
+}
+@media only screen and (max-width: 899px) {
+  /* line 277, picob.common.scss */
+  #target-user-info .target-user-icon img {
+    width: 32px;
+  }
+}
+@media only screen and (min-width: 900px) {
+  /* line 277, picob.common.scss */
+  #target-user-info .target-user-icon img {
+    width: 45px;
+  }
+}
+/* line 288, picob.common.scss */
+#target-user-info .target-user-name {
+  float: left;
+}
+
+/* line 293, picob.common.scss */
 #controler {
   width: 100%;
   overflow: hidden;
 }
 @media only screen and (max-width: 899px) {
-  /* line 265, picob.common.scss */
+  /* line 293, picob.common.scss */
   #controler {
     margin: 3px 0 0 10px;
   }
 }
-/* line 273, picob.common.scss */
+/* line 301, picob.common.scss */
 #controler #controler-inner {
   overflow: hidden;
 }
-/* line 275, picob.common.scss */
+/* line 303, picob.common.scss */
 #controler #controler-inner div {
   float: left;
 }
 @media only screen and (max-width: 899px) {
-  /* line 278, picob.common.scss */
+  /* line 306, picob.common.scss */
   #controler #controler-inner #month-controler {
     font-size: 23px;
   }
 }
 @media only screen and (min-width: 900px) {
-  /* line 278, picob.common.scss */
+  /* line 306, picob.common.scss */
   #controler #controler-inner #month-controler {
     font-size: 30px;
     margin-left: 50px;
   }
 }
-/* line 286, picob.common.scss */
+/* line 314, picob.common.scss */
 #controler #controler-inner #month-controler a, #controler #controler-inner #month-controler span {
   display: block;
   float: left;
 }
-/* line 290, picob.common.scss */
+/* line 318, picob.common.scss */
 #controler #controler-inner #month-controler #next-month, #controler #controler-inner #month-controler #prev-month {
   -webkit-box-sizing: border-box;
   -khtml-box-sizing: border-box;
@@ -412,7 +459,7 @@ a:active {
   box-sizing: border-box;
 }
 @media only screen and (max-width: 899px) {
-  /* line 290, picob.common.scss */
+  /* line 318, picob.common.scss */
   #controler #controler-inner #month-controler #next-month, #controler #controler-inner #month-controler #prev-month {
     margin-top: 5px;
     height: 18px;
@@ -420,21 +467,21 @@ a:active {
   }
 }
 @media only screen and (min-width: 900px) {
-  /* line 290, picob.common.scss */
+  /* line 318, picob.common.scss */
   #controler #controler-inner #month-controler #next-month, #controler #controler-inner #month-controler #prev-month {
     margin-top: 6px;
     height: 24px;
     width: 24px;
   }
 }
-/* line 303, picob.common.scss */
+/* line 331, picob.common.scss */
 #controler #controler-inner #month-controler #prev-month {
   text-align: left;
   padding-top: 1px;
   background: url(/images/prev_256.gif) #01bcb6 no-repeat -4px -3px;
 }
 @media only screen and (max-width: 899px) {
-  /* line 303, picob.common.scss */
+  /* line 331, picob.common.scss */
   #controler #controler-inner #month-controler #prev-month {
     padding-right: 2px;
     background-position: -3px -2px;
@@ -445,7 +492,7 @@ a:active {
   }
 }
 @media only screen and (min-width: 900px) {
-  /* line 303, picob.common.scss */
+  /* line 331, picob.common.scss */
   #controler #controler-inner #month-controler #prev-month {
     padding-right: 12px;
     background-position: -4px -3px;
@@ -455,18 +502,18 @@ a:active {
     border-radius: 12px 12px 12px 12px;
   }
 }
-/* line 319, picob.common.scss */
+/* line 347, picob.common.scss */
 #controler #controler-inner #month-controler #prev-month.inactive {
   background-color: #ADADAD;
 }
-/* line 323, picob.common.scss */
+/* line 351, picob.common.scss */
 #controler #controler-inner #month-controler #next-month {
   text-align: right;
   padding-top: 1px;
   background: url(/images/next_256.gif) #ff7373 no-repeat;
 }
 @media only screen and (max-width: 899px) {
-  /* line 323, picob.common.scss */
+  /* line 351, picob.common.scss */
   #controler #controler-inner #month-controler #next-month {
     padding-left: 2px;
     background-position: -2px -2px;
@@ -477,7 +524,7 @@ a:active {
   }
 }
 @media only screen and (min-width: 900px) {
-  /* line 323, picob.common.scss */
+  /* line 351, picob.common.scss */
   #controler #controler-inner #month-controler #next-month {
     padding-left: 12px;
     background-position: -2px -3px;
@@ -487,48 +534,48 @@ a:active {
     border-radius: 12px 12px 12px 12px;
   }
 }
-/* line 339, picob.common.scss */
+/* line 367, picob.common.scss */
 #controler #controler-inner #month-controler #next-month.inactive {
   background-color: #ADADAD;
 }
-/* line 343, picob.common.scss */
+/* line 371, picob.common.scss */
 #controler #controler-inner #month-controler #current-ym {
   text-align: center;
   padding: 0px 3px;
   font-family: 'Quicksand', sans-serif;
 }
 @media only screen and (max-width: 899px) {
-  /* line 343, picob.common.scss */
+  /* line 371, picob.common.scss */
   #controler #controler-inner #month-controler #current-ym {
     width: 100px;
   }
 }
 @media only screen and (min-width: 900px) {
-  /* line 343, picob.common.scss */
+  /* line 371, picob.common.scss */
   #controler #controler-inner #month-controler #current-ym {
     width: 140px;
   }
 }
 
-/* line 358, picob.common.scss */
+/* line 386, picob.common.scss */
 #container {
   margin: 0 auto;
   margin-top: 10px;
 }
 @media only screen and (max-width: 899px) {
-  /* line 358, picob.common.scss */
+  /* line 386, picob.common.scss */
   #container {
     width: 320px;
   }
 }
 @media only screen and (min-width: 900px) {
-  /* line 358, picob.common.scss */
+  /* line 386, picob.common.scss */
   #container {
     width: 900px;
   }
 }
 
-/* line 369, picob.common.scss */
+/* line 397, picob.common.scss */
 .link {
   cursor: pointer;
 }

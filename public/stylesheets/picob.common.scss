@@ -261,6 +261,34 @@ a {
         }
     }
 }
+#target-user-info {
+    width: 300px;
+    padding: 10px 0px;
+    overflow: hidden;
+    background-color: rgba(255,255,255,0.70);
+    .target-user-icon {
+        float: left;
+        @media #{$small} {
+            margin-top: 2px;
+        }
+        @media #{$large} {
+            margin-left: 10px;
+        }
+        img {
+            float: left;
+            @include border-radius(12px);
+            @media #{$small} {
+                width: 32px;
+            }
+            @media #{$large} {
+                width: 45px;
+            }
+        }
+    }
+    .target-user-name {
+        float: left;
+    }
+}
 
 #controler {
     width: 100%;
