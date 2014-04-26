@@ -214,43 +214,46 @@
 }
 /* line 165, picob.entry.scss */
 #main-container #right-container #feeling-text-container {
-  padding: 15px;
   background-color: rgba(255, 255, 255, 0.7);
+}
+/* line 167, picob.entry.scss */
+#main-container #right-container #feeling-text-container #feeling-text-input-container {
+  padding: 15px;
   overflow: hidden;
 }
 @media only screen and (min-width: 900px) {
-  /* line 165, picob.entry.scss */
-  #main-container #right-container #feeling-text-container {
+  /* line 167, picob.entry.scss */
+  #main-container #right-container #feeling-text-container #feeling-text-input-container {
     /* rightとleftのcontainer高さを揃えるための処置 */
     padding-bottom: 32767px;
     margin-bottom: -32767px;
   }
 }
-/* line 174, picob.entry.scss */
-#main-container #right-container #feeling-text-container #comment-area-title {
+/* line 175, picob.entry.scss */
+#main-container #right-container #feeling-text-container #feeling-text-input-container #comment-area-title {
   margin-bottom: 10px;
   font-family: 'Quicksand', sans-serif;
 }
 @media only screen and (max-width: 899px) {
-  /* line 174, picob.entry.scss */
-  #main-container #right-container #feeling-text-container #comment-area-title {
+  /* line 175, picob.entry.scss */
+  #main-container #right-container #feeling-text-container #feeling-text-input-container #comment-area-title {
     font-size: 20px;
   }
 }
 @media only screen and (min-width: 900px) {
-  /* line 174, picob.entry.scss */
-  #main-container #right-container #feeling-text-container #comment-area-title {
+  /* line 175, picob.entry.scss */
+  #main-container #right-container #feeling-text-container #feeling-text-input-container #comment-area-title {
     font-size: 25px;
   }
 }
-/* line 184, picob.entry.scss */
-#main-container #right-container #feeling-text-container #feeling-text-icon {
+/* line 185, picob.entry.scss */
+#main-container #right-container #feeling-text-container #feeling-text-input-container #feeling-text-icon {
   float: left;
   background: #029ccc url(/images/comment_128.png) no-repeat;
 }
 @media only screen and (max-width: 899px) {
-  /* line 184, picob.entry.scss */
-  #main-container #right-container #feeling-text-container #feeling-text-icon {
+  /* line 185, picob.entry.scss */
+  #main-container #right-container #feeling-text-container #feeling-text-input-container #feeling-text-icon {
     height: 50px;
     width: 50px;
     background-position: 0px 0px;
@@ -261,8 +264,8 @@
   }
 }
 @media only screen and (min-width: 900px) {
-  /* line 184, picob.entry.scss */
-  #main-container #right-container #feeling-text-container #feeling-text-icon {
+  /* line 185, picob.entry.scss */
+  #main-container #right-container #feeling-text-container #feeling-text-input-container #feeling-text-icon {
     height: 60px;
     width: 60px;
     background-position: 0px 0px;
@@ -272,8 +275,8 @@
     border-radius: 40px;
   }
 }
-/* line 202, picob.entry.scss */
-#main-container #right-container #feeling-text-container #feeling-text {
+/* line 203, picob.entry.scss */
+#main-container #right-container #feeling-text-container #feeling-text-input-container #feeling-text {
   text-align: center;
   float: left;
   color: #FFFFFF;
@@ -284,23 +287,23 @@
   box-sizing: border-box;
 }
 @media only screen and (max-width: 899px) {
-  /* line 202, picob.entry.scss */
-  #main-container #right-container #feeling-text-container #feeling-text {
+  /* line 203, picob.entry.scss */
+  #main-container #right-container #feeling-text-container #feeling-text-input-container #feeling-text {
     height: 54px;
     width: 238px;
     font-size: 33px;
   }
 }
 @media only screen and (min-width: 900px) {
-  /* line 202, picob.entry.scss */
-  #main-container #right-container #feeling-text-container #feeling-text {
+  /* line 203, picob.entry.scss */
+  #main-container #right-container #feeling-text-container #feeling-text-input-container #feeling-text {
     height: 65px;
     width: 353px;
     font-size: 38px;
   }
 }
-/* line 217, picob.entry.scss */
-#main-container #right-container #feeling-text-container #feeling-text .text {
+/* line 218, picob.entry.scss */
+#main-container #right-container #feeling-text-container #feeling-text-input-container #feeling-text .text {
   width: 100%;
   height: 100%;
   padding: 5px 10px;
@@ -314,58 +317,57 @@
   -ms-box-sizing: border-box;
   box-sizing: border-box;
 }
-/* line 229, picob.entry.scss */
+/* line 231, picob.entry.scss */
 #main-container #right-container #feeling-text-selector {
   padding: 5px 15px 15px 15px;
-  background-color: rgba(255, 255, 255, 0.7);
 }
 @media only screen and (max-width: 899px) {
-  /* line 232, picob.entry.scss */
+  /* line 233, picob.entry.scss */
   #main-container #right-container #feeling-text-selector .feeling-group {
     margin-bottom: 5px;
   }
 }
 @media only screen and (min-width: 900px) {
-  /* line 232, picob.entry.scss */
+  /* line 233, picob.entry.scss */
   #main-container #right-container #feeling-text-selector .feeling-group {
     margin-bottom: 10px;
   }
 }
-/* line 239, picob.entry.scss */
+/* line 240, picob.entry.scss */
 #main-container #right-container #feeling-text-selector .feeling-group .feeling-group-title {
   clear: both;
   font-family: 'Quicksand', sans-serif;
   border-bottom: 1px dashed #D8D4D0;
 }
 @media only screen and (max-width: 899px) {
-  /* line 239, picob.entry.scss */
+  /* line 240, picob.entry.scss */
   #main-container #right-container #feeling-text-selector .feeling-group .feeling-group-title {
     font-size: 18px;
   }
 }
 @media only screen and (min-width: 900px) {
-  /* line 239, picob.entry.scss */
+  /* line 240, picob.entry.scss */
   #main-container #right-container #feeling-text-selector .feeling-group .feeling-group-title {
     font-size: 20px;
   }
 }
-/* line 250, picob.entry.scss */
+/* line 251, picob.entry.scss */
 #main-container #right-container #feeling-text-selector .feeling-group .feeling-text-container {
   overflow: hidden;
 }
 @media only screen and (max-width: 899px) {
-  /* line 250, picob.entry.scss */
+  /* line 251, picob.entry.scss */
   #main-container #right-container #feeling-text-selector .feeling-group .feeling-text-container {
     margin: 5px 13px;
   }
 }
 @media only screen and (min-width: 900px) {
-  /* line 250, picob.entry.scss */
+  /* line 251, picob.entry.scss */
   #main-container #right-container #feeling-text-selector .feeling-group .feeling-text-container {
     margin: 8px 20px;
   }
 }
-/* line 258, picob.entry.scss */
+/* line 259, picob.entry.scss */
 #main-container #right-container #feeling-text-selector .feeling-group .feeling-text-container .feeling-text-choices {
   float: left;
   margin-bottom: 5px;
@@ -376,57 +378,57 @@
   color: #000000;
 }
 @media only screen and (max-width: 899px) {
-  /* line 258, picob.entry.scss */
+  /* line 259, picob.entry.scss */
   #main-container #right-container #feeling-text-selector .feeling-group .feeling-text-container .feeling-text-choices {
     margin-right: 7px;
     font-size: 15px;
   }
 }
 @media only screen and (min-width: 900px) {
-  /* line 258, picob.entry.scss */
+  /* line 259, picob.entry.scss */
   #main-container #right-container #feeling-text-selector .feeling-group .feeling-text-container .feeling-text-choices {
     margin-right: 10px;
     font-size: 18px;
   }
 }
 @media only screen and (max-width: 899px) {
-  /* line 274, picob.entry.scss */
+  /* line 275, picob.entry.scss */
   #main-container #right-container #feeling-text-selector .feeling-group.good .feeling-text-choices {
     border: 1px solid #01BCB6;
   }
 }
 @media only screen and (min-width: 900px) {
-  /* line 274, picob.entry.scss */
+  /* line 275, picob.entry.scss */
   #main-container #right-container #feeling-text-selector .feeling-group.good .feeling-text-choices {
     border: 2px solid #01BCB6;
   }
 }
 @media only screen and (max-width: 899px) {
-  /* line 282, picob.entry.scss */
+  /* line 283, picob.entry.scss */
   #main-container #right-container #feeling-text-selector .feeling-group.normal .feeling-text-choices {
     border: 1px solid #FFB273;
   }
 }
 @media only screen and (min-width: 900px) {
-  /* line 282, picob.entry.scss */
+  /* line 283, picob.entry.scss */
   #main-container #right-container #feeling-text-selector .feeling-group.normal .feeling-text-choices {
     border: 2px solid #FFB273;
   }
 }
 @media only screen and (max-width: 899px) {
-  /* line 290, picob.entry.scss */
+  /* line 291, picob.entry.scss */
   #main-container #right-container #feeling-text-selector .feeling-group.bad .feeling-text-choices {
     border: 1px solid #FF7373;
   }
 }
 @media only screen and (min-width: 900px) {
-  /* line 290, picob.entry.scss */
+  /* line 291, picob.entry.scss */
   #main-container #right-container #feeling-text-selector .feeling-group.bad .feeling-text-choices {
     border: 2px solid #FF7373;
   }
 }
 
-/* line 303, picob.entry.scss */
+/* line 304, picob.entry.scss */
 #bottom-container {
   overflow: hidden;
   padding-bottom: 10px;
@@ -434,7 +436,7 @@
   color: #FFFFFF;
 }
 @media only screen and (max-width: 899px) {
-  /* line 303, picob.entry.scss */
+  /* line 304, picob.entry.scss */
   #bottom-container {
     height: 60px;
     margin: 10px;
@@ -442,35 +444,35 @@
   }
 }
 @media only screen and (min-width: 900px) {
-  /* line 303, picob.entry.scss */
+  /* line 304, picob.entry.scss */
   #bottom-container {
     height: 80px;
     margin-top: 20px;
     font-size: 50px;
   }
 }
-/* line 318, picob.entry.scss */
+/* line 319, picob.entry.scss */
 #bottom-container div {
   float: left;
   height: 100%;
 }
-/* line 322, picob.entry.scss */
+/* line 323, picob.entry.scss */
 #bottom-container a {
   display: block;
   padding: 10px;
 }
-/* line 326, picob.entry.scss */
+/* line 327, picob.entry.scss */
 #bottom-container #prev-date, #bottom-container #next-date {
   width: 33%;
 }
-/* line 328, picob.entry.scss */
+/* line 329, picob.entry.scss */
 #bottom-container #prev-date a, #bottom-container #next-date a {
   -webkit-border-radius: 30px;
   -moz-border-radius: 30px;
   border-radius: 30px;
 }
 @media only screen and (max-width: 899px) {
-  /* line 328, picob.entry.scss */
+  /* line 329, picob.entry.scss */
   #bottom-container #prev-date a, #bottom-container #next-date a {
     width: 20px;
     height: 20px;
@@ -479,7 +481,7 @@
   }
 }
 @media only screen and (min-width: 900px) {
-  /* line 328, picob.entry.scss */
+  /* line 329, picob.entry.scss */
   #bottom-container #prev-date a, #bottom-container #next-date a {
     width: 30px;
     height: 30px;
@@ -487,52 +489,52 @@
     border: 4px solid #F7F3EF;
   }
 }
-/* line 344, picob.entry.scss */
+/* line 345, picob.entry.scss */
 #bottom-container #prev-date a {
   background: url(/images/prev_256.gif) no-repeat -2px 0px;
   background-size: 50px 50px;
 }
 @media only screen and (max-width: 899px) {
-  /* line 344, picob.entry.scss */
+  /* line 345, picob.entry.scss */
   #bottom-container #prev-date a {
     background-size: 40px 40px;
   }
 }
 @media only screen and (min-width: 900px) {
-  /* line 344, picob.entry.scss */
+  /* line 345, picob.entry.scss */
   #bottom-container #prev-date a {
     background-size: 50px 50px;
   }
 }
-/* line 354, picob.entry.scss */
+/* line 355, picob.entry.scss */
 #bottom-container #next-date a {
   background: url(/images/next_256.gif) no-repeat 2px 0px;
   background-size: 50px 50px;
 }
 @media only screen and (max-width: 899px) {
-  /* line 354, picob.entry.scss */
+  /* line 355, picob.entry.scss */
   #bottom-container #next-date a {
     background-size: 40px 40px;
   }
 }
 @media only screen and (min-width: 900px) {
-  /* line 354, picob.entry.scss */
+  /* line 355, picob.entry.scss */
   #bottom-container #next-date a {
     background-size: 50px 50px;
   }
 }
-/* line 364, picob.entry.scss */
+/* line 365, picob.entry.scss */
 #bottom-container #switch-calendar {
   width: 34%;
 }
-/* line 366, picob.entry.scss */
+/* line 367, picob.entry.scss */
 #bottom-container #switch-calendar a {
   margin: 5px auto;
   background: url(/images/calendar_256.png) no-repeat center;
   background-size: 60px 60px;
 }
 @media only screen and (max-width: 899px) {
-  /* line 366, picob.entry.scss */
+  /* line 367, picob.entry.scss */
   #bottom-container #switch-calendar a {
     width: 25px;
     height: 25px;
@@ -544,7 +546,7 @@
   }
 }
 @media only screen and (min-width: 900px) {
-  /* line 366, picob.entry.scss */
+  /* line 367, picob.entry.scss */
   #bottom-container #switch-calendar a {
     width: 40px;
     height: 40px;
@@ -556,18 +558,18 @@
   }
 }
 
-/* line 388, picob.entry.scss */
+/* line 389, picob.entry.scss */
 .feeling-text {
   text-align: center;
 }
 @media only screen and (max-width: 899px) {
-  /* line 388, picob.entry.scss */
+  /* line 389, picob.entry.scss */
   .feeling-text {
     display: none;
   }
 }
 @media only screen and (min-width: 900px) {
-  /* line 388, picob.entry.scss */
+  /* line 389, picob.entry.scss */
   .feeling-text {
     margin-top: 6px;
     font-size: 16px;

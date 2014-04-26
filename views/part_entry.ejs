@@ -21,45 +21,47 @@
           <%= thisDate.year + '/' + thisDate.month + '/' + thisDate.day %>
         </div>
         <div id="feeling-text-container">
-          <div id="comment-area-title">
-            <span>Comment</span>
+          <div id="feeling-text-input-container">
+            <div id="comment-area-title">
+              <span>Comment</span>
+            </div>
+            <div id="feeling-text-icon">
+            </div>
+            <div id="feeling-text">
+              <% var val = piece && piece.feeling_text ? piece.feeling_text : "" %>
+              <% if (isMe) {%>
+                <input type="text" class="text" value="<%= val %>" maxlength="7">
+              <% } else { %>
+                <div class="text" maxlength="7"><%= val %></div>
+              <% } %>
+            </div>
+            <div id="opener">
+            </div>
           </div>
-          <div id="feeling-text-icon">
-          </div>
-          <div id="feeling-text">
-            <% var val = piece && piece.feeling_text ? piece.feeling_text : "" %>
-            <% if (isMe) {%>
-              <input type="text" class="text" value="<%= val %>" maxlength="7">
-            <% } else { %>
-              <div class="text" maxlength="7"><%= val %></div>
-            <% } %>
-          </div>
-          <div id="opener">
-          </div>
-        </div>
-        <% if (isMe) {%>
-          <div id="feeling-text-selector">
-            <% var groupNameArray = ['Good', 'Normal', 'Bad']; %>
-            <% for (var i in groupNameArray) { %>
-              <% var groupName = groupNameArray[i]; %>
-              <div class="feeling-group <%= groupName.toLowerCase() %>">
-                <div class="feeling-group-title"><%= groupName %></div>
-                <div class="feeling-text-container">
-                  <ul>
-                    <% for (var j in feelings[groupName]) { %>
-                    <% var feeling = feelings[groupName]; %>
-                    <li>
-                    <a class="feeling-text-choices" href="javascript:void(0)">
-                      <%= feeling[j].text %>
-                    </a>
-                    </li>
-                    <% } %>
-                  </ul>
+          <% if (isMe) {%>
+            <div id="feeling-text-selector">
+              <% var groupNameArray = ['Good', 'Normal', 'Bad']; %>
+              <% for (var i in groupNameArray) { %>
+                <% var groupName = groupNameArray[i]; %>
+                <div class="feeling-group <%= groupName.toLowerCase() %>">
+                  <div class="feeling-group-title"><%= groupName %></div>
+                  <div class="feeling-text-container">
+                    <ul>
+                      <% for (var j in feelings[groupName]) { %>
+                      <% var feeling = feelings[groupName]; %>
+                      <li>
+                      <a class="feeling-text-choices" href="javascript:void(0)">
+                        <%= feeling[j].text %>
+                      </a>
+                      </li>
+                      <% } %>
+                    </ul>
+                  </div>
                 </div>
-              </div>
-            <% } %>
-          </div>
-        <% } %>
+              <% } %>
+            </div>
+          <% } %>
+        </div>
       </div>
     </div>
   </div>
