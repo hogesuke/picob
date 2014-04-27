@@ -451,7 +451,9 @@
 /* line 320, picob.entry.scss */
 #bottom-container {
   overflow: hidden;
-  padding-bottom: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color: rgba(255, 255, 255, 0.7);
   text-align: center;
   color: #FFFFFF;
 }
@@ -459,7 +461,6 @@
   /* line 320, picob.entry.scss */
   #bottom-container {
     height: 60px;
-    margin: 10px;
     font-size: 30px;
   }
 }
@@ -467,7 +468,6 @@
   /* line 320, picob.entry.scss */
   #bottom-container {
     height: 80px;
-    margin-top: 20px;
     font-size: 50px;
   }
 }
@@ -497,7 +497,7 @@
     width: 20px;
     height: 20px;
     margin: 8px auto;
-    border: 3px solid #F7F3EF;
+    border: 3px solid;
   }
 }
 @media only screen and (min-width: 900px) {
@@ -506,13 +506,14 @@
     width: 30px;
     height: 30px;
     margin: 10px auto;
-    border: 4px solid #F7F3EF;
+    border: 4px solid;
   }
 }
 /* line 361, picob.entry.scss */
 #bottom-container #prev-date a {
-  background: url(/images/prev_256.gif) no-repeat -2px 0px;
+  background: url(/images/bottom_prev_256.gif) no-repeat -2px 0px;
   background-size: 50px 50px;
+  border-color: #01BCB6;
 }
 @media only screen and (max-width: 899px) {
   /* line 361, picob.entry.scss */
@@ -526,70 +527,71 @@
     background-size: 50px 50px;
   }
 }
-/* line 371, picob.entry.scss */
+/* line 372, picob.entry.scss */
 #bottom-container #next-date a {
-  background: url(/images/next_256.gif) no-repeat 2px 0px;
+  background: url(/images/bottom_next_256.gif) no-repeat 2px 0px;
   background-size: 50px 50px;
+  border-color: #FF7373;
 }
 @media only screen and (max-width: 899px) {
-  /* line 371, picob.entry.scss */
+  /* line 372, picob.entry.scss */
   #bottom-container #next-date a {
     background-size: 40px 40px;
   }
 }
 @media only screen and (min-width: 900px) {
-  /* line 371, picob.entry.scss */
+  /* line 372, picob.entry.scss */
   #bottom-container #next-date a {
     background-size: 50px 50px;
   }
 }
-/* line 381, picob.entry.scss */
+/* line 383, picob.entry.scss */
 #bottom-container #switch-calendar {
   width: 34%;
 }
-/* line 383, picob.entry.scss */
+/* line 385, picob.entry.scss */
 #bottom-container #switch-calendar a {
   margin: 5px auto;
-  background: url(/images/calendar_256.png) no-repeat center;
+  background: url(/images/calendar_256.gif) no-repeat center;
   background-size: 60px 60px;
 }
 @media only screen and (max-width: 899px) {
-  /* line 383, picob.entry.scss */
+  /* line 385, picob.entry.scss */
   #bottom-container #switch-calendar a {
     width: 25px;
     height: 25px;
     background-size: 40px 40px;
-    border: 3px solid #F7F3EF;
+    border: 3px solid #FFB273;
     -webkit-border-radius: 30px;
     -moz-border-radius: 30px;
     border-radius: 30px;
   }
 }
 @media only screen and (min-width: 900px) {
-  /* line 383, picob.entry.scss */
+  /* line 385, picob.entry.scss */
   #bottom-container #switch-calendar a {
     width: 40px;
     height: 40px;
     background-size: 50px 50px;
-    border: 4px solid #F7F3EF;
+    border: 4px solid #FFB273;
     -webkit-border-radius: 40px;
     -moz-border-radius: 40px;
     border-radius: 40px;
   }
 }
 
-/* line 405, picob.entry.scss */
+/* line 407, picob.entry.scss */
 .feeling-text {
   text-align: center;
 }
 @media only screen and (max-width: 899px) {
-  /* line 405, picob.entry.scss */
+  /* line 407, picob.entry.scss */
   .feeling-text {
     display: none;
   }
 }
 @media only screen and (min-width: 900px) {
-  /* line 405, picob.entry.scss */
+  /* line 407, picob.entry.scss */
   .feeling-text {
     margin-top: 6px;
     font-size: 16px;
