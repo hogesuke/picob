@@ -197,4 +197,23 @@ body > #container {
             }
         }
     }
+    #twitter-time-line {
+        margin: 0 auto;
+        @media #{$small} {
+            width: 300px;
+            margin-top: 30px;
+        }
+        @media #{$large} {
+            width: 516px;
+            margin-top: 40px;
+        }
+        .twitter-timeline {
+            @media #{$small} {
+                width: 300px;
+            }
+            @media #{$large} {
+                width: 516px;
+            }
+        }
+    }
 }

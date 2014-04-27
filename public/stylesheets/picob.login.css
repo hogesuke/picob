@@ -271,3 +271,33 @@ body > #container {
     background-size: 374px 218px;
   }
 }
+/* line 200, picob.login.scss */
+#container #twitter-time-line {
+  margin: 0 auto;
+}
+@media only screen and (max-width: 899px) {
+  /* line 200, picob.login.scss */
+  #container #twitter-time-line {
+    width: 300px;
+    margin-top: 30px;
+  }
+}
+@media only screen and (min-width: 900px) {
+  /* line 200, picob.login.scss */
+  #container #twitter-time-line {
+    width: 516px;
+    margin-top: 40px;
+  }
+}
+@media only screen and (max-width: 899px) {
+  /* line 210, picob.login.scss */
+  #container #twitter-time-line .twitter-timeline {
+    width: 300px;
+  }
+}
+@media only screen and (min-width: 900px) {
+  /* line 210, picob.login.scss */
+  #container #twitter-time-line .twitter-timeline {
+    width: 516px;
+  }
+}
