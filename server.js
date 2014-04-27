@@ -34,10 +34,27 @@ app.configure(function () {
 /**
  * CSRF対策のtokenを生成する。
  */
+function root(req, res, next) {
+  var me = req.session.passport.user;
+  if (me) {
+    res.redirect('/' + me.seq + '/entry/today');
+  } else {
+    res.redirect('/login');
+  }
+}
+
+/**
+ * CSRF対策のtokenを生成する。
+ */
 function csrf(req, res, next) {
   res.locals.csrftoken = req.csrfToken();
   next();
 }
+
+/**
+ * ルートのルーティング
+ */
+app.get('/', csrf, root);
 
 /**
  * loginのルーティング
@@ -91,13 +108,6 @@ app.post(entryUri,
     pieces.validatePiece,
     pieces.checkValidYmdForAjax,
     pieces.upsertPiece);
-
-/**
- * ソーシャルな部品取得のためのルーティング
- */
-app.get(/\/social\/friends\/(2[0-9]{3})\/(1[0-2]|0?[1-9])\/(0?[1-9]|[1,2][0-9]|3[0,1])\/?$/, // /social/friends/[year]/[month]/[day]
-    login.checkLogin,
-    user.getFriendsFeeling);
 
 /**
  * errorページのルーティング
