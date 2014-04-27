@@ -134,13 +134,17 @@ body > #container {
     border-radius: 10px 0 0 10px;
   }
 }
-/* line 108, picob.login.scss */
+/* line 107, picob.login.scss */
+#container #login-control #twitter-login-button:hover {
+  background-color: #63C8ED;
+}
+/* line 111, picob.login.scss */
 #container #login-control #facebook-login-button {
   background: #3d5a99 url(/images/facebook.gif) no-repeat 3px center;
   background-size: 42px 42px;
 }
 @media only screen and (max-width: 899px) {
-  /* line 108, picob.login.scss */
+  /* line 111, picob.login.scss */
   #container #login-control #facebook-login-button {
     margin: 0 auto 7px auto;
     -webkit-border-radius: 10px 10px 10px 10px;
@@ -149,20 +153,24 @@ body > #container {
   }
 }
 @media only screen and (min-width: 900px) {
-  /* line 108, picob.login.scss */
+  /* line 111, picob.login.scss */
   #container #login-control #facebook-login-button {
     -webkit-border-radius: 0 10px 10px 0;
     -moz-border-radius: 0 10px 10px 0;
     border-radius: 0 10px 10px 0;
   }
 }
-/* line 120, picob.login.scss */
+/* line 121, picob.login.scss */
+#container #login-control #facebook-login-button:hover {
+  background-color: #7288B5;
+}
+/* line 126, picob.login.scss */
 #container #introduction {
   clear: both;
   margin-top: 40px;
   text-align: center;
 }
-/* line 124, picob.login.scss */
+/* line 130, picob.login.scss */
 #container #introduction #question-mark {
   height: 48px;
   width: 48px;
@@ -173,58 +181,58 @@ body > #container {
   -moz-border-radius: 24px;
   border-radius: 24px;
 }
-/* line 132, picob.login.scss */
+/* line 138, picob.login.scss */
 #container #introduction .caption {
   margin-bottom: 15px;
 }
 @media only screen and (max-width: 899px) {
-  /* line 132, picob.login.scss */
+  /* line 138, picob.login.scss */
   #container #introduction .caption {
     font-size: 22px;
   }
 }
 @media only screen and (min-width: 900px) {
-  /* line 132, picob.login.scss */
+  /* line 138, picob.login.scss */
   #container #introduction .caption {
     font-size: 25px;
   }
 }
-/* line 141, picob.login.scss */
+/* line 147, picob.login.scss */
 #container #introduction .text {
   line-height: 170%;
 }
 @media only screen and (max-width: 899px) {
-  /* line 141, picob.login.scss */
+  /* line 147, picob.login.scss */
   #container #introduction .text {
     padding: 0 20px;
     font-size: 15px;
   }
 }
 @media only screen and (min-width: 900px) {
-  /* line 141, picob.login.scss */
+  /* line 147, picob.login.scss */
   #container #introduction .text {
     font-size: 17px;
   }
 }
-/* line 151, picob.login.scss */
+/* line 157, picob.login.scss */
 #container #introduction #application-image {
   margin: 30px auto 0 auto;
 }
 @media only screen and (max-width: 899px) {
-  /* line 151, picob.login.scss */
+  /* line 157, picob.login.scss */
   #container #introduction #application-image {
     width: 320px;
   }
 }
 @media only screen and (min-width: 900px) {
-  /* line 151, picob.login.scss */
+  /* line 157, picob.login.scss */
   #container #introduction #application-image {
     overflow: hidden;
     width: 535px;
   }
 }
 @media only screen and (max-width: 899px) {
-  /* line 160, picob.login.scss */
+  /* line 166, picob.login.scss */
   #container #introduction #application-image #iphone {
     height: 224px;
     width: 320px;
@@ -233,7 +241,7 @@ body > #container {
   }
 }
 @media only screen and (min-width: 900px) {
-  /* line 160, picob.login.scss */
+  /* line 166, picob.login.scss */
   #container #introduction #application-image #iphone {
     float: left;
     height: 280px;
@@ -243,7 +251,7 @@ body > #container {
   }
 }
 @media only screen and (max-width: 899px) {
-  /* line 175, picob.login.scss */
+  /* line 181, picob.login.scss */
   #container #introduction #application-image #mac {
     height: 163px;
     width: 320px;
@@ -253,7 +261,7 @@ body > #container {
   }
 }
 @media only screen and (min-width: 900px) {
-  /* line 175, picob.login.scss */
+  /* line 181, picob.login.scss */
   #container #introduction #application-image #mac {
     float: left;
     height: 217px;

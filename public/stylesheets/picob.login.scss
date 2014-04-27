@@ -104,6 +104,9 @@ body > #container {
             @media #{$large} {
                 @include border-radius(10px 0 0 10px);
             }
+            &:hover {
+                background-color: #63C8ED;
+            }
         }
         #facebook-login-button {
             background: #3D5A99 url(/images/facebook.gif) no-repeat 3px center;
@@ -114,6 +117,9 @@ body > #container {
             }
             @media #{$large} {
                 @include border-radius(0 10px 10px 0);
+            }
+            &:hover {
+                background-color: #7288B5;
             }
         }
     }
