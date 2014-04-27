@@ -28,7 +28,7 @@ exports.calendar = function(req, res) {
     }
     res.render('calendar.ejs', {
       params: {
-        isMe: me.seq == targetUserSeq,
+        isMe: me ? me.seq == targetUserSeq : false,
         targetUser: results[0],
         header: getHeaderParam(me, targetUserSeq, requestYear, requestMonth, nextDate, prevDate)
       }
@@ -41,11 +41,12 @@ exports.calendar = function(req, res) {
  */
 function getHeaderParam(me, targetUserSeq, requestYear, requestMonth, nextDate, prevDate, next) {
   return {
+    isLogined : me !== undefined,
     loginUser: {
-      seq: me.seq,
-      id: me.id,
-      raw_name: me.raw_name,
-      provider: me.provider
+      seq: me ? me.seq : undefined,
+      id: me ? me.id : undefined,
+      raw_name: me ? me.raw_name : undefined,
+      provider: me ? me.provider : undefined
     },
     targetUser: {
       seq: targetUserSeq
@@ -356,7 +357,7 @@ function doEntryView(req, res, requestYear, requestMonth, requestDate) {
         },
         feelings: values.feelingsEveryGroup,
         piece: values.piece ? values.piece : defaultPiece,
-        isMe: loginUser.seq == targetUserSeq,
+        isMe: loginUser ? loginUser.seq == targetUserSeq : false,
         header: getHeaderParam(loginUser, targetUserSeq, requestYear, requestMonth,
           computeMonth(requestYear, requestMonth, 1), computeMonth(requestYear, requestMonth, -1))
       }

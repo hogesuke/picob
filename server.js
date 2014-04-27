@@ -65,12 +65,10 @@ app.get('/login/twitter/callback',
  * calendarページのルーティング
  */
 app.get(/^\/([0-9]{1,9})\/calendar\/(2[0-9]{3})\/(1[0-2]|0?[1-9])\/?$/, // /[userSeq]/calendar/[year]/[month]
-    login.checkLogin,
     user.validateUser,
     pieces.checkValidYm,
     pieces.calendar);
 app.get(/^\/([0-9]{1,9})\/(2[0-9]{3})\/(1[0-2]|0?[1-9])\/?$/, // /[userSeq]/[year]/[month]
-    login.checkLogin,
     user.validateUser,
     pieces.findCalendarData);
 
@@ -80,12 +78,10 @@ app.get(/^\/([0-9]{1,9})\/(2[0-9]{3})\/(1[0-2]|0?[1-9])\/?$/, // /[userSeq]/[yea
 var entryUri = /^\/([0-9]{1,9})\/entry\/(2[0-9]{3})\/(1[0-2]|0?[1-9])\/(0?[1-9]|[1,2][0-9]|3[0,1])\/?$/; // /[userSeq]/entry/[year]/[month]/[day]
 app.get(/^\/([0-9]{1,9})\/entry\/today$/, // /[userSeq]/entry/today
     csrf,
-    login.checkLogin,
     user.validateUser,
     pieces.today);
 app.get(entryUri,
     csrf,
-    login.checkLogin,
     user.validateUser,
     pieces.checkValidYmd,
     pieces.oneDay);

@@ -25,20 +25,26 @@
       </div>
     </div>
     <div id="navi-right">
-      <div class="login-user-icon tool-box">
-        <% if (loginUser.provider == "twitter") { %>
-          <img src="http://twiticon.herokuapp.com/<%= loginUser.raw_name %>">
-        <% } else { %>
-          <img src="https://graph.facebook.com/<%= loginUser.id %>/picture">
-        <% } %>
-        <div class="down-mark"></div>
-        <div class="user-menu inactive">
-          <ul>
-            <li><a href="/<%= loginUser.seq %>/calendar/<%= thisDate.year %>/<%= thisDate.month %>">マイページ</a></li>
-            <li><a href="/logout">ログアウト</a></li>
-          </ul>
+      <% if (isLogined) { %>
+        <div class="login-user-icon tool-box">
+          <% if (loginUser.provider == "twitter") { %>
+            <img src="http://twiticon.herokuapp.com/<%= loginUser.raw_name %>">
+          <% } else { %>
+            <img src="https://graph.facebook.com/<%= loginUser.id %>/picture">
+          <% } %>
+          <div class="down-mark"></div>
+          <div class="user-menu inactive">
+            <ul>
+              <li><a href="/<%= loginUser.seq %>/calendar/<%= thisDate.year %>/<%= thisDate.month %>">マイページ</a></li>
+              <li><a href="/logout">ログアウト</a></li>
+            </ul>
+          </div>
         </div>
-      </div>
+      <% } else { %>
+        <div id="header-login-button" class="link" href="/login">
+          <span class="text">Login</span>
+        </div>
+      <% } %>
       <div href="/<%= targetUser.seq %>/entry/today" id="today-button" class="link tool-box">
         <div class="caption">today</div>
         <div class="date"><%= toDay.date %></div>

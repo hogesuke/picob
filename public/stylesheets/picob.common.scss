@@ -246,6 +246,25 @@ a {
                     display: block;
                 }
             }
+            #header-login-button {
+                float: right;
+                cursor: pointer;
+                @include box-sizing();
+                @media #{$small} {
+                    height: 30px;
+                    padding: 3px 15px;
+                }
+                @media #{$large} {
+                    height: 50px;
+                    padding: 10px 15px;
+                }
+                .text {
+                    position: relative;
+                    top: 5%;
+                    font-family: 'Quicksand', sans-serif;
+                    font-size: 17px;
+                }
+            }
         }
         #navi-bottom {
             clear: both;
