@@ -49,6 +49,17 @@ $(function() {
         return false;
       }
       return true;
+    },
+    getFeelingString: function() {
+      if (this.feeling === 'good') {
+        return 'Good!';
+      }
+      if (this.feeling === 'normal') {
+        return 'Normal';
+      }
+      if (this.feeling === 'bad') {
+        return 'Bat…';
+      }
     }
   }
 
@@ -59,6 +70,7 @@ $(function() {
     return 'none';
   }
   pieceStatus.init();
+  controlDispShareButton();
 
   $(document).on('click', '.feeling-choices', function() {
     var selectedFeeling = $.trim($(this).attr('feeling'));
@@ -67,6 +79,8 @@ $(function() {
     $feeling.removeClass(pieceStatus.feeling);
     $feeling.addClass(selectedFeeling);
     pieceStatus.feeling = selectedFeeling;
+
+    controlDispShareButton();
     
     if (pieceStatus.isValid()) upsertPiece(pieceStatus);
   });
@@ -84,6 +98,30 @@ $(function() {
     pieceStatus.feelingText = feelingText;
     upsertPiece(pieceStatus);
   });
+
+  $('#share-button').on('click', function() {
+    var url = 'http://picob.net/' + pieceStatus.userSeq + '/entry/'
+      + pieceStatus.year + '/' + pieceStatus.month + '/' + pieceStatus.day;
+    var editedUrl = 'http://twitter.com/share?url=' + url + '&text=' + getEditShareText()
+      + '&related=' + 'hogesuke_1' + '&hashtags=' + 'picob';
+    window.open(editedUrl, 'hoge', "width=500, height=260, scrollbars=yes");
+
+    function getEditShareText() {
+      var text = '【picob】\n今日の気分　⇒　' + pieceStatus.getFeelingString() + '\n';
+      if (pieceStatus.feelingText) {
+        text += '今日のひとこと　⇒　' + pieceStatus.feelingText + '\n'
+      }
+      return encodeURI(text);
+    }
+  });
+
+  function controlDispShareButton() {
+    if($('#feeling').hasClass('none')) {
+      $('#share-button').css('display', 'none');
+    } else {
+      $('#share-button').fadeIn(400).css('display', 'block');
+    }
+  }
 
   function upsertPiece(pieceStatus) {
     return $.ajax({

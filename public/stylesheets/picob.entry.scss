@@ -133,6 +133,22 @@ $base_charctor_color: #000000;
                 }
             }
         }
+        #share-button {
+            width: 90px;
+            margin: 0 auto;
+            padding: 9px 40px;
+            background: #00ACEE url(/images/twitter.gif) no-repeat 2px center;
+            background-size: 38px 38px;
+            text-align: center;
+            color: #FFFFFF;
+            font-size: 20px;
+            font-family: 'Quicksand', sans-serif;
+            cursor: pointer;
+            @include border-radius(9px);
+            &:hover {
+                background-color: #63C8ED;
+            }
+        }
     }
     #right-container {
         color: #000000;
