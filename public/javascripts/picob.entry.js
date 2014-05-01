@@ -52,13 +52,13 @@ $(function() {
     },
     getFeelingString: function() {
       if (this.feeling === 'good') {
-        return 'Good!';
+        return 'Good! (*´ω｀*)';
       }
       if (this.feeling === 'normal') {
-        return 'Normal';
+        return 'Normal (´-ω-`)';
       }
       if (this.feeling === 'bad') {
-        return 'Bat…';
+        return 'Bad…_(┐「ε:)_';
       }
     }
   }
