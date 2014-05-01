@@ -96,6 +96,7 @@ a {
                     font-size: 25px;
                 }
                 @media #{$large} {
+                    margin-top: 5px;
                     font-size: 32px;
                 }
             }

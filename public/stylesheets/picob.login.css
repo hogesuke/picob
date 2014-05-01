@@ -301,3 +301,17 @@ body > #container {
     width: 516px;
   }
 }
+/* line 219, picob.login.scss */
+#container #login-bottom {
+  margin-top: 20px;
+  text-align: center;
+}
+/* line 222, picob.login.scss */
+#container #login-bottom a {
+  margin: 5px;
+  color: #41BAEA;
+}
+/* line 226, picob.login.scss */
+#container #login-bottom .separator {
+  color: #B5B5B5;
+}

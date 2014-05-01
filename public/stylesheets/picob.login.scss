@@ -216,4 +216,15 @@ body > #container {
             }
         }
     }
+    #login-bottom {
+        margin-top: 20px;
+        text-align: center;
+        a {
+            margin: 5px;
+            color: #41BAEA;
+        }
+        .separator {
+            color: #B5B5B5;
+        }
+    }
 }

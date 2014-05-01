@@ -117,6 +117,12 @@ app.get('/unknown', error.unknown);
 app.get('/unauthorized', error.unauthorized);
 
 /**
+ * 規約、プライバシーポリシーのルーティング
+ */
+app.get('/agreement', function(req, res) {res.render('agreement.ejs')});
+app.get('/privacy_policy', function(req, res) {res.render('privacy_policy.ejs')});
+
+/**
  * デバッグ用のルーティング
  */
 app.get('/testDataInsert', feeling.testDataInsert);
