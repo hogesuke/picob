@@ -311,7 +311,7 @@
   #main-container #right-container #feeling-text-container #feeling-text-input-container #feeling-text {
     height: 54px;
     width: 238px;
-    font-size: 33px;
+    font-size: 31px;
   }
 }
 @media only screen and (min-width: 900px) {

@@ -111,13 +111,13 @@ $base_charctor_color: #000000;
     }
     .feeling-text {
         position: relative;
-        top: 18px;
+        top: 20px;
         text-align: center;
         @media #{$small} {
             display: none;
         }
         @media #{$large} {
-            font-size: 15px;
+            font-size: 14px;
         }
     }
     #day {

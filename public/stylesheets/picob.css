@@ -146,7 +146,7 @@
 /* line 112, picob.scss */
 #calendar .feeling-text {
   position: relative;
-  top: 18px;
+  top: 20px;
   text-align: center;
 }
 @media only screen and (max-width: 899px) {
@@ -158,7 +158,7 @@
 @media only screen and (min-width: 900px) {
   /* line 112, picob.scss */
   #calendar .feeling-text {
-    font-size: 15px;
+    font-size: 14px;
   }
 }
 /* line 123, picob.scss */
