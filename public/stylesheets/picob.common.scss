@@ -93,11 +93,14 @@ a {
             #logo {
                 font-family: 'Quicksand', sans-serif;
                 @media #{$small} {
-                    font-size: 25px;
+                    margin-top: 4px;
+                    img {
+                        width: 98%;
+                        height: 98%;
+                    }
                 }
                 @media #{$large} {
                     margin-top: 5px;
-                    font-size: 32px;
                 }
             }
         }
