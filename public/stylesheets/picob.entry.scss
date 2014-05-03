@@ -198,6 +198,14 @@ $base_charctor_color: #000000;
                         font-size: 25px;
                     }
                 }
+                #comment-char-counter {
+                    float: right;
+                    margin-top: 5px;
+                    font-size: 17px;
+                    #counter {
+                        padding: 0;
+                    }
+                }
                 #feeling-text-icon {
                     float: left;
                     background: #029CCC url(/images/comment_128.png) no-repeat;

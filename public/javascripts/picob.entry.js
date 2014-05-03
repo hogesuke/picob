@@ -63,6 +63,34 @@ $(function() {
     }
   }
 
+  var counter = {
+    init: function() {
+      var count = $('#feeling-text .text').val().length;
+      $('#counter').text(count);
+    },
+    intervalId: undefined,
+    setInterval: function() {
+      var id = window.setInterval(this.getFeelingTextCounterFunc(), 100);
+      this.intervalId = id;
+    },
+    clearInterval: function() {
+      window.clearInterval(this.intervalId);
+    },
+    getFeelingTextCounterFunc: function() {
+      var $input = $('#feeling-text .text');
+      var $counter = $('#counter');
+      var prevValue = $input.val();
+      $counter.text(prevValue.length);
+      return function() {
+        var value = $input.val();
+        if (prevValue != value) {
+          $counter.text(value.length);
+        }
+        prevValue = value;
+      };
+    }
+  }
+
   function getFeeling() {
     if ($('#feeling').is('.good')) return 'good';
     if ($('#feeling').is('.normal')) return 'normal';
@@ -70,6 +98,7 @@ $(function() {
     return 'none';
   }
   pieceStatus.init();
+  counter.init();
   controlDispShareButton();
 
   $(document).on('click', '.feeling-choices', function() {
@@ -88,6 +117,14 @@ $(function() {
   $('#feeling-text .text').on('change', function() {
     pieceStatus.feelingText = $(this).val();
     upsertPiece(pieceStatus);
+  });
+
+  $('#feeling-text .text').on('focus', function() {
+    counter.setInterval();
+  });
+
+  $('#feeling-text .text').on('blur', function() {
+    counter.clearInterval();
   });
 
   $('.feeling-text-choices').on('click', function() {
