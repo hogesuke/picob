@@ -161,9 +161,9 @@ $(function() {
 
   function controlDispShareButton() {
     if($('#feeling').hasClass('none')) {
-      $('#share-button').css('display', 'none');
+      $('#share-button').addClass('inactive');
     } else {
-      $('#share-button').fadeIn(400).css('display', 'block');
+      $('#share-button').addClass('active').removeClass('inactive');
     }
   }
 

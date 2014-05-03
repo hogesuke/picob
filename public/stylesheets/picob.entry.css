@@ -66,29 +66,29 @@
     border-radius: 6px;
   }
 }
-/* line 65, picob.entry.scss */
+/* line 64, picob.entry.scss */
 #main-container #left-container #feeling {
   margin: 10px auto 20px auto;
   -webkit-border-radius: 200px;
   -moz-border-radius: 200px;
   border-radius: 200px;
 }
-/* line 68, picob.entry.scss */
+/* line 67, picob.entry.scss */
 #main-container #left-container #feeling.good {
   background: #01bcb6 url(/images/good.gif) no-repeat;
   background-size: 200px 200px;
 }
-/* line 72, picob.entry.scss */
+/* line 71, picob.entry.scss */
 #main-container #left-container #feeling.normal {
   background: #ffb273 url(/images/normal.gif) no-repeat;
   background-size: 200px 200px;
 }
-/* line 76, picob.entry.scss */
+/* line 75, picob.entry.scss */
 #main-container #left-container #feeling.bad {
   background: #ff7373 url(/images/bad.gif) no-repeat;
   background-size: 200px 200px;
 }
-/* line 80, picob.entry.scss */
+/* line 79, picob.entry.scss */
 #main-container #left-container #feeling.none {
   background: url(/images/empty_feeling_for_entry.gif) no-repeat;
   background-size: 200px 200px;
@@ -100,84 +100,84 @@
   box-sizing: border-box;
 }
 @media only screen and (max-width: 899px) {
-  /* line 65, picob.entry.scss */
+  /* line 64, picob.entry.scss */
   #main-container #left-container #feeling {
     width: 140px;
     height: 140px;
   }
-  /* line 87, picob.entry.scss */
+  /* line 86, picob.entry.scss */
   #main-container #left-container #feeling.good, #main-container #left-container #feeling.normal, #main-container #left-container #feeling.bad, #main-container #left-container #feeling.none {
     background-position: 13px 14px;
     background-size: 115px 115px;
   }
 }
 @media only screen and (min-width: 900px) {
-  /* line 65, picob.entry.scss */
+  /* line 64, picob.entry.scss */
   #main-container #left-container #feeling {
     width: 230px;
     height: 230px;
   }
-  /* line 95, picob.entry.scss */
+  /* line 94, picob.entry.scss */
   #main-container #left-container #feeling.good, #main-container #left-container #feeling.normal, #main-container #left-container #feeling.bad, #main-container #left-container #feeling.none {
     background-position: 15px 17px;
   }
 }
-/* line 102, picob.entry.scss */
+/* line 101, picob.entry.scss */
 #main-container #left-container .feeling-selector {
   font-size: 20px;
   margin: 10px 0px;
   overflow: hidden;
 }
-/* line 106, picob.entry.scss */
+/* line 105, picob.entry.scss */
 #main-container #left-container .feeling-selector #feeling-choices-container {
   margin: 0 auto;
 }
 @media only screen and (max-width: 899px) {
-  /* line 106, picob.entry.scss */
+  /* line 105, picob.entry.scss */
   #main-container #left-container .feeling-selector #feeling-choices-container {
     width: 234px;
   }
 }
 @media only screen and (min-width: 900px) {
-  /* line 106, picob.entry.scss */
+  /* line 105, picob.entry.scss */
   #main-container #left-container .feeling-selector #feeling-choices-container {
     width: 378px;
   }
 }
-/* line 114, picob.entry.scss */
+/* line 113, picob.entry.scss */
 #main-container #left-container .feeling-selector #feeling-choices-container .feeling-choices {
   display: block;
   float: left;
 }
-/* line 117, picob.entry.scss */
+/* line 116, picob.entry.scss */
 #main-container #left-container .feeling-selector #feeling-choices-container .feeling-choices.feeling-good {
   background: #01bcb6 url(/images/good.gif) no-repeat center;
   background-size: 90px 90px;
 }
-/* line 121, picob.entry.scss */
+/* line 120, picob.entry.scss */
 #main-container #left-container .feeling-selector #feeling-choices-container .feeling-choices.feeling-good:hover {
   background-color: #00D8D1;
 }
-/* line 124, picob.entry.scss */
+/* line 123, picob.entry.scss */
 #main-container #left-container .feeling-selector #feeling-choices-container .feeling-choices.feeling-normal {
   background: #ffb273 url(/images/normal.gif) no-repeat center;
   background-size: 90px 90px;
 }
-/* line 128, picob.entry.scss */
+/* line 127, picob.entry.scss */
 #main-container #left-container .feeling-selector #feeling-choices-container .feeling-choices.feeling-normal:hover {
   background-color: #FFC392;
 }
-/* line 131, picob.entry.scss */
+/* line 130, picob.entry.scss */
 #main-container #left-container .feeling-selector #feeling-choices-container .feeling-choices.feeling-bad {
   background: #ff7373 url(/images/bad.gif) no-repeat center;
   background-size: 90px 90px;
 }
-/* line 135, picob.entry.scss */
+/* line 134, picob.entry.scss */
 #main-container #left-container .feeling-selector #feeling-choices-container .feeling-choices.feeling-bad:hover {
   background-color: #FF9090;
 }
 @media only screen and (max-width: 899px) {
-  /* line 114, picob.entry.scss */
+  /* line 113, picob.entry.scss */
   #main-container #left-container .feeling-selector #feeling-choices-container .feeling-choices {
     height: 64px;
     width: 64px;
@@ -186,13 +186,13 @@
     -moz-border-radius: 20px;
     border-radius: 20px;
   }
-  /* line 144, picob.entry.scss */
+  /* line 143, picob.entry.scss */
   #main-container #left-container .feeling-selector #feeling-choices-container .feeling-choices.feeling-good, #main-container #left-container .feeling-selector #feeling-choices-container .feeling-choices.feeling-good:hover, #main-container #left-container .feeling-selector #feeling-choices-container .feeling-choices.feeling-normal, #main-container #left-container .feeling-selector #feeling-choices-container .feeling-choices.feeling-normal:hover, #main-container #left-container .feeling-selector #feeling-choices-container .feeling-choices.feeling-bad, #main-container #left-container .feeling-selector #feeling-choices-container .feeling-choices.feeling-bad:hover {
     background-size: 42px 42px;
   }
 }
 @media only screen and (min-width: 900px) {
-  /* line 114, picob.entry.scss */
+  /* line 113, picob.entry.scss */
   #main-container #left-container .feeling-selector #feeling-choices-container .feeling-choices {
     height: 110px;
     width: 110px;
@@ -202,15 +202,14 @@
     border-radius: 30px;
   }
 }
-/* line 158, picob.entry.scss */
+/* line 157, picob.entry.scss */
 #main-container #left-container #share-button {
   width: 90px;
   margin: 0 auto;
   padding: 9px 40px;
-  background: #00acee url(/images/twitter.gif) no-repeat 2px center;
+  background: url(/images/twitter.gif) no-repeat 2px center;
   background-size: 38px 38px;
   text-align: center;
-  color: #FFFFFF;
   font-size: 20px;
   font-family: 'Quicksand', sans-serif;
   cursor: pointer;
@@ -218,28 +217,38 @@
   -moz-border-radius: 9px;
   border-radius: 9px;
 }
-/* line 170, picob.entry.scss */
+/* line 168, picob.entry.scss */
 #main-container #left-container #share-button:hover {
   background-color: #63C8ED;
 }
+/* line 171, picob.entry.scss */
+#main-container #left-container #share-button.active {
+  background-color: #00ACEE;
+  color: #FFFFFF;
+}
 /* line 175, picob.entry.scss */
+#main-container #left-container #share-button.inactive {
+  border: #D8D4D0 1px solid;
+  color: #D8D4D0;
+}
+/* line 181, picob.entry.scss */
 #main-container #right-container {
   color: #000000;
 }
 @media only screen and (min-width: 900px) {
-  /* line 175, picob.entry.scss */
+  /* line 181, picob.entry.scss */
   #main-container #right-container {
     float: left;
     width: 50%;
   }
 }
 @media only screen and (min-width: 900px) {
-  /* line 181, picob.entry.scss */
+  /* line 187, picob.entry.scss */
   #main-container #right-container .container-film {
     margin-left: 5px;
   }
 }
-/* line 186, picob.entry.scss */
+/* line 192, picob.entry.scss */
 #main-container #right-container #date {
   margin-bottom: 10px;
   text-align: center;
@@ -252,7 +261,7 @@
   box-sizing: border-box;
 }
 @media only screen and (max-width: 899px) {
-  /* line 186, picob.entry.scss */
+  /* line 192, picob.entry.scss */
   #main-container #right-container #date {
     margin-top: 10px;
     padding: 10px 0;
@@ -260,65 +269,65 @@
   }
 }
 @media only screen and (min-width: 900px) {
-  /* line 186, picob.entry.scss */
+  /* line 192, picob.entry.scss */
   #main-container #right-container #date {
     height: 75px;
     padding-top: 5px;
     font-size: 55px;
   }
 }
-/* line 203, picob.entry.scss */
+/* line 209, picob.entry.scss */
 #main-container #right-container #feeling-text-container {
   background-color: rgba(255, 255, 255, 0.7);
 }
-/* line 205, picob.entry.scss */
+/* line 211, picob.entry.scss */
 #main-container #right-container #feeling-text-container #feeling-text-input-container {
   padding: 15px;
   overflow: hidden;
 }
 @media only screen and (min-width: 900px) {
-  /* line 205, picob.entry.scss */
+  /* line 211, picob.entry.scss */
   #main-container #right-container #feeling-text-container #feeling-text-input-container {
     /* rightとleftのcontainer高さを揃えるための処置 */
     padding-bottom: 32767px;
     margin-bottom: -32767px;
   }
 }
-/* line 213, picob.entry.scss */
+/* line 219, picob.entry.scss */
 #main-container #right-container #feeling-text-container #feeling-text-input-container #comment-area-title {
   margin-bottom: 10px;
   font-family: 'Quicksand', sans-serif;
 }
 @media only screen and (max-width: 899px) {
-  /* line 213, picob.entry.scss */
+  /* line 219, picob.entry.scss */
   #main-container #right-container #feeling-text-container #feeling-text-input-container #comment-area-title {
     font-size: 20px;
   }
 }
 @media only screen and (min-width: 900px) {
-  /* line 213, picob.entry.scss */
+  /* line 219, picob.entry.scss */
   #main-container #right-container #feeling-text-container #feeling-text-input-container #comment-area-title {
     font-size: 25px;
   }
 }
-/* line 223, picob.entry.scss */
+/* line 229, picob.entry.scss */
 #main-container #right-container #feeling-text-container #feeling-text-input-container #comment-char-counter {
   float: right;
   font-size: 17px;
 }
 @media only screen and (min-width: 900px) {
-  /* line 223, picob.entry.scss */
+  /* line 229, picob.entry.scss */
   #main-container #right-container #feeling-text-container #feeling-text-input-container #comment-char-counter {
     margin-top: 5px;
   }
 }
-/* line 230, picob.entry.scss */
+/* line 236, picob.entry.scss */
 #main-container #right-container #feeling-text-container #feeling-text-input-container #feeling-text-icon {
   float: left;
   background: #029ccc url(/images/comment_128.png) no-repeat;
 }
 @media only screen and (max-width: 899px) {
-  /* line 230, picob.entry.scss */
+  /* line 236, picob.entry.scss */
   #main-container #right-container #feeling-text-container #feeling-text-input-container #feeling-text-icon {
     height: 50px;
     width: 50px;
@@ -330,7 +339,7 @@
   }
 }
 @media only screen and (min-width: 900px) {
-  /* line 230, picob.entry.scss */
+  /* line 236, picob.entry.scss */
   #main-container #right-container #feeling-text-container #feeling-text-input-container #feeling-text-icon {
     height: 60px;
     width: 60px;
@@ -341,7 +350,7 @@
     border-radius: 40px;
   }
 }
-/* line 248, picob.entry.scss */
+/* line 254, picob.entry.scss */
 #main-container #right-container #feeling-text-container #feeling-text-input-container #feeling-text {
   text-align: center;
   float: left;
@@ -353,7 +362,7 @@
   box-sizing: border-box;
 }
 @media only screen and (max-width: 899px) {
-  /* line 248, picob.entry.scss */
+  /* line 254, picob.entry.scss */
   #main-container #right-container #feeling-text-container #feeling-text-input-container #feeling-text {
     height: 54px;
     width: 238px;
@@ -361,14 +370,14 @@
   }
 }
 @media only screen and (min-width: 900px) {
-  /* line 248, picob.entry.scss */
+  /* line 254, picob.entry.scss */
   #main-container #right-container #feeling-text-container #feeling-text-input-container #feeling-text {
     height: 65px;
     width: 353px;
     font-size: 38px;
   }
 }
-/* line 263, picob.entry.scss */
+/* line 269, picob.entry.scss */
 #main-container #right-container #feeling-text-container #feeling-text-input-container #feeling-text .text {
   width: 100%;
   height: 100%;
@@ -383,57 +392,57 @@
   -ms-box-sizing: border-box;
   box-sizing: border-box;
 }
-/* line 276, picob.entry.scss */
+/* line 282, picob.entry.scss */
 #main-container #right-container #feeling-text-selector {
   padding: 5px 15px 15px 15px;
 }
 @media only screen and (max-width: 899px) {
-  /* line 278, picob.entry.scss */
+  /* line 284, picob.entry.scss */
   #main-container #right-container #feeling-text-selector .feeling-group {
     margin-bottom: 5px;
   }
 }
 @media only screen and (min-width: 900px) {
-  /* line 278, picob.entry.scss */
+  /* line 284, picob.entry.scss */
   #main-container #right-container #feeling-text-selector .feeling-group {
     margin-bottom: 10px;
   }
 }
-/* line 285, picob.entry.scss */
+/* line 291, picob.entry.scss */
 #main-container #right-container #feeling-text-selector .feeling-group .feeling-group-title {
   clear: both;
   font-family: 'Quicksand', sans-serif;
   border-bottom: 1px dashed #D8D4D0;
 }
 @media only screen and (max-width: 899px) {
-  /* line 285, picob.entry.scss */
+  /* line 291, picob.entry.scss */
   #main-container #right-container #feeling-text-selector .feeling-group .feeling-group-title {
     font-size: 18px;
   }
 }
 @media only screen and (min-width: 900px) {
-  /* line 285, picob.entry.scss */
+  /* line 291, picob.entry.scss */
   #main-container #right-container #feeling-text-selector .feeling-group .feeling-group-title {
     font-size: 20px;
   }
 }
-/* line 296, picob.entry.scss */
+/* line 302, picob.entry.scss */
 #main-container #right-container #feeling-text-selector .feeling-group .feeling-text-container {
   overflow: hidden;
 }
 @media only screen and (max-width: 899px) {
-  /* line 296, picob.entry.scss */
+  /* line 302, picob.entry.scss */
   #main-container #right-container #feeling-text-selector .feeling-group .feeling-text-container {
     margin: 5px 13px;
   }
 }
 @media only screen and (min-width: 900px) {
-  /* line 296, picob.entry.scss */
+  /* line 302, picob.entry.scss */
   #main-container #right-container #feeling-text-selector .feeling-group .feeling-text-container {
     margin: 8px 20px;
   }
 }
-/* line 304, picob.entry.scss */
+/* line 310, picob.entry.scss */
 #main-container #right-container #feeling-text-selector .feeling-group .feeling-text-container .feeling-text-choices {
   float: left;
   margin-bottom: 5px;
@@ -444,57 +453,57 @@
   color: #000000;
 }
 @media only screen and (max-width: 899px) {
-  /* line 304, picob.entry.scss */
+  /* line 310, picob.entry.scss */
   #main-container #right-container #feeling-text-selector .feeling-group .feeling-text-container .feeling-text-choices {
     margin-right: 7px;
     font-size: 15px;
   }
 }
 @media only screen and (min-width: 900px) {
-  /* line 304, picob.entry.scss */
+  /* line 310, picob.entry.scss */
   #main-container #right-container #feeling-text-selector .feeling-group .feeling-text-container .feeling-text-choices {
     margin-right: 10px;
     font-size: 18px;
   }
 }
 @media only screen and (max-width: 899px) {
-  /* line 320, picob.entry.scss */
+  /* line 326, picob.entry.scss */
   #main-container #right-container #feeling-text-selector .feeling-group.good .feeling-text-choices {
     border: 1px solid #01BCB6;
   }
 }
 @media only screen and (min-width: 900px) {
-  /* line 320, picob.entry.scss */
+  /* line 326, picob.entry.scss */
   #main-container #right-container #feeling-text-selector .feeling-group.good .feeling-text-choices {
     border: 2px solid #01BCB6;
   }
 }
 @media only screen and (max-width: 899px) {
-  /* line 328, picob.entry.scss */
+  /* line 334, picob.entry.scss */
   #main-container #right-container #feeling-text-selector .feeling-group.normal .feeling-text-choices {
     border: 1px solid #FFB273;
   }
 }
 @media only screen and (min-width: 900px) {
-  /* line 328, picob.entry.scss */
+  /* line 334, picob.entry.scss */
   #main-container #right-container #feeling-text-selector .feeling-group.normal .feeling-text-choices {
     border: 2px solid #FFB273;
   }
 }
 @media only screen and (max-width: 899px) {
-  /* line 336, picob.entry.scss */
+  /* line 342, picob.entry.scss */
   #main-container #right-container #feeling-text-selector .feeling-group.bad .feeling-text-choices {
     border: 1px solid #FF7373;
   }
 }
 @media only screen and (min-width: 900px) {
-  /* line 336, picob.entry.scss */
+  /* line 342, picob.entry.scss */
   #main-container #right-container #feeling-text-selector .feeling-group.bad .feeling-text-choices {
     border: 2px solid #FF7373;
   }
 }
 
-/* line 349, picob.entry.scss */
+/* line 355, picob.entry.scss */
 #bottom-container {
   overflow: hidden;
   margin-top: 10px;
@@ -504,41 +513,41 @@
   color: #FFFFFF;
 }
 @media only screen and (max-width: 899px) {
-  /* line 349, picob.entry.scss */
+  /* line 355, picob.entry.scss */
   #bottom-container {
     height: 60px;
     font-size: 30px;
   }
 }
 @media only screen and (min-width: 900px) {
-  /* line 349, picob.entry.scss */
+  /* line 355, picob.entry.scss */
   #bottom-container {
     height: 80px;
     font-size: 50px;
   }
 }
-/* line 364, picob.entry.scss */
+/* line 370, picob.entry.scss */
 #bottom-container div {
   float: left;
   height: 100%;
 }
-/* line 368, picob.entry.scss */
+/* line 374, picob.entry.scss */
 #bottom-container a {
   display: block;
   padding: 10px;
 }
-/* line 372, picob.entry.scss */
+/* line 378, picob.entry.scss */
 #bottom-container #prev-date, #bottom-container #next-date {
   width: 33%;
 }
-/* line 374, picob.entry.scss */
+/* line 380, picob.entry.scss */
 #bottom-container #prev-date a, #bottom-container #next-date a {
   -webkit-border-radius: 30px;
   -moz-border-radius: 30px;
   border-radius: 30px;
 }
 @media only screen and (max-width: 899px) {
-  /* line 374, picob.entry.scss */
+  /* line 380, picob.entry.scss */
   #bottom-container #prev-date a, #bottom-container #next-date a {
     width: 20px;
     height: 20px;
@@ -547,7 +556,7 @@
   }
 }
 @media only screen and (min-width: 900px) {
-  /* line 374, picob.entry.scss */
+  /* line 380, picob.entry.scss */
   #bottom-container #prev-date a, #bottom-container #next-date a {
     width: 30px;
     height: 30px;
@@ -555,54 +564,54 @@
     border: 4px solid;
   }
 }
-/* line 390, picob.entry.scss */
+/* line 396, picob.entry.scss */
 #bottom-container #prev-date a {
   background: url(/images/bottom_prev_256.gif) no-repeat -2px 0px;
   background-size: 50px 50px;
   border-color: #01BCB6;
 }
 @media only screen and (max-width: 899px) {
-  /* line 390, picob.entry.scss */
+  /* line 396, picob.entry.scss */
   #bottom-container #prev-date a {
     background-size: 40px 40px;
   }
 }
 @media only screen and (min-width: 900px) {
-  /* line 390, picob.entry.scss */
+  /* line 396, picob.entry.scss */
   #bottom-container #prev-date a {
     background-size: 50px 50px;
   }
 }
-/* line 401, picob.entry.scss */
+/* line 407, picob.entry.scss */
 #bottom-container #next-date a {
   background: url(/images/bottom_next_256.gif) no-repeat 2px 0px;
   background-size: 50px 50px;
   border-color: #FF7373;
 }
 @media only screen and (max-width: 899px) {
-  /* line 401, picob.entry.scss */
+  /* line 407, picob.entry.scss */
   #bottom-container #next-date a {
     background-size: 40px 40px;
   }
 }
 @media only screen and (min-width: 900px) {
-  /* line 401, picob.entry.scss */
+  /* line 407, picob.entry.scss */
   #bottom-container #next-date a {
     background-size: 50px 50px;
   }
 }
-/* line 412, picob.entry.scss */
+/* line 418, picob.entry.scss */
 #bottom-container #switch-calendar {
   width: 34%;
 }
-/* line 414, picob.entry.scss */
+/* line 420, picob.entry.scss */
 #bottom-container #switch-calendar a {
   margin: 5px auto;
   background: url(/images/calendar_256.gif) no-repeat center;
   background-size: 60px 60px;
 }
 @media only screen and (max-width: 899px) {
-  /* line 414, picob.entry.scss */
+  /* line 420, picob.entry.scss */
   #bottom-container #switch-calendar a {
     width: 25px;
     height: 25px;
@@ -614,7 +623,7 @@
   }
 }
 @media only screen and (min-width: 900px) {
-  /* line 414, picob.entry.scss */
+  /* line 420, picob.entry.scss */
   #bottom-container #switch-calendar a {
     width: 40px;
     height: 40px;
@@ -626,18 +635,18 @@
   }
 }
 
-/* line 436, picob.entry.scss */
+/* line 442, picob.entry.scss */
 .feeling-text {
   text-align: center;
 }
 @media only screen and (max-width: 899px) {
-  /* line 436, picob.entry.scss */
+  /* line 442, picob.entry.scss */
   .feeling-text {
     display: none;
   }
 }
 @media only screen and (min-width: 900px) {
-  /* line 436, picob.entry.scss */
+  /* line 442, picob.entry.scss */
   .feeling-text {
     margin-top: 6px;
     font-size: 16px;
