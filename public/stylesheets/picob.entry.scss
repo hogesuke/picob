@@ -200,10 +200,9 @@ $base_charctor_color: #000000;
                 }
                 #comment-char-counter {
                     float: right;
-                    margin-top: 5px;
                     font-size: 17px;
-                    #counter {
-                        padding: 0;
+                    @media #{$large} {
+                        margin-top: 5px;
                     }
                 }
                 #feeling-text-icon {
