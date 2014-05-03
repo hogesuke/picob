@@ -22,6 +22,7 @@ $base_charctor_color: #000000;
 #main-container {
     overflow: hidden;
     #left-container {
+        position: relative;
         @media #{$small} {
             width: 100%;
         }
@@ -38,6 +39,27 @@ $base_charctor_color: #000000;
                 /* rightとleftのcontainer高さを揃えるための処置 */
                 padding-bottom: 32767px;
                 margin-bottom: -32767px;
+            }
+        }
+        #saved {
+            display: none;
+            padding: 4px 17px;
+            background-color: #01BCB6;
+            font-family: 'Quicksand', sans-serif;
+            text-align: center;
+            color: #FFFFFF;
+            //color: #029CCC;
+            @media #{$small} {
+                position: fixed;
+                top: 10px;
+                font-size: 20px;
+                @include border-radius(5px);
+            }
+            @media #{$large} {
+                position: absolute;
+                top: 10px;
+                font-size: 22px;
+                @include border-radius(6px);
             }
         }
         #feeling {

@@ -17,7 +17,7 @@ $(function() {
         this.year = $date.attr('year');
         this.month = $date.attr('month');
         this.day = $date.attr('day');
-        this.feeling = getFeeling();
+        this.feeling = this.getFeeling();
         this.feelingText = $('#feeling-text .text').val();
         this.token = $('input[name="_csrf"]').val();
         return;
@@ -50,6 +50,12 @@ $(function() {
       }
       return true;
     },
+    getFeeling: function() {
+      if ($('#feeling').is('.good')) return 'good';
+      if ($('#feeling').is('.normal')) return 'normal';
+      if ($('#feeling').is('.bad')) return 'bad';
+      return 'none';
+    },
     getFeelingString: function() {
       if (this.feeling === 'good') {
         return 'Good! (*´ω｀*)';
@@ -60,6 +66,12 @@ $(function() {
       if (this.feeling === 'bad') {
         return 'Bad…_(┐「ε:)_';
       }
+    },
+    showSavedText: function() {
+      $('#saved').fadeIn(500);
+      setTimeout(function() {
+        $('#saved').fadeOut(500);
+      }, 3000);
     }
   }
 
@@ -91,12 +103,6 @@ $(function() {
     }
   }
 
-  function getFeeling() {
-    if ($('#feeling').is('.good')) return 'good';
-    if ($('#feeling').is('.normal')) return 'normal';
-    if ($('#feeling').is('.bad')) return 'bad';
-    return 'none';
-  }
   pieceStatus.init();
   counter.init();
   controlDispShareButton();
@@ -172,6 +178,7 @@ $(function() {
       },
       success: function() {
         console.log('success post.');
+        pieceStatus.showSavedText();
       },
       error: function(err) {
         window.location = err.responseJSON.path;
