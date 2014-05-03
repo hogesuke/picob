@@ -133,6 +133,7 @@ $(function() {
 
     $feelingText.val(feelingText);
     pieceStatus.feelingText = feelingText;
+    counter.init();
     upsertPiece(pieceStatus);
   });
 
