@@ -275,6 +275,7 @@ $base_charctor_color: #000000;
                         border-bottom: 1px solid #C6BFB8;
                         color: #000000;
                         @include box-sizing();
+                        @include border-radius(0);
                     }
                 }
             }

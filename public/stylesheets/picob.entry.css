@@ -391,58 +391,61 @@
   -moz-box-sizing: border-box;
   -ms-box-sizing: border-box;
   box-sizing: border-box;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
 }
-/* line 282, picob.entry.scss */
+/* line 283, picob.entry.scss */
 #main-container #right-container #feeling-text-selector {
   padding: 5px 15px 15px 15px;
 }
 @media only screen and (max-width: 899px) {
-  /* line 284, picob.entry.scss */
+  /* line 285, picob.entry.scss */
   #main-container #right-container #feeling-text-selector .feeling-group {
     margin-bottom: 5px;
   }
 }
 @media only screen and (min-width: 900px) {
-  /* line 284, picob.entry.scss */
+  /* line 285, picob.entry.scss */
   #main-container #right-container #feeling-text-selector .feeling-group {
     margin-bottom: 10px;
   }
 }
-/* line 291, picob.entry.scss */
+/* line 292, picob.entry.scss */
 #main-container #right-container #feeling-text-selector .feeling-group .feeling-group-title {
   clear: both;
   font-family: 'Quicksand', sans-serif;
   border-bottom: 1px dashed #D8D4D0;
 }
 @media only screen and (max-width: 899px) {
-  /* line 291, picob.entry.scss */
+  /* line 292, picob.entry.scss */
   #main-container #right-container #feeling-text-selector .feeling-group .feeling-group-title {
     font-size: 18px;
   }
 }
 @media only screen and (min-width: 900px) {
-  /* line 291, picob.entry.scss */
+  /* line 292, picob.entry.scss */
   #main-container #right-container #feeling-text-selector .feeling-group .feeling-group-title {
     font-size: 20px;
   }
 }
-/* line 302, picob.entry.scss */
+/* line 303, picob.entry.scss */
 #main-container #right-container #feeling-text-selector .feeling-group .feeling-text-container {
   overflow: hidden;
 }
 @media only screen and (max-width: 899px) {
-  /* line 302, picob.entry.scss */
+  /* line 303, picob.entry.scss */
   #main-container #right-container #feeling-text-selector .feeling-group .feeling-text-container {
     margin: 5px 13px;
   }
 }
 @media only screen and (min-width: 900px) {
-  /* line 302, picob.entry.scss */
+  /* line 303, picob.entry.scss */
   #main-container #right-container #feeling-text-selector .feeling-group .feeling-text-container {
     margin: 8px 20px;
   }
 }
-/* line 310, picob.entry.scss */
+/* line 311, picob.entry.scss */
 #main-container #right-container #feeling-text-selector .feeling-group .feeling-text-container .feeling-text-choices {
   float: left;
   margin-bottom: 5px;
@@ -453,57 +456,57 @@
   color: #000000;
 }
 @media only screen and (max-width: 899px) {
-  /* line 310, picob.entry.scss */
+  /* line 311, picob.entry.scss */
   #main-container #right-container #feeling-text-selector .feeling-group .feeling-text-container .feeling-text-choices {
     margin-right: 7px;
     font-size: 15px;
   }
 }
 @media only screen and (min-width: 900px) {
-  /* line 310, picob.entry.scss */
+  /* line 311, picob.entry.scss */
   #main-container #right-container #feeling-text-selector .feeling-group .feeling-text-container .feeling-text-choices {
     margin-right: 10px;
     font-size: 18px;
   }
 }
 @media only screen and (max-width: 899px) {
-  /* line 326, picob.entry.scss */
+  /* line 327, picob.entry.scss */
   #main-container #right-container #feeling-text-selector .feeling-group.good .feeling-text-choices {
     border: 1px solid #01BCB6;
   }
 }
 @media only screen and (min-width: 900px) {
-  /* line 326, picob.entry.scss */
+  /* line 327, picob.entry.scss */
   #main-container #right-container #feeling-text-selector .feeling-group.good .feeling-text-choices {
     border: 2px solid #01BCB6;
   }
 }
 @media only screen and (max-width: 899px) {
-  /* line 334, picob.entry.scss */
+  /* line 335, picob.entry.scss */
   #main-container #right-container #feeling-text-selector .feeling-group.normal .feeling-text-choices {
     border: 1px solid #FFB273;
   }
 }
 @media only screen and (min-width: 900px) {
-  /* line 334, picob.entry.scss */
+  /* line 335, picob.entry.scss */
   #main-container #right-container #feeling-text-selector .feeling-group.normal .feeling-text-choices {
     border: 2px solid #FFB273;
   }
 }
 @media only screen and (max-width: 899px) {
-  /* line 342, picob.entry.scss */
+  /* line 343, picob.entry.scss */
   #main-container #right-container #feeling-text-selector .feeling-group.bad .feeling-text-choices {
     border: 1px solid #FF7373;
   }
 }
 @media only screen and (min-width: 900px) {
-  /* line 342, picob.entry.scss */
+  /* line 343, picob.entry.scss */
   #main-container #right-container #feeling-text-selector .feeling-group.bad .feeling-text-choices {
     border: 2px solid #FF7373;
   }
 }
 
-/* line 355, picob.entry.scss */
+/* line 356, picob.entry.scss */
 #bottom-container {
   overflow: hidden;
   margin-top: 10px;
@@ -513,41 +516,41 @@
   color: #FFFFFF;
 }
 @media only screen and (max-width: 899px) {
-  /* line 355, picob.entry.scss */
+  /* line 356, picob.entry.scss */
   #bottom-container {
     height: 60px;
     font-size: 30px;
   }
 }
 @media only screen and (min-width: 900px) {
-  /* line 355, picob.entry.scss */
+  /* line 356, picob.entry.scss */
   #bottom-container {
     height: 80px;
     font-size: 50px;
   }
 }
-/* line 370, picob.entry.scss */
+/* line 371, picob.entry.scss */
 #bottom-container div {
   float: left;
   height: 100%;
 }
-/* line 374, picob.entry.scss */
+/* line 375, picob.entry.scss */
 #bottom-container a {
   display: block;
   padding: 10px;
 }
-/* line 378, picob.entry.scss */
+/* line 379, picob.entry.scss */
 #bottom-container #prev-date, #bottom-container #next-date {
   width: 33%;
 }
-/* line 380, picob.entry.scss */
+/* line 381, picob.entry.scss */
 #bottom-container #prev-date a, #bottom-container #next-date a {
   -webkit-border-radius: 30px;
   -moz-border-radius: 30px;
   border-radius: 30px;
 }
 @media only screen and (max-width: 899px) {
-  /* line 380, picob.entry.scss */
+  /* line 381, picob.entry.scss */
   #bottom-container #prev-date a, #bottom-container #next-date a {
     width: 20px;
     height: 20px;
@@ -556,7 +559,7 @@
   }
 }
 @media only screen and (min-width: 900px) {
-  /* line 380, picob.entry.scss */
+  /* line 381, picob.entry.scss */
   #bottom-container #prev-date a, #bottom-container #next-date a {
     width: 30px;
     height: 30px;
@@ -564,54 +567,54 @@
     border: 4px solid;
   }
 }
-/* line 396, picob.entry.scss */
+/* line 397, picob.entry.scss */
 #bottom-container #prev-date a {
   background: url(/images/bottom_prev_256.gif) no-repeat -2px 0px;
   background-size: 50px 50px;
   border-color: #01BCB6;
 }
 @media only screen and (max-width: 899px) {
-  /* line 396, picob.entry.scss */
+  /* line 397, picob.entry.scss */
   #bottom-container #prev-date a {
     background-size: 40px 40px;
   }
 }
 @media only screen and (min-width: 900px) {
-  /* line 396, picob.entry.scss */
+  /* line 397, picob.entry.scss */
   #bottom-container #prev-date a {
     background-size: 50px 50px;
   }
 }
-/* line 407, picob.entry.scss */
+/* line 408, picob.entry.scss */
 #bottom-container #next-date a {
   background: url(/images/bottom_next_256.gif) no-repeat 2px 0px;
   background-size: 50px 50px;
   border-color: #FF7373;
 }
 @media only screen and (max-width: 899px) {
-  /* line 407, picob.entry.scss */
+  /* line 408, picob.entry.scss */
   #bottom-container #next-date a {
     background-size: 40px 40px;
   }
 }
 @media only screen and (min-width: 900px) {
-  /* line 407, picob.entry.scss */
+  /* line 408, picob.entry.scss */
   #bottom-container #next-date a {
     background-size: 50px 50px;
   }
 }
-/* line 418, picob.entry.scss */
+/* line 419, picob.entry.scss */
 #bottom-container #switch-calendar {
   width: 34%;
 }
-/* line 420, picob.entry.scss */
+/* line 421, picob.entry.scss */
 #bottom-container #switch-calendar a {
   margin: 5px auto;
   background: url(/images/calendar_256.gif) no-repeat center;
   background-size: 60px 60px;
 }
 @media only screen and (max-width: 899px) {
-  /* line 420, picob.entry.scss */
+  /* line 421, picob.entry.scss */
   #bottom-container #switch-calendar a {
     width: 25px;
     height: 25px;
@@ -623,7 +626,7 @@
   }
 }
 @media only screen and (min-width: 900px) {
-  /* line 420, picob.entry.scss */
+  /* line 421, picob.entry.scss */
   #bottom-container #switch-calendar a {
     width: 40px;
     height: 40px;
@@ -635,18 +638,18 @@
   }
 }
 
-/* line 442, picob.entry.scss */
+/* line 443, picob.entry.scss */
 .feeling-text {
   text-align: center;
 }
 @media only screen and (max-width: 899px) {
-  /* line 442, picob.entry.scss */
+  /* line 443, picob.entry.scss */
   .feeling-text {
     display: none;
   }
 }
 @media only screen and (min-width: 900px) {
-  /* line 442, picob.entry.scss */
+  /* line 443, picob.entry.scss */
   .feeling-text {
     margin-top: 6px;
     font-size: 16px;
