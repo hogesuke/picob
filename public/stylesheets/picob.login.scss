@@ -31,13 +31,28 @@ body > #container {
     padding: 10px 0 20px 0;
     background-color: rgba(255,255,255,0.70);
     @include box-sizing();
+    #social-button-container {
+        overflow: hidden;
+        width: 275px;
+        margin-bottom: 15px;
+        @media #{$small} {
+            margin: 0 auto;
+        }
+        @media #{$large} {
+            float: right;
+        }
+        div {
+            float: left;
+        }
+    }
     #main-logo {
+        clear: both;
         margin: 20px auto;
         background: url(/images/main-logo.png) no-repeat;
         @media #{$small} {
-            height: 70px;
-            width: 200px;
-            background-size: 200px 70px;
+            height: 106px * 0.75;
+            width: 310px * 0.75;
+            background-size: 230px 80px;
         }
         @media #{$large} {
             height: 106px;

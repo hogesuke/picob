@@ -18,33 +18,56 @@ body > #container {
   box-sizing: border-box;
 }
 /* line 34, picob.login.scss */
-#container #main-logo {
-  margin: 20px auto;
-  background: url(/images/main-logo.png) no-repeat;
+#container #social-button-container {
+  overflow: hidden;
+  width: 275px;
+  margin-bottom: 15px;
 }
 @media only screen and (max-width: 899px) {
   /* line 34, picob.login.scss */
-  #container #main-logo {
-    height: 70px;
-    width: 200px;
-    background-size: 200px 70px;
+  #container #social-button-container {
+    margin: 0 auto;
   }
 }
 @media only screen and (min-width: 900px) {
   /* line 34, picob.login.scss */
+  #container #social-button-container {
+    float: right;
+  }
+}
+/* line 44, picob.login.scss */
+#container #social-button-container div {
+  float: left;
+}
+/* line 48, picob.login.scss */
+#container #main-logo {
+  clear: both;
+  margin: 20px auto;
+  background: url(/images/main-logo.png) no-repeat;
+}
+@media only screen and (max-width: 899px) {
+  /* line 48, picob.login.scss */
+  #container #main-logo {
+    height: 79.5px;
+    width: 232.5px;
+    background-size: 230px 80px;
+  }
+}
+@media only screen and (min-width: 900px) {
+  /* line 48, picob.login.scss */
   #container #main-logo {
     height: 106px;
     width: 310px;
     background-size: 310px 106px;
   }
 }
-/* line 48, picob.login.scss */
+/* line 63, picob.login.scss */
 #container #catch-copy, #container #catch-copy-mini {
   margin-bottom: 30px;
   text-align: center;
 }
 @media only screen and (max-width: 899px) {
-  /* line 48, picob.login.scss */
+  /* line 63, picob.login.scss */
   #container #catch-copy, #container #catch-copy-mini {
     padding: 0 20px;
     line-height: 1.4em;
@@ -52,41 +75,41 @@ body > #container {
   }
 }
 @media only screen and (min-width: 900px) {
-  /* line 48, picob.login.scss */
+  /* line 63, picob.login.scss */
   #container #catch-copy, #container #catch-copy-mini {
     font-size: 30px;
   }
 }
 @media only screen and (max-width: 899px) {
-  /* line 60, picob.login.scss */
+  /* line 75, picob.login.scss */
   #container #catch-copy {
     display: none;
   }
 }
 @media only screen and (min-width: 900px) {
-  /* line 65, picob.login.scss */
+  /* line 80, picob.login.scss */
   #container #catch-copy-mini {
     display: none;
   }
 }
-/* line 70, picob.login.scss */
+/* line 85, picob.login.scss */
 #container #login-control {
   overflow: hidden;
   margin: 0 auto;
 }
 @media only screen and (max-width: 899px) {
-  /* line 70, picob.login.scss */
+  /* line 85, picob.login.scss */
   #container #login-control {
     width: 300px;
   }
 }
 @media only screen and (min-width: 900px) {
-  /* line 70, picob.login.scss */
+  /* line 85, picob.login.scss */
   #container #login-control {
     width: 500px;
   }
 }
-/* line 79, picob.login.scss */
+/* line 94, picob.login.scss */
 #container #login-control #twitter-login-button, #container #login-control #facebook-login-button {
   padding: 12px 0px;
   border: none;
@@ -95,30 +118,30 @@ body > #container {
   cursor: pointer;
   outline: none;
 }
-/* line 86, picob.login.scss */
+/* line 101, picob.login.scss */
 #container #login-control #twitter-login-button::-moz-focus-inner, #container #login-control #facebook-login-button::-moz-focus-inner {
   border: 0px;
 }
 @media only screen and (max-width: 899px) {
-  /* line 79, picob.login.scss */
+  /* line 94, picob.login.scss */
   #container #login-control #twitter-login-button, #container #login-control #facebook-login-button {
     width: 300px;
   }
 }
 @media only screen and (min-width: 900px) {
-  /* line 79, picob.login.scss */
+  /* line 94, picob.login.scss */
   #container #login-control #twitter-login-button, #container #login-control #facebook-login-button {
     width: 250px;
     float: left;
   }
 }
-/* line 97, picob.login.scss */
+/* line 112, picob.login.scss */
 #container #login-control #twitter-login-button {
   background: #00acee url(/images/twitter.gif) no-repeat 3px center;
   background-size: 42px 42px;
 }
 @media only screen and (max-width: 899px) {
-  /* line 97, picob.login.scss */
+  /* line 112, picob.login.scss */
   #container #login-control #twitter-login-button {
     margin: 0 auto 7px auto;
     -webkit-border-radius: 10px 10px 10px 10px;
@@ -127,24 +150,24 @@ body > #container {
   }
 }
 @media only screen and (min-width: 900px) {
-  /* line 97, picob.login.scss */
+  /* line 112, picob.login.scss */
   #container #login-control #twitter-login-button {
     -webkit-border-radius: 10px 0 0 10px;
     -moz-border-radius: 10px 0 0 10px;
     border-radius: 10px 0 0 10px;
   }
 }
-/* line 107, picob.login.scss */
+/* line 122, picob.login.scss */
 #container #login-control #twitter-login-button:hover {
   background-color: #63C8ED;
 }
-/* line 111, picob.login.scss */
+/* line 126, picob.login.scss */
 #container #login-control #facebook-login-button {
   background: #3d5a99 url(/images/facebook.gif) no-repeat 3px center;
   background-size: 42px 42px;
 }
 @media only screen and (max-width: 899px) {
-  /* line 111, picob.login.scss */
+  /* line 126, picob.login.scss */
   #container #login-control #facebook-login-button {
     margin: 0 auto 7px auto;
     -webkit-border-radius: 10px 10px 10px 10px;
@@ -153,24 +176,24 @@ body > #container {
   }
 }
 @media only screen and (min-width: 900px) {
-  /* line 111, picob.login.scss */
+  /* line 126, picob.login.scss */
   #container #login-control #facebook-login-button {
     -webkit-border-radius: 0 10px 10px 0;
     -moz-border-radius: 0 10px 10px 0;
     border-radius: 0 10px 10px 0;
   }
 }
-/* line 121, picob.login.scss */
+/* line 136, picob.login.scss */
 #container #login-control #facebook-login-button:hover {
   background-color: #7288B5;
 }
-/* line 126, picob.login.scss */
+/* line 141, picob.login.scss */
 #container #introduction {
   clear: both;
   margin-top: 40px;
   text-align: center;
 }
-/* line 130, picob.login.scss */
+/* line 145, picob.login.scss */
 #container #introduction #question-mark {
   height: 48px;
   width: 48px;
@@ -181,58 +204,58 @@ body > #container {
   -moz-border-radius: 24px;
   border-radius: 24px;
 }
-/* line 138, picob.login.scss */
+/* line 153, picob.login.scss */
 #container #introduction .caption {
   margin-bottom: 15px;
 }
 @media only screen and (max-width: 899px) {
-  /* line 138, picob.login.scss */
+  /* line 153, picob.login.scss */
   #container #introduction .caption {
     font-size: 22px;
   }
 }
 @media only screen and (min-width: 900px) {
-  /* line 138, picob.login.scss */
+  /* line 153, picob.login.scss */
   #container #introduction .caption {
     font-size: 25px;
   }
 }
-/* line 147, picob.login.scss */
+/* line 162, picob.login.scss */
 #container #introduction .text {
   line-height: 170%;
 }
 @media only screen and (max-width: 899px) {
-  /* line 147, picob.login.scss */
+  /* line 162, picob.login.scss */
   #container #introduction .text {
     padding: 0 20px;
     font-size: 15px;
   }
 }
 @media only screen and (min-width: 900px) {
-  /* line 147, picob.login.scss */
+  /* line 162, picob.login.scss */
   #container #introduction .text {
     font-size: 17px;
   }
 }
-/* line 157, picob.login.scss */
+/* line 172, picob.login.scss */
 #container #introduction #application-image {
   margin: 30px auto 0 auto;
 }
 @media only screen and (max-width: 899px) {
-  /* line 157, picob.login.scss */
+  /* line 172, picob.login.scss */
   #container #introduction #application-image {
     width: 320px;
   }
 }
 @media only screen and (min-width: 900px) {
-  /* line 157, picob.login.scss */
+  /* line 172, picob.login.scss */
   #container #introduction #application-image {
     overflow: hidden;
     width: 535px;
   }
 }
 @media only screen and (max-width: 899px) {
-  /* line 166, picob.login.scss */
+  /* line 181, picob.login.scss */
   #container #introduction #application-image #iphone {
     height: 224px;
     width: 320px;
@@ -241,7 +264,7 @@ body > #container {
   }
 }
 @media only screen and (min-width: 900px) {
-  /* line 166, picob.login.scss */
+  /* line 181, picob.login.scss */
   #container #introduction #application-image #iphone {
     float: left;
     height: 280px;
@@ -251,7 +274,7 @@ body > #container {
   }
 }
 @media only screen and (max-width: 899px) {
-  /* line 181, picob.login.scss */
+  /* line 196, picob.login.scss */
   #container #introduction #application-image #mac {
     height: 163px;
     width: 320px;
@@ -261,7 +284,7 @@ body > #container {
   }
 }
 @media only screen and (min-width: 900px) {
-  /* line 181, picob.login.scss */
+  /* line 196, picob.login.scss */
   #container #introduction #application-image #mac {
     float: left;
     height: 217px;
@@ -271,47 +294,47 @@ body > #container {
     background-size: 374px 218px;
   }
 }
-/* line 200, picob.login.scss */
+/* line 215, picob.login.scss */
 #container #twitter-time-line {
   margin: 0 auto;
 }
 @media only screen and (max-width: 899px) {
-  /* line 200, picob.login.scss */
+  /* line 215, picob.login.scss */
   #container #twitter-time-line {
     width: 300px;
     margin-top: 30px;
   }
 }
 @media only screen and (min-width: 900px) {
-  /* line 200, picob.login.scss */
+  /* line 215, picob.login.scss */
   #container #twitter-time-line {
     width: 516px;
     margin-top: 40px;
   }
 }
 @media only screen and (max-width: 899px) {
-  /* line 210, picob.login.scss */
+  /* line 225, picob.login.scss */
   #container #twitter-time-line .twitter-timeline {
     width: 300px;
   }
 }
 @media only screen and (min-width: 900px) {
-  /* line 210, picob.login.scss */
+  /* line 225, picob.login.scss */
   #container #twitter-time-line .twitter-timeline {
     width: 516px;
   }
 }
-/* line 219, picob.login.scss */
+/* line 234, picob.login.scss */
 #container #login-bottom {
   margin-top: 20px;
   text-align: center;
 }
-/* line 222, picob.login.scss */
+/* line 237, picob.login.scss */
 #container #login-bottom a {
   margin: 5px;
   color: #41BAEA;
 }
-/* line 226, picob.login.scss */
+/* line 241, picob.login.scss */
 #container #login-bottom .separator {
   color: #B5B5B5;
 }
