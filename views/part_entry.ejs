@@ -27,10 +27,12 @@
           <div id="feeling-text-input-container">
             <div id="comment-area-title">
               <span>Comment</span>
-              <div id="comment-char-counter">
-                <span id="counter">0</span>
-                <span>/ 7</span>
-              </div>
+              <% if (isMe) {%>
+                <div id="comment-char-counter">
+                  <span id="counter">0</span>
+                  <span>/ 7</span>
+                </div>
+              <% } %>
             </div>
             <div id="feeling-text-icon">
             </div>
