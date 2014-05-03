@@ -212,19 +212,19 @@
   text-align: center;
   font-size: 20px;
   font-family: 'Quicksand', sans-serif;
-  cursor: pointer;
   -webkit-border-radius: 9px;
   -moz-border-radius: 9px;
   border-radius: 9px;
 }
-/* line 168, picob.entry.scss */
-#main-container #left-container #share-button:hover {
+/* line 167, picob.entry.scss */
+#main-container #left-container #share-button:hover.active {
   background-color: #63C8ED;
 }
-/* line 171, picob.entry.scss */
+/* line 170, picob.entry.scss */
 #main-container #left-container #share-button.active {
   background-color: #00ACEE;
   color: #FFFFFF;
+  cursor: pointer;
 }
 /* line 175, picob.entry.scss */
 #main-container #left-container #share-button.inactive {
