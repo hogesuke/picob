@@ -184,6 +184,7 @@ a {
                     border: 1px solid #C4C4C4;
                     text-align: left;
                     font-size: 14px;
+                    z-index: 1000;
                     @include border-radius(5px);
                     @include box-sizing();
                     @media #{$small} {
