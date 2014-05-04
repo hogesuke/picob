@@ -10,7 +10,6 @@ var TwitterStrategy = require('passport-twitter').Strategy;
 var login = require('./routes/login');
 var user = require('./routes/user');
 var pieces = require('./routes/pieces');
-var feeling = require('./routes/feeling');
 var error = require('./routes/error');
 var app = express();
 
