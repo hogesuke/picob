@@ -448,11 +448,8 @@
 /* line 311, picob.entry.scss */
 #main-container #right-container #feeling-text-selector .feeling-group .feeling-text-container .feeling-text-choices {
   float: left;
-  margin-bottom: 5px;
-  padding: 5px 10px;
-  -webkit-border-radius: 30px;
-  -moz-border-radius: 30px;
-  border-radius: 30px;
+  margin: 0 5px 5px 5px;
+  padding: 5px 5px;
   color: #000000;
 }
 @media only screen and (max-width: 899px) {
@@ -472,37 +469,37 @@
 @media only screen and (max-width: 899px) {
   /* line 327, picob.entry.scss */
   #main-container #right-container #feeling-text-selector .feeling-group.good .feeling-text-choices {
-    border: 1px solid #01BCB6;
+    border-bottom: 1px solid #01BCB6;
   }
 }
 @media only screen and (min-width: 900px) {
   /* line 327, picob.entry.scss */
   #main-container #right-container #feeling-text-selector .feeling-group.good .feeling-text-choices {
-    border: 2px solid #01BCB6;
+    border-bottom: 2px solid #01BCB6;
   }
 }
 @media only screen and (max-width: 899px) {
   /* line 335, picob.entry.scss */
   #main-container #right-container #feeling-text-selector .feeling-group.normal .feeling-text-choices {
-    border: 1px solid #FFB273;
+    border-bottom: 1px solid #FFB273;
   }
 }
 @media only screen and (min-width: 900px) {
   /* line 335, picob.entry.scss */
   #main-container #right-container #feeling-text-selector .feeling-group.normal .feeling-text-choices {
-    border: 2px solid #FFB273;
+    border-bottom: 2px solid #FFB273;
   }
 }
 @media only screen and (max-width: 899px) {
   /* line 343, picob.entry.scss */
   #main-container #right-container #feeling-text-selector .feeling-group.bad .feeling-text-choices {
-    border: 1px solid #FF7373;
+    border-bottom: 1px solid #FF7373;
   }
 }
 @media only screen and (min-width: 900px) {
   /* line 343, picob.entry.scss */
   #main-container #right-container #feeling-text-selector .feeling-group.bad .feeling-text-choices {
-    border: 2px solid #FF7373;
+    border-bottom: 2px solid #FF7373;
   }
 }
 

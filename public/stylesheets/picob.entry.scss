@@ -310,9 +310,9 @@ $base_charctor_color: #000000;
                     }
                     .feeling-text-choices {
                         float: left;
-                        margin-bottom: 5px;
-                        padding: 5px 10px;
-                        @include border-radius(30px);
+                        margin: 0 5px 5px 5px;
+                        padding: 5px 5px;
+                        //@include border-radius(30px);
                         color: #000000;
                         @media #{$small} {
                             margin-right: 7px;
@@ -326,26 +326,26 @@ $base_charctor_color: #000000;
                 }
                 &.good .feeling-text-choices {
                     @media #{$small} {
-                        border: 1px solid #01BCB6;
+                        border-bottom: 1px solid #01BCB6;
                     }
                     @media #{$large} {
-                        border: 2px solid #01BCB6;
+                        border-bottom: 2px solid #01BCB6;
                     }
                 }
                 &.normal .feeling-text-choices {
                     @media #{$small} {
-                        border: 1px solid #FFB273;
+                        border-bottom: 1px solid #FFB273;
                     }
                     @media #{$large} {
-                        border: 2px solid #FFB273;
+                        border-bottom: 2px solid #FFB273;
                     }
                 }
                 &.bad .feeling-text-choices {
                     @media #{$small} {
-                        border: 1px solid #FF7373;
+                        border-bottom: 1px solid #FF7373;
                     }
                     @media #{$large} {
-                        border: 2px solid #FF7373;
+                        border-bottom: 2px solid #FF7373;
                     }
                 }
             }
