@@ -126,10 +126,5 @@ app.get('/unauthorized', error.unauthorized);
 app.get('/agreement', function(req, res) {res.render('agreement.ejs')});
 app.get('/privacy_policy', function(req, res) {res.render('privacy_policy.ejs')});
 
-/**
- * デバッグ用のルーティング
- */
-app.get('/testDataInsert', feeling.testDataInsert);
-
 app.listen(3000);
 console.log('Listening on port 3000...');
