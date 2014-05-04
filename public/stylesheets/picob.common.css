@@ -141,7 +141,7 @@ a:active {
 /* line 118, picob.common.scss */
 #header #global-navi #navi-right #today-button, #header #global-navi #navi-bottom #today-button {
   height: 50px;
-  width: 55px;
+  width: 60px;
   text-align: center;
   font-family: 'Quicksand', sans-serif;
   -webkit-box-sizing: border-box;
@@ -157,22 +157,22 @@ a:active {
   background-color: #029CCC;
   font-size: 16px;
   color: #FFFFFF;
-  -webkit-border-radius: 12px 12px 0 0;
-  -moz-border-radius: 12px 12px 0 0;
-  border-radius: 12px 12px 0 0;
+  -webkit-border-radius: 9px 9px 0 0;
+  -moz-border-radius: 9px 9px 0 0;
+  border-radius: 9px 9px 0 0;
 }
 /* line 132, picob.common.scss */
 #header #global-navi #navi-right #today-button .date, #header #global-navi #navi-bottom #today-button .date {
-  width: 55px;
+  width: 60px;
   margin: 0 auto;
   color: #029CCC;
   font-size: 20px;
   border-bottom: 1px solid #029CCC;
   border-left: 1px solid #029CCC;
   border-right: 1px solid #029CCC;
-  -webkit-border-radius: 0 0 12px 12px;
-  -moz-border-radius: 0 0 12px 12px;
-  border-radius: 0 0 12px 12px;
+  -webkit-border-radius: 0 0 9px 9px;
+  -moz-border-radius: 0 0 9px 9px;
+  border-radius: 0 0 9px 9px;
 }
 @media only screen and (max-width: 899px) {
   /* line 118, picob.common.scss */
@@ -201,9 +201,9 @@ a:active {
 /* line 156, picob.common.scss */
 #header #global-navi #navi-right .login-user-icon img, #header #global-navi #navi-bottom .login-user-icon img {
   float: left;
-  -webkit-border-radius: 12px;
-  -moz-border-radius: 12px;
-  border-radius: 12px;
+  -webkit-border-radius: 9px;
+  -moz-border-radius: 9px;
+  border-radius: 9px;
 }
 @media only screen and (max-width: 899px) {
   /* line 156, picob.common.scss */

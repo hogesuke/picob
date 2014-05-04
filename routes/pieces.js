@@ -40,6 +40,7 @@ exports.calendar = function(req, res) {
  * headerの表示に必要なパラメータを取得する。
  */
 function getHeaderParam(me, targetUserSeq, requestYear, requestMonth, nextDate, prevDate, next) {
+  var today = new Date();
   return {
     isLogined : me !== undefined,
     loginUser: {
@@ -55,8 +56,9 @@ function getHeaderParam(me, targetUserSeq, requestYear, requestMonth, nextDate, 
       year: requestYear,
       month: requestMonth
     },
-    toDay: {
-      date: new Date().getDate()
+    today: {
+      month: today.getMonth() + 1,
+      date: today.getDate()
     },
     nextDate: {
       isVisible: existNext(requestYear, requestMonth),

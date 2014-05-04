@@ -117,7 +117,7 @@ a {
         #navi-right, #navi-bottom {
             #today-button {
                 height: 50px;
-                width: 55px;
+                width: 60px;
                 text-align: center;
                 font-family: 'Quicksand', sans-serif;
                 @include box-sizing();
@@ -127,17 +127,17 @@ a {
                     background-color: #029CCC;
                     font-size: 16px;
                     color: #FFFFFF;
-                    @include border-radius(12px 12px 0 0);
+                    @include border-radius(9px 9px 0 0);
                 }
                 .date {
-                    width: 55px;
+                    width: 60px;
                     margin: 0 auto;
                     color: #029CCC;
                     font-size: 20px;
                     border-bottom: 1px solid #029CCC;
                     border-left: 1px solid #029CCC;
                     border-right: 1px solid #029CCC;
-                    @include border-radius(0 0 12px 12px);
+                    @include border-radius(0 0 9px 9px);
                 }
                 @media #{$small} {
                     margin: 5px 0;
@@ -155,7 +155,7 @@ a {
                 }
                 img {
                     float: left;
-                    @include border-radius(12px);
+                    @include border-radius(9px);
                     @media #{$small} {
                         width: 32px;
                     }

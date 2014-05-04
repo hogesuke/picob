@@ -143,7 +143,7 @@ $(function() {
     upsertPiece(pieceStatus);
   });
 
-  $('#share-button.active').on('click', function() {
+  $('#left-container').on('click', '#share-button.active', function() {
     var url = 'http://picob.net/' + pieceStatus.userSeq + '/entry/'
       + pieceStatus.year + '/' + pieceStatus.month + '/' + pieceStatus.day;
     var editedUrl = 'http://twitter.com/share?url=' + url + '&text=' + getEditShareText()
