@@ -15,7 +15,7 @@ exports.calendar = function(req, res) {
   var requestMonth = req.params[2];
   var nextDate = computeMonth(requestYear, requestMonth, 1);
   var prevDate = computeMonth(requestYear, requestMonth, -1);
-  var me = req.session.passport.user;
+  var me = req.session.passport && req.session.passport.user;
 
   var tasks = [
     findUser(targetUserSeq)
@@ -159,7 +159,7 @@ exports.checkValidYm = function(req, res, next) {
     return;
   }
   next();
-}
+};
 
 /**
  * リクエストされた年月日が有効な年月日の範囲内であるか確認する。
@@ -171,7 +171,7 @@ exports.checkValidYmd = function(req, res, next) {
     return;
   }
   next();
-}
+};
 
 /**
  * リクエストされた年月日が有効な年月日の範囲内であるか確認する。
@@ -183,7 +183,7 @@ exports.checkValidYmdForAjax = function(req, res, next) {
     return;
   }
   next();
-}
+};
 
 /**
  * リクエストされた年月が有効な年月の範囲内であるか精査する。
@@ -271,9 +271,9 @@ exports.oneDay = function(req, res) {
  * EntryViewの表示処理。
  */
 function doEntryView(req, res, requestYear, requestMonth, requestDate) {
-  var loginUser = req.session.passport.user;
+  var loginUser = req.session.passport && req.session.passport.user;
   var targetUserSeq = req.params[0];
-  var defaultPiece = {feeling: "none"}
+  var defaultPiece = {feeling: "none"};
   var nextDate = computeDate(requestYear, requestMonth, requestDate, 1);
   var prevDate = computeDate(requestYear, requestMonth, requestDate, -1);
 
@@ -424,8 +424,7 @@ exports.findCalendarData = function(req, res) {
   var targetUserSeq = req.params[0];
   var requestYear = req.params[1];
   var requestMonth = req.params[2].replace(/^0?([0-9]+)/, '$1');
-  var loginUser = req.session.passport.user;
-  
+
   Piece.find({user_seq: targetUserSeq, year: requestYear, month: requestMonth}, function(err, pieces) {
       if (err) {
         console.log('error: An error has occurred');
@@ -440,7 +439,7 @@ exports.findCalendarData = function(req, res) {
           pieces: createPieceArray(requestYear, requestMonth, pieces)
         });
     });
-}
+};
 
 /**
  * pieceの精査を行う。
@@ -456,13 +455,13 @@ exports.validatePiece = function(req, res, next) {
   var requestMonth = req.params[2].replace(/^0?([0-9]+)/, '$1');
   var requestDate = req.params[3].replace(/^0?([0-9]+)/, '$1');
 
-  if (!isValidYmd) {
+  if (!isValidYmd(requestYear, requestMonth, requestDate)) {
     res.send(422, {path: '/error'});
     return;
   }
 
   next();
-}
+};
 
 
 /**
@@ -479,7 +478,7 @@ exports.upsertPiece = function(req, res) {
   var requestYear = req.params[1];
   var requestMonth = req.params[2].replace(/^0?([0-9]+)/, '$1');
   var requestDate = req.params[3].replace(/^0?([0-9]+)/, '$1');
-  var loginUser = req.session.passport.user;
+  var loginUser = req.session.passport && req.session.passport.user;
 
   // TODO req.bodyの値がすべて空でないか精査する処理を実装すること
   var updateValues = {};
@@ -503,7 +502,7 @@ exports.upsertPiece = function(req, res) {
         console.log('Success: Upsert piece');
         res.send({'msg': 'Success: upsert feeling'});
       });
-}
+};
 
 /**
  * pieceの検索結果配列をCalendarViewにbindできる状態に編集し返却する。

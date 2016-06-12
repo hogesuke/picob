@@ -27,21 +27,21 @@ exports.validateUser = function(req, res, next) {
  * 投稿対象のユーザーがログインユーザー自身であるか確認する。
  */
 exports.validateEntryTargetUser = function(req, res, next) {
-  var me = req.session.passport.user;
+  var me = req.session.passport && req.session.passport.user;
   var targetUserSeq = req.params[0];
 
-  if (me.seq != targetUserSeq) {
+  if (!me || me.seq != targetUserSeq) {
     res.send(403, {path: '/unauthorized'});
     return;
   }
   next();
-}
+};
 
 /**
  * 友達のpiece投稿を取得する。
  */
 exports.getFriendsFeeling = function(req, res) {
-  var user = req.session.passport.user;
+  var user = req.session.passport && req.session.passport.user;
   if (!user) {
     res.send({'error': 'An error has occurred'});
     return;
@@ -53,7 +53,6 @@ exports.getFriendsFeeling = function(req, res) {
   }
   if (user.provider === 'facebook') {
     selectFriendsPieceForFacebook(req, res, user);
-    return;
   }
 };
 

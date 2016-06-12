@@ -88,7 +88,7 @@ exports.index = function(req, res) {
  * 未ログインの場合はログイン画面にリダイレクトする。
  */
 exports.checkLogin = function(req, res, next) {
-  if (req.session.passport.user) {
+  if (req.session.passport && req.session.passport.user) {
     next();
   } else {
     res.redirect('/login');
