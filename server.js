@@ -1,6 +1,6 @@
 "use strict";
 
-var express = require('express')
+var express = require('express');
 var mongoose = require('mongoose');
 var dbConnector = require('./db');
 var partials = require('express-partials');
@@ -38,7 +38,7 @@ app.configure(function () {
  * CSRF対策のtokenを生成する。
  */
 function root(req, res, next) {
-  var me = req.session.passport.user;
+  var me = req.session.passport && req.session.passport.user;
   if (me) {
     res.redirect('/' + me.seq + '/entry/today');
   } else {
